@@ -20,9 +20,9 @@ You need Pygame library to get it working, and additionally wxwidgets library fo
 What to run?
 ============
 
-`jrpg.py` - the game itself
-`level_editor.py` - level editor for the game
-`jrpg2demo.py` - demo for jrpg in PS1 style, not meant for serious use
+* `jrpg.py` - the game itself
+* `level_editor.py` - level editor for the game
+* `jrpg2demo.py` - demo for jrpg in PS1 style, not meant for serious use
 
-`sciripts` and `extra_scripts` directories and `Rakefile` contain a lot of
+`sciripts` and `extra_scripts` directories, and `Rakefile` contain a lot of
 completely undocumented data preprocessing and other such tasks.
