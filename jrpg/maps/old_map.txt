@@ -1,0 +1,228 @@
+xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx
+xSSSS~~~~~~x x~~~~~~SSSSx x_QQQQ__Q__x x_QQQQ_MMHHx xHMMMMHHHMMx xHMMMHHMMM_x xHHMMHHMHHMx
+xS..SSSSSSSx xSSSSSSS..Sx xQQ_Q_QQ_QQx xQ__Q_QHMMMx xMHHHHMMMMH2 xMMHHMMMHMMx xMMHHMMHMHHx
+xS.........^ ^.........Sx xQQ________^ ^_Q_Q_HHHHH^ ^HHHHHHHHHH^ ^HHHMHHHHHMx 3HHHHHHHHMMx
+xSS.SSSSSSSx xSSSSSSS.SSx xQ______Q__^ ^___QHHHHHH^ ^HHHHHHHHH_^ ^_HHQHQHHMH^ ^_HQHHHHHHMx
+x~S.S      ^ ^      S.S~x xQQ__HHH___^ ^H_HQHHHHHH^ ^HHHQHHHQ_H^ ^___QHHQHHH^ ^___QQHHHMHx
+x~S.S BBBBBx xBBBBB S.S~x x_QQHHHH_HH^ ^__HHMMHHHH^ ^HHQHHQQHHH^ ^_H_QQ_HQHH^ ^____QQHHQHx
+x~S.S BWWWWx xWWSSB S.S~x xQQ___HHHHH^ ^___HHMMHHH^ ^HHHH______^ ^____Q__QH_^ ^____Q_Q__Qx
+x~S.S BWWWWx xWWSSB S.S~x xQQ_HH__HHH^ ^H__HHMHHHH^ ^HHH___QQQ_^ ^__Q___Q___^ ^____QH__QQx
+x~S.S BBdBBx xBBBBB S.S~x x_Q____Q__Qx xQHQ_HMHQHH7 xMMHHQQ__QQx 7___QQHQ_QQx xQQ___QQQ__x
+x~S.S      ^ ^      S.S~x x__QQQQ_QQ_x xQ_HHMHHHHMx xHMMMHQQQQ_x xQQQ__QQQ__x x_QQQQ__QQQx
+xxx^x^^^^^^x x^^^^^^x^xxx xxxxxxxxxxxx xx^^^x^^^^xx xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx
+xxx^x^^^^^^x x^^^^^^x^xxx xxxxxxxxxxxx xx^^^x^^^^xx xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx
+x~S.S      ^ ^      S.S~x x TrttT tt x xQ_HHMHHHHMx xrsPsPPssCjx xjsjjjjsjjsx xsjjsjjjjjsx
+x~S.S      ^ ^      S.S~x xt  TT tTttx xQ_HHHMHHHMx x PsP~~~Pss^ ^sjssssCjjjx xjssjjsssjsx
+x~S.S      ^ ^      S.S~x xTr       Tx x_Q__QMHHMMx xjsss~~~Pss^ ^ssssssssjjx xsjssssjssjx
+x~S.S      ^ ^      S.S~x x t     rTtx xQ__QHMHHHMx xsCsPs.ssss^ ^sCssssCsisx xjsjjCjsssjx
+xSS.SSSkSSSx xSSSSSSS.SSx xT t     t x xQQ_HHMHHHMx xsCsss.ssss^ ^sssssssjsjx xjsssssssjjx
+xS.........^ ^.........Sx x t       tx xQQ__QMHQHMx xCssss.ssCs^ ^ssssssjjsjx xsjsisCsjsix
+xS..SSSKSZSx xSZSSZSS..Sx xt       T x x_Q_HMHHHMHx xjsCsss.sss^ ^ssssCsjssjx xjsjsssisjsx
+xSSZS~~.~~~x x~~~~~~SZSSx x T  .   ttx xQ_HHHHHHHQx xisssss.sCs^ ^ssssjjjsjjx xjsCssCssjjx
+x~~~~~~.~~ ^ ^ r   ~~~~~x x~   . r  Tx x_Q__Q_HHQQx x CsssCs.ss^ ^sisssssssjx xjssissssjsx
+x t    .  h^ ^       t rx x~~   .    x xQQQQ_QQQ__x xr sssss.s 8 ^jsssssjjjjx xsjsssssssjx
+xxx3^^^^^^^x x^^14^^^xxxx xxx^^^^^^^^x xxxxxxxxxxxx xx^^4^^^^^8x xx2^^^^^^^^x xxx44^4^^^xx
+xxx^^^^^^^^x x^^^^^^^xxxx xxx^^^^^^^^x xxxxxxxxxxxx x1^^^^^^^^xx xxx^^^^55^^x xxxxx^x^^^xx
+x TT   .hhh^ ^  tt   t Tx xt~    .   ^ ^ t Tt rttTx 1   r   . rx xjjssssssjjx xssjjsCsssjx
+xt hh . t h^ ^ tt TT  T x x ~T t . T ^ ^  t  t  T ^ ^   hr  . rx xissssssssjx xjCssssssjjx
+xt th .  t ^ ^        t x x~t  r .   ^ ^    tt    ^ ^ tt th. T x xsCsissjjjs3 ^jsCsssjjsjx
+x t  .   r ^ ^ T  r   t x x~  T   .  ^ ^ r       r^ 4   hhh.  tx xisissssjss^ ^sissssssjjx
+xt   ......^ ^....   Tt x x~ T  t  ..^ ^..........^ ^.......hhrx xissssssCss^ ^ssisCssssjx
+x T .r     ^ ^      t  tx x ~  Ttt t ^ ^  tt T    ^ ^    Tt. t x xsisssCisss^ ^sssjssssjsx
+xt .   ~~  ^ ^  r    tT x xt~     t  ^ ^       tt ^ ^ Tt   .  tx xsCsjjsssss^ ^ssjjsissjsx
+x~~.~~~~T~~x x~~  t    tx x  ~~  tt  ^ ^ t  TT  rt^ 6   tt . t x xCjsssssiss^ ^ssssisssjjx
+x~~.~~~    ^ ^  ~~~  ~~~x x~ t ~~~~~ ^ ^   ~~~t   ^ ^ t  T .  Tx xjjCsjsssjs^ ^ssjsssCssjx
+xT .   t r 8 xt  T ~~  rx x ~~~ T T ~x x~~~ t ~~~~x 8 r    .  tx xsjjjsjjjjjx ^jjsjjjsjjsx
+xx^^^36x^x^x xx^^xxxx8^xx xxxxxxxxxxxx xxxxxxxxxxxx x4444^^^^7xx xxxxxxxxxxxx xxxxxxxxxxxx
+xx^^^^^5^x^x x1^^2227777x xxxxxxxxxxxx xxxxxxxxxxxx xxxxx^^^^xxx
+xt . TT  t ^ ^      Tt  1 ^tT tr r tTx xtBBBB BBBBx 5~ ~~  . r x
+xTt.    tt ^ ^ T tt   t ^ ^ Tt  T tT 4 ^ BWWBtBWWBx 5 ~  ~~:~~~x
+x t .  tt  ^ ^   t t    ^ ^ T        4 ^TBWWB BWWBx 5    t .  Tx
+xt  . hhTh 2 ^tt   t  ttx xt tbbb    ^ ^ BWWB BWWBx 5 T    . T x
+xtBBB. hhh 5 ^TT   t   Tx xt Tb b    ^ ^ BBdB BBdBx 5      .  rx
+x BWB.  hh ^ ^    t     ^ ^   z      ^ ^   .  r . ^ ^      . t x
+xtBdB .    ^ ^      ....^ ^...K......^ ^..........^ ^....... tTx
+xt .   ....^ ^......    ^ ^   z b    ^ ^  BBBdBB  ^ ^    r .  tx
+x r ...tt T^ 7 TT   tt T^ 7 T bbb   tx 7  BWWWWB Tx 7 T    . t x
+xT TttT  tTx xT tttt tTT^ 7   t  Ttt x ^tTBBBBBBt x 7      .  Tx
+xxxxxxxxxxxx xxxxxxxxxxxx x^^^xxxxxxxx xxxxxxxxxxxx x^^3^^^^^^8x
+xxxxxxxxxxxx xxxxxxxxxxxx x^^^xxxxxxxx xxxxxxxxxxxx x^^^^^^^^^^x
+x TT T r TTx xttT TT ttT^ 1   ttT  T x xtrt t hhh ^ ^  t   .  Tx
+xt httt T  ^ ^   t Ttht 0 ^t     T  tx xrhhrhhhh  2 ^T hhhh.h rx
+x thh  h   ^ ^    T hhh ^ ^ T    TtTTx xhmhhhhh hh^ ^ hhh hrrT x
+xt t hh    2 ^TT T tt   ^ ^  T t   t x xhm hh  hhh^ ^ hhhhhhh Tx
+x t   t t  ^ ^ t   tT   ^ ^ tt      tx xmrT hhh hh^ ^hhTrrhhhhrx
+xT         ^ ^ tt r     ^ ^        tTx xThhhhhhhh 4 ^rhhhTrhhhmx
+x tt   T   ^ ^          ^ ^      t t x xrhhhhmmhrh7 ^rhhrhhhhmhx
+xt  T      ^ ^ t     t  ^ ^     TT  tx xmrrhmmhhhr^ 6hhhhhhhmmhx
+xtTT  ttT Tx 7  TtT  T  ^ ^   TT  tTtx xhmmhmhmmmh^ ^hhmmmhmmmhx
+x rtTt T ttx xTt  tTT tTx xTtt  tt tTx xhhmmmhhhmmx xmmmhmmmhhmx
+xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx
+xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx xxxxxx^xxxxx xxxxxxxxxxxx xxxxxxxxxxxx
+xBBBBBBBBBBx xBBBBBBBBBBx xBBBBBBBBBBx xBBBBBdBBBBx xBBBBBBBBBBx xBBBKBB>BBBx
+xB...W....Bx xB........Bx xB........Bx xB........Bx xB.........^ ^.........Bx
+xB...W....Bx xB.WW..WW.Bx xB........Bx xB........Bx xB.........^ ^.........Bx
+xB...W....Bx xB........Bx xB.WWWWWW.Bx xB........Bx xB.........^ ^.........Bx
+xBWVWWWWVWBx xB........Bx xB.W....W.Bx xB........Bx xB.........^ ^.........Bx
+xB........Bx xB.WWWWWW.Bx xB.W....W.Bx xB........Bx xB.........^ ^.........Bx
+xBWVWW....Bx xB........Bx xB.W....W.Bx xB........Bx xB.........^ ^.........Bx
+xB...W....Bx xB.WW..WW.Bx xB.W....W.Bx xB........Bx xB.........^ ^.........Bx
+xB...W....Bx xB.W....W.Bx xB.W....W.Bx xB........Bx xB.........^ ^.........Bx
+xBBBBBdBBBBx xBBBBBdBBBBx xBBBBBdBBBBx xBBBBBBBBBBx xBBBBdBBBBBx xBBBBBBBBBBx
+xxxxxx^xxxxx xxxxxx^xxxxx xxxxxx^xxxxx xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx
+xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx
+xBBB<BB>BBBx xBBB<BB>BBBx xBBB<BBBBBBx
+xB...B....Bx xB....B...Bx xB........Bx
+xB.BBBBBB.Bx xB.BBBBBB.Bx xB........Bx
+xB.B....B.Bx xB.B....B.Bx xB........Bx
+xB.B.BB.B.Bx xB.B.B....Bx xB........Bx
+xB.B..B.B.Bx xB.B.BBBBBBx xB........Bx
+xB.B..B.B.Bx xB.B......Bx xB........Bx
+xB.B.B..B.Bx xB.BBBBB..Bx xB........Bx
+xB...B....Bx xB........Bx xB........Bx
+xBBBBBBBBBBx xBBBBBBBBBBx xBBBBBBBBBBx
+xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx
+xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx
+xSSSSSSSSSSx xSSSSS>SSSSx xSSSSSSSSSSx xSSSSSSSSSSx
+xSS,,,SSSSSx xSSSS,,SSSSx xSSSSSSSSSSx xSSSS,,,,SSx
+xS,,S,SSSSSx xSSSS,SSSSSx xSSSSSSSSSSx xSSS,,SS,,Sx
+xS,SS,,,,,,x xSSSS,,,,SSx xSSSSS,,,SSx xSSS,SSSS,Sx
+xS,,SSSSSS,^ ^,SSSSSS,SSx xSSSSS,S,,Sx xSSS,SS,,,Sx
+xSS,,,SSSSSx x,,,SSSS,,Sx xSSSSS,SS,,x xSS,,SS,SSSx
+xSSSS,SSSSSx xSS,SSSSS,,^ ^,,SSS,SSS,^ ^,,,SSS,SSSx
+xSSSS,,SSSSx xSS,,,SSSSSx xS,SS,,,SSSx xSSSS,,,SSSx
+xSSSSS,SSSSx xSSSS,,SSSSx xS,,,,SSSSSx xSSSS,SSSSSx
+xSSSSS,SSSSx xSSSSS,,,,Sx xSSSSSSSSSSx xSSSS,SSSSSx
+xxxxxx^xxxxx xxxxxxxxx^xx xxxxxxxxxxxx xxxxx^xxxxxx
+xxxxxx^xxxxx xxxxxxxxx^xx xxxxxxxxxxxx xxxxx^xxxxxx
+xSSSSS,,SSSx xSSSSSSSS,Sx xSSSSSSSSSSx xSSSS,SSSSSx
+xSSSSSS,SSSx xSSSSSSSS,,^ ^,,,,SSSS,,^ ^,,SS,SSSSSx
+xSS,,,S,,SSx xS,,,SSSSSSx xSSS,SSSS,Sx xS,,,,,SSSSx
+xS,,S,SS,SSx xS,S,,SSSSSx xSS,,SSS,,Sx xSSSSSKSS,Sx
+xS,SS,SS,SSx xS,SS,SS,,,^ ^,,,S,,,,SSx xSSSSSSSS,Sx
+xS,S,,SS,SSx xSSSS,SS,SSx xSSS,,SSSS,^ ^,,SSS,S,,Sx
+xS,S,SS,,SSx xSSS,,SS,,,^ ^,,,,S,,S,,x xS,,,,,,,SSx
+xS,S,,,,SSSx xSSS,SSSSSSx xSS,,SS,,,Sx xS,SSS,,SSSx
+xS,,SS,SSSSx xSS,,SSSS,,^ ^,S,,,,,S,Sx xS,S,,,SSSSx
+xSS,SS,,SSSx xSS,SSSSS,Sx x,SS,SSSSSSx xS,S,SSSSSSx
+xxx^xxx^xxxx xxx^xxxxx^xx x^xx^xxxxxxx xx^x^xxxxxxx
+xxx^xxx^xxxx xxx^xxxxx^xx x^xx^xxxxxxx xx^x^xxxxxxx
+xSS,,,S,SSSx xSS,,,SSS,Sx x,,S,,,SSSSx xS,S,,,,SSSx
+xS,,SS,,,,Sx xS,SS,,SS,Sx xS,,SS,SS,,^ ^,,,SSS,,SSx
+xS,S,,,S,SSx xS,,,S,,,,Sx xSS,S,,SS,Sx xSS,,S,S,,Sx
+xSS,,SSS,,,^ ^,,S,,SSSSSx xSS,S,S,,,Sx xSSS,,,,S,Sx
+xS,,S,,,SS,x xS,,S,S,,,Sx xS,,,,S,S,Sx xSS,,SS,S,Sx
+xSS,,,S,S,,x xS,SS,S,S,Sx xSS,S,,,,,Sx xSS,S,,,,,Sx
+xS,,,S,,,,Sx x,,SS,,,,,Sx x,,,,,SS,SSx xSS,,S,SS,Sx
+xS,S,,,S,S,^ ^,SSSS,S,SSx x,SSS,SS,,Sx xSSS,S,,S,Sx
+xS,SSSSS,,,x xS,,,,,SS,,^ ^,S,,,,,,,,^ ^,,S,,,,,,Sx
+xS,SSSSSSSSx xS,SSSSS,,Sx xS,,SSS,SSSx xS,,SSS,SSSx
+xx^xxxxxxxxx xx^xxxxx^xxx xx^xxxx^xxxx xxx^xxx^xxxx
+xx^xxxxxxxxx xx^xxxxx^xxx xx^xxxx^xxxx xxx^xxx^xxxx
+xS,,SSSSSSSx xS,SSSS,,SSx xS,SSSS,SSSx xSS,,SS,,,Sx
+xSS,SSSSSSSx xS,SSSS,SSSx xS,,,SS,,SSx xS,S,,,SS,Sx
+xS,,,SSSSSSx xS,,SSS,,,,^ ^,SS,,SS,,Sx xS,,SS,,,,Sx
+xS,S,,SSSSSx xSS,SSSSSSSx x,,SS,SSS,Sx xSS,SS,S,SSx
+xS,,S,,SSSSx xSS,,,,,SSSx xS,,,S,SS,Sx xSS,,,,,,,Sx
+xS,SSS,SSSSx xSSSSSS,,SSx xSSS,,,,S,Sx xSS,S,S,S,Sx
+xS,,,S,,SS,^ ^,,,,SSS,,,^ ^,,,SSSSS,Sx xS,,,,S,S,Sx
+xS,S,SS,SS,^ ^,SS,,,,SSSx xSS,,,,,,SSx xS,SS,,SS,Sx
+xS,,,,S,,,,x xSSSSSS,,,,^ ^,,,S,SS,,,^ ^,,SSS,,,,Sx
+xSSSSSSSSSSx xSSSSSSSSSSx xSSSSSSSSSSx xSSSSSSSSSSx
+xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx
+xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx
+xEEEEEEEEEEx xEEEEE>EEEEx xEEEEEEEEEEx xEEEEEEEEEEx
+xEEEEE.....^ ^..EEE.EE..^ ^.........Ex xEEEE.....Ex
+xEEEE..EEEEx xE...E.EE.Ex xEEEEEEEE.Ex xEEEE.EEE.Ex
+xEEEE.EEE..^ ^.EE.E.EEEEx xEEEEEEEE.Ex xEEE...EE.Ex
+xEEEE.E...Ex x.EE.E.E...^ ^.........Ex xEE..E..E.Ex
+xEEEE.E.EEEx x..E.E...EEx xEE.EEEEEEEx x...EEE.E.Ex
+xEEEE.E...Ex xE.E.EEEE..^ ^...EEEE...^ ^.EEEEE.E.Ex
+xEEE...EE.Ex xE...EE...Ex xEEEEEEE.EEx xEEEEEE.E.Ex
+xEEE.E.E..Ex xEE.EE..EEEx xEEEEEEE...^ ^..EEE..E.Ex
+xEEE.EE..EEx xE..EE.EEEEx xEEEEEEEEEEx xE.EEE.E..Ex
+xxxx^xx^xxxx xx^xxx^xxxxx xxxxxxxxxxxx xx^xxx^x^xxx
+xxxx^xx^xxxx xx^xxx^xxxxx xxxxxxxxxxxx xx^xxx^x^xxx
+xEEE..E.EEEx xE.EE..EEEEx xEEEEEEEEEEx xE.EEE.E.EEx
+xEE..E..E..^ ^..E..EE...^ ^....EEEEEEx xE..EE.E.EEx
+xEE.E..E..Ex xEE..EEE.EEx xEEE..EEEEEx xEE..E.E.EEx
+xE..E.EE.EEx xE..EEEE..Ex xEEEE..EEEEx xEEE.E.E.EEx
+xE.E..E..EEx x..EEEEEE.Ex xEEEEE...EEx xEE..E.E.EEx
+xE.E.E..E..^ ^.EEEEE...Ex xE.EEEEE.EEx xEE.EE.E.EEx
+xE.E.E.E..Ex xE....E.EEEx xE.......EEx xEE.E..E..Ex
+xE.E.E.E.EEx xE.EE.E.EEEx xE.EEEEEEEEx xE..E.EEE.Ex
+xE.E..EE..Ex xE.E..E.EEEx xE.........^ ^..EE.E...Ex
+xE.EE.EEE.Ex xE.E.EE.EEEx xEEEEEEEEEEx xEEEE.EEEEEx
+xx^xx^xxx^xx xx^x^xx^xxxx xxxxxxxxxxxx xxxxx^xxxxxx
+xx^xx^xxx^xx xx^x^xx^xxxx xxxxxxxxxxxx xxxxx^xxxxxx
+xE..E.EEE.Ex xE.E.EE.EEEx xEEEEEEEEEEx xEEEE.EEEEEx
+xEE.E.EE...^ ^..E.EE.EEEx xE......EEEx xE....E...Ex
+xEE.E..E.EEx xEE..EE.EEEx xE.EEEE.EEEx xE.EEEE.E.Ex
+xE...E.E.EEx xEE.EEE....^ ^..E....EEEx xE....E.E.Ex
+xE.E.E.EKEEx xEE.E.EEEEEx xEEE.EEEEEEx xEEEE.E.E.Ex
+xE.EE..EEEEx xEE.E.E...Ex xEEE....EEEx xE....E..EEx
+xE.EE.EEEE.^ ^...E...E.Ex xE...EE.EEEx xE.EEEEE.EEx
+xE.E..EEE..x xEEEEEEEE.Ex xE.EEEE..EEx xE.......EEx
+xE.E.EEE..Ex xEE.......Ex xE.EEEEE..Ex xEEEEE.EEEEx
+xE.E.EEE.EEx xEE.EEEEEEEx xE.EEEEEE.Ex xEEEEE.EEEEx
+xx^x^xxx^xxx xxx^xxxxxxxx xx^xxxxxx^xx xxxxxx^xxxxx
+xx^x^xxx^xxx xxx^xxxxxxxx xx^xxxxxx^xx xxxxxx^xxxxx
+xE.E.EEE..Ex xEE.EEEEEEEx xE.EEEEE..Ex xEEEEE.EEEEx
+xE.E.EEEE.Ex xEE....EEEEx xE..EEE..EEx xEEEE..EEEEx
+xE.E.EEEE.Ex xEEEEE.EEEEx xEE.E...EEEx xEEE..EEEEEx
+xE.E.EEE..Ex xEEEE...EEEx xEEE..EEEEEx xEE..EEEEEEx
+xE.E..EE.E.^ ^..E..E..EEx xEE..EEEEE.^ ^...EE...EEx
+xE.EE..E...x xE...E.E...^ ^...EEEEE..x xEE.E..E.EEx
+xE...E..EEEx xEEEE..EEEEx xEEE......Ex xEE.E.E..EEx
+xEEE.EE....^ ^.EEEE.....^ ^....EE.EEEx xEE.E.E.E.Ex
+xE.....EEEEx x......EEEEx xEEEEEE..EEx xEE...E...Ex
+xEEEEEEEEEEx xEEEEEEEEEEx xEEEEEEEEEEx xEEEEEEEEEEx
+xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx
+xxxxxxxxxxxx xxxxxx^xxxxx xxxxxxxxxxxx xxxxxxxxxxxx
+xSSSSSSSSSSx xSSSSS,SSSSx xSSSSSSSSSSx xSSSSSSSSSSx
+xS,,,S,,,,,^ ^,SS,S,SSSSx xS,,,,,,,,,^ ^,,,,SS,,,Sx
+xS,S,,,SSSSx x,,,,S,SSSSx xS,SS,SSSSSx xSSS,SS,S,Sx
+xSS,,SS,,,Sx xS,SS,,SSSSx x,,,SSS,,,Sx xS,,,S,SS,Sx
+xS,,S,,,S,,x xSS,,,SSSSSx x,S,,,,,S,Sx xS,SSS,,,,Sx
+xSS,S,SSSS,^ ^,,,SSSSSSSx x,SSSSSSS,Sx xS,,,,,S,SSx
+xS,,S,,,,,Sx xSSSSS,,,,,^ ^,SS,,,,,,Sx xSSSSSSS,SSx
+xSS,,SSSS,,^ ^,,SSS,SSSSx xSSS,SSSSSSx xSSSS,,,,,Sx
+xS,,,,,,,SSx xS,S,,,S,,,^ ^,,S,,,,,SSx xSSSSSSSSSSx
+xS,S,SSSSSSx xS,S,SSS,SSx xS,SSSSS,SSx xSSSSSSSSSSx
+xx^x^xxxxxxx xx^x^xxx^xxx xx^xxxxx^xxx xxxxxxxxxxxx
+xx^x^xxxxxxx xx^x^xxx^xxx xx^xxxxx^xxx xxxxxxxxxxxx
+xS,S,SSSSSSx xS,S,,,,,SSx xS,SSSSS,SSx xSSSSSSSSSSx
+xS,S,SSSS,,^ ^,,S,SSSSSSx xS,S,,,S,SSx xSSSSSSSSSSx
+xS,S,,SSS,Sx xSS,,S,,,SSx xS,S,S,S,SSx xSSSSSSSSSSx
+xS,SS,,,S,,^ ^,,S,S,S,SSx xS,S,S,S,SSx xSSSSSSSSSSx
+xS,,,SS,SSSx xS,S,S,S,S,^ ^,,S,S,S,SSx xS,,,,,SSSSx
+xSSS,SS,S,,^ ^,,S,S,S,,,x xSSS,S,S,,,^ ^,,SSS,SSSSx
+xS,S,SS,,,Sx xSS,,S,SSSSx xS,,,S,SS,Sx xSS,,,,SSSSx
+xS,S,,,SSSSx xSSSS,,SSSSx xS,SSS,SSSSx xS,,SSSSSSSx
+xS,,SS,,SSSx xS,,,,SSSSSx xS,S,,,SSSSx xS,SSSSSSSSx
+xSS,,,S,SSSx xS,SSSSSSSSx xS,S,SSSSSSx xS,SSSSSSSSx
+xxx^xxx^xxxx xx^xxxxxxxxx xx^x^xxxxxxx xx^xxxxxxxxx
+xxx^xxx^xxxx xx^xxxxxxxxx xx^x^xxxxxxx xx^xxxxxxxxx
+xSS,SS,,SSSx xS,,SSSSSSSx xS,S,SSSSSSx xS,SSSSSSSSx
+xS,,S,,SSSSx xSS,,SSSSSSx xS,S,,,,,S,^ ^,,SSSSSSSSx
+xSS,S,SSSSSx xSSS,SSSSSSx xS,,SSSS,,,x xSSSSSSSSSSx
+xSS,S,SSSSSx xSS,,SSSSSSx xSS,,,SSSSSx xS,,,SSSSSSx
+xSS,S,S,,,Sx x,,,SSSSSSSx xSSSS,SSSSSx xS,S,,SSSSSx
+xSS,S,S,S,,^ ^,SSSSSSSSSx xSSSS,,SSSSx xS,,S,SSSSSx
+xSS,S,,,SSSx xSSSSSSSSSSx xSSSSS,,SSSx xSS,S,SSSSSx
+xSS,,SSS,,,^ ^,,SSSSSSSSx xSSSSSS,SSSx xS,,S,,SSSSx
+xSSS,,,,,SSx xS,,,SSSSSSx xSSSSSS,,,Sx xS,SSS,SSSSx
+xSSSSSSSSSSx xSSS,SSSSSSx xSSSSSSSS,Sx xS,SSS,SSSSx
+xxxxxxxxxxxx xxxx^xxxxxxx xxxxxxxxx^xx xx^xxx^xxxxx
+xxxxxxxxxxxx xxxx^xxxxxxx xxxxxxxxx^xx xx^xxx^xxxxx
+xSSSSSSSSSSx xSSS,SSSSSSx xSSSSSSS,,Sx xS,SSS,SSSSx
+xSSS,,,,,,,^ ^,,,,S,,,,Sx xSSSSSS,,SSx xS,SSS,SSSSx
+xS,,,SSSSSSx xSSSSS,SS,,^ ^,,SSS,,SS,^ ^,,SSS,,SSSx
+xS,SS,,,,,,^ ^,SS,,,,,SSx xS,,,,,S,S,x xSSSSSS,SSSx
+xS,S,,SSSSSx x,,SSSSS,,,^ ^,SSSSS,,,,x xS,,SS,,SSSx
+xS,S,S,S,,,6 xS,,S,,,SSSx x,,,,,,SSSSx xS,SS,,SSSSx
+xS,S,,,,,S,^ ^,S,,,S,,,Sx xSSSSS,,,,,^ ^,,S,,SSSSSx
+xS,,SS,S,,Sx 8,,SSS,SS,Sx xSSSSSSSSSSx xS,,,SSSSSSx
+xSS,,,,SS,,^ ^,,,,,,,S,,^ ^,,,,,,,,,,^ ^,,SSSSSSSSx
+xSSSSSSSSSSx xSSSSSSSSSSx xSSSSSSSSSSx xSSSSSSSSSSx
+xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx

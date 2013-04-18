@@ -1,0 +1,150 @@
+= Japanese RPG - educational game design =
+
+Using RPG to teach Japanese vocabulary or kanji sounds like fun.
+Before I wrote my game, there were (as far as I know), two such games:
+* Slime Forest
+* Knuckles in China Land
+
+As my game doesn't have a name yet, let's call it jrpg,
+(from the name of the program file), for purposes of this document.
+
+Normal games are made for player's enjoyment.
+That's a difficult thing to analyze.
+Those games, however, have a much more concrete goal - 
+to teach the player kanji (or vocabulary).
+
+The purpose of this document is analyzing how good are they
+at achieving that goal, and helping me make better decisions
+about development of jrpg.
+
+As an author of one of the 3 games, I'm certainly biased,
+and it's quite obvious that not everyone is going to agree
+that my criteria are well-chosen and the scoring is fair.
+
+=== Criteria ===
+
+Scoring (only particular aspects are rated, no relation to overall "score")
+ ++ awesome, more than just fine
+ +  good
+ 0  not bad, but definitely could be improved
+ -  bad but not fatal
+ -- horrible
+ !  n/a
+
+What should be taught:
+* If we're learning characters, the priority should be: hiragana, katakana,
+  kanji in order of popularity, or even hiragana, popular kanji, katakana,
+  rare kanji (K+, S0, J++)
+** katakana first is bad (K-, S-, J+)
+** katakana wo has low priority, we/wi kana have very low priority,
+   it's best not to teach them at all (K+, S-, J+)
+** rare kanji are ok if they are radicals (axe, hill ...) (K+, S++, J+)
+** rare readings of common kanji have low priority (K-, S!, J++)
+* If we're learning vocabulary ...
+** absolutely no romaji (K-, S!, J++)
+*** and definitely no custom romanizations, like "dji" or "dzu" (K+, S-, J+)
+** kanji+furigana is much more cool than hiragana (K-, S-, J++)
+** teach kanji together with vocabulary (K-, S!, J+)
+* Game should not assume to much about speed of learning
+  Most players will come with some knowledge, but we don't
+  know how much will they know. (K0, S0, J0)
+** If automatic detection is hard, it should be possible to set
+   learning speed it a menu (K-, S+, J0)
+** There should be an option of starting at a level one choses,
+   like "throw 500 kanji at me, right now" (K0, S-, J-)
+* The educational load should be consistent, with new material being
+  introduced gradually (K+, S+, J+)
+
+Game design:
+* "Battle" system - user should have to answer many questions *quickly*.
+  All delays interfere with learning. (K0, S+, J+)
+* "Adventure" system - to make the game reasonably fun (K0, S0, J0)
+* No education-unrelated annoyances, like the red tiles in KiCL (K-, S0, J+)
+* Automaps are teh good, drawing map on paper is a practice with a very
+  long tradition, but for an educational game it's only distracting.
+  Not necessary if dungeons are purposedly easy. (K-, S-, J0)
+
+"Battle" system:
+* Selecting one answer from the list is very suboptimal way of learning.
+  Chance of success with no knowledge is very high. (K+,S+,J+)
+* Having one hardcoded answer is bad, the same kanji means sun/day, and
+  either answer should be accepted (K+,S-,J+)
+* having to remember KUN/ON is bad, the system should accept either
+  or ask about reading in context (K-,S!,J++)
+* No hard timing - user should get damage proportional to *average*
+  response time, so he can think longer on some and less on other questions (K-,S+,J0)
+* Battles should not happen too often, battle frequency based on
+  user's recent success rate is a great idea (K-,S+,J0)
+* If the first answer was right, the question should not be asked again in
+  the same battle (K-,S+,J+)
+
+"Adventure" system:
+* Not too much (non-Japanese) text to read (K0,S+,J0)
+* Requiring some Japanese knowledge can be part of the adventure system too (K-,S-,J-)
+
+UI:
+* Game must be *extremely* responsive and fast (K--,S+,J+)
+* The game should be reasonably portable (K--,S+,J+)
+* Not too many keys (K0,S0,J+)
+* Mode switches must be rare (K-,S+,J+)
+* Single focus. Having to look at 3 points of the screen at the same time is annoying (K-,S0,J+)
+  (It used to say J++, but that's only true if you don't have to look at what you're typing)
+* Some basic sound effects would be nice. There are many free games with sounds,
+  just take some. It should of course be possible to turn them off (K-,S-,J-)
+* Graphics should look reasonably well (K+,S0,J0)
+* Forced waiting is very unpleasant (K-,S+,J+)
+* Tutorial info should be part of the game (K+,S0,J0)
+
+=== Improving SF ===
+
+There should be more story and a bigger land.
+
+* Hiragana before katakana
+* Get rid of we/wi/katakana wo and custom romaji like dzu/dji (minor issues, but easy to fix)
+* Accept more answers to the same question
+* Add automap
+* Basic sound effects
+
+=== Improving KiCL ===
+
+First, it should be ported to Mono. As it doesn't do any heavy graphics tricks,
+it should be possible to port it to Mono and (for example) SDL.
+
+Get rid of the red tiles.
+
+Battle system needs serious changes.
+* Make it asynchronous like in SF (no timers)
+* Get rid of kun/on reading distinction and ask instead for reading in context
+* Get rid of mode switches - article/escape should be accessible with some key
+* Don't ask the same question multiple times in the first encounter
+* Let the user select his learning speed
+
+Learning set:
+* Hiragana before katakana
+
+UI:
+* Add automap
+* Basic sound effects
+
+=== Creating a new game ===
+
+FF6-style RPG:
+* no enemies at the board, battles occur randomly on dangerous spots and on predefined spots with bosses
+* separate system of battles
+
+LoZ-style RPG (LoZ:LA, LoZ:LttP):
+* enemies on the board
+* battles on the board (except for some bosses)
+
+FF6-style is probably much more applicable to jRPG than LoZ-style.
+
+Then, I actually went for a hybrid-style, with enemies on the board, but with off-board battles.
+
+The game should probably be roughly console-style. The mice are bad,
+as they make you take your hands from the keyboard.
+They should be on the keyboard all the time, so you can type.
+
+It would be perfect if it wasn't necessary to take either hand
+off the home-row for normal actions. In jrpg too many common actions
+require taking the right hand off the home row (arrows, backspace,
+F12).

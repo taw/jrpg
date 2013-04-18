@@ -1,0 +1,38 @@
+#!/usr/bin/perl -w -C
+
+open KD, "kanjidiff";
+for(<KD>)
+{
+    m!^(\S+)\t(\d+)\n!;
+    $D{$1} = $2;
+}
+close KD;
+
+while(<STDIN>) {
+    chomp;
+    next unless $_ and not /^#/;
+    s!\s+$!!;
+    my @k = split " ",$_;
+    if(@k == 2) {
+	my ($kanji,$kana) = @k;
+	my $diff = difficulty($kanji);
+	$kana =~ s!~!!;
+        next if $diff == 0;
+	print "$diff\t$kanji\t$kana\n";
+    } elsif(@k == 1) {
+
+    } else {
+	warn "Weird line: $_";
+    }
+}
+
+sub difficulty {
+    my $str = shift;
+    my @chars = split //, $str;
+    my $maxdiff = 0;
+    for(@chars) {
+	my $d = $D{$_} || 0;
+	$maxdiff = $d if $d > $maxdiff;
+    }
+    return $maxdiff;
+};

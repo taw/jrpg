@@ -1,0 +1,2509 @@
+一:いち	一（いち or rarely いつ）	1
+一:いつ	一（いち or rarely いつ）	1
+一:いち	一～（ひと)	1
+一:*	一	1
+七:しち	七（しち or なな or なの）	7
+七:なな	七（しち or なな or なの）	7
+七:なの	七（しち or なな or なの）	7
+七:*	七	7
+三:さん	三（さん）	3
+三:みっ	三～(みっ or み）	3
+三:み	三～(みっ or み）	3
+三:*	三	3
+上:じょう	上（じょう）	up
+上:*	上	up
+下:か	下（か or げ）	down
+下:げ	下（か or げ）	down
+下:*	下	down
+中:なか	中（なか）	inside, middle
+中:ちゅう	中（ちゅう or rarely じゅう）	inside, middle, (China)
+中:じゅう	中（ちゅう or rarely じゅう）	inside, middle, (China)
+中:*	中	inside, middle, China
+九:く	九（く or きゅう）	9
+九:きゅう	九（く or きゅう）	9
+九:ここの	九（ここの）	9
+九:*	九	9
+二:に	二（に）	2
+二:ふた	二～（ふた or ふつ）	2
+二:ふつ	二～（ふた or ふつ）	2
+二:*	二	2
+五:ご	五（ご）	5
+五:いつ	五～（いつ）	5
+五:*	五	5
+人:ひと	人（ひと）	person
+人:びと	人（ひと）	person
+人:にん	人（にん）	person
+人:じん	人（じん）	person, member of some nationality
+人:り	～人（り）	old counter for persons (used only with 1 and 2)
+人:*	人	person
+休:やす	休（やす）	to rest
+休:きゅう	休（きゅう）	to rest
+休:*	休	to rest
+先:せん	先（せん）	previous
+先:さき	先（さき）	previous
+先:*	先	previous
+入:にゅう	入（にゅう）	to enter, (to begin)
+入:い	入～（い or はい）	to enter
+入:はい	入～（い or はい）	to enter
+入:*	入	to enter
+八:はち	八（はち）	8
+八:よう	八（よう or やっ）	8
+八:やっ	八（よう or やっ）	8
+八:*	八	8
+六:ろく	六（ろく）	6
+六:むっ	六（むっ or むい）	6
+六:むい	六（むっ or むい）	6
+六:*	六	6
+円:まる	円（まる）	circular（＝丸）
+円:えん	円（えん）	yen, circle
+円:*	円	circular, yen
+出:だ	出（で・る or だ・す）	to exit, to take out
+出:で	出（で・る or だ・す）	to exit, to take out
+出:しゅつ	出（しゅつ）	to exit
+出:しゅっ	出（しゅつ）	to exit
+出:*	出	to exit
+力:ちから	力（ちから）	force
+力:りょく	力（りょく）	force
+力:*	力	force
+十:じゅう	十（じゅう）	10
+十:とお	十（とお）	10
+十:*	十	10
+千:せん	千（せん）	1000
+千:*	千	1000
+口:こう	口（こう）	mouth, gateway
+口:くち	口（くち）	mouth, gateway
+口:ぐち	口（くち）	mouth, gateway
+口:*	口	mouth, gateway
+右:みぎ	右（みぎ）	right
+右:ゆう	右（ゆう）	right
+右:*	右	right
+名:な	名（な）	name, fame, good reputation
+名:めい	名（めい or rarely みょう）	name, fame, good reputation
+名:みょう	名（めい or rarely みょう）	name, fame, good reputation
+名:*	名	name, fame, good reputation
+四:し	四（よん or し）	4
+四:よん	四（よん or し）	4
+四:よっ	四～（よっ）	4
+四:*	四	4
+土:ど	土（ど or と）	earth
+土:と	土（ど or と）	earth
+土:つち	土（つち）	earth
+土:*	土	earth
+夕:ゆう	夕（ゆう）	evening
+夕:*	夕	evening
+大:おお	大（おお）	big
+大:だい	大（だい or たい）	big
+大:たい	大（だい or たい）	big
+大:*	大	big
+天:てん	天（てん）	sky, heaven
+天:*	天	sky, heaven
+女:おんな	女（おんな）	female
+女:じょ	女（じょ or rarely にょう）	female
+女:にょう	女（じょ or rarely にょう）	female
+女:*	女	female
+子:こ	子（こ）	child
+子:し	子（し or す）	child
+子:す	子（し or す）	child
+子:*	子	child
+字:じ	字（じ）	a character (letter), writing
+字:*	字	a character (letter), writing
+学:がく	学（がく）	study, science
+学:がっ	学（がく）	study, science
+学:まな	学（まな・ぶ）	to study
+学:*	学	study, science
+小:ちい	小（ちい・さい）	small
+小:こ	小（こ）	small
+小:しょう	小（しょう）	small
+小:*	小	small
+山:やま	山（やま）	mountain
+山:さん	山（さん）	mountain
+山:ざん	山（さん）	mountain
+山:*	山	mountain
+川:かわ	川（かわ）	river
+川:*	川	river
+左:ひだり	左（ひだり）	left
+左:さ	左（さ）	left
+左:*	左	left
+年:とし	年（とし）	year
+年:ねん	年（ねん）	year
+年:*	年	year
+手:て	手（て）	hand
+手:しゅ	手（しゅ）	hand
+手:*	手	hand
+文:もん	文（ぶん or rarely もん）	writing
+文:ぶん	文（ぶん or rarely もん）	writing
+文:*	文	writing
+日:か	～日（か）	old counter for days
+日:じつ	日 (にち or じつ or に)	day or sun, (にち／に Japan)
+日:にち	日 (にち or じつ or に)	day or sun, (にち／に Japan)
+日:にっ	日 (にち or じつ or に)	day or sun, (にち／に also Japan)
+日:に	日 (にち or じつ or に)	day or sun, (にち／に also Japan)
+日:ひ	日（ひ）	day or sun
+日:び	日（ひ）	day or sun
+日:*	日	day or sun
+早:はや	早（はや）	early
+早:*	早	early
+月:つき	月（つき）	moon, month
+月:づき	月（つき）	moon, month
+月:げつ	月（げつ）	month, moon
+月:げっ	月（げつ）	month, moon
+月:がつ	月（がつ）	month (typically in month names), moon
+月:がっ	月（がつ）	month (typically in month names), moon
+月:*	月	month, moon
+木:き	木（き）	tree, wood
+木:もく	木（もく or rarely ぼく）	tree, wood
+木:ぼく	木（もく or rarely ぼく）	tree, wood
+木:*	木	tree, wood
+本:ほん	本（ほん）	book, real, (phonetically in 日本)
+本:*	本	book, real
+村:むら	村（むら）	village
+村:そん	村（そん）	village
+村:*	村	village
+林:はやし	林（はやし）	forest
+林:りん	林（りん）	forest
+林:*	林	forest
+校:こう	校（こう）	school
+校:*	校	school
+森:もり	森（もり）	forest
+森:しん	森（しん）	forest
+森:*	森	forest
+正:せい	正（せい or しょう）	correct
+正:しょう	正（せい or しょう）	correct
+正:ただ	正（ただ・しい）	correct
+正:*	正	correct
+気:き	気（き or rarely け）	feeling
+気:け	気（き or rarely け）	feeling
+気:げ	気（き or rarely け）	feeling
+気:*	気	feeling
+水:みず	水（みず）	water, fluid
+水:すい	水（すい）	water, fluid
+水:*	水	water, fluid
+火:ひ	火（ひ）	fire
+火:び	火（ひ）	fire
+火:か	火（か）	fire
+火:*	火	fire
+犬:いぬ	犬（いぬ）	dog
+犬:*	犬	dog
+玉:たま	玉（たま）	ball
+玉:*	玉	ball
+王:おう	王（おう）	king
+王:*	王	king
+生:なま	生（なま）	life
+生:せい	生（せい）	life, (student or teacher)
+生:しょう	生（しょう）	life
+生:*	生	life
+田:た	田（た or たん）	(rice) field
+田:たん	田（た or たん）	(rice) field
+田:*	田	(rice) field
+男:おこと	男（おとこ）	male
+男:だん	男（だん or rarely なん）	male
+男:なん	男（だん or rarely なん）	male
+男:*	男	male
+町:まち	町（まち）	street, town
+町:ちょう	町（ちょう）	street, town
+町:*	町	street, town
+白:しろ	白（しろ）	white
+白:じろ	白（しろ）	white
+白:*	白	white
+百:ひゃく	百（ひゃく）	100
+百:*	百	100
+目:め	目（め）	eye
+目:もく	目（もく）	eye
+目:*	目	eye
+石:いし	石（いし）	stone
+石:せき	石（せき or rarely しゃく）	stone
+石:せっ	石（せき or rarely しゃく）	stone
+石:しゃく	石（せき or rarely しゃく）	stone
+石:*	石	stone
+空:そら	空（そら）	sky
+空:から	空（から）	empty
+空:くう	空（くう）	sky, empty, space
+空:あ	空（あ）	open, empty
+空:*	空	sky, empty, space, to open
+立:りつ	立（りつ）	to stand
+立:りっ	立（りつ）	to stand
+立:た	立（た）	to stand
+立:だ	立（た）	to stand
+立:*	立	to stand
+竹:たけ	竹（たけ）	bamboo
+竹:*	竹	bamboo
+糸:いと	糸（いと）	thread
+糸:*	糸	thread
+耳:みみ	耳（みみ）	ear
+耳:*	耳	ear
+花:はな	花（はな）	flower
+花:はな	花（ばな）	flower
+花:か	花（か）	flower
+花:*	花	flower
+草:くさ	草（くさ）	grass
+草:*	草	grass
+虫:むし	虫（むし）	bug
+虫:*	虫	bug
+見:み	見（み）	to see
+見:けん	見（けん）	to see
+見:*	見	to see
+貝:かい	貝（かい）	shellfish
+貝:*	貝	shellfish
+赤:あか	赤（あか）	red
+赤:せき	赤（せき）	red
+赤:*	赤	red
+足:あし	足（あし）	foot
+足:た	足（た）	to be sufficient, to add
+足:そく	足（そく）	sufficient, counter for pairs of footwear
+足:ぞく	足（そく）	sufficient, counter for pairs of footwear
+足:*	足	foot, sufficient
+車:くるま	車（くるま）	vehicle
+車:ぐるま	車（くるま）	vehicle
+車:しゃ	車（しゃ）	vehicle
+車:*	車	vehicle
+金:かね	金（かね）	metal, gold, money
+金:がね	金（かね）	metal, gold, money
+金:きん	金（きん）	metal, gold, money
+金:*	金	metal, gold, money
+雨:あめ	雨（あめ or rarely あま）	rain
+雨:あめ	雨（あめ or rarely あま）	rain
+雨:*	雨	rain
+青:あお	青（あお）	blue, teal
+青:せい	青（せい）	blue, teal
+青:*	青	blue, teal
+音:おと	音（おと）	sound
+音:おん	音（おん）	sound
+音:*	音	sound
+万:まん	万（まん rarely ばん）	10000
+万:ばん	万（まん rarely ばん）	10000
+万:*	万	10000
+京:きょう	京（きょう）	capital
+京:*	京	capital
+今:いま	今（いま）	now
+今:こん	今（こん or rarely こ）	now
+今:*	今	now
+会:かい	会（かい）	meeting
+会:あ	会（あ・う）	to meet
+会:*	会	to meet, meeting
+北:きた	北（きた）	north
+北:ほっ	北（ほく）	north
+北:ぼく	北（ぼく）	north
+北:*	北	north
+南:みなみ	南（みなみ）	south
+南:なん	南（なん）	south
+南:*	南	south
+友:とも	友（とも）	friend
+友:ゆう	友（ゆう）	friend
+友:*	友	friend
+半:なか	半（なか・ば）	half
+半:はん	半（はん）	half
+半:*	半	half
+午:ご	午（ご）	noon
+午:*	午	noon
+古:ふる	古（ふる）	old
+古:こ	古（こ）	old
+古:*	古	old
+国:くに	国（くに）	country
+国:こく	国（こく）	country
+国:こっ	国（こく）	country
+国:*	国	country
+声:こえ	声（こえ）	voice
+声:*	声	voice
+売:う	売（う・る, also うり or うれ）	sell
+売:うり	売（う・る, also うり or うれ）	sell
+売:うれ	売（う・る, also うり or うれ）	sell
+売:ばい	売（ばい）	sell
+売:*	売	sell
+夏:なつ	夏（なつ）	summer
+夏:*	夏	summer
+高:こう	高（こう）	tall
+高:たか	高（たか）	tall, expensive
+高:*	高	tall
+魚:さかな	魚（さかな）	fish
+魚:ぎょ	魚（ぎょ）	fish
+魚:*	魚	fish
+鳥:とり	鳥（とり）	bird
+鳥:*	鳥	bird
+食:しょく	食（しょく）	to eat
+食:しょっ	食（しょく）	to eat
+食:た	食（た・べる or rarely く）	to eat
+食:く	食（た・べる or rarely く）	to eat
+食:*	食	to eat
+首:くび	首（くび）	neck
+首:しゅ	首（しゅ）	neck
+首:*	首	neck
+鳴:な	鳴（な～）	chirp
+鳴:*	鳴	chirp
+麦:むぎ	麦（むぎ）	wheat
+麦:*	麦	wheat
+黄:き	黄（き）	yellow
+黄:*	黄	yellow
+丸:まる	丸（まる）	circle （＝円）
+丸:*	丸	circle
+体:からだ	体（からだ）	body
+体:たい	体（たい）	body
+体:*	体	body
+何:なに	何（なに or なん）	what
+何:なん	何（なに or なん）	what
+何:*	何	what
+元:がん	元（げん or がん）	origin
+元:げん	元（げん or がん）	origin
+元:もと	元（もと）	origin
+元:*	元	origin
+兄:あに	兄（あに or にい）	older brother
+兄:にい	兄（あに or にい）	older brother
+兄:きょう	兄（きょう）	older brother
+兄:*	兄	older brother
+光:こう	光（こう）	ray of light
+光:ひか	光（ひか・る or ひかり）	ray of light
+光:ひかり	光（ひか・る or ひかり）	ray of light
+光:*	光	ray of light
+公:こう	公（こう）	public
+公:*	公	public
+内:うち	内（うち）	inside
+内:ない	内（ない）	inside
+内:*	内	inside
+冬:ふゆ	冬（ふゆ）	winter
+冬:*	冬	winter
+刀:かたな	刀（かたな or そり）	sword
+刀:そり	刀（かたな or そり）	sword
+刀:*	刀	sword
+回:*	回	times, to rotate
+回:かい	回（かい）	times
+回:まわ	回（まわ・る）	to rotate
+分:ふん	分（ふん）	minute
+分:ぶん	分（ぶん）	part
+分:わ	分（わ～ or わか～）	to understand, to divide, to branch
+分:わか	分（わ～ or わか～）	to understand, to divide, to branch
+分:*	分	part, minute
+切:き	切（き or きり）	cut
+切:きり	切（き or きり）	cut
+切:ぎ	切（き or きり）	cut
+切:せつ	切（せつ）	cut
+切:*	切	cut
+室:しつ	室（しつ）	room
+室:*	室	room
+家:いえ	家（いえ）	house, family
+家:や	家（や）	house, family
+家:か	家（か）	house, family
+家:*	家	house, family
+寺:てら	寺（てら）	temple
+寺:じ	寺（じ）	temple
+寺:*	寺	temple
+少:すく	少（すこ or すく）	few
+少:すこ	少（すこ or すく）	few
+少:しょう	少（しょう）	few
+少:*	少	few
+広:ひろ	広（ひろ）	wide
+広:びろ	広（ひろ）	wide
+広:こう	広（こう）	wide
+広:*	広	wide
+店:てん	店（てん）	shop
+店:みせ	店（みせ）	shop
+店:*	店	shop
+弱:よわ	弱（よわ）	weak
+弱:じゃく	弱（じゃく）	weak
+弱:*	弱	weak
+強:きょう	強（きょう or rarely ごう）	strong
+強:ごう	強（きょう or rarely ごう）	strong
+強:つよ	強（つよ）	strong
+強:づよ	強（つよ）	strong
+強:*	強	strong
+心:こころ	心（こころ）	heart, emotion
+心:しん	心（しん）	heart, emotion
+心:*	心	heart, emotion
+米:こめ	米（こめ）	rice
+米:べい	米（べい）	rice, (America)
+米:*	米	rice
+聞:き	聞（き）	to hear
+聞:ぶん	聞（ぶん）	to hear
+聞:*	聞	to hear
+肉:にく	肉（にく）	meat
+肉:*	肉	meat
+自:みずか	自（みずか・ら）	oneself
+自:し	自（じ or rarely し）	oneself
+自:じ	自（じ or rarely し）	oneself
+自:*	自	oneself
+行:おこな	行（おこな・う）	to go
+行:ぎょう	行（こう or ぎょう）	to go
+行:こう	行（こう or ぎょう）	to go
+行:い	行（い・く or ゆ・く）	to go
+行:ゆ	行（い・く or ゆ・く）	to go
+行:ゆく	行（い・く or ゆ・く）	to go
+行:*	行	to go
+西:さい	西（せい or さい）	west
+西:ざい	西（せい or さい）	west
+西:せい	西（せい or さい）	west
+西:にし	西（にし）	west
+西:*	西	west
+谷:たに	谷（たに）	valley
+谷:*	谷	valley
+買:か	買（か・う）	to buy
+買:ばい	買（ばい）	to buy
+買:*	買	to buy
+週:しゅう	週（しゅう）	week
+週:*	週	week
+走:そう	走（そう）	run
+走:はし	走（はし）	run
+走:*	走	run
+近:ちか	近（ちか）	near
+近:きん	近（きん）	near
+近:*	近	near
+合:あ	合（あ or あい or あわ）	to fit, to join
+合:あい	合（あ or あい or あわ）	to fit, to join
+合:あわ	合（あ or あい or あわ）	to fit, to join
+合:ごう	合（ごう）	to fit, to join
+合:*	合	to fit, to join
+同:おな	同（おな・じ）	same
+同:どう	同（どう）	same
+同:*	同	same
+長:ちょう	長（ちょう）	long, chief
+長:なが	長（なが）	long, chief
+長:*	長	long, chief
+門:もん	門（もん）	gate
+門:*	門	gate
+雪:ゆき	雪（ゆき）	snow
+雪:*	雪	snow
+雲:くも	雲（くも）	cloud
+雲:*	雲	cloud
+顔:かお	顔（かお）	face
+顔:*	顔	face
+電:でん	電（でん）	electricity
+電:*	電	electricity
+道:みち	道（みち）	road
+道:どう	道（どう）	road
+道:*	道	road
+里:さと	里（さと）	village
+里:*	里	village
+野:の	野（の）	field
+野:や	野（や）	field
+野:*	野	field
+間:かん	間（かん or rarely けん）	interval
+間:けん	間（かん or rarely けん）	interval
+間:げん	間（かん or rarely けん）	interval
+間:ま	間（ま or あいだ）	interval
+間:あいだ	間（ま or あいだ）	interval
+間:*	間	interval
+頭:あたま	頭（あたま）	head
+頭:ず	頭（とう or ず）	head
+頭:とう	頭（とう or ず）	head
+頭:*	頭	head
+風:かぜ	風（かぜ）	wind
+風:ふ	風（ふう or rarely ふ）	wind, style
+風:ふう	風（ふう or rarely ふ）	wind, style
+風:*	風	wind, style
+図:ず	図（ず or と）	drawing
+図:と	図（ず or と）	drawing
+図:*	図	drawing
+園:えん	園（えん）	park, garden
+園:*	園	park, garden
+地:じ	地（ち or じ）	ground
+地:ち	地（ち or じ）	ground
+地:*	地	ground
+場:ば	場（ば）	place
+場:じょう	場（じょう）	place
+場:*	場	place
+太:たい	太（たい）	thick
+太:ふと	太（ふと）	thick
+太:*	太	thick
+妹:いもうと	妹（いもうと）	younger sister
+妹:まい	妹（まい）	younger sister
+妹:*	妹	younger sister
+姉:あね	姉（あね or ねえ）	older sister
+姉:ねえ	姉（あね or ねえ）	older sister
+姉:し	姉（し）	older sister
+姉:*	姉	older sister
+工:く	工（こう or く）	craft
+工:こう	工（こう or く）	craft
+工:*	工	craft
+市:いち	市（いち）	city
+市:し	市（し）	city
+市:*	市	city
+帰:がえ	帰（がえ）	to return home
+帰:き	帰（き）	to return home
+帰:*	帰	to return home
+弓:ゆみ	弓（ゆみ）	bow
+弓:*	弓	bow
+引:いん	引（いん）	to pull
+引:ひ	引（ひ or ひき）	to pull
+引:ひき	引（ひ or ひき）	to pull
+引:ひっ	引（ひ or ひき）	to pull
+引:び	引（ひ or ひき）	to pull
+引:びき	引（ひ or ひき）	to pull
+引:*	引	to pull
+弟:おとうと	弟（おとうと）	younger brother
+弟:だい	弟（だい or で）	younger brother
+弟:で	弟（だい or で）	younger brother
+弟:*	弟	younger brother
+教:おし	教（おし・える or おそ・わる）	teach
+教:おそ	教（おし・える or おそ・わる）	teach
+教:きょう	教（きょう）	teach
+教:*	教	teach
+戸:と	戸（と）	door
+戸:ど	戸（と）	door
+戸:*	戸	door
+数:かぞ	数（かぞ）	number
+数:すう	数（すう）	number
+数:*	数	number
+新:あたら	新（あたら・しい or あら・た）	new
+新:あら	新（あたら・しい or あら・た）	new
+新:しん	新（しん）	new
+新:*	新	new
+角:かど	角（かど）	angle
+角:かく	角（かく）	angle
+角:がく	角（かく）	angle
+角:*	角	angle
+計:けい	計（けい）	to measure
+計:はか	計（はか）	to measure
+計:*	計	to measure
+記:き	記（き）	article
+記:*	記	article
+話:はな	話（はな or はなし）	talk
+話:はなし	話（はな or はなし）	talk
+話:わ	話（わ）	talk
+話:*	話	talk
+語:かた	語（かた）	story
+語:がた	語（かた）	story
+語:がたり	語（かたり）	story
+語:ご	語（ご）	language
+語:*	語	language, story
+読:とう	読（どく or とう）	read
+読:どく	読（どく or とう）	read
+読:よ	読（よ・む）	read
+読:*	読	read
+遠:えん	遠（えん）	far
+遠:とお	遠（とお）	far
+遠:*	遠	far
+茶:ちゃ	茶（ちゃ）	tea, (light brown)
+茶:*	茶	tea, (light brown)
+外:がい	外（がい or rarely げ）	outside
+外:げ	外（がい or rarely げ）	outside
+外:そと	外（そと）	outside
+外:はず	外（はず～）	outside
+外:*	外	outside
+多:おお	多（おお）	many
+多:た	多（た）	many
+多:*	多	many
+夜:や	夜（や）	night
+夜:よ	夜（よ or よる）	night
+夜:よる	夜（よ or よる）	night
+夜:*	夜	night
+岩:いわ	岩（いわ）	big rock
+岩:*	岩	big rock
+思:おも	思（おも・う）	think
+思:し	思（し）	think
+思:*	思	think
+方:かた	方（かた）	direction
+方:がた	方（かた）	direction
+方:ほう	方（ほう）	direction
+方:ぽう	方（ほう）	direction
+方:*	方	direction
+明:あ	明（あ or あか or あき or あかる）	bright
+明:あか	明（あ or あか or あき or あかる）	bright
+明:あかる	明（あ or あか or あき or あかる）	bright
+明:あき	明（あ or あか or あき or あかる）	bright
+明:みょう	明（みょう）	next
+明:めい	明（めい）	clear, bright
+明:*	明	bright, clear, (next)
+星:ほし	星（ほし）	star
+星:せい	星（せい）	star
+星:*	星	star
+春:はる	春（はる）	spring (season)
+春:*	春	spring (season)
+昼:ちゅう	昼（ちゅう）	daytime, noon
+昼:ひる	昼（ひる）	daytime, noon
+昼:*	昼	daytime, noon
+時:じ	時（じ）	time
+時:と	時（と or とき）	time
+時:とき	時（と or とき）	time
+時:*	時	time
+曜:よう	曜（よう）	weekday
+曜:*	曜	weekday
+朝:あさ	朝（あさ）	morning
+朝:*	朝	morning
+形:かたち	形（かたち）	shape
+形:ぎょう	形（けい or rarely ぎょう）	shape
+形:けい	形（けい or rarely ぎょう）	shape
+形:*	形	shape
+後:あと	後（あと or うし・ろ）	after, behind
+後:うし	後（あと or うし・ろ）	after, behind
+後:こう	後（ご or rarely こう）	after, behind
+後:ご	後（ご or rarely こう）	after, behind
+後:*	後	after, behind
+書:か	書（か or かき）	write
+書:かき	書（か or かき）	write
+書:が	書（か or かき）	write
+書:しょ	書（しょ）	write
+書:*	書	write
+歌:うた	歌（うた）	song
+歌:か	歌（か）	song
+歌:*	歌	song
+来:き	来（く・る or き）	come
+来:く	来（く・る or き）	come
+来:らい	来（らい）	next
+来:*	来	come, next
+東:ひがし	東（ひがし）	east
+東:とう	東（とう）	east
+東:*	東	east
+楽:がく	楽（がく or らく）	pleasure
+楽:がっ	楽（がく or らく）	pleasure
+楽:たの	楽（たの or たのし）	pleasure
+楽:たのし	楽（たの or たのし）	pleasure
+楽:らく	楽（がく or らく）	pleasure
+楽:*	楽	pleasure
+毎:ごと	毎（ごと）	every
+毎:まい	毎（まい）	every
+毎:*	毎	every
+汽:き	汽（き）	steam
+汽:*	汽	steam
+海:うみ	海（うみ）	sea
+海:かい	海（かい）	sea
+海:*	海	sea
+線:せん	線（せん）	line
+線:*	線	line
+答:こた	答（こた or こたえ）	answer
+答:こたえ	答（こた or こたえ）	answer
+答:とう	答（とう）	answer
+答:どう	答（とう）	answer
+答:*	答	answer
+紙:かみ	紙（かみ）	paper
+紙:がみ	紙（かみ）	paper
+紙:し	紙（し）	paper
+紙:*	紙	paper
+羽:は	羽（は）	feathers
+羽:はね	羽（はね）	feathers
+羽:わ	羽（わ）	counter for birds
+羽:*	羽	feathers
+考:かんが	考（かんが）	think
+考:こう	考（こう）	think
+考:*	考	think
+船:ふな	船（ふね or ふな）	ship
+船:ふね	船（ふね or ふな）	ship
+船:*	船	ship
+色:いろ	色（いろ）	color
+色:しき	色（しょく or しき）	color
+色:しょく	色（しょく or しき）	color
+色:*	色	color
+言:い	言（い・う or こと）	say
+言:こと	言（い・う or こと）	say
+言:ごと	言（い・う or こと）	say
+言:げん	言（げん）	say
+言:*	言	say
+馬:うま	馬（うま）	horse
+馬:ば	馬（ば）	horse
+馬:*	馬	horse
+黒:くろ	黒（くろ）	black
+黒:こく	黒（こく）	black
+黒:*	黒	black
+牛:うし	牛（うし）	cow
+牛:ぎゅう	牛（ぎゅう）	cow
+牛:*	牛	cow
+理:り	理（り）	reason, logic
+理:*	理	reason, logic
+用:もち	用（もち・いる）	use
+用:よう	用（よう）	use
+用:*	用	use
+画:かく	画（が or rarely かく）	picture
+画:が	画（が or rarely かく）	picture
+画:*	画	picture
+番:ばん	番（ばん）	turn, number
+番:*	番	turn, number
+秋:あき	秋（あき）	autumn
+秋:*	秋	autumn
+算:さん	算（さん）	calculate
+算:ざん	算（さん）	calculate
+算:そろ	算（そろ）	calculate
+算:*	算	calculate
+細:こま	細（ほそ・い or こま・かい）	thin, fine
+細:ほそ	細（ほそ・い or こま・かい）	thin, fine
+細:*	細	thin, fine
+組:く	組（く or くみ）	association
+組:くみ	組（く or くみ）	association
+組:ぐみ	組（く or くみ）	association
+組:そ	組（そ）	association
+組:*	組	association
+絵:え	絵（え）	picture
+絵:かい	絵（かい）	picture
+絵:*	絵	picture
+矢:や	矢（や）	arrow
+矢:*	矢	arrow
+知:し	知（し・る）	know
+知:ち	知（ち）	know
+知:*	知	know
+社:しゃ	社（しゃ）	company
+社:じゃ	社（しゃ）	company
+社:*	社	company
+科:か	科（か）	section
+科:*	科	section
+作:さ	作（さ or さく）	make
+作:さく	作（さ or さく）	make
+作:さっ	作（さ or さく）	make
+作:つく	作（つく・る）	make
+作:*	作	make
+前:ぜん	前（ぜん）	before, in front
+前:まえ	前（まえ）	before, in front
+前:*	前	before, in front
+原:げん	原（げん）	field, original
+原:はら	原（はら）	field, original
+原:*	原	field, original
+止:と	止（と～ or や・む or ・す）	stop
+止:ど	止（と～ or や・む or ・す）	stop
+止:や	止（と～ or や・む or ・す）	stop
+止:よ	止（と～ or や・む or ・す）	stop
+止:し	止（し）	stop
+止:*	止	stop
+歩:ある	歩（ある・く）	walk
+歩:ほ	歩（ほ）	walk
+歩:ぽ	歩（ほ）	walk
+歩:*	歩	walk
+池:いけ	池（いけ）	pond
+池:ち	池（ち）	pond
+池:*	池	pond
+活:かっ	活（かつ）	active, lively
+活:かつ	活（かつ）	active, lively
+活:*	活	active, lively
+点:つ	点（つ・く or つ・ける）	to switch on
+点:てん	点（てん）	point
+点:*	点	point
+親:おや	親（おや）	parent
+親:した	親（した・しい）	intimate
+親:しん	親（しん）	parent, intimate
+親:*	親	parent, intimate
+父:ちち	父（ちち or とう）	father
+父:とう	父（ちち or とう）	father
+父:ふ	父（ふ）	father
+父:*	父	father
+交:ま	交（ま～）	mix
+交:こう	交（こう）	mix
+交:*	交	mix
+母:かあ	母（はは or かあ）	mother
+母:はは	母（はは or かあ）	mother
+母:ぼ	母（ぼ）	mother
+母:*	母	mother
+毛:け	毛（け）	hair
+毛:もう	毛（もう）	hair
+毛:*	毛	hair
+当:あ	当（あ・たる）	hit
+当:とう	当（とう）	hit
+当:*	当	hit
+直:じか	直（じか・に or じき or す・ぐ or ただ・ちに）	straight, directly
+直:じき	直（じか・に or じき or す・ぐ or ただ・ちに）	straight, directly
+直:す	直（じか・に or じき or す・ぐ or ただ・ちに）	straight, directly
+直:ただ	直（じか・に or じき or す・ぐ or ただ・ちに）	straight, directly
+直:ちょく	直（ちょく）	straight
+直:ちょっ	直（ちょく）	straight
+直:なお	直（なお・す）	repair
+直:*	直	straight, directly, repair
+通:かよ	通（とお・る or かよ・う）	pass through
+通:とお	通（とお・る or かよ・う）	pass through
+通:つう	通（つう）	pass through
+通:*	通	pass through
+台:たい	台（たい）	pedestal
+台:だい	台（だい）	pedestal, counter for machines
+台:*	台	pedestal
+才:さい	才（さい）	genius, counter for age
+才:*	才	genius, counter for age
+晴:は	晴（は）	clear up
+晴:ば	晴（は）	clear up
+晴:せい	晴（せい）	clear up
+晴:*	晴	clear up
+事:*	事	abstract thing
+発:*	発	departure
+対:*	対	opposite
+部:*	部	part
+者:*	者	someone
+業:*	業	business
+相:*	相	mutual
+定:*	定	decide
+員:*	員	member
+開:*	開	open
+問:*	問	question
+代:*	代	substitute
+実:*	実	truth
+決:*	決	decide
+動:*	動	move
+全:*	全	whole
+表:*	表	express
+調:*	調	investigate
+化:*	化	change
+主:*	主	master
+題:*	題	topic
+意:*	意	idea
+度:*	度	degrees
+期:*	期	period of time
+持:*	持	hold
+取:*	取	take
+都:*	都	metropolis
+和:*	和	peace
+平:*	平	flat
+世:*	世	world
+受:*	受	accept
+区:*	区	ward
+県:*	県	prefecture
+進:*	進	advance
+安:*	安	cheap
+院:*	院	institution
+指:*	指	finger
+界:*	界	world
+第:*	第	ordinal number prefix
+予:*	予	in advance
+向:*	向	over there
+勝:*	勝	win
+面:*	面	face
+委:*	委	committee
+反:*	反	anti-
+重:*	重	heavy
+集:*	集	collect
+物:*	物	thing
+使:*	使	use
+所:*	所	place
+次:*	次	next
+品:*	品	article
+死:*	死	death
+係:*	係	person in charge
+感:*	感	feeling
+投:*	投	throw
+打:*	打	hit
+始:*	始	begin
+島:*	島	island
+両:*	両	both
+式:*	式	style
+運:*	運	carry
+終:*	終	end
+住:*	住	dwelling
+談:*	談	discuss
+真:*	真	true
+流:*	流	stream
+有:*	有	have
+局:*	局	office
+放:*	放	release
+球:*	球	ball
+急:*	急	hurry
+送:*	送	send
+役:*	役	service
+身:*	身	body
+由:*	由	reason
+転:*	転	revolve
+研:*	研	sharpen
+消:*	消	extinguish
+神:*	神	god(s)
+配:*	配	distribute
+宮:*	宮	Shinto shrine
+究:*	究	research
+育:*	育	nurture
+起:*	起	wake up
+着:*	着	wear
+乗:*	乗	ride
+想:*	想	concept
+病:*	病	sick
+農:*	農	farming
+州:*	州	state
+待:*	待	wait
+族:*	族	tribe
+銀:*	銀	silver
+助:*	助	help
+追:*	追	follow
+商:*	商	sell
+葉:*	葉	leaf
+落:*	落	fall
+医:*	医	medicine
+仕:*	仕	do
+去:*	去	leave
+味:*	味	flavor
+負:*	負	lose
+写:*	写	copy
+守:*	守	protect
+美:*	美	beauty
+命:*	命	fate
+福:*	福	luck
+整:*	整	put in order
+横:*	横	side
+深:*	深	deep
+申:*	申	say
+様:*	様	formal title
+港:*	港	harbor
+注:*	注	pour
+階:*	階	floor of a building
+路:*	路	road
+悪:*	悪	bad
+他:*	他	other
+橋:*	橋	bridge
+岸:*	岸	beach
+客:*	客	guest
+登:*	登	climb
+速:*	速	fast
+央:*	央	center
+号:*	号	number
+館:*	館	public building
+屋:*	屋	shop
+根:*	根	root
+苦:*	苦	suffer
+具:*	具	tool
+鉄:*	鉄	iron
+返:*	返	return
+短:*	短	short
+油:*	油	oil
+昭:*	昭	shining
+植:*	植	plant
+宿:*	宿	inn
+薬:*	薬	medicine
+習:*	習	learn
+倍:*	倍	double
+駅:*	駅	station
+波:*	波	wave
+洋:*	洋	ocean
+旅:*	旅	trip
+級:*	級	rank
+幸:*	幸	happiness
+練:*	練	practic
+軽:*	軽	light
+等:*	等	class
+曲:*	曲	musical composition
+庭:*	庭	garden
+血:*	血	blood
+温:*	温	warm
+庫:*	庫	warehouse
+坂:*	坂	slope
+服:*	服	clothes
+息:*	息	breath
+板:*	板	board
+列:*	列	row
+遊:*	遊	play
+君:*	君	you
+飲:*	飲	drink
+章:*	章	chapter
+酒:*	酒	alcoholic drink
+悲:*	悲	sad
+秒:*	秒	second (1)
+暗:*	暗	dark
+勉:*	勉	exertion
+陽:*	陽	sunshine
+皮:*	皮	skin
+歯:*	歯	tooth
+柱:*	柱	pillar
+祭:*	祭	celebrate
+筆:*	筆	writing brush
+童:*	童	juvenile
+畑:*	畑	farm
+緑:*	緑	green
+礼:*	礼	thanks
+詩:*	詩	poem
+昔:*	昔	long ago
+泳:*	泳	swim
+荷:*	荷	luggage
+炭:*	炭	charcoal
+丁:*	丁	street
+湖:*	湖	lake
+湯:*	湯	hot water
+箱:*	箱	box
+豆:*	豆	beans
+暑:*	暑	hot
+氷:*	氷	ice
+寒:*	寒	cold
+帳:*	帳	account book
+拾:*	拾	pick up
+漢:*	漢	China
+鼻:*	鼻	nose
+皿:*	皿	dish
+羊:*	羊	sheep
+笛:*	笛	flute
+議:*	議	deliberation
+民:*	民	people
+連:*	連	take along
+選:*	選	choose
+関:*	関	related
+戦:*	戦	war
+最:*	最	most
+氏:*	氏	family name
+約:*	約	promise
+法:*	法	method
+不:*	不	not
+的:*	的	target
+要:*	要	need
+治:*	治	govern
+成:*	成	become
+協:*	協	cooperation
+以:*	以	since
+機:*	機	machine
+加:*	加	add
+続:*	続	continue
+改:*	改	reformation
+初:*	初	first
+産:*	産	give birth
+結:*	結	tie
+府:*	府	urban prefecture
+共:*	共	together
+得:*	得	acquire
+告:*	告	tell
+軍:*	軍	army
+参:*	参	participate
+利:*	利	profit
+案:*	案	plan
+信:*	信	trust
+別:*	別	separate
+側:*	側	side
+求:*	求	request
+昨:*	昨	previous
+官:*	官	government official
+特:*	特	special
+変:*	変	change
+各:*	各	each
+挙:*	挙	raise
+果:*	果	fruit
+必:*	必	without fail
+争:*	争	conflict
+無:*	無	nothing
+位:*	位	rank
+置:*	置	put
+料:*	料	fee
+建:*	建	build
+費:*	費	expense
+付:*	付	attach
+説:*	説	theory
+夫:*	夫	husband
+害:*	害	harm
+副:*	副	vice
+席:*	席	seat
+残:*	残	remainder
+念:*	念	thought
+試:*	試	test
+象:*	象	elephant
+労:*	労	labour
+例:*	例	example
+然:*	然	so
+験:*	験	test
+伝:*	伝	transmit
+働:*	働	work
+景:*	景	scenery
+好:*	好	like
+賞:*	賞	prize
+辺:*	辺	environs
+英:*	英	England
+低:*	低	low
+失:*	失	lose
+差:*	差	distinction
+課:*	課	section
+末:*	末	end
+極:*	極	poles
+種:*	種	kind
+量:*	量	quantity
+望:*	望	hope
+松:*	松	pine
+観:*	観	observe
+察:*	察	guess
+型:*	型	model
+票:*	票	ballot
+達:*	達	attain
+良:*	良	good
+候:*	候	climate
+史:*	史	history
+満:*	満	full
+敗:*	敗	failure
+管:*	管	pipe
+兵:*	兵	soldier
+器:*	器	container
+士:*	士	gentleman
+積:*	積	accumulate
+録:*	録	record
+省:*	省	government ministry
+周:*	周	circumference
+材:*	材	lumber
+健:*	健	healthy
+飛:*	飛	fly
+殺:*	殺	kill
+単:*	単	simple
+完:*	完	perfect
+隊:*	隊	group
+競:*	競	emulate
+給:*	給	salary
+歴:*	歴	curriculum
+辞:*	辞	resign
+愛:*	愛	love
+未:*	未	un-
+航:*	航	cruise
+冷:*	冷	cool
+類:*	類	sort
+児:*	児	child
+印:*	印	mark
+標:*	標	signpost
+輪:*	輪	wheel
+熱:*	熱	heat
+清:*	清	pure
+覚:*	覚	memorize
+億:*	億	hundred million
+芸:*	芸	art
+便:*	便	convenience
+停:*	停	halt
+陸:*	陸	land
+帯:*	帯	sash
+努:*	努	toil
+固:*	固	harden
+散:*	散	scatter
+司:*	司	director
+康:*	康	ease
+静:*	静	quiet
+喜:*	喜	rejoice
+囲:*	囲	surround
+卒:*	卒	graduate
+順:*	順	obey
+紀:*	紀	chronicle
+博:*	博	Dr.
+救:*	救	salvation
+老:*	老	old man
+令:*	令	orders
+徒:*	徒	junior
+貨:*	貨	freight
+季:*	季	seasons
+功:*	功	achievement
+欠:*	欠	lack
+底:*	底	bottom
+養:*	養	foster
+街:*	街	street
+願:*	願	request
+希:*	希	hope
+笑:*	笑	laugh
+束:*	束	bundle
+仲:*	仲	go-between
+栄:*	栄	prosperity
+札:*	札	tag
+借:*	借	borrow
+節:*	節	node
+包:*	包	wrap
+折:*	折	fold
+郡:*	郡	county
+焼:*	焼	bake
+照:*	照	illuminate
+堂:*	堂	public chamber
+飯:*	飯	meal
+典:*	典	code
+漁:*	漁	fishing
+貯:*	貯	savings
+倉:*	倉	godown
+唱:*	唱	chant
+訓:*	訓	instruction
+浴:*	浴	bathe
+塩:*	塩	salt
+兆:*	兆	portent
+祝:*	祝	celebrate
+旗:*	旗	national flag
+衣:*	衣	clothes
+梅:*	梅	plum
+臣:*	臣	retainer
+浅:*	浅	shallow
+勇:*	勇	courage
+械:*	械	contraption
+菜:*	菜	vegetable
+刷:*	刷	printing
+牧:*	牧	breed
+泣:*	泣	cry
+孫:*	孫	grandchild
+毒:*	毒	poison
+径:*	径	diameter
+脈:*	脈	vein
+粉:*	粉	flour
+鏡:*	鏡	mirror
+巣:*	巣	nest
+灯:*	灯	lamp
+胃:*	胃	stomach
+芽:*	芽	bud
+腸:*	腸	intestines
+政:*	政	politics
+経:*	経	manage
+現:*	現	appear
+性:*	性	gender
+制:*	制	control
+務:*	務	duty
+統:*	統	unite
+総:*	総	whole
+領:*	領	territory
+設:*	設	establish
+保:*	保	preserve
+支:*	支	branch
+報:*	報	report
+解:*	解	untie
+資:*	資	resources
+際:*	際	occasion
+査:*	査	investigate
+判:*	判	judge
+在:*	在	exist
+件:*	件	affair
+団:*	団	group
+任:*	任	responsibility
+増:*	増	increase
+情:*	情	feelings
+示:*	示	indicate
+基:*	基	foundation
+価:*	価	value
+確:*	確	certain
+提:*	提	present
+勢:*	勢	power
+減:*	減	decrease
+容:*	容	contain
+応:*	応	respond
+演:*	演	perform
+能:*	能	ability
+再:*	再	again
+格:*	格	status
+過:*	過	go beyond
+税:*	税	tax
+検:*	検	examine
+常:*	常	normal
+状:*	状	form
+営:*	営	manage
+職:*	職	employment
+証:*	証	evidence
+可:*	可	possible
+構:*	構	construct
+比:*	比	compare
+防:*	防	prevent
+断:*	断	cut off
+境:*	境	boundary
+規:*	規	rule
+術:*	術	art
+護:*	護	safeguard
+態:*	態	condition
+導:*	導	guide
+備:*	備	provide
+条:*	条	clause
+幹:*	幹	tree-trunk
+独:*	独	alone
+輸:*	輸	transport
+述:*	述	mention
+率:*	率	rate
+武:*	武	military
+質:*	質	quality
+衛:*	衛	defense
+張:*	張	stretch
+限:*	限	limit
+額:*	額	amount
+義:*	義	righteousness
+退:*	退	retreat
+準:*	準	standard
+造:*	造	create
+技:*	技	skill
+復:*	復	again
+移:*	移	shift
+個:*	個	individual
+評:*	評	evaluate
+非:*	非	negative
+製:*	製	manufacture
+財:*	財	wealth
+識:*	識	discriminating
+程:*	程	extent
+接:*	接	contact
+授:*	授	instruct
+効:*	効	effect
+旧:*	旧	old times
+師:*	師	expert
+易:*	易	easy
+券:*	券	ticket
+破:*	破	rend
+編:*	編	compile
+責:*	責	blame
+修:*	修	discipline
+採:*	採	pick
+織:*	織	weave
+故:*	故	circumstances
+弁:*	弁	valve
+因:*	因	cause
+富:*	富	rich
+貿:*	貿	trade
+講:*	講	lecture
+素:*	素	elementary
+河:*	河	river
+適:*	適	suitable
+婦:*	婦	lady
+寄:*	寄	approach
+益:*	益	benefit
+余:*	余	too much
+禁:*	禁	prohibition
+逆:*	逆	inverted
+久:*	久	long time
+妻:*	妻	wife
+暴:*	暴	outburst
+険:*	険	precipitous
+均:*	均	level
+圧:*	圧	pressure
+許:*	許	permit
+留:*	留	detain
+罪:*	罪	guilt
+興:*	興	entertain
+精:*	精	refined
+則:*	則	rule
+測:*	測	fathom
+豊:*	豊	bountiful
+厚:*	厚	thick
+略:*	略	abbreviation
+承:*	承	aquiesce
+絶:*	絶	discontinue
+版:*	版	printing block
+損:*	損	loss
+仏:*	仏	Buddha
+績:*	績	exploits
+築:*	築	fabricate
+志:*	志	intention
+混:*	混	mix
+居:*	居	reside
+雑:*	雑	miscellaneous
+招:*	招	beckon
+永:*	永	eternity
+刊:*	刊	publish
+像:*	像	statue
+賛:*	賛	approve
+犯:*	犯	crime
+布:*	布	linen
+属:*	属	belong
+複:*	複	duplicate
+似:*	似	becoming
+迷:*	迷	astray
+夢:*	夢	dream
+燃:*	燃	burn
+災:*	災	disaster
+預:*	預	deposit
+貸:*	貸	lend
+銭:*	銭	coin
+群:*	群	flock
+謝:*	謝	apologize
+仮:*	仮	sham
+賀:*	賀	congratulations
+快:*	快	cheerful
+徳:*	徳	benevolence
+序:*	序	preface
+舎:*	舎	cottage
+慣:*	慣	accustomed
+敵:*	敵	enemy
+液:*	液	fluid
+貧:*	貧	poor
+酸:*	酸	acid
+祖:*	祖	ancestor
+桜:*	桜	cherry tree
+句:*	句	phrase
+墓:*	墓	grave
+鉱:*	鉱	mineral
+飼:*	飼	domesticate
+枝:*	枝	branch
+恩:*	恩	grace
+往:*	往	journey
+肥:*	肥	fertilizer
+俵:*	俵	bag
+綿:*	綿	cotton
+銅:*	銅	copper
+眼:*	眼	eyeball
+耕:*	耕	till
+潔:*	潔	undefiled
+舌:*	舌	tongue
+党:*	党	political party
+権:*	権	rights
+派:*	派	sect
+済:*	済	settle
+認:*	認	recognize
+策:*	策	scheme
+論:*	論	theory
+私:*	私	me
+革:*	革	leather
+疑:*	疑	doubt
+裁:*	裁	judge
+供:*	供	offer
+割:*	割	divide
+難:*	難	difficult
+補:*	補	supplement
+優:*	優	superior
+収:*	収	take in
+展:*	展	expand
+宅:*	宅	home
+視:*	視	look at
+警:*	警	guard against
+訪:*	訪	visit
+域:*	域	range
+映:*	映	reflect
+担:*	担	shouldering
+株:*	株	stocks
+姿:*	姿	figure
+閣:*	閣	tall
+衆:*	衆	masses
+若:*	若	young
+脳:*	脳	brain
+蔵:*	蔵	warehouse
+段:*	段	steps
+呼:*	呼	call
+針:*	針	needle
+専:*	専	specialty
+推:*	推	infer
+値:*	値	value
+討:*	討	chastise
+処:*	処	dispose
+憲:*	憲	constitution
+激:*	激	violent
+否:*	否	negate
+系:*	系	lineage
+批:*	批	criticism
+存:*	存	suppose
+盟:*	盟	alliance
+座:*	座	sit
+除:*	除	exclude
+降:*	降	descend
+並:*	並	row
+従:*	従	obey
+危:*	危	dangerous
+拡:*	拡	broaden
+就:*	就	concerning
+異:*	異	uncommon
+将:*	将	leader
+厳:*	厳	strict
+遺:*	遺	bequeath
+装:*	装	attire
+諸:*	諸	various
+亡:*	亡	deceased
+劇:*	劇	drama
+模:*	模	imitation
+宣:*	宣	proclaim
+背:*	背	back
+盛:*	盛	prosper
+皇:*	皇	emperor
+臨:*	臨	look to
+署:*	署	government office
+源:*	源	origin
+創:*	創	create
+障:*	障	hurt
+筋:*	筋	muscle
+延:*	延	prolong
+乱:*	乱	riot
+善:*	善	good
+庁:*	庁	government office
+城:*	城	castle
+層:*	層	stratum
+裏:*	裏	back
+密:*	密	secrecy
+我:*	我	ego
+勤:*	勤	diligence
+幕:*	幕	curtain
+染:*	染	dye
+困:*	困	become distressed
+傷:*	傷	wound
+著:*	著	renowned
+誌:*	誌	document
+秘:*	秘	secret
+刻:*	刻	engrave
+宇:*	宇	eaves
+欲:*	欲	longing
+痛:*	痛	pain
+縮:*	縮	shrink
+枚:*	枚	sheet of...
+郵:*	郵	mail
+探:*	探	grope
+骨:*	骨	bone
+射:*	射	shoot
+届:*	届	deliver
+巻:*	巻	scroll
+揮:*	揮	brandish
+閉:*	閉	closed
+賃:*	賃	fare
+貴:*	貴	precious
+暮:*	暮	livelihood
+簡:*	簡	simplicity
+納:*	納	settlement
+樹:*	樹	trees
+臓:*	臓	entrails
+律:*	律	rhythm
+至:*	至	climax
+宗:*	宗	religion
+宙:*	宙	mid-air
+操:*	操	maneuver
+誕:*	誕	nativity
+孝:*	孝	filial piety
+純:*	純	genuine
+訳:*	訳	translate
+吸:*	吸	suck
+看:*	看	watch over
+奏:*	奏	play music
+翌:*	翌	the following
+片:*	片	one-sided
+郷:*	郷	home town
+敬:*	敬	respect
+泉:*	泉	spring
+己:*	己	self
+忠:*	忠	loyalty
+沿:*	沿	run alongside
+誠:*	誠	sincerity
+忘:*	忘	forget
+俳:*	俳	haiku
+宝:*	宝	treasure
+胸:*	胸	bosom
+砂:*	砂	sand
+誤:*	誤	mistake
+聖:*	聖	holy
+洗:*	洗	wash
+尊:*	尊	revered
+窓:*	窓	window
+幼:*	幼	infancy
+潮:*	潮	tide
+鋼:*	鋼	steel
+縦:*	縦	vertical
+捨:*	捨	throw away
+腹:*	腹	abdomen
+乳:*	乳	milk
+紅:*	紅	deep red
+冊:*	冊	counter for books
+仁:*	仁	humanity
+卵:*	卵	egg
+干:*	干	dry
+頂:*	頂	place on the head
+穴:*	穴	hole
+暖:*	暖	warmth
+朗:*	朗	melodious
+肺:*	肺	lungs
+熟:*	熟	ripen
+晩:*	晩	nightfall
+陛:*	陛	highness
+拝:*	拝	worship
+棒:*	棒	rod
+糖:*	糖	sugar
+覧:*	覧	perusal
+奮:*	奮	stirred up
+蒸:*	蒸	steam
+后:*	后	empress
+班:*	班	squad
+詞:*	詞	poetry
+寸:*	寸	measurement
+机:*	机	desk
+磁:*	磁	magnet
+灰:*	灰	ashes
+垂:*	垂	droop
+穀:*	穀	cereals
+絹:*	絹	silk
+尺:*	尺	shaku
+蚕:*	蚕	silkworm
+歳:*	歳	year-end
+企:*	企	plan
+沢:*	沢	swamp
+与:*	与	give
+援:*	援	aid
+施:*	施	carry out
+井:*	井	well
+違:*	違	differ
+鮮:*	鮮	fresh
+監:*	監	oversee
+環:*	環	ring
+審:*	審	examine
+欧:*	欧	Europe
+訴:*	訴	sue
+被:*	被	incur
+渡:*	渡	transit
+影:*	影	shadow
+含:*	含	include
+撃:*	撃	beat
+佐:*	佐	assist
+核:*	核	nucleus
+融:*	融	dissolve
+況:*	況	condition
+渉:*	渉	ford
+響:*	響	echo
+突:*	突	stab
+請:*	請	solicit
+攻:*	攻	aggression
+崎:*	崎	promontory
+督:*	督	coach
+催:*	催	sponsor
+及:*	及	reach out
+湾:*	湾	gulf
+離:*	離	detach
+摘:*	摘	pinch
+郎:*	郎	son
+捜:*	捜	search
+超:*	超	transcend
+療:*	療	heal
+捕:*	捕	catch
+振:*	振	shake
+介:*	介	jammed in
+迎:*	迎	welcome
+販:*	販	marketing
+献:*	献	offering
+幅:*	幅	hanging scroll
+維:*	維	fiber
+浜:*	浜	seacoast
+彼:*	彼	he
+般:*	般	generally
+塁:*	塁	bases
+邦:*	邦	home country
+舞:*	舞	dance
+遣:*	遣	dispatch
+抗:*	抗	confront
+雄:*	雄	male
+込:*	込	crowded
+緊:*	緊	tense
+換:*	換	interchange
+占:*	占	fortune telling
+廃:*	廃	abolish
+江:*	江	inlet
+頼:*	頼	trust
+僚:*	僚	colleague
+吉:*	吉	good luck
+途:*	途	route
+踏:*	踏	step
+抜:*	抜	slip out
+壊:*	壊	demolition
+債:*	債	bond
+伸:*	伸	expand
+爆:*	爆	explode
+儀:*	儀	ceremony
+継:*	継	inherit
+闘:*	闘	fight
+葬:*	葬	interment
+避:*	避	evade
+普:*	普	universal
+逮:*	逮	apprehend
+婚:*	婚	marriage
+齢:*	齢	age
+迫:*	迫	urge
+浮:*	浮	floating
+惑:*	惑	beguile
+崩:*	崩	crumble
+聴:*	聴	listen
+脱:*	脱	undress
+押:*	押	push
+倒:*	倒	overthrow
+了:*	了	complete
+患:*	患	afflicted
+締:*	締	tighten
+執:*	執	tenacious
+絡:*	絡	entwine
+房:*	房	tassel
+募:*	募	recruit
+撤:*	撤	remove
+払:*	払	pay
+削:*	削	plane
+措:*	措	set aside
+載:*	載	ride
+昇:*	昇	rise up
+陣:*	陣	camp
+為:*	為	do
+遅:*	遅	slow
+抑:*	抑	repress
+択:*	択	choose
+秀:*	秀	excel
+徴:*	徴	indications
+弾:*	弾	bullet
+償:*	償	reparation
+拠:*	拠	foothold
+香:*	香	incense
+更:*	更	grow late
+拒:*	拒	repel
+刑:*	刑	punish
+塚:*	塚	hillock
+致:*	致	doth
+抱:*	抱	embrace
+繰:*	繰	winding
+尾:*	尾	tail
+描:*	描	sketch
+恐:*	恐	fear
+鈴:*	鈴	small bell
+盤:*	盤	tray
+項:*	項	paragraph
+喪:*	喪	miss
+伴:*	伴	consort
+懸:*	懸	suspend
+戻:*	戻	re-
+巨:*	巨	gigantic
+震:*	震	quake
+越:*	越	cross over
+契:*	契	pledge
+掲:*	掲	put up (a notice)
+躍:*	躍	leap
+棄:*	棄	abandon
+触:*	触	contact
+邸:*	邸	residence
+依:*	依	reliant
+籍:*	籍	enroll
+汚:*	汚	dirty
+還:*	還	send back
+互:*	互	mutually
+慮:*	慮	prudence
+枠:*	枠	frame
+恵:*	恵	favor
+露:*	露	dew
+沖:*	沖	open sea
+逃:*	逃	escape
+緩:*	緩	slacken
+需:*	需	demand
+傾:*	傾	lean
+購:*	購	subscription
+充:*	充	allot
+緒:*	緒	thong
+跡:*	跡	tracks
+駐:*	駐	stop-over
+貢:*	貢	tribute
+却:*	却	instead
+端:*	端	edge
+紹:*	紹	introduce
+獲:*	獲	seize
+併:*	併	join
+徹:*	徹	penetrate
+衝:*	衝	collide
+焦:*	焦	char
+奪:*	奪	rob
+雇:*	雇	employ
+浦:*	浦	bay
+替:*	替	exchange
+析:*	析	chop
+譲:*	譲	defer
+称:*	称	appellation
+挑:*	挑	challenge
+誘:*	誘	entice
+紛:*	紛	distract
+促:*	促	stimulate
+慎:*	慎	humility
+控:*	控	withdraw
+贈:*	贈	presents
+握:*	握	grip
+俊:*	俊	sagacious
+薄:*	薄	dilute
+渋:*	渋	astringent
+銃:*	銃	gun
+携:*	携	portable
+奥:*	奥	heart
+診:*	診	checkup
+詰:*	詰	packed
+託:*	託	consign
+撮:*	撮	snapshot
+侵:*	侵	encroach
+括:*	括	fasten
+掛:*	掛	hang
+双:*	双	pair
+刺:*	刺	thorn
+到:*	到	arrival
+駆:*	駆	drive
+寝:*	寝	lie down
+透:*	透	transparent
+津:*	津	haven
+壁:*	壁	wall
+稲:*	稲	rice plant
+裂:*	裂	split
+敏:*	敏	cleverness
+是:*	是	just so
+排:*	排	repudiate
+裕:*	裕	abundant
+堅:*	堅	strict
+盗:*	盗	steal
+芝:*	芝	turf
+綱:*	綱	hawser
+扱:*	扱	handle
+顧:*	顧	look back
+訟:*	訟	sue
+戒:*	戒	commandment
+祉:*	祉	welfare
+誉:*	誉	reputation
+歓:*	歓	delight
+勧:*	勧	persuade
+騒:*	騒	boisterous
+閥:*	閥	clique
+甲:*	甲	armor
+縄:*	縄	straw rope
+揺:*	揺	swing
+免:*	免	excuse
+既:*	既	previously
+薦:*	薦	recommend
+隣:*	隣	neighboring
+悩:*	悩	trouble
+華:*	華	splendor
+御:*	御	honorable
+範:*	範	pattern
+隠:*	隠	conceal
+哲:*	哲	philosophy
+杉:*	杉	cedar
+釈:*	釈	explanation
+荒:*	荒	laid waste
+硬:*	硬	stiff
+妥:*	妥	gentle
+威:*	威	intimidate
+豪:*	豪	overpowering
+滞:*	滞	stagnate
+微:*	微	delicate
+隆:*	隆	hump
+埋:*	埋	bury
+症:*	症	symptoms
+暫:*	暫	temporarily
+肝:*	肝	liver
+喚:*	喚	yell
+妙:*	妙	exquisite
+袋:*	袋	sack
+索:*	索	cord
+襲:*	襲	attack
+吹:*	吹	blow
+懇:*	懇	sociable
+柄:*	柄	design
+驚:*	驚	wonder
+麻:*	麻	hemp
+封:*	封	seal
+娘:*	娘	daughter
+剤:*	剤	dose
+瀬:*	瀬	rapids
+趣:*	趣	gist
+陥:*	陥	collapse
+斎:*	斎	purification
+貫:*	貫	pierce
+仙:*	仙	hermit
+慰:*	慰	consolation
+賢:*	賢	intelligent
+旬:*	旬	10-day period (of the month)
+腕:*	腕	arm
+兼:*	兼	concurrently
+旨:*	旨	delicious
+即:*	即	instant
+柳:*	柳	willow
+偽:*	偽	falsehood
+較:*	較	contrast
+覇:*	覇	hegemony
+床:*	床	bed
+詳:*	詳	detailed
+抵:*	抵	resist
+脅:*	脅	threaten
+柔:*	柔	tender
+茂:*	茂	overgrown
+犠:*	犠	sacrifice
+距:*	距	long-distance
+雅:*	雅	gracious
+飾:*	飾	decorate
+網:*	網	netting
+竜:*	竜	dragon
+繁:*	繁	luxuriant
+殿:*	殿	Mr.
+濃:*	濃	concentrated
+翼:*	翼	wing
+潟:*	潟	lagoon
+魅:*	魅	fascination
+嫌:*	嫌	dislike
+斉:*	斉	adjusted
+敷:*	敷	spread
+擁:*	擁	embrace
+肩:*	肩	shoulder
+圏:*	圏	sphere
+零:*	零	zero
+罰:*	罰	penalty
+怒:*	怒	angry
+滅:*	滅	destroy
+礎:*	礎	cornerstone
+腐:*	腐	rot
+脚:*	脚	skids
+泊:*	泊	overnight
+尽:*	尽	exhaust
+杯:*	杯	counter for cupfuls
+僕:*	僕	me
+滑:*	滑	slippery
+孤:*	孤	orphan
+炎:*	炎	inflammation
+賠:*	賠	compensation
+寿:*	寿	longevity
+頑:*	頑	stubborn
+甘:*	甘	sweet
+鎖:*	鎖	chain
+彩:*	彩	coloring
+摩:*	摩	chafe
+励:*	励	encourage
+掃:*	掃	sweep
+掘:*	掘	dig
+輝:*	輝	radiance
+蓄:*	蓄	amass
+軸:*	軸	axis
+巡:*	巡	patrol
+疲:*	疲	exhausted
+稼:*	稼	earnings
+瞬:*	瞬	wink
+皆:*	皆	all
+砲:*	砲	cannon
+軟:*	軟	soft
+噴:*	噴	erupt
+沈:*	沈	sink
+誇:*	誇	boast
+祥:*	祥	auspicious
+牲:*	牲	animal sacrifice
+秩:*	秩	regularity
+帝:*	帝	sovereign
+唆:*	唆	tempt
+阻:*	阻	thwart
+泰:*	泰	peaceful
+賄:*	賄	bribe
+撲:*	撲	slap
+凍:*	凍	frozen
+堀:*	堀	ditch
+菊:*	菊	chrysanthemum
+絞:*	絞	strangle
+煙:*	煙	smoke
+縁:*	縁	affinity
+唯:*	唯	solely
+膨:*	膨	swell
+耐:*	耐	resistant
+恋:*	恋	romance
+塾:*	塾	cram school
+漏:*	漏	leak
+慶:*	慶	jubilation
+猛:*	猛	fierce
+芳:*	芳	perfume
+懲:*	懲	penal
+郊:*	郊	outskirts
+剣:*	剣	sabre
+腰:*	腰	loins
+踊:*	踊	jump
+彰:*	彰	patent
+棋:*	棋	chess piece
+恒:*	恒	constancy
+眠:*	眠	sleep
+揚:*	揚	hoist
+冒:*	冒	risk
+倫:*	倫	ethics
+陳:*	陳	exhibit
+憶:*	憶	recollection
+怖:*	怖	dreadful
+潜:*	潜	submerge
+珍:*	珍	rare
+克:*	克	overcome
+岳:*	岳	point
+概:*	概	outline
+拘:*	拘	arrest
+黙:*	黙	silence
+偏:*	偏	partial
+雰:*	雰	atmosphere
+遇:*	遇	interview
+諮:*	諮	consult with
+狭:*	狭	cramped
+喫:*	喫	consume
+卓:*	卓	eminent
+糧:*	糧	provisions
+簿:*	簿	register
+炉:*	炉	hearth
+殊:*	殊	particularly
+殖:*	殖	augment
+艦:*	艦	warship
+溶:*	溶	melt
+輩:*	輩	comrade
+奇:*	奇	strange
+慢:*	慢	ridicule
+謀:*	謀	conspire
+拍:*	拍	clap
+丈:*	丈	length
+寛:*	寛	tolerant
+覆:*	覆	capsize
+胞:*	胞	placenta
+涙:*	涙	tears
+隔:*	隔	isolate
+浄:*	浄	clean
+匹:*	匹	equal
+没:*	没	drown
+暇:*	暇	spare time
+貞:*	貞	upright
+鑑:*	鑑	specimen
+陰:*	陰	shade
+銘:*	銘	inscription
+鋭:*	鋭	pointed
+随:*	随	follow
+烈:*	烈	ardent
+尋:*	尋	inquire
+稿:*	稿	draft
+丹:*	丹	rust-colored
+啓:*	啓	disclose
+丘:*	丘	hill
+棟:*	棟	ridgepole
+壌:*	壌	lot
+漫:*	漫	cartoon
+玄:*	玄	mysterious
+粘:*	粘	sticky
+悟:*	悟	enlightenment
+舗:*	舗	shop
+妊:*	妊	pregnancy
+塗:*	塗	paint
+軒:*	軒	flats
+騰:*	騰	inflation
+遂:*	遂	consummate
+狂:*	狂	lunatic
+叫:*	叫	shout
+岐:*	岐	branch off
+緯:*	緯	horizontal
+培:*	培	cultivate
+衰:*	衰	decline
+艇:*	艇	rowboat
+屈:*	屈	yield
+淡:*	淡	thin
+抽:*	抽	pluck
+披:*	披	expose
+廷:*	廷	courts
+准:*	准	quasi-
+奨:*	奨	exhort
+浸:*	浸	immersed
+剰:*	剰	surplus
+胆:*	胆	gall bladder
+繊:*	繊	slender
+乾:*	乾	drought
+虚:*	虚	void
+霊:*	霊	spirits
+悔:*	悔	repent
+諭:*	諭	rebuke
+祈:*	祈	pray
+惨:*	惨	wretched
+虐:*	虐	tyrannize
+翻:*	翻	flip
+墜:*	墜	crash
+沼:*	沼	marsh
+据:*	据	set
+徐:*	徐	gradually
+搭:*	搭	board
+髪:*	髪	hair of the head
+忙:*	忙	busy
+盾:*	盾	shield
+滝:*	滝	waterfall
+軌:*	軌	rut
+妨:*	妨	disturb
+擦:*	擦	grate
+鯨:*	鯨	whale
+荘:*	荘	villa
+諾:*	諾	consent
+雷:*	雷	thunder
+漂:*	漂	drift
+懐:*	懐	pocket
+勘:*	勘	intuition
+栽:*	栽	plantation
+拐:*	拐	kidnap
+駄:*	駄	burdensome
+添:*	添	annexed
+汗:*	汗	sweat
+冠:*	冠	crown
+斜:*	斜	diagonal
+浪:*	浪	wandering
+亜:*	亜	Asia
+詐:*	詐	lie
+壇:*	壇	podium
+勲:*	勲	meritorious deed
+魔:*	魔	witch
+酬:*	酬	repay
+紫:*	紫	purple
+湿:*	湿	damp
+紋:*	紋	family crest
+卸:*	卸	wholesale
+欄:*	欄	column
+逸:*	逸	deviate
+涯:*	涯	horizon
+拓:*	拓	clear (the land)
+瓶:*	瓶	flower pot
+獄:*	獄	prison
+尚:*	尚	esteem
+彫:*	彫	carve
+咲:*	咲	blossom
+穏:*	穏	calm
+顕:*	顕	appear
+巧:*	巧	adroit
+矛:*	矛	halberd
+垣:*	垣	hedge
+召:*	召	seduce
+欺:*	欺	deceit
+釣:*	釣	angling
+缶:*	缶	tin can
+粧:*	粧	cosmetics
+隻:*	隻	vessels
+脂:*	脂	fat
+粛:*	粛	solemn
+愚:*	愚	foolish
+遭:*	遭	encounter
+架:*	架	erect
+鬼:*	鬼	ghost
+庶:*	庶	commoner
+肌:*	肌	texture
+稚:*	稚	immature
+靴:*	靴	shoes
+滋:*	滋	nourishing
+幻:*	幻	phantasm
+煮:*	煮	boil
+姫:*	姫	princess
+誓:*	誓	vow
+把:*	把	grasp
+践:*	践	tread
+呈:*	呈	display
+疎:*	疎	alienate
+仰:*	仰	face-up
+鈍:*	鈍	dull
+恥:*	恥	shame
+剛:*	剛	sturdy
+疾:*	疾	rapidly
+征:*	征	subjugate
+砕:*	砕	smash
+謡:*	謡	noh chanting
+嫁:*	嫁	marry into
+謙:*	謙	self-effacing
+嘆:*	嘆	sigh
+菌:*	菌	germ
+泥:*	泥	mud
+頻:*	頻	repeatedly
+琴:*	琴	harp
+棚:*	棚	shelf
+酷:*	酷	cruel
+宰:*	宰	superintend
+廊:*	廊	corridor
+寂:*	寂	loneliness
+隅:*	隅	corner
+偶:*	偶	accidentally
+伏:*	伏	prostrated
+辛:*	辛	spicy
+磨:*	磨	grind
+碁:*	碁	Go
+俗:*	俗	vulgar
+漠:*	漠	vague
+邪:*	邪	wicked
+晶:*	晶	sparkle
+墨:*	墨	black ink
+鎮:*	鎮	tranquilize
+洞:*	洞	den
+履:*	履	footgear
+劣:*	劣	inferiority
+殴:*	殴	assault
+娠:*	娠	with child
+奉:*	奉	observance
+憂:*	憂	melancholy
+朴:*	朴	crude
+亭:*	亭	pavilion
+姓:*	姓	surname
+筒:*	筒	cylinder
+怪:*	怪	suspicious
+粒:*	粒	grains
+偉:*	偉	admirable
+酔:*	酔	drunk
+惜:*	惜	pity
+穫:*	穫	harvest
+佳:*	佳	excellent
+潤:*	潤	wet
+悼:*	悼	lament
+乏:*	乏	destitution
+該:*	該	above-stated
+赴:*	赴	proceed
+桑:*	桑	mulberry
+髄:*	髄	marrow
+盆:*	盆	basin
+穂:*	穂	ear
+壮:*	壮	robust
+堤:*	堤	dike
+飢:*	飢	hungry
+傍:*	傍	bystander
+疫:*	疫	epidemic
+累:*	累	accumulate
+痴:*	痴	stupid
+搬:*	搬	conveyor
+畳:*	畳	tatami mat
+癒:*	癒	healing
+郭:*	郭	enclosure
+尿:*	尿	urine
+凶:*	凶	villain
+吐:*	吐	spit
+宴:*	宴	banquet
+賓:*	賓	V.I.P.
+虜:*	虜	captive
+膚:*	膚	skin
+陶:*	陶	pottery
+鐘:*	鐘	bell
+憾:*	憾	remorse
+昆:*	昆	descendants
+粗:*	粗	coarse
+訂:*	訂	revise
+傘:*	傘	umbrella
+騎:*	騎	equestrian
+寧:*	寧	rather
+濯:*	濯	laundry
+循:*	循	sequential
+忍:*	忍	endure
+猫:*	猫	cat
+怠:*	怠	neglect
+如:*	如	likeness
+寮:*	寮	dormitory
+塔:*	塔	pagoda
+沸:*	沸	seethe
+鉛:*	鉛	lead
+珠:*	珠	pearl
+凝:*	凝	congeal
+苗:*	苗	seedling
+獣:*	獣	animal
+哀:*	哀	pathetic
+跳:*	跳	hop
+匠:*	匠	artisan
+菓:*	菓	candy
+蛇:*	蛇	snake
+澄:*	澄	lucidity
+縫:*	縫	sew
+僧:*	僧	Buddhist priest
+幾:*	幾	how many
+眺:*	眺	stare
+唐:*	唐	T'ang
+呉:*	呉	give
+凡:*	凡	mediocre
+憩:*	憩	recess
+溝:*	溝	gutter
+恭:*	恭	respect
+刈:*	刈	reap
+睡:*	睡	drowsy
+錯:*	錯	confused
+伯:*	伯	chief
+帽:*	帽	cap
+陵:*	陵	mausoleum
+霧:*	霧	fog
+魂:*	魂	soul
+枯:*	枯	wither
+弊:*	弊	abuse
+妃:*	妃	queen
+舶:*	舶	liner
+餓:*	餓	starve
+窮:*	窮	hard up
+掌:*	掌	manipulate
+麗:*	麗	lovely
+臭:*	臭	stinking
+悦:*	悦	ecstasy
+刃:*	刃	blade
+縛:*	縛	truss
+暦:*	暦	calendar
+宜:*	宜	best regards
+盲:*	盲	blind
+粋:*	粋	chic
+辱:*	辱	embarrass
+轄:*	轄	control
+猿:*	猿	monkey
+弦:*	弦	bowstring
+窒:*	窒	plug up
+炊:*	炊	cook
+洪:*	洪	deluge
+摂:*	摂	vicarious
+飽:*	飽	sated
+冗:*	冗	superfluous
+涼:*	涼	refreshing
+桃:*	桃	peach tree
+狩:*	狩	hunt
+舟:*	舟	boat
+朱:*	朱	vermilion
+渦:*	渦	whirlpool
+紳:*	紳	sire
+枢:*	枢	hinge
+碑:*	碑	tombstone
+鍛:*	鍛	forge
+鼓:*	鼓	drum
+裸:*	裸	naked
+符:*	符	token
+猶:*	猶	furthermore
+塊:*	塊	clod
+旋:*	旋	rotation
+幣:*	幣	cash
+膜:*	膜	membrane
+扇:*	扇	fan
+憎:*	憎	hate
+槽:*	槽	vat
+慈:*	慈	mercy
+肯:*	肯	agreement
+伐:*	伐	fell
+漬:*	漬	pickling
+燥:*	燥	parch
+糾:*	糾	twist
+墳:*	墳	tomb
+坪:*	坪	two-mat area
+畜:*	畜	livestock
+紺:*	紺	dark blue
+慌:*	慌	disconcerted
+娯:*	娯	recreation
+羅:*	羅	gauze
+坊:*	坊	boy
+峡:*	峡	gorge
+俸:*	俸	stipend
+厘:*	厘	rin
+峰:*	峰	summit
+醸:*	醸	brew
+弔:*	弔	condolences
+乙:*	乙	the latter
+汁:*	汁	soup
+尼:*	尼	nun
+遍:*	遍	everywhere
+衡:*	衡	equilibrium
+薫:*	薫	fragrant
+猟:*	猟	game-hunting
+款:*	款	goodwill
+閲:*	閲	review
+偵:*	偵	spy
+喝:*	喝	hoarse
+敢:*	敢	daring
+胎:*	胎	womb
+酵:*	酵	fermentation
+憤:*	憤	aroused
+豚:*	豚	pork
+遮:*	遮	intercept
+扉:*	扉	front door
+硫:*	硫	sulphur
+赦:*	赦	pardon
+挟:*	挟	pinch
+窃:*	窃	stealth
+泡:*	泡	bubbles
+又:*	又	or again
+慨:*	慨	rue
+紡:*	紡	spinning
+恨:*	恨	regret
+肪:*	肪	obese
+扶:*	扶	aid
+戯:*	戯	frolic
+忌:*	忌	mourning
+濁:*	濁	voiced
+奔:*	奔	bustle
+斗:*	斗	Big Dipper
+迅:*	迅	swift
+肖:*	肖	resemblance
+鉢:*	鉢	bowl
+朽:*	朽	decay
+殻:*	殻	husk
+享:*	享	receive
+藩:*	藩	clan
+曇:*	曇	cloudy weather
+媒:*	媒	mediator
+鶏:*	鶏	chicken
+禅:*	禅	Zen
+嘱:*	嘱	entrust
+胴:*	胴	trunk
+迭:*	迭	transfer
+挿:*	挿	insert
+陪:*	陪	obeisance
+剖:*	剖	divide
+譜:*	譜	musical score
+悠:*	悠	permanence
+淑:*	淑	graceful
+帆:*	帆	sail
+暁:*	暁	daybreak
+傑:*	傑	greatness
+奴:*	奴	guy
+錠:*	錠	lock
+遷:*	遷	transition
+拙:*	拙	bungling
+侍:*	侍	waiter
+峠:*	峠	mountain peak
+篤:*	篤	fervent
+渇:*	渇	thirst
+叔:*	叔	uncle
+雌:*	雌	feminine
+堪:*	堪	withstand
+叙:*	叙	confer
+酢:*	酢	vinegar
+吟:*	吟	versify
+逓:*	逓	relay
+甚:*	甚	tremendously
+崇:*	崇	adore
+漆:*	漆	lacquer
+岬:*	岬	headland
+癖:*	癖	mannerism
+愉:*	愉	pleasure
+礁:*	礁	reef
+屯:*	屯	barracks
+姻:*	姻	matrimony
+擬:*	擬	mimic
+塀:*	塀	fence
+唇:*	唇	lips
+閑:*	閑	leisure
+幽:*	幽	seclude
+曹:*	曹	cadet
+詠:*	詠	recitation
+卑:*	卑	lowly
+侮:*	侮	scorn
+鋳:*	鋳	casting
+抹:*	抹	rub
+尉:*	尉	military officer
+隷:*	隷	slave
+禍:*	禍	calamity
+酪:*	酪	dairy products
+茎:*	茎	stalk
+帥:*	帥	commander
+逝:*	逝	departed
+滴:*	滴	drip
+匿:*	匿	hide
+襟:*	襟	collar
+蛍:*	蛍	lightning-bug
+寡:*	寡	widow
+痢:*	痢	diarrhea
+庸:*	庸	commonplace
+坑:*	坑	pit
+賊:*	賊	burglar
+搾:*	搾	squeeze
+畔:*	畔	paddy-ridge
+孔:*	孔	cavity
+拷:*	拷	torture
+嬢:*	嬢	lass
+渓:*	渓	mountain stream
+翁:*	翁	venerable old man
+廉:*	廉	bargain
+謹:*	謹	discreet
+窯:*	窯	kiln
+褒:*	褒	praise
+醜:*	醜	ugly
+升:*	升	measuring box
+殉:*	殉	martyrdom
+煩:*	煩	anxiety
+劾:*	劾	censure
+堕:*	堕	degenerate
+租:*	租	tariff
+桟:*	桟	scaffold
+婿:*	婿	bridegroom
+慕:*	慕	pining
+罷:*	罷	quit
+矯:*	矯	rectify
+某:*	某	so-and-so
+囚:*	囚	captured
+泌:*	泌	ooze
+漸:*	漸	steadily
+蚊:*	蚊	mosquito
+厄:*	厄	unlucky
+藻:*	藻	seaweed
+嫡:*	嫡	legitimate wife
+嚇:*	嚇	menacing
+凸:*	凸	convex
+韻:*	韻	rhyme
+霜:*	霜	frost
+硝:*	硝	nitrate
+勅:*	勅	imperial order
+棺:*	棺	coffin
+儒:*	儒	Confucian
+愁:*	愁	distress
+楼:*	楼	watchtower
+薪:*	薪	fuel
+褐:*	褐	brown
+賜:*	賜	grant
+繕:*	繕	darning
+栓:*	栓	plug
+凹:*	凹	concave
+伺:*	伺	pay respects
+錬:*	錬	tempering
+衷:*	衷	inmost
+逐:*	逐	pursue
+斥:*	斥	reject
+詔:*	詔	imperial edict
+宵:*	宵	wee hours
+妄:*	妄	delusion
+酌:*	酌	bartending
+頒:*	頒	partition
+肢:*	肢	limb
+謄:*	謄	mimeograph
+嗣:*	嗣	heir
+畝:*	畝	furrow
+抄:*	抄	extract
+惰:*	惰	lazy
+蛮:*	蛮	barbarian
+壱:*	壱	I (one)
+侯:*	侯	marquis
+弧:*	弧	arc
+附:*	附	affixed
+但:*	但	however
+芋:*	芋	potato
+婆:*	婆	old woman
+倣:*	倣	emulate
+倹:*	倹	frugal
+繭:*	繭	cocoon
+謁:*	謁	audience
+箇:*	箇	counters for things
+且:*	且	moreover
+斤:*	斤	axe
+虞:*	虞	uneasiness
+墾:*	墾	ground-breaking
+璽:*	璽	emperor's seal
+勺:*	勺	ladle
+爵:*	爵	baron
+遵:*	遵	abide by
+錘:*	錘	weight
+銑:*	銑	pig iron
+塑:*	塑	model
+脹:*	脹	dilate
+朕:*	朕	majestic plural
+痘:*	痘	pox
+弐:*	弐	II
+賦:*	賦	levy
+丙:*	丙	third class
+耗:*	耗	decrease
+匁:*	匁	monme
+濫:*	濫	excessive
+吏:*	吏	officer

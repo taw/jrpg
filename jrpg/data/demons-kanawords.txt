@@ -1,0 +1,237 @@
+アパート	apaato
+エレベーター	erebeetaa
+カメラ	kamera
+カレンダー	karendaa
+ギター	gitaa
+クラス	kurasu
+グラム	guramu
+コート	kooto
+コップ	koppu
+シャツ	syatu	shatsu
+スカート	sukaato
+ストーブ	sutoobu
+スプーン	supuun
+スポーツ	supootu	supootsu
+ズボン	zubon
+スリッパ	surippa
+セーター	seetaa
+ゼロ	zero
+タクシー	takusii	takushii
+テープ	teepu
+テーブル	teeburu
+テスト	tesuto
+デパート	depaato
+テレビ	terebi
+ドア	doa
+トイレ	toire
+ナイフ	naihu	naifu
+ニュース	nyuusu
+ネクタイ	nekutai
+ノート	nooto
+パーティー	paatii
+バス	basu
+バター	bataa
+パン	pan
+ハンカチ	hankati	hankachi
+フィルム	firumu
+プール	puuru
+フォーク	fooku
+パージ	paazi	paaji
+ベッド	beddo
+ペン	pen
+ボールペン	boorupen
+ポケット	poketto
+ボタン	botan
+ホテル	hoteru
+マッチ	matti	matchi
+メートル	meetoru
+ラジオ	razio	rajio
+レコード	rekoodo
+レストラン	resutoran
+ワイシャツ	waisyatu	waishatsu
+あかるい	akarui
+あさごはん	asagohan
+あさって	asatte
+あたたかい	atatakai
+あたらしい	atarasii	atarashii
+あぶない	abunai
+いそがしい	isogasii	isogashii
+いちにち	itiniti	ichinichi
+いちばん	itiban	ichiban
+いっしょ	issyo	issho
+いもうと	imouto
+いりぐち	iriguti	iriguchi
+いろいろ	iroiro
+うまれる	umareru
+えいがかん	eigakan
+えんぴつ	enpitu	enpitsu
+おいしい	oisii	oishii
+おおきい	ookii
+おおぜい	oozei
+おかあさん	okaasan
+おくさん	okusan
+おじいさん	oziisan	ojiisan
+おしえる	osieru	oshieru
+おてあらい	otearai
+おとうさん	otousan
+おとうと	otouto
+おとこのこ	otokonoko
+おととい	ototoi
+おととし	ototosi	ototoshi
+おにいさん	oniisan
+おねえさん	oneesan
+おばあさん	obaasan
+おべんとう	obentou
+おぼえる	oboeru
+おもしろい	omosiroi	omoshiroi
+おんがく	ongaku
+おんなのこ	onnanoko
+がいこく	gaikoku
+がいこくじん	gaikokuzin	gaikokujin
+かいしゃ	kaisya	kaisha
+かいだん	kaidan
+かいもの	kaimono
+がくせい	gakusei
+かたかな	katakana
+がっこう	gakkou
+かようび	kayoubi
+かわいい	kawaii
+きいろい	kiiroi
+きたない	kitanai
+きっさてん	kissaten
+ぎゅうにく	gyuuniku
+きょうしつ	kyousitu	kyoushitsu
+きょうだい	kyoudai
+きょねん	kyonen
+ぎんこう	ginkou
+きんようび	kinyoubi
+ください	kudasai
+くだもの	kudamono
+くつした	kutusita	kutsushita
+けっこう	kekkou
+けっこん	kekkon
+げつようび	getuyoubi	getsuyoubi
+げんかん	genkan
+こうえん	kouen
+こうばん	kouban
+ここのか	kokonoka
+ここのつ	kokonotu	kokonotsu
+ごしゅじん	gosyuzin	goshujin
+こたえる	kotaeru
+こんげつ	kongetu	kongetsu
+こんしゅう	konsyuu	konshuu
+こんばん	konban
+さくぶん	sakubun
+さらいねん	sarainen
+しつもん	situmon	shitsumon
+じてんしゃ	zitensya	jitensha
+じどうしゃ	zidousya	jidousha
+しゃしん	syasin	shashin
+じゅぎょう	zyugyou	jugyou
+しゅくだい	syukudai	shukudai
+じょうず	zyouzu	jouzu
+じょうぶ	zyoubu	joubu
+しょうゆ	syouyu	shouyu
+しょくどう	syokudou	shokudou
+しんぶん	sinbun	shinbun
+すいようび	suiyoubi
+すずしい	suzusii	suzushii
+せっけん	sekken
+せんげつ	sengetu	sengetsu
+せんしゅう	sensyuu	senshuu
+せんせい	sensei
+せんたく	sentaku
+そうして	sousite	soushite
+それから	sorekara
+それでは	soredeha
+だいがく	daigaku
+たいしかん	taisikan	taishikan
+だいじょうぶ	daizyoubu	daijoubu
+だいすき	daisuki
+たいせつ	taisetu	taisetsu
+たいてい	taitei
+だいどころ	daidokoro
+たくさん	takusan
+たてもの	tatemono
+たのしい	tanosii	tanoshii
+たべもの	tabemono
+たんじょうび	tanzyoubi	tanjoubi
+だんだん	dandan
+ちいさい	tiisai	chiisai
+ちかてつ	tikatetu	chikatetsu
+ちゃいろ	tyairo	chairo
+ちゃわん	tyawan	chawan
+ちょうど	tyoudo	choudo
+ちょっと	tyotto	chotto
+ついたち	tuitati	tsuitachi
+つかれる	tukareru	tsukareru
+つとめる	tutomeru	tsutomeru
+つまらない	tumaranai	tsumaranai
+つめたい	tumetai	tsumetai
+でかける	dekakeru
+でんしゃ	densya	densha
+どうして	dousite	doushite
+どうぶつ	doubutu	doubutsu
+ときどき	tokidoki
+としょかん	tosyokan	toshokan
+ともだち	tomodati	tomodachi
+どようび	doyoubi
+とりにく	toriniku
+なつやすみ	natuyasumi	natsuyasumi
+ならべる	naraberu
+にぎやか	nigiyaka
+にちようび	nitiyoubi	nichiyoubi
+のみもの	nomimono
+はいざら	haizara
+はじまる	hazimaru	hajimaru
+はじめて	hazimete	hajimete
+はじめに	hazimeni	hajimeni
+はたらく	hataraku
+ばんごう	bangou
+ばんごはん	bangohan
+はんぶん	hanbun
+ひこうき	hikouki
+ひとつき	hitotuki	hitotsuki
+びょういん	byouin
+びょうき	byouki
+ひらがな	hiragana
+ひるごはん	hirugohan
+ふうとう	huutou	fuutou
+ぶたにく	butaniku
+べんきょう	benkyou
+ほんだな	hondana
+ほんとうに	hontouni
+まいあさ	maiasa
+まいげつ	maigetu	maigetsu
+まいしゅう	maisyuu	maishuu
+まいつき	maituki	maitsuki
+まいとし	maitosi	maitoshi
+まいにち	mainiti	mainichi
+まいねん	mainen
+まいばん	maiban
+まっすぐ	massugu
+まんねんひつ	mannenhitu	mannenhitsu
+みじかい	mizikai	mijikai
+みなさん	minasan
+むずかしい	muzukasii	muzukashii
+もくようび	mokuyoubi
+もしもし	mosimosi	moshimoshi
+もちろん	motiron	mochiron
+もんだい	mondai
+やさしい	yasasii	yasashii
+ゆうがた	yuugata
+ゆうびんきょく	yuubinkyoku
+ゆうめい	yuumei
+ゆっくり	yukkuri
+ようふく	youhuku	youfuku
+らいげつ	raigetu	raigetsu
+らいしゅう	raisyuu	raishuu
+らいねん	rainen
+りゅうがくせい	ryuugakusei
+りょうしん	ryousin	ryoushin
+りょうり	ryouri
+りょこう	ryokou
+れいぞうこ	reizouko
+れんしゅう	rensyuu	renshuu
+わすれる	wasureru
+わたくし	watakusi	watakushi
