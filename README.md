@@ -13,3 +13,16 @@ Code
 The code is pretty messy, and is was not originally intended for public consumption.
 
 Cleanup pull requests welcome.
+
+The game was designed for Python 2.7.
+You need Pygame library to get it working, and additionally wxwidgets library for level editor.
+
+What to run?
+============
+
+`jrpg.py` - the game itself
+`level_editor.py` - level editor for the game
+`jrpg2demo.py` - demo for jrpg in PS1 style, not meant for serious use
+
+`sciripts` and `extra_scripts` directories and `Rakefile` contain a lot of
+completely undocumented data preprocessing and other such tasks.

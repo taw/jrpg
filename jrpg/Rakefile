@@ -1,0 +1,89 @@
+task :default => :compile
+
+GENERATED_FILES = %w[data/demons-kanji.txt data/demons-kanawords.txt data/tanaka.txt data/tanaka_idx.txt]
+
+desc "Compile data files"
+task :compile => GENERATED_FILES
+
+file "data/demons-kanji.txt" => ["data/demons-kanji-source.txt", "demons-kanji-preprocess.pl"] do
+    sh "./demons-kanji-preprocess.pl <data/demons-kanji-source.txt >data/demons-kanji.txt"
+end
+
+file "data/demons-kanawords.txt" => ["data/demons-kanawords-source.txt", "demons-kanawords-preprocess.pl"] do
+    sh "./demons-kanawords-preprocess.pl <data/demons-kanawords-source.txt >data/demons-kanawords.txt"
+end
+
+["data/tanaka.txt", "data/tanaka_idx.txt"].each{|fn|
+    file fn => ["tanaka_preprocess.pl", "data/tanaka_raw.u8", "data/demons-kanji.txt"] do
+        sh "./tanaka_preprocess.pl"
+    end
+}
+
+desc "Build jrpg package"
+task :package => :compile do
+    date_string = Time.new.gmtime.strftime("%Y-%m-%d-%H-%M")
+    files = FileList[*%w[
+        images/angband.png images/arab-trader.png images/elf-monk.png
+        images/elf-trader.png images/female-blue.png images/king.png
+        images/nurse.png images/soldier-axe.png images/soldier-elf.png
+        images/wizard-gray.png images/dwarf-smith.png
+        images/jrpg-icon.png images/angel-blue.png
+        DESIGN README
+        font/kochi-gothic.ttf
+        jrpg.py
+        kana.py
+        demonsoul.py
+        images.py
+        util.py
+        terrain.py
+        level_editor.py
+        data/demons-kana.txt
+        data/demons-kanawords.txt
+        data/demons-kanji.txt
+        data/hints-kanji.txt
+        data/tanaka.txt
+        data/tanaka_idx.txt
+        maps/*.map
+        images/bg-*.jpg
+        ]]
+    files = files.map{|f| "jrpg/#{f}"}
+    Dir.chdir("..") {
+        sh "tar", "-z", "-c", "-f", "website/packages/jrpg-#{date_string}.tar.gz", *files
+        sh "zip", "-q", "website/packages/jrpg-#{date_string}.zip", *files
+    }
+end
+
+desc "Build jrpg 2 package"
+task :package2 => :compile do
+    date_string = Time.new.gmtime.strftime("%Y-%m-%d-%H-%M")
+    files = FileList[*%w[
+            freya/*
+            doc/*
+            red_spider/*
+            images/jrpg-icon.png images/bushes_tileset.png images/grund_iso_tileset.png
+            images/farmhouse_iso_tileset.png images/foresters_lodge_fix_tileset_1.png
+            images/small_temple_iso_tileset.png
+            images/trees_tileset.png images/rocks_iso_tileset_-_bad.png
+            data/demons-kana.txt data/demons-kanawords.txt
+            data/demons-kanji.txt data/hints-kanji.txt
+            jrpg2demo.py resman.py spatial_index.py
+            kana.py demonsoul.py util.py
+            data/tanaka.txt data/tanaka_idx.txt
+            font/kochi-gothic.ttf
+        ]]
+    files = files.map{|f| "jrpg/#{f}"}
+    Dir.chdir("..") {
+        sh "tar", "-z", "-c", "-f", "website/packages/jrpg2-#{date_string}.tar.gz", *files
+        sh "zip", "-q", "website/packages/jrpg2-#{date_string}.zip", *files
+    }
+end
+
+desc "Clean generated files"
+task :clean do
+    rm_f GENERATED_FILES
+end
+
+desc "Run all tests (none at the moment, sorry)"
+task :test do
+    # No automatic test implemented yet
+end
