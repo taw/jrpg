@@ -1223,9 +1223,9 @@ class Battle_UI:
                         sys.exit()
                 elif event.key == pygame.K_TAB or event.key == pygame.K_F12:
                     mhc.closeup()
-                elif event.key >= 97 and event.key <= 122: #'a'..'z'
-                    self.chara_buf = self.chara_buf + chr(event.key)
-                elif event.key == 32: # space
+                elif event.unicode >= 'a' and event.unicode <= 'z':
+                    self.chara_buf = self.chara_buf + event.unicode
+                elif event.unicode == ' ':
                     self.chara_attack(self.battle_model)
                 elif event.key == pygame.K_BACKSPACE:
                     self.bs_repeat = -1
