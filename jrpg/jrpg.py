@@ -115,6 +115,7 @@ class UI:
         # pygame.display.flip() has different behaviour under Windows and Mac
         self.running_under_windows = False
         self.running_under_mac = False
+        self.running_fullscreen = True
 
         driver_name = pygame.display.get_driver()
         if driver_name == 'directx':
@@ -155,6 +156,17 @@ class UI:
         
         self.stats_cache      = Cached(lambda: mhc.render_statistics(self.stats_viewport), mhc.nctl_stats_changed)
         self.msg_cache        = Cached(lambda: self.msg_render(), self.nctl_msg_changed)
+    def toggle_fullscreen(self):
+        if self.running_fullscreen:
+			self.screen = pygame.display.set_mode((0,0),pygame.HWSURFACE|pygame.DOUBLEBUF|pygame.RESIZABLE)
+			self.running_fullscreen = False
+			self.stats_cache.invalidate()
+			self.msg_cache.invalidate()
+        else:
+			self.screen = pygame.display.set_mode((0,0),pygame.HWSURFACE|pygame.DOUBLEBUF|pygame.FULLSCREEN)
+			self.running_fullscreen = True
+			self.stats_cache.invalidate()
+			self.msg_cache.invalidate()
     def msg_render(self):
         self.msg_viewport.fill((0,0,0))
         self.render_text_multicolor(self.msg_viewport, self.font, self.text, (32,32), (0,0), 24)
@@ -176,7 +188,7 @@ class UI:
             U"F4        - Load game                                     ",
             U"TAB       - Take a closer look at the last demon          ",
             U"Arrows    - move around                                   ",
-            U"Enter     - Toggle fullscreen (doesn't work under Windows)",
+            U"Enter     - Toggle fullscreen                             ",
             U"Escape    - Exit game                                     ",
             U"BATTLE MODE",
             U"A-Z       - Type demon names                              ",
@@ -200,7 +212,7 @@ class UI:
                     quick_help_mode = False
                     self.key_down(event.key)
                     if event.key == pygame.K_RETURN:
-                        pygame.display.toggle_fullscreen()
+                        self.toggle_fullscreen()
                     elif event.key == pygame.K_ESCAPE:
                         mhc.exit()
                     elif event.key == pygame.K_F1:
@@ -224,7 +236,7 @@ class UI:
             elif event.type == pygame.KEYDOWN:
                 self.key_down(event.key)
                 if event.key == pygame.K_RETURN:
-                    pygame.display.toggle_fullscreen()
+                    self.toggle_fullscreen()
                 elif event.key == pygame.K_ESCAPE:
                     mhc.exit()
                 elif event.key == pygame.K_F1:
@@ -1200,7 +1212,7 @@ class Battle_UI:
                 if ui.key[pygame.K_BACKSPACE] and event.key != pygame.K_BACKSPACE:
                     ui.key_up(pygame.K_BACKSPACE)
                 if event.key == pygame.K_RETURN:
-                    pygame.display.toggle_fullscreen()
+                    ui.toggle_fullscreen()
                 elif event.key == pygame.K_ESCAPE:
                     if mhc.make_exit_warning:
                         ui.change_text([U"Something happened since the last saving",
