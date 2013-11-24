@@ -12,6 +12,7 @@ import codecs # Python Unicode Brain Damage
 import images
 import demonsoul
 import util
+from mistakes import Mistakes
 from util import sgn, Cached, Notifier, fun_sort
 from terrain import corner_shader
 
@@ -42,9 +43,9 @@ images_dir = "images/"
 # Under Linux you can switch between windowed and fullscreen mode just by pressing Enter
 # Under Windows it unfortunately does not work, and you need to select the mode here
 # The default is to start in full screen mode.
-full_screen_mode = True
+full_screen_mode = False
 # Bad things may happen if you set debug_mode = True
-debug_mode       = False
+debug_mode       = True
 
 # It may throw an exception on non-Unicode terminals, sorry
 #savefile_verification = True # Always disable for public release
@@ -225,6 +226,57 @@ class UI:
                         mhc.closeup()
                 elif event.type == pygame.KEYUP:
                     self.key_up(event.key)
+
+            ui.tick()
+        quick_help_viewport.fill((0,0,0))
+
+
+    def see_history(self):
+        help = [
+            U"WORLD MODE",
+            U"F1        - Quick help                                    ",
+            U"F2        - Save game                                     ",
+            U"F4        - Load game                                     ",
+            U"TAB       - Take a closer look at the last demon          ",
+            U"Arrows    - move around                                   ",
+            U"Enter     - Toggle fullscreen                             ",
+            U"Escape    - Exit game                                     ",
+            U"BATTLE MODE",
+            U"A-Z       - Type demon names                              ",
+            U"Backspace - Erase text                                    ",
+            U"Space     - Accept text                                   ",
+            U"Press any key to continue",
+        ]
+
+        quick_help_viewport = self.screen.subsurface((0,0),(640,320))
+        self.stats_cache.invalidate()
+        quick_help_viewport.fill((0,0,128))
+
+        self.render_text_unicolor(quick_help_viewport, ui.font, help, (320,0), (0.5, 0), (0,255,0), 24)
+
+        quick_help_mode = True
+        while quick_help_mode:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    sys.exit()
+                elif event.type == pygame.KEYDOWN:
+                    quick_help_mode = False
+                    self.key_down(event.key)
+                    if event.key == pygame.K_RETURN:
+                        self.toggle_fullscreen()
+                    elif event.key == pygame.K_ESCAPE:
+                        mhc.exit()
+                    elif event.key == pygame.K_F1:
+                        self.quick_help()
+                    elif event.key == pygame.K_F2:
+                        mhc.save()
+                    elif event.key == pygame.K_F4:
+                        mhc.load()
+                    elif event.key == pygame.K_TAB or event.key == pygame.K_F12:
+                        mhc.closeup()
+                elif event.type == pygame.KEYUP:
+                    self.key_up(event.key)
+
             ui.tick()
         quick_help_viewport.fill((0,0,0))
 
@@ -247,6 +299,9 @@ class UI:
                     mhc.load()
                 elif event.key == pygame.K_TAB or event.key == pygame.K_F12:
                     mhc.closeup()
+                elif event.key == pygame.K_F7:
+                    self.see_history()
+
                 elif debug_mode and event.key == ord('e'): # debug
                     mhc.receive_money(1)
                 elif debug_mode and event.key == ord('x'): # debug
@@ -1049,7 +1104,7 @@ class Enemy_in_battle:
         #print ("DEBUG sub sns ?: %s %s" % (self.demon.sub_sns(), self.fresh))
         if self.demon.sub_sns() and self.fresh:
             ui.render_text_unicolor(target, ui.font,
-                [U"  ".join(self.demon.secret_names())],(32,128), (0.0, 0.0), color_hint
+                [U"  ".join(self.demon.get_good_response())],(32,128), (0.0, 0.0), color_hint
             )
     def move(self):
         self.dx = self.dx + normalvariate(0,1)
@@ -1115,10 +1170,8 @@ class Battle_model:
         self.nctl_demonname_changed.fire()
     def kill_active(self, victim):
         ui.change_text([
-            U"You slayed demon %s (%s)." % (
-                victim.demon.short_dn(),
-                " ".join(victim.demon.secret_names())
-        )])
+                victim.demon.get_success_message() 
+        ])
 
         if self.active == -1:
             return
@@ -1129,9 +1182,7 @@ class Battle_model:
             raise End_of_battle(True) # battle won
         self.switch_active()
     def counter_attack(self, attacker, damage):
-        ui.change_text([U"Demon %s (%s) hit you for %d points" %
-            (attacker.demon.short_dn(), " ".join(attacker.demon.secret_names()), damage)
-            ], (255,0,0))
+        ui.change_text([attacker.demon.get_fail_message(damage)], (255,0,0))
         if not attacker.fresh:
             ui.append_text(attacker.get_hints(), (0,255,0))
         self.chara_hit(damage)
@@ -1262,6 +1313,10 @@ class World_model:
         self.map_db["hospital"] = {
             "tiles": self.load_map("maps/hospital.map"),
             "setup": lambda: self.map_setup_hospital(),
+        }
+        self.map_db["new cave"] = {
+            "tiles": self.load_map("maps/new_cave.map"),
+            "setup": lambda: self.map_setup_new_cave(),
         }
         self.map_db["library"] = {
             "tiles": self.load_map("maps/library.map"),
@@ -1484,6 +1539,20 @@ class World_model:
         # (mostly for teleports after lost battles)
         if emergency_healing:
             nurse_healing()
+
+
+#####################################################################
+# seconde Map                                                       #
+#####################################################################
+    def map_setup_new_cave(self):
+        self.wormhole((5, 9),"world",(2,37))
+        def intro_text():
+            ui.change_text([U"Now take the blue crystal back to the smith"])
+        self.add_chara("nurse",route=[(1,5), (8,5)],event=intro_text)
+        for (x,y) in self.random_clear_tiles(0.2,range(2,29),range(2,14)):
+            self.add_enemy((x,y),'dungeon',choice(cave_enemies),[2,(3,100)],1)
+
+
 
 #####################################################################
 # Cave                                                              #
@@ -1991,6 +2060,7 @@ class World_model:
         self.wormhole((35,37), "angel sanctuary", (5,1))
         self.wormhole((41,37), "blacksmith", (5,1))
         self.wormhole((2,36),"hospital",(5,8)) # Hospital wormhole
+        #self.wormhole((5,36),"new cave",(6,8)) # Hospital wormhole
 
         ###############################
         # CASTLE SOLDIERS AND EVENTS  #
@@ -2143,6 +2213,12 @@ class World_model:
         # CAVE ENTRANCE               #
         ###############################
         self.wormhole((61,37),"cave",(1,7))
+        
+        
+        ###############################
+        # Training Room               #
+        ###############################
+        self.wormhole((5,29),"new cave",(1,7))
 
         ###############################
         # FOREST 2                    #
@@ -2179,7 +2255,7 @@ class World_model:
                     U"You've got bright green mushrooms.",
                     U"You need yellow and bright green mushrooms for the potion."])
         for (x,y) in self.random_clear_tiles(0.1,range(20,40),range(10,30)):
-            self.add_enemy((x,y),'marsh',choice(forest_enemies),[0,1,2],1)
+            self.add_enemy((x,y),'marsh',choice(forest_enemies),[0,1,2,4],1)
         # FIXME: new mushrooms will grow only if you leave the forest
         # To make it less annoying, let's double number of mushrooms
         for (x,y) in self.random_clear_tiles(0.1,range(20,40),range(10,30)):
@@ -2712,21 +2788,6 @@ dungeon_lvl_3_enemies = [
     "dragon small 7",
 ]
 
-###########################################################
-# Mistakes logger                                         #
-###########################################################
-
-# In this otherwise completely straightforward 3-line class
-# we have to deal with Python's Unicode Brain Damage
-class Mistakes:
-    def __init__(self):
-        y,mo,d,h,mi,s,wd,yd,isdst = time.localtime()
-        fn = "mistakes-%04d-%02d-%02d-%02d-%02d-%02d.txt" % (y,mo,d,h,mi,s)
-        #self.fh = open(fn, "ab")
-        self.fh = codecs.open(fn, mode="ab", encoding='utf-8')
-    def mistake(self, attack, soul):
-        msg = "Mistake: tried (%s) on demon (%s)\n" % (attack, soul.xp_code())
-        self.fh.write(msg)
 
 ###########################################################
 # Main                                                    #

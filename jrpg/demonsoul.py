@@ -14,6 +14,7 @@ from util import ordered_uniq
 hardcore_kana     = True
 hardcore_kanaword = True
 hardcore_kanji    = False
+hardcore_trad     = False
 
 ###########################################################
 # Class for managing xp                                   #
@@ -159,18 +160,37 @@ class DemonSoul:
     # def secret_names
     # def answer_ok
     # def hardcore_mode
+    
     def tanaka_key(self):
         return None
+    
     def sub_sns(self): # should we display secret names below the kanji when it's first seen ?
         return True
+    
     def subsumed_by(self):
         return -1
+    
     def finalize(self):
         return self
+    
     def get_hints(self):
         return None
+    
+    def get_success_message(self): 
+        return U"You slayed demon %s (%s)." % (
+                self.short_dn(),
+                " ".join(self.secret_names())
+        )
+
+    def get_fail_message(self, damage): 
+        return U"Demon %s (%s) hit you for %d points" % ( self.short_dn(),
+                "".join(self.secret_names()), damage)
+
     def __unicode__(self):
         return self.xp_code()
+
+
+
 class DemonSoulKana(DemonSoul):
     def __init__(self, kana, romajis):
         self.kana = kana
@@ -185,16 +205,23 @@ class DemonSoulKana(DemonSoul):
         return [(self.kana, None, False)]
     def secret_names(self):
         return self.romajis
+    def get_good_response(self):
+        return self.romajis
+
     def answer_ok(self, secret_name_guess):
         if secret_name_guess in self.romajis:
             return True
         return False
+    
     def hardcore_mode(self):
         return hardcore_kana
+
+
 class DemonSoulKanaword(DemonSoul):
-    def __init__(self, kanaword, romajis):
+    def __init__(self, kanaword, romajis, meanings):
         self.kanaword = kanaword
         self.romajis = romajis
+        self.meanings = [meanings]
         # Some wishful thinking:
         #kunrei = canonical_kunrei(displayed_name)
         #hepburn = canonical_hepburn(displayed_name)
@@ -212,12 +239,52 @@ class DemonSoulKanaword(DemonSoul):
         return [(self.kanaword, None, False)]
     def secret_names(self):
         return self.romajis
+    def meanings(self):
+        return self.meanings
     def answer_ok(self, secret_name_guess):
         if romaji_kana_match(secret_name_guess, self.kanaword):
             return True
         return False
+    def get_good_response(self):
+        return self.romajis
     def hardcore_mode(self):
         return hardcore_kanaword
+
+class DemonSoulTrad(DemonSoul):
+    def __init__(self, kanaword, romajis, meanings):
+        self.kanaword = kanaword
+        self.romajis = romajis
+        self.meanings = [meanings]
+        # Some wishful thinking:
+        #kunrei = canonical_kunrei(displayed_name)
+        #hepburn = canonical_hepburn(displayed_name)
+        #if kunrei == hepburn:
+        #    self.romajis = [kunrei]
+        #else:
+        #    self.romajis = [kunrei, hepburn]
+    def xp_code(self):
+        return self.kanaword + ":" + (":".join(self.romajis))
+    def xp_for_win(self):
+        return 2
+    def short_dn(self):
+        return "".join(self.meanings);
+    def furicode(self):
+        return [("".join(self.meanings), None, False)]
+    def secret_names(self):
+        return self.romajis
+    def meanings(self):
+        return self.meanings
+    def answer_ok(self, secret_name_guess):
+        if romaji_kana_match(secret_name_guess, self.kanaword):
+            return True
+        return False
+    
+    def get_good_response(self):
+        return "".join(self.kanaword)
+    
+    def hardcore_mode(self):
+        return hardcore_trad
+
 class DemonSoulKanji(DemonSoul):
     def __init__(self, kanji, kana, xp_for_win):
         # The last kana may be subsumed_by code actually
@@ -313,6 +380,9 @@ class DemonSoulKanji(DemonSoul):
         return self.furicode_val
     def secret_names(self):
         return self.secret_names_val
+    def get_good_response(self):
+        return self.secret_names_val
+
     def sub_sns(self):
         return self.sub_sns_val
     def subsumed_by(self):
@@ -358,6 +428,7 @@ class DemonSoulKanji(DemonSoul):
         return ordered_uniq(kanji_in_demon)
     def hardcore_mode(self):
         return hardcore_kanji
+
 # Aux class, do not call except from DemonSoulKanji#finalize()
 class DemonSoulKanjiFinalized(DemonSoul):
     def __init__(self, root, ending):
@@ -422,14 +493,19 @@ class Book_of_demons:
             self.demons[demon_class].append(d)
 
         self.demons[2] = []
+        self.demons[4] = []
         f = open("data/demons-kanawords.txt")
         lines = f.readlines()
         f.close()
         for line in lines:
             fields = unicode(line, "UTF-8").strip(U"\n").split(U"\t")
-            (kana, romajis) = (fields[0], fields[1:len(fields)])
-            d = DemonSoulKanaword(kana, romajis)
+            (kana, romajis, meanings) = (fields[0],
+                    fields[1:len(fields)-1],fields[-1])
+            d = DemonSoulKanaword(kana, romajis, meanings)
             self.demons[2].append(d)
+            d = DemonSoulTrad(kana, romajis, meanings)
+            self.demons[4].append(d)
+
         f = open("data/demons-kanji.txt")
         lines = f.readlines()
         f.close()
