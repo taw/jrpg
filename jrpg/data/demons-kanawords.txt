@@ -2,93 +2,94 @@
 エレベーター	erebeetaa	elevator
 カメラ	kamera	camera
 カレンダー	karendaa	calendar
-ギター	gitaa		guitar
+ギター	gitaa	guitar
 クラス	kurasu	class
 グラム	guramu	gram
-コート	kooto	coat
-コップ	koppu	cup
+コート	kooto	court
+コップ	koppu	glass
 シャツ	syatu	shatsu	shirt
 スカート	sukaato	skirt
-ストーブ	sutoobu	heater, stove
+ストーブ	sutoobu	stove
 スプーン	supuun	spoon
 スポーツ	supootu	supootsu	sport
-ズボン	zubon	trousers, pants, jupon
-スリッパ	surippa	slipper
-セーター	seetaa	center
+ズボン	zubon	pants
+スリッパ	surippa	slippers
+セーター	seetaa	sweater
 ゼロ	zero	zero
 タクシー	takusii	takushii	taxi
 テープ	teepu	tape
-テーブル	teeburu	table (katakana)
+テーブル	teeburu	table
 テスト	tesuto	test
 デパート	depaato	department store
-テレビ	terebi	television
-ドア	doa	door (katakana)
-トイレ	toire	toile
+テレビ	terebi	tv
+ドア	doa	door
+トイレ	toire	toilet
 ナイフ	naihu	naifu	knife
 ニュース	nyuusu	news
-ネクタイ	nekutai	necktie
+ネクタイ	nekutai	tie
 ノート	nooto	note
 パーティー	paatii	party
 バス	basu	bus
 バター	bataa	butter
-パン	pan	bread
-ハンカチ	hankati	hankachi	hankerchieff
+パン	pan	pan
+ハンカチ	hankati	hankachi	handkerchief
 フィルム	firumu	film
+プール	puuru	pool
 フォーク	fooku	fork
 パージ	paazi	paaji	page
-ベッド	beddo	bed (katakana)
-ペン	pen	pen (katakana)
-ボールペン	boorupen	ballpen
+ベッド	beddo	bed
+ペン	pen	pen
+ボールペン	boorupen	ballpoint pen
 ポケット	poketto	pocket
 ボタン	botan	button
 ホテル	hoteru	hotel
-マッチ	matti	matchi	matches
+マッチ	matti	matchi	match
 メートル	meetoru	meter
 ラジオ	razio	rajio	radio
 レコード	rekoodo	record
 レストラン	resutoran	restaurant
-ワイシャツ	waisyatu	waishatsu	apaato
-あかるい	akarui	precious
-あさごはん	asagohan	morning lunch
+ワイシャツ	waisyatu	waishatsu	shirt
+あかるい	akarui	bright
+あさごはん	asagohan	asagohan
 あさって	asatte	the day after tomorrow
 あたたかい	atatakai	warm
 あたらしい	atarasii	atarashii	new
 あぶない	abunai	dangerous
 いそがしい	isogasii	isogashii	busy
-いちにち	itiniti	ichinichi	apaato
-いちばん	itiban	ichiban	the first
-いっしょ	issyo	issho	apaato
-いもうと	imouto	younger sister
+いちにち	itiniti	ichinichi	ichinichi
+いちばん	itiban	ichiban	most
+いっしょ	issyo	issho	together
+いもうと	imouto	sister
 いりぐち	iriguti	iriguchi	entrance
-いろいろ	iroiro	varius
-うまれる	umareru	to born
-えいがかん	eigakan	movie theater
-えんぴつ	enpitu	enpitsu	pen (hiragana)
-おいしい	oisii	oishii	good
+いろいろ	iroiro	various
+うまれる	umareru	born
+えいがかん	eigakan	cinema
+えんぴつ	enpitu	enpitsu	pencil
+おいしい	oisii	oishii	delicious
 おおきい	ookii	big
-おおぜい	oozei	a crowd, a large number of people
-おかあさん	okaasan	mother
-おくさん	okusan	wife, married woman
-おじいさん	oziisan	ojiisan	uncle
-おしえる	osieru	oshieru	apaato
-おてあらい	otearai	toilet (hiragana)
-おとうさん	otousan	father
-おとうと	otouto	yonger brother
-おとこのこ	otokonoko	a boy
+おおぜい	oozei	multitude
+おかあさん	okaasan	mom
+おくさん	okusan	missus
+おじいさん	oziisan	ojiisan	grandfather
+おしえる	osieru	oshieru	teach
+おてあらい	otearai	toilet
+おとうさん	otousan	dad
+おとうと	otouto	brother
+おとこのこ	otokonoko	boy
 おととい	ototoi	the day before yesterday
-おととし	ototosi	ototoshi	the year before last, two years ago
-おにいさん	oniisan	older brother
-おねえさん	oneesan	elder sister
-おばあさん	obaasan	mum
-おべんとう	obentou	a bento
-おぼえる	oboeru	to remenber
-おもしろい	omosiroi	omoshiroi	interesting
+おととし	ototosi	ototoshi	two years ago
+おにいさん	oniisan	brother
+おねえさん	oneesan	older sister
+おばあさん	obaasan	granny
+おべんとう	obentou	lunch box
+おぼえる	oboeru	learn
+おもしろい	omosiroi	omoshiroi	funny
 おんがく	ongaku	music
-おんなのこ	onnanoko	a girl
-がいこく	gaikoku	foreign country
-がいこくじん	gaikokuzin	gaikokujin	foreigner
+おんなのこ	onnanoko	girl
+がいこく	gaikoku	foreign countries
+がいこくじん	gaikokuzin	gaikokujin	gaikokujin
 かいしゃ	kaisya	kaisha	company
-かいだん	kaidan	apaato
+かいだん	kaidan	stairs
 かいもの	kaimono	shopping
 がくせい	gakusei	student
 かたかな	katakana	katakana
@@ -97,139 +98,137 @@
 かわいい	kawaii	cute
 きいろい	kiiroi	yellow
 きたない	kitanai	dirty
-きっさてん	kissaten	shop
-ぎゅうにく	gyuuniku	beef (meat)
+きっさてん	kissaten	cafe
+ぎゅうにく	gyuuniku	beef
 きょうしつ	kyousitu	kyoushitsu	classroom
-きょうだい	kyoudai	brothers
-きょねん	kyonen	apaato
-ぎんこう	ginkou	bank (hiragana)
+きょうだい	kyoudai	sibling
+きょねん	kyonen	last year
+ぎんこう	ginkou	bank
 きんようび	kinyoubi	friday
 ください	kudasai	please
 くだもの	kudamono	fruit
-くつした	kutusita	kutsushita	socket (hiragana)
-けっこう	kekkou	apaato
-けっこん	kekkon	apaato
+くつした	kutusita	kutsushita	socks
+けっこう	kekkou	thank you
+けっこん	kekkon	married
 げつようび	getuyoubi	getsuyoubi	monday
-げんかん	genkan	apaato
+げんかん	genkan	entrance
 こうえん	kouen	park
-こうばん	kouban	apaato
-ここのか	kokonoka	nine days
-ここのつ	kokonotu	kokonotsu	nine things
+こうばん	kouban	alternation
+ここのか	kokonoka	here or the
+ここのつ	kokonotu	kokonotsu	nine
 ごしゅじん	gosyuzin	goshujin	husband
-こたえる	kotaeru	respond to
+こたえる	kotaeru	answer
 こんげつ	kongetu	kongetsu	this month
 こんしゅう	konsyuu	konshuu	this week
 こんばん	konban	tonight
-さくぶん	sakubun	writnig, essay
-さらいねん	sarainen	the year after next
-しつもん	situmon	shitsumon	apaato
+さくぶん	sakubun	writing
+さらいねん	sarainen	year after next
+しつもん	situmon	shitsumon	question
 じてんしゃ	zitensya	jitensha	bicycle
-じどうしゃ	zidousya	jidousha	automobile
+じどうしゃ	zidousya	jidousha	car
 しゃしん	syasin	shashin	photo
-じゅぎょう	zyugyou	jugyou	apaato
-しゅくだい	syukudai	shukudai	apaato
-じょうず	zyouzu	jouzu	apaato
-じょうぶ	zyoubu	joubu	apaato
-しょうゆ	syouyu	shouyu	apaato
-しょくどう	syokudou	shokudou	apaato
-しんぶん	sinbun	shinbun	apaato
-すいようび	suiyoubi	apaato
-すずしい	suzusii	suzushii	apaato
-せっけん	sekken	apaato
-せんげつ	sengetu	sengetsu	apaato
-せんしゅう	sensyuu	senshuu	apaato
-せんせい	sensei	apaato
-せんたく	sentaku	apaato
-そうして	sousite	soushite	apaato
-それから	sorekara	apaato
-それでは	soredeha	apaato
-だいがく	daigaku	apaato
-たいしかん	taisikan	taishikan	apaato
-だいじょうぶ	daizyoubu	daijoubu	apaato
-だいすき	daisuki	apaato
-たいせつ	taisetu	taisetsu	apaato
-たいてい	taitei	apaato
-だいどころ	daidokoro	apaato
-たくさん	takusan	apaato
-たてもの	tatemono	apaato
-たのしい	tanosii	tanoshii	apaato
-たべもの	tabemono	apaato
-たんじょうび	tanzyoubi	tanjoubi	apaato
-だんだん	dandan	apaato
-ちいさい	tiisai	chiisai	apaato
-ちかてつ	tikatetu	chikatetsu	apaato
-ちゃいろ	tyairo	chairo	apaato
-ちゃわん	tyawan	chawan	apaato
-ちょうど	tyoudo	choudo	apaato
-ちょっと	tyotto	chotto	apaato
-ついたち	tuitati	tsuitachi	apaato
-つかれる	tukareru	tsukareru	apaato
-つとめる	tutomeru	tsutomeru	apaato
-つまらない	tumaranai	tsumaranai	apaato
-つめたい	tumetai	tsumetai	apaato
-でかける	dekakeru	apaato
-でんしゃ	densya	densha	apaato
-どうして	dousite	doushite	apaato
-どうぶつ	doubutu	doubutsu	apaato
-ときどき	tokidoki	apaato
-としょかん	tosyokan	toshokan	apaato
-ともだち	tomodati	tomodachi	apaato
-どようび	doyoubi	apaato
-とりにく	toriniku	apaato
-なつやすみ	natuyasumi	natsuyasumi	apaato
-ならべる	naraberu	apaato
-にぎやか	nigiyaka	apaato
-にちようび	nitiyoubi	nichiyoubi	apaato
-のみもの	nomimono	apaato
-はいざら	haizara	apaato
-はじまる	hazimaru	hajimaru	apaato
-はじめて	hazimete	hajimete	apaato
-はじめに	hazimeni	hajimeni	apaato
-はたらく	hataraku	apaato
-ばんごう	bangou	apaato
-ばんごはん	bangohan	apaato
-はんぶん	hanbun	apaato
-ひこうき	hikouki	apaato
-ひとつき	hitotuki	hitotsuki	apaato
-びょういん	byouin	apaato
-びょうき	byouki	apaato
+じゅぎょう	zyugyou	jugyou	class
+しゅくだい	syukudai	shukudai	homework
+じょうず	zyouzu	jouzu	good at
+じょうぶ	zyoubu	joubu	durable
+しょうゆ	syouyu	shouyu	soy sauce
+しょくどう	syokudou	shokudou	cafeteria
+しんぶん	sinbun	shinbun	newspaper
+すいようび	suiyoubi	wednesday
+すずしい	suzusii	suzushii	cool
+せっけん	sekken	soap
+せんげつ	sengetu	sengetsu	last month
+せんしゅう	sensyuu	senshuu	quanzhou
+せんせい	sensei	teacher
+せんたく	sentaku	selection
+そうして	sousite	soushite	then
+それから	sorekara	then
+それでは	soredeha	so
+だいがく	daigaku	university
+たいしかん	taisikan	taishikan	embassy
+だいじょうぶ	daizyoubu	daijoubu	all right
+だいすき	daisuki	i love
+たいせつ	taisetu	taisetsu	important
+たいてい	taitei	almost
+だいどころ	daidokoro	kitchen
+たくさん	takusan	a lot
+たてもの	tatemono	building
+たのしい	tanosii	tanoshii	fun
+たべもの	tabemono	food
+たんじょうび	tanzyoubi	tanjoubi	tanjobi
+だんだん	dandan	gradually
+ちいさい	tiisai	chiisai	chiisai
+ちかてつ	tikatetu	chikatetsu	subway
+ちゃいろ	tyairo	chairo	brown
+ちゃわん	tyawan	chawan	cup
+ちょうど	tyoudo	choudo	just
+ちょっと	tyotto	chotto	a little
+ついたち	tuitati	tsuitachi	new moon
+つかれる	tukareru	tsukareru	is stuck
+つとめる	tutomeru	tsutomeru	strive
+つまらない	tumaranai	tsumaranai	boring
+つめたい	tumetai	tsumetai	cold
+でかける	dekakeru	go out
+でんしゃ	densya	densha	electric train
+どうして	dousite	doushite	why
+どうぶつ	doubutu	doubutsu	animal
+ときどき	tokidoki	sometimes
+としょかん	tosyokan	toshokan	library
+ともだち	tomodati	tomodachi	friend
+どようび	doyoubi	saturday
+なつやすみ	natuyasumi	natsuyasumi	summer vacation
+ならべる	naraberu	arranges
+にぎやか	nigiyaka	bustling
+にちようび	nitiyoubi	nichiyoubi	sunday
+のみもの	nomimono	drink
+はいざら	haizara	ashtray
+はじまる	hazimaru	hajimaru	begins
+はじめて	hazimete	hajimete	for the first time
+はじめに	hazimeni	hajimeni	introduction
+はたらく	hataraku	work
+ばんごう	bangou	number
+はんぶん	hanbun	half
+ひこうき	hikouki	airplane
+ひとつき	hitotuki	hitotsuki	month
+びょういん	byouin	hospital
+びょうき	byouki	disease
 ひらがな	hiragana	hiragana
-ひるごはん	hirugohan	meal
-ふうとう	huutou	fuutou	apaato
-ぶたにく	butaniku	pork (meat)
-べんきょう	benkyou	work/study
+ひるごはん	hirugohan	rice , noon
+ふうとう	huutou	fuutou	envelope
+ぶたにく	butaniku	pork
+べんきょう	benkyou	study
 ほんだな	hondana	bookshelf
 ほんとうに	hontouni	really
 まいあさ	maiasa	every morning
-まいげつ	maigetu	maigetsu	every month (getsu)
-まいしゅう	maisyuu	maishuu	every week
+まいしゅう	maisyuu	maishuu	weekly
+まいつき	maituki	maitsuki	monthly
 まいとし	maitosi	maitoshi	every year
 まいにち	mainiti	mainichi	every day
 まいねん	mainen	every year
 まいばん	maiban	every night
-まっすぐ	massugu	straight, direct
-まんねんひつ	mannenhitu	mannenhitsu	fountain pen (hiragana)
+まっすぐ	massugu	straight
+まんねんひつ	mannenhitu	mannenhitsu	fountain pen
 みじかい	mizikai	mijikai	short
-みなさん	minasan	everybody
+みなさん	minasan	you all
 むずかしい	muzukasii	muzukashii	difficult
 もくようび	mokuyoubi	thursday
-もしもし	mosimosi	moshimoshi	hello (phone)
-もちろん	motiron	mochiron	of cause, naturally
-もんだい	mondai	problem, question
-やさしい	yasasii	yasashii	easy
-ゆうがた	yuugata	early evening
-ゆうびんきょく	yuubinkyoku	post office
-ゆうめい	yuumei	apaato
-ゆっくり	yukkuri	apaato
-ようふく	youhuku	youfuku	apaato
-らいげつ	raigetu	raigetsu	apaato
-らいしゅう	raisyuu	raishuu	apaato
-らいねん	rainen	apaato
-りゅうがくせい	ryuugakusei	apaato
-りょうしん	ryousin	ryoushin	apaato
-りょうり	ryouri	food, cuisine
+もしもし	mosimosi	moshimoshi	hello
+もちろん	motiron	mochiron	of course
+もんだい	mondai	problem
+やさしい	yasasii	yasashii	friendly
+ゆうがた	yuugata	evening
+ゆうびんきょく	yuubinkyoku	postal bureau
+ゆうめい	yuumei	fame
+ゆっくり	yukkuri	slowly
+ようふく	youhuku	youfuku	outfit
+らいげつ	raigetu	raigetsu	next month
+らいしゅう	raisyuu	raishuu	next week
+らいねん	rainen	next year
+りゅうがくせい	ryuugakusei	foreign students
+りょうしん	ryousin	ryoushin	parents
+りょうり	ryouri	cooking
 りょこう	ryokou	travel
-れいぞうこ	reizouko	apaato
+れいぞうこ	reizouko	refrigerator
 れんしゅう	rensyuu	renshuu	practice
-わすれる	wasureru	to forget
-わたくし	watakusi	watakushi	I
+わすれる	wasureru	forget
+わたくし	watakusi	watakushi	watakushi
