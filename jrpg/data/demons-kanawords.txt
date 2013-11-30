@@ -1,237 +1,234 @@
-アパート	apaato
-エレベーター	erebeetaa
-カメラ	kamera
-カレンダー	karendaa
-ギター	gitaa
-クラス	kurasu
-グラム	guramu
-コート	kooto
-コップ	koppu
-シャツ	syatu	shatsu
-スカート	sukaato
-ストーブ	sutoobu
-スプーン	supuun
-スポーツ	supootu	supootsu
-ズボン	zubon
-スリッパ	surippa
-セーター	seetaa
-ゼロ	zero
-タクシー	takusii	takushii
-テープ	teepu
-テーブル	teeburu
-テスト	tesuto
-デパート	depaato
-テレビ	terebi
-ドア	doa
-トイレ	toire
-ナイフ	naihu	naifu
-ニュース	nyuusu
-ネクタイ	nekutai
-ノート	nooto
-パーティー	paatii
-バス	basu
-バター	bataa
-パン	pan
-ハンカチ	hankati	hankachi
-フィルム	firumu
-プール	puuru
-フォーク	fooku
-パージ	paazi	paaji
-ベッド	beddo
-ペン	pen
-ボールペン	boorupen
-ポケット	poketto
-ボタン	botan
-ホテル	hoteru
-マッチ	matti	matchi
-メートル	meetoru
-ラジオ	razio	rajio
-レコード	rekoodo
-レストラン	resutoran
-ワイシャツ	waisyatu	waishatsu
-あかるい	akarui
-あさごはん	asagohan
-あさって	asatte
-あたたかい	atatakai
-あたらしい	atarasii	atarashii
-あぶない	abunai
-いそがしい	isogasii	isogashii
-いちにち	itiniti	ichinichi
-いちばん	itiban	ichiban
-いっしょ	issyo	issho
-いもうと	imouto
-いりぐち	iriguti	iriguchi
-いろいろ	iroiro
-うまれる	umareru
-えいがかん	eigakan
-えんぴつ	enpitu	enpitsu
-おいしい	oisii	oishii
-おおきい	ookii
-おおぜい	oozei
-おかあさん	okaasan
-おくさん	okusan
-おじいさん	oziisan	ojiisan
-おしえる	osieru	oshieru
-おてあらい	otearai
-おとうさん	otousan
-おとうと	otouto
-おとこのこ	otokonoko
-おととい	ototoi
-おととし	ototosi	ototoshi
-おにいさん	oniisan
-おねえさん	oneesan
-おばあさん	obaasan
-おべんとう	obentou
-おぼえる	oboeru
-おもしろい	omosiroi	omoshiroi
-おんがく	ongaku
-おんなのこ	onnanoko
-がいこく	gaikoku
-がいこくじん	gaikokuzin	gaikokujin
-かいしゃ	kaisya	kaisha
-かいだん	kaidan
-かいもの	kaimono
-がくせい	gakusei
-かたかな	katakana
-がっこう	gakkou
-かようび	kayoubi
-かわいい	kawaii
-きいろい	kiiroi
-きたない	kitanai
-きっさてん	kissaten
-ぎゅうにく	gyuuniku
-きょうしつ	kyousitu	kyoushitsu
-きょうだい	kyoudai
-きょねん	kyonen
-ぎんこう	ginkou
-きんようび	kinyoubi
-ください	kudasai
-くだもの	kudamono
-くつした	kutusita	kutsushita
-けっこう	kekkou
-けっこん	kekkon
-げつようび	getuyoubi	getsuyoubi
-げんかん	genkan
-こうえん	kouen
-こうばん	kouban
-ここのか	kokonoka
-ここのつ	kokonotu	kokonotsu
-ごしゅじん	gosyuzin	goshujin
-こたえる	kotaeru
-こんげつ	kongetu	kongetsu
-こんしゅう	konsyuu	konshuu
-こんばん	konban
-さくぶん	sakubun
-さらいねん	sarainen
-しつもん	situmon	shitsumon
-じてんしゃ	zitensya	jitensha
-じどうしゃ	zidousya	jidousha
-しゃしん	syasin	shashin
-じゅぎょう	zyugyou	jugyou
-しゅくだい	syukudai	shukudai
-じょうず	zyouzu	jouzu
-じょうぶ	zyoubu	joubu
-しょうゆ	syouyu	shouyu
-しょくどう	syokudou	shokudou
-しんぶん	sinbun	shinbun
-すいようび	suiyoubi
-すずしい	suzusii	suzushii
-せっけん	sekken
-せんげつ	sengetu	sengetsu
-せんしゅう	sensyuu	senshuu
-せんせい	sensei
-せんたく	sentaku
-そうして	sousite	soushite
-それから	sorekara
-それでは	soredeha
-だいがく	daigaku
-たいしかん	taisikan	taishikan
-だいじょうぶ	daizyoubu	daijoubu
-だいすき	daisuki
-たいせつ	taisetu	taisetsu
-たいてい	taitei
-だいどころ	daidokoro
-たくさん	takusan
-たてもの	tatemono
-たのしい	tanosii	tanoshii
-たべもの	tabemono
-たんじょうび	tanzyoubi	tanjoubi
-だんだん	dandan
-ちいさい	tiisai	chiisai
-ちかてつ	tikatetu	chikatetsu
-ちゃいろ	tyairo	chairo
-ちゃわん	tyawan	chawan
-ちょうど	tyoudo	choudo
-ちょっと	tyotto	chotto
-ついたち	tuitati	tsuitachi
-つかれる	tukareru	tsukareru
-つとめる	tutomeru	tsutomeru
-つまらない	tumaranai	tsumaranai
-つめたい	tumetai	tsumetai
-でかける	dekakeru
-でんしゃ	densya	densha
-どうして	dousite	doushite
-どうぶつ	doubutu	doubutsu
-ときどき	tokidoki
-としょかん	tosyokan	toshokan
-ともだち	tomodati	tomodachi
-どようび	doyoubi
-とりにく	toriniku
-なつやすみ	natuyasumi	natsuyasumi
-ならべる	naraberu
-にぎやか	nigiyaka
-にちようび	nitiyoubi	nichiyoubi
-のみもの	nomimono
-はいざら	haizara
-はじまる	hazimaru	hajimaru
-はじめて	hazimete	hajimete
-はじめに	hazimeni	hajimeni
-はたらく	hataraku
-ばんごう	bangou
-ばんごはん	bangohan
-はんぶん	hanbun
-ひこうき	hikouki
-ひとつき	hitotuki	hitotsuki
-びょういん	byouin
-びょうき	byouki
-ひらがな	hiragana
-ひるごはん	hirugohan
-ふうとう	huutou	fuutou
-ぶたにく	butaniku
-べんきょう	benkyou
-ほんだな	hondana
-ほんとうに	hontouni
-まいあさ	maiasa
-まいげつ	maigetu	maigetsu
-まいしゅう	maisyuu	maishuu
-まいつき	maituki	maitsuki
-まいとし	maitosi	maitoshi
-まいにち	mainiti	mainichi
-まいねん	mainen
-まいばん	maiban
-まっすぐ	massugu
-まんねんひつ	mannenhitu	mannenhitsu
-みじかい	mizikai	mijikai
-みなさん	minasan
-むずかしい	muzukasii	muzukashii
-もくようび	mokuyoubi
-もしもし	mosimosi	moshimoshi
-もちろん	motiron	mochiron
-もんだい	mondai
-やさしい	yasasii	yasashii
-ゆうがた	yuugata
-ゆうびんきょく	yuubinkyoku
-ゆうめい	yuumei
-ゆっくり	yukkuri
-ようふく	youhuku	youfuku
-らいげつ	raigetu	raigetsu
-らいしゅう	raisyuu	raishuu
-らいねん	rainen
-りゅうがくせい	ryuugakusei
-りょうしん	ryousin	ryoushin
-りょうり	ryouri
-りょこう	ryokou
-れいぞうこ	reizouko
-れんしゅう	rensyuu	renshuu
-わすれる	wasureru
-わたくし	watakusi	watakushi
+アパート	apaato	apartment
+エレベーター	erebeetaa	elevator
+カメラ	kamera	camera
+カレンダー	karendaa	calendar
+ギター	gitaa	guitar
+クラス	kurasu	class
+グラム	guramu	gram
+コート	kooto	court
+コップ	koppu	glass
+シャツ	syatu	shatsu	shirt
+スカート	sukaato	skirt
+ストーブ	sutoobu	stove
+スプーン	supuun	spoon
+スポーツ	supootu	supootsu	sport
+ズボン	zubon	pants
+スリッパ	surippa	slippers
+セーター	seetaa	sweater
+ゼロ	zero	zero
+タクシー	takusii	takushii	taxi
+テープ	teepu	tape
+テーブル	teeburu	table
+テスト	tesuto	test
+デパート	depaato	department store
+テレビ	terebi	tv
+ドア	doa	door
+トイレ	toire	toilet
+ナイフ	naihu	naifu	knife
+ニュース	nyuusu	news
+ネクタイ	nekutai	tie
+ノート	nooto	note
+パーティー	paatii	party
+バス	basu	bus
+バター	bataa	butter
+パン	pan	pan
+ハンカチ	hankati	hankachi	handkerchief
+フィルム	firumu	film
+プール	puuru	pool
+フォーク	fooku	fork
+パージ	paazi	paaji	page
+ベッド	beddo	bed
+ペン	pen	pen
+ボールペン	boorupen	ballpoint pen
+ポケット	poketto	pocket
+ボタン	botan	button
+ホテル	hoteru	hotel
+マッチ	matti	matchi	match
+メートル	meetoru	meter
+ラジオ	razio	rajio	radio
+レコード	rekoodo	record
+レストラン	resutoran	restaurant
+ワイシャツ	waisyatu	waishatsu	shirt
+あかるい	akarui	bright
+あさごはん	asagohan	asagohan
+あさって	asatte	the day after tomorrow
+あたたかい	atatakai	warm
+あたらしい	atarasii	atarashii	new
+あぶない	abunai	dangerous
+いそがしい	isogasii	isogashii	busy
+いちにち	itiniti	ichinichi	ichinichi
+いちばん	itiban	ichiban	most
+いっしょ	issyo	issho	together
+いもうと	imouto	sister
+いりぐち	iriguti	iriguchi	entrance
+いろいろ	iroiro	various
+うまれる	umareru	born
+えいがかん	eigakan	cinema
+えんぴつ	enpitu	enpitsu	pencil
+おいしい	oisii	oishii	delicious
+おおきい	ookii	big
+おおぜい	oozei	multitude
+おかあさん	okaasan	mom
+おくさん	okusan	missus
+おじいさん	oziisan	ojiisan	grandfather
+おしえる	osieru	oshieru	teach
+おてあらい	otearai	toilet
+おとうさん	otousan	dad
+おとうと	otouto	brother
+おとこのこ	otokonoko	boy
+おととい	ototoi	the day before yesterday
+おととし	ototosi	ototoshi	two years ago
+おにいさん	oniisan	brother
+おねえさん	oneesan	older sister
+おばあさん	obaasan	granny
+おべんとう	obentou	lunch box
+おぼえる	oboeru	learn
+おもしろい	omosiroi	omoshiroi	funny
+おんがく	ongaku	music
+おんなのこ	onnanoko	girl
+がいこく	gaikoku	foreign countries
+がいこくじん	gaikokuzin	gaikokujin	gaikokujin
+かいしゃ	kaisya	kaisha	company
+かいだん	kaidan	stairs
+かいもの	kaimono	shopping
+がくせい	gakusei	student
+かたかな	katakana	katakana
+がっこう	gakkou	school
+かようび	kayoubi	tuesday
+かわいい	kawaii	cute
+きいろい	kiiroi	yellow
+きたない	kitanai	dirty
+きっさてん	kissaten	cafe
+ぎゅうにく	gyuuniku	beef
+きょうしつ	kyousitu	kyoushitsu	classroom
+きょうだい	kyoudai	sibling
+きょねん	kyonen	last year
+ぎんこう	ginkou	bank
+きんようび	kinyoubi	friday
+ください	kudasai	please
+くだもの	kudamono	fruit
+くつした	kutusita	kutsushita	socks
+けっこう	kekkou	thank you
+けっこん	kekkon	married
+げつようび	getuyoubi	getsuyoubi	monday
+げんかん	genkan	entrance
+こうえん	kouen	park
+こうばん	kouban	alternation
+ここのか	kokonoka	here or the
+ここのつ	kokonotu	kokonotsu	nine
+ごしゅじん	gosyuzin	goshujin	husband
+こたえる	kotaeru	answer
+こんげつ	kongetu	kongetsu	this month
+こんしゅう	konsyuu	konshuu	this week
+こんばん	konban	tonight
+さくぶん	sakubun	writing
+さらいねん	sarainen	year after next
+しつもん	situmon	shitsumon	question
+じてんしゃ	zitensya	jitensha	bicycle
+じどうしゃ	zidousya	jidousha	car
+しゃしん	syasin	shashin	photo
+じゅぎょう	zyugyou	jugyou	class
+しゅくだい	syukudai	shukudai	homework
+じょうず	zyouzu	jouzu	good at
+じょうぶ	zyoubu	joubu	durable
+しょうゆ	syouyu	shouyu	soy sauce
+しょくどう	syokudou	shokudou	cafeteria
+しんぶん	sinbun	shinbun	newspaper
+すいようび	suiyoubi	wednesday
+すずしい	suzusii	suzushii	cool
+せっけん	sekken	soap
+せんげつ	sengetu	sengetsu	last month
+せんしゅう	sensyuu	senshuu	quanzhou
+せんせい	sensei	teacher
+せんたく	sentaku	selection
+そうして	sousite	soushite	then
+それから	sorekara	then
+それでは	soredeha	so
+だいがく	daigaku	university
+たいしかん	taisikan	taishikan	embassy
+だいじょうぶ	daizyoubu	daijoubu	all right
+だいすき	daisuki	i love
+たいせつ	taisetu	taisetsu	important
+たいてい	taitei	almost
+だいどころ	daidokoro	kitchen
+たくさん	takusan	a lot
+たてもの	tatemono	building
+たのしい	tanosii	tanoshii	fun
+たべもの	tabemono	food
+たんじょうび	tanzyoubi	tanjoubi	tanjobi
+だんだん	dandan	gradually
+ちいさい	tiisai	chiisai	chiisai
+ちかてつ	tikatetu	chikatetsu	subway
+ちゃいろ	tyairo	chairo	brown
+ちゃわん	tyawan	chawan	cup
+ちょうど	tyoudo	choudo	just
+ちょっと	tyotto	chotto	a little
+ついたち	tuitati	tsuitachi	new moon
+つかれる	tukareru	tsukareru	is stuck
+つとめる	tutomeru	tsutomeru	strive
+つまらない	tumaranai	tsumaranai	boring
+つめたい	tumetai	tsumetai	cold
+でかける	dekakeru	go out
+でんしゃ	densya	densha	electric train
+どうして	dousite	doushite	why
+どうぶつ	doubutu	doubutsu	animal
+ときどき	tokidoki	sometimes
+としょかん	tosyokan	toshokan	library
+ともだち	tomodati	tomodachi	friend
+どようび	doyoubi	saturday
+なつやすみ	natuyasumi	natsuyasumi	summer vacation
+ならべる	naraberu	arranges
+にぎやか	nigiyaka	bustling
+にちようび	nitiyoubi	nichiyoubi	sunday
+のみもの	nomimono	drink
+はいざら	haizara	ashtray
+はじまる	hazimaru	hajimaru	begins
+はじめて	hazimete	hajimete	for the first time
+はじめに	hazimeni	hajimeni	introduction
+はたらく	hataraku	work
+ばんごう	bangou	number
+はんぶん	hanbun	half
+ひこうき	hikouki	airplane
+ひとつき	hitotuki	hitotsuki	month
+びょういん	byouin	hospital
+びょうき	byouki	disease
+ひらがな	hiragana	hiragana
+ひるごはん	hirugohan	rice , noon
+ふうとう	huutou	fuutou	envelope
+ぶたにく	butaniku	pork
+べんきょう	benkyou	study
+ほんだな	hondana	bookshelf
+ほんとうに	hontouni	really
+まいあさ	maiasa	every morning
+まいしゅう	maisyuu	maishuu	weekly
+まいつき	maituki	maitsuki	monthly
+まいとし	maitosi	maitoshi	every year
+まいにち	mainiti	mainichi	every day
+まいねん	mainen	every year
+まいばん	maiban	every night
+まっすぐ	massugu	straight
+まんねんひつ	mannenhitu	mannenhitsu	fountain pen
+みじかい	mizikai	mijikai	short
+みなさん	minasan	you all
+むずかしい	muzukasii	muzukashii	difficult
+もくようび	mokuyoubi	thursday
+もしもし	mosimosi	moshimoshi	hello
+もちろん	motiron	mochiron	of course
+もんだい	mondai	problem
+やさしい	yasasii	yasashii	friendly
+ゆうがた	yuugata	evening
+ゆうびんきょく	yuubinkyoku	postal bureau
+ゆうめい	yuumei	fame
+ゆっくり	yukkuri	slowly
+ようふく	youhuku	youfuku	outfit
+らいげつ	raigetu	raigetsu	next month
+らいしゅう	raisyuu	raishuu	next week
+らいねん	rainen	next year
+りゅうがくせい	ryuugakusei	foreign students
+りょうしん	ryousin	ryoushin	parents
+りょうり	ryouri	cooking
+りょこう	ryokou	travel
+れいぞうこ	reizouko	refrigerator
+れんしゅう	rensyuu	renshuu	practice
+わすれる	wasureru	forget
+わたくし	watakusi	watakushi	watakushi

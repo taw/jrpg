@@ -1,4 +1,5 @@
 mistakes-*.txt
+*.pyc
 savefile
 savefile.dat
 errormsg.txt

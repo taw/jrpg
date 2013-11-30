@@ -12,6 +12,7 @@ import codecs # Python Unicode Brain Damage
 import images
 import demonsoul
 import util
+from mistakes import Mistakes
 from util import sgn, Cached, Notifier, fun_sort
 from terrain import corner_shader
 
@@ -180,6 +181,8 @@ class UI:
         # TODO: integrate with Battle_UI
         while True:
             self.world_main_loop_iter()
+    
+    
     def quick_help(self):
         help = [
             U"WORLD MODE",
@@ -221,6 +224,7 @@ class UI:
                         mhc.save()
                     elif event.key == pygame.K_F4:
                         mhc.load()
+                        mhc.save()
                     elif event.key == pygame.K_TAB or event.key == pygame.K_F12:
                         mhc.closeup()
                 elif event.type == pygame.KEYUP:
@@ -1049,7 +1053,7 @@ class Enemy_in_battle:
         #print ("DEBUG sub sns ?: %s %s" % (self.demon.sub_sns(), self.fresh))
         if self.demon.sub_sns() and self.fresh:
             ui.render_text_unicolor(target, ui.font,
-                [U"  ".join(self.demon.secret_names())],(32,128), (0.0, 0.0), color_hint
+                [U"  ".join(self.demon.get_good_response())],(32,128), (0.0, 0.0), color_hint
             )
     def move(self):
         self.dx = self.dx + normalvariate(0,1)
@@ -1115,10 +1119,8 @@ class Battle_model:
         self.nctl_demonname_changed.fire()
     def kill_active(self, victim):
         ui.change_text([
-            U"You slayed demon %s (%s)." % (
-                victim.demon.short_dn(),
-                " ".join(victim.demon.secret_names())
-        )])
+                victim.demon.get_success_message() 
+        ])
 
         if self.active == -1:
             return
@@ -1129,9 +1131,7 @@ class Battle_model:
             raise End_of_battle(True) # battle won
         self.switch_active()
     def counter_attack(self, attacker, damage):
-        ui.change_text([U"Demon %s (%s) hit you for %d points" %
-            (attacker.demon.short_dn(), " ".join(attacker.demon.secret_names()), damage)
-            ], (255,0,0))
+        ui.change_text([attacker.demon.get_fail_message(damage)], (255,0,0))
         if not attacker.fresh:
             ui.append_text(attacker.get_hints(), (0,255,0))
         self.chara_hit(damage)
@@ -1263,6 +1263,7 @@ class World_model:
             "tiles": self.load_map("maps/hospital.map"),
             "setup": lambda: self.map_setup_hospital(),
         }
+        
         self.map_db["library"] = {
             "tiles": self.load_map("maps/library.map"),
             "setup": lambda: self.map_setup_library(),
@@ -1484,6 +1485,8 @@ class World_model:
         # (mostly for teleports after lost battles)
         if emergency_healing:
             nurse_healing()
+
+
 
 #####################################################################
 # Cave                                                              #
@@ -2143,6 +2146,8 @@ class World_model:
         # CAVE ENTRANCE               #
         ###############################
         self.wormhole((61,37),"cave",(1,7))
+        
+        
 
         ###############################
         # FOREST 2                    #
@@ -2179,7 +2184,7 @@ class World_model:
                     U"You've got bright green mushrooms.",
                     U"You need yellow and bright green mushrooms for the potion."])
         for (x,y) in self.random_clear_tiles(0.1,range(20,40),range(10,30)):
-            self.add_enemy((x,y),'marsh',choice(forest_enemies),[0,1,2],1)
+            self.add_enemy((x,y),'marsh',choice(forest_enemies),[0,1,2,4],1)
         # FIXME: new mushrooms will grow only if you leave the forest
         # To make it less annoying, let's double number of mushrooms
         for (x,y) in self.random_clear_tiles(0.1,range(20,40),range(10,30)):
@@ -2712,21 +2717,6 @@ dungeon_lvl_3_enemies = [
     "dragon small 7",
 ]
 
-###########################################################
-# Mistakes logger                                         #
-###########################################################
-
-# In this otherwise completely straightforward 3-line class
-# we have to deal with Python's Unicode Brain Damage
-class Mistakes:
-    def __init__(self):
-        y,mo,d,h,mi,s,wd,yd,isdst = time.localtime()
-        fn = "mistakes-%04d-%02d-%02d-%02d-%02d-%02d.txt" % (y,mo,d,h,mi,s)
-        #self.fh = open(fn, "ab")
-        self.fh = codecs.open(fn, mode="ab", encoding='utf-8')
-    def mistake(self, attack, soul):
-        msg = "Mistake: tried (%s) on demon (%s)\n" % (attack, soul.xp_code())
-        self.fh.write(msg)
 
 ###########################################################
 # Main                                                    #

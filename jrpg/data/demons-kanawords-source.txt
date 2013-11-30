@@ -1,237 +1,234 @@
-アパート
-エレベーター
-カメラ
-カレンダー
-ギター
-クラス
-グラム
-コート
-コップ
-シャツ
-スカート
-ストーブ
-スプーン
-スポーツ
-ズボン
-スリッパ
-セーター
-ゼロ
-タクシー
-テープ
-テーブル
-テスト
-デパート
-テレビ
-ドア
-トイレ
-ナイフ
-ニュース
-ネクタイ
-ノート
-パーティー
-バス
-バター
-パン
-ハンカチ
-フィルム
-プール
-フォーク
-パージ
-ベッド
-ペン
-ボールペン
-ポケット
-ボタン
-ホテル
-マッチ
-メートル
-ラジオ
-レコード
-レストラン
-ワイシャツ
-あかるい
-あさごはん
-あさって
-あたたかい
-あたらしい
-あぶない
-いそがしい
-いちにち
-いちばん
-いっしょ
-いもうと
-いりぐち
-いろいろ
-うまれる
-えいがかん
-えんぴつ
-おいしい
-おおきい
-おおぜい
-おかあさん
-おくさん
-おじいさん
-おしえる
-おてあらい
-おとうさん
-おとうと
-おとこのこ
-おととい
-おととし
-おにいさん
-おねえさん
-おばあさん
-おべんとう
-おぼえる
-おもしろい
-おんがく
-おんなのこ
-がいこく
-がいこくじん
-かいしゃ
-かいだん
-かいもの
-がくせい
-かたかな
-がっこう
-かようび
-かわいい
-きいろい
-きたない
-きっさてん
-ぎゅうにく
-きょうしつ
-きょうだい
-きょねん
-ぎんこう
-きんようび
-ください
-くだもの
-くつした
-けっこう
-けっこん
-げつようび
-げんかん
-こうえん
-こうばん
-ここのか
-ここのつ
-ごしゅじん
-こたえる
-こんげつ
-こんしゅう
-こんばん
-さくぶん
-さらいねん
-しつもん
-じてんしゃ
-じどうしゃ
-しゃしん
-じゅぎょう
-しゅくだい
-じょうず
-じょうぶ
-しょうゆ
-しょくどう
-しんぶん
-すいようび
-すずしい
-せっけん
-せんげつ
-せんしゅう
-せんせい
-せんたく
-そうして
-それから
-それでは
-だいがく
-たいしかん
-だいじょうぶ
-だいすき
-たいせつ
-たいてい
-だいどころ
-たくさん
-たてもの
-たのしい
-たべもの
-たんじょうび
-だんだん
-ちいさい
-ちかてつ
-ちゃいろ
-ちゃわん
-ちょうど
-ちょっと
-ついたち
-つかれる
-つとめる
-つまらない
-つめたい
-でかける
-でんしゃ
-どうして
-どうぶつ
-ときどき
-としょかん
-ともだち
-どようび
-とりにく
-なつやすみ
-ならべる
-にぎやか
-にちようび
-のみもの
-はいざら
-はじまる
-はじめて
-はじめに
-はたらく
-ばんごう
-ばんごはん
-はんぶん
-ひこうき
-ひとつき
-びょういん
-びょうき
-ひらがな
-ひるごはん
-ふうとう
-ぶたにく
-べんきょう
-ほんだな
-ほんとうに
-まいあさ
-まいげつ
-まいしゅう
-まいつき
-まいとし
-まいにち
-まいねん
-まいばん
-まっすぐ
-まんねんひつ
-みじかい
-みなさん
-むずかしい
-もくようび
-もしもし
-もちろん
-もんだい
-やさしい
-ゆうがた
-ゆうびんきょく
-ゆうめい
-ゆっくり
-ようふく
-らいげつ
-らいしゅう
-らいねん
-りゅうがくせい
-りょうしん
-りょうり
-りょこう
-れいぞうこ
-れんしゅう
-わすれる
-わたくし
+アパート	apartment
+エレベーター	elevator
+カメラ	camera
+カレンダー	calendar
+ギター	guitar
+クラス	class
+グラム	gram
+コート	court
+コップ	glass
+シャツ	shirt
+スカート	skirt
+ストーブ	stove
+スプーン	spoon
+スポーツ	sport
+ズボン	pants
+スリッパ	slippers
+セーター	sweater
+ゼロ	zero
+タクシー	taxi
+テープ	tape
+テーブル	table
+テスト	test
+デパート	department store
+テレビ	tv
+ドア	door
+トイレ	toilet
+ナイフ	knife
+ニュース	news
+ネクタイ	tie
+ノート	note
+パーティー	party
+バス	bus
+バター	butter
+パン	pan
+ハンカチ	handkerchief
+フィルム	film
+プール	pool
+フォーク	fork
+パージ	page
+ベッド	bed
+ペン	pen
+ボールペン	ballpoint pen
+ポケット	pocket
+ボタン	button
+ホテル	hotel
+マッチ	match
+メートル	meter
+ラジオ	radio
+レコード	record
+レストラン	restaurant
+ワイシャツ	shirt
+あかるい	bright
+あさごはん	asagohan
+あさって	the day after tomorrow
+あたたかい	warm
+あたらしい	new
+あぶない	dangerous
+いそがしい	busy
+いちにち	ichinichi
+いちばん	most
+いっしょ	together
+いもうと	sister
+いりぐち	entrance
+いろいろ	various
+うまれる	born
+えいがかん	cinema
+えんぴつ	pencil
+おいしい	delicious
+おおきい	big
+おおぜい	multitude
+おかあさん	mom
+おくさん	missus
+おじいさん	grandfather
+おしえる	teach
+おてあらい	toilet
+おとうさん	dad
+おとうと	brother
+おとこのこ	boy
+おととい	the day before yesterday
+おととし	two years ago
+おにいさん	brother
+おねえさん	older sister
+おばあさん	granny
+おべんとう	lunch box
+おぼえる	learn
+おもしろい	funny
+おんがく	music
+おんなのこ	girl
+がいこく	foreign countries
+がいこくじん	gaikokujin
+かいしゃ	company
+かいだん	stairs
+かいもの	shopping
+がくせい	student
+かたかな	katakana
+がっこう	school
+かようび	tuesday
+かわいい	cute
+きいろい	yellow
+きたない	dirty
+きっさてん	cafe
+ぎゅうにく	beef
+きょうしつ	classroom
+きょうだい	sibling
+きょねん	last year
+ぎんこう	bank
+きんようび	friday
+ください	please
+くだもの	fruit
+くつした	socks
+けっこう	thank you
+けっこん	married
+げつようび	monday
+げんかん	entrance
+こうえん	park
+こうばん	alternation
+ここのか	here or the
+ここのつ	nine
+ごしゅじん	husband
+こたえる	answer
+こんげつ	this month
+こんしゅう	this week
+こんばん	tonight
+さくぶん	writing
+さらいねん	year after next
+しつもん	question
+じてんしゃ	bicycle
+じどうしゃ	car
+しゃしん	photo
+じゅぎょう	class
+しゅくだい	homework
+じょうず	good at
+じょうぶ	durable
+しょうゆ	soy sauce
+しょくどう	cafeteria
+しんぶん	newspaper
+すいようび	wednesday
+すずしい	cool
+せっけん	soap
+せんげつ	last month
+せんしゅう	quanzhou
+せんせい	teacher
+せんたく	selection
+そうして	then
+それから	then
+それでは	so
+だいがく	university
+たいしかん	embassy
+だいじょうぶ	all right
+だいすき	i love
+たいせつ	important
+たいてい	almost
+だいどころ	kitchen
+たくさん	a lot
+たてもの	building
+たのしい	fun
+たべもの	food
+たんじょうび	tanjobi
+だんだん	gradually
+ちいさい	chiisai
+ちかてつ	subway
+ちゃいろ	brown
+ちゃわん	cup
+ちょうど	just
+ちょっと	a little
+ついたち	new moon
+つかれる	is stuck
+つとめる	strive
+つまらない	boring
+つめたい	cold
+でかける	go out
+でんしゃ	electric train
+どうして	why
+どうぶつ	animal
+ときどき	sometimes
+としょかん	library
+ともだち	friend
+どようび	saturday
+なつやすみ	summer vacation
+ならべる	arranges
+にぎやか	bustling
+にちようび	sunday
+のみもの	drink
+はいざら	ashtray
+はじまる	begins
+はじめて	for the first time
+はじめに	introduction
+はたらく	work
+ばんごう	number
+はんぶん	half
+ひこうき	airplane
+ひとつき	month
+びょういん	hospital
+びょうき	disease
+ひらがな	hiragana
+ひるごはん	rice , noon
+ふうとう	envelope
+ぶたにく	pork
+べんきょう	study
+ほんだな	bookshelf
+ほんとうに	really
+まいあさ	every morning
+まいしゅう	weekly
+まいつき	monthly
+まいとし	every year
+まいにち	every day
+まいねん	every year
+まいばん	every night
+まっすぐ	straight
+まんねんひつ	fountain pen
+みじかい	short
+みなさん	you all
+むずかしい	difficult
+もくようび	thursday
+もしもし	hello
+もちろん	of course
+もんだい	problem
+やさしい	friendly
+ゆうがた	evening
+ゆうびんきょく	postal bureau
+ゆうめい	fame
+ゆっくり	slowly
+ようふく	outfit
+らいげつ	next month
+らいしゅう	next week
+らいねん	next year
+りゅうがくせい	foreign students
+りょうしん	parents
+りょうり	cooking
+りょこう	travel
+れいぞうこ	refrigerator
+れんしゅう	practice
+わすれる	forget
+わたくし	watakushi
