@@ -461,52 +461,119 @@ class DemonSoulKanjiFinalized(DemonSoul):
     def hardcore_mode(self):
         return hardcore_kanji
     # No def finalize(self), one cannot refinalize the demon
-###########################################################
-# This class manages the book of demons                   #
-###########################################################
-# Classes:
-# 0 - hiragana
-# 1 - katakana
-# 2 - kana words
-# 3 - Kanji demons
-# Classes at locations:
-# 0                 @ Dark forest
-# 0+1               @ Dwarven hills
-# 0+1+2             @ Mushroom forest
-# 2+3                    @ Desert
-# 2+3               @ Tower
-# 3                 @ Icy mountains
-# 3                 @ Dungeon
-class Book_of_demons:
-    def __init__(self):
-        self.demons = {}
 
-        f = open("data/demons-kana.txt")
+# Abstract Class for load the file
+class DemonBookChapter:
+    pass  
+    
+    def __init__(self, filename):
+        '''Open the file. read each line
+        '''
+        self.filename = filename
+        f = open(filename)
         lines = f.readlines()
         f.close()
+        self.demons = []
         for line in lines:
-            fields = unicode(line, "UTF-8").strip(U"\n").split(U"\t")
-            (demon_class, kana, romajis) = (int(fields[0]), fields[1], fields[2:len(fields)])
-            if not self.demons.has_key(demon_class):
-                self.demons[demon_class] = []
-            d = DemonSoulKana(kana, romajis)
-            self.demons[demon_class].append(d)
+            self.demons.append(self.get_one_monster(line))
 
-        self.demons[2] = []
-        self.demons[4] = []
-        f = open("data/demons-kanawords.txt")
-        lines = f.readlines()
-        f.close()
-        for line in lines:
-            fields = unicode(line, "UTF-8").strip(U"\n").split(U"\t")
-            (kana, romajis, meanings) = (fields[0],
-                    fields[1:len(fields)-1],fields[-1])
-            d = DemonSoulKanaword(kana, romajis, meanings)
-            self.demons[2].append(d)
-            d = DemonSoulTrad(kana, romajis, meanings)
-            self.demons[4].append(d)
+    def get_title_of_the_chapter(self):
+        ''' return the name of chapter'''
+        return self.name
 
-        f = open("data/demons-kanji.txt")
+    def get_the_list_of_demon(self):
+        ''' return the list'''
+        return self.demons 
+    
+    def get_one_monster(self):
+        '''this methods is call for each line of the file'''
+        pass
+    
+
+# Class for load the Hiragana
+# in the book of demons
+class DemonBookChapterHiragana(DemonBookChapter):
+    def __init__(self, filename):
+        '''same as the abstract class'''
+        DemonBookChapter.__init__(self, filename)
+        '''the name of the type'''
+        self.name = 'hiragana'
+
+    def get_one_monster(self, line):
+        '''the method to read one line of the file
+        the format here 'demon_class<tab>hiragana<tab>romanji ..<tab>'
+        the demon_class is not usefull for us
+        '''
+        fields = unicode(line, "UTF-8").strip(U"\n").split(U"\t")
+        (demon_class, kana, romajis) = (int(fields[0]), fields[1], fields[2:len(fields)])
+        return DemonSoulKana(kana, romajis)
+    
+
+
+# Class for load the katakana
+# in the book of demons
+# The code is almost the same than DemonBookChapterHiragana
+class DemonBookChapterKatakana(DemonBookChapter):
+    def __init__(self, filename):
+        DemonBookChapter.__init__(self, filename)
+        self.name = 'katakana'
+
+    def get_one_monster(self, line):
+        ''' 
+        the method to read one line of the file
+        the format here 'demon_class<tab>katakana<tab>romanji ..<tab>'
+        the demon_class is not usefull for us
+        '''
+        fields = unicode(line, "UTF-8").strip(U"\n").split(U"\t")
+        (demon_class, kana, romajis) = (int(fields[0]), fields[1], fields[2:len(fields)])
+        return DemonSoulKana(kana, romajis)
+    
+
+
+# Class for load the complete kana work
+# in the book of demons
+class DemonBookChapterKanaword(DemonBookChapter):
+    def __init__(self, filename):
+        '''constructor
+        '''
+        DemonBookChapter.__init__(self, filename)
+        self.name = 'kanaword'
+
+    def get_one_monster(self, line):
+        '''the method to read one line of the file
+        the format here 'hiragana<tab>romanji ..<tab>meaning'
+        '''
+        fields = unicode(line, "UTF-8").strip(U"\n").split(U"\t")
+        (kana, romajis, meanings) = (fields[0],
+                fields[1:len(fields)-1],fields[-1])
+        return DemonSoulKanaword(kana, romajis, meanings) 
+    
+
+# Class for load the traduction kanaword
+# the code is almost the same of demonBookChapterKanaWord
+class DemonBookChapterTrad(DemonBookChapter):
+    def __init__(self, filename):
+        '''constructor
+        '''
+        DemonBookChapter.__init__(self, filename)
+        self.name = 'traduction'
+
+    def get_one_monster(self, line):
+        '''the method to read one line of the file
+        the format here 'hiragana<tab>romanji ..<tab> meaning'
+        we use the same file un DemonBookChapterKanaword
+        '''
+        fields = unicode(line, "UTF-8").strip(U"\n").split(U"\t")
+        (kana, romajis, meanings) = (fields[0],
+                fields[1:len(fields)-1],fields[-1])
+        return DemonSoulTrad(kana, romajis, meanings) 
+    
+# Class for load the Kanji
+class DemonBookChapterKanji(DemonBookChapter):
+    def __init__(self, filename):
+        self.demons = []
+        self.name = 'kanji'
+        f = open(filename)
         lines = f.readlines()
         f.close()
         
@@ -517,10 +584,55 @@ class Book_of_demons:
             kana = fields[2:len(fields)]
             xp_for_win = 3 + (i / 500)
             d = DemonSoulKanji(kanji, kana, xp_for_win)
-            if not self.demons.has_key(demon_class):
-                self.demons[demon_class] = []
-            self.demons[demon_class].append(d)
+            self.demons.append(d)
             i = i + 1
+    
+###########################################################
+# This class manages the book of demons                   #
+###########################################################
+# Classes:
+# Classes at locations:
+# "hiragana"              @ Dark forest
+# "hiragana" + "katakana" @ Dwarven hills
+# "hiragana" + "katakana"+"kanaword"+"traduction" @ Mushroom forest
+# "kanaword" + "kanji"    @ Desert
+# "kanaword" + "kanji"    @ Tower
+# "kanji"                 @ Icy mountains
+# "kanji"                 @ Dungeon
+class Book_of_demons:
+    def add_chapter_to_the_book(self, chapter):
+        self.demons[chapter.get_title_of_the_chapter()] = []
+        self.demons[chapter.get_title_of_the_chapter()] = chapter.get_the_list_of_demon();
+
+    # Pseudo factory method
+    # TODO create a specific class ?
+    # there is probably a python "way" to do it
+    def getDemonBookChapter(self, type, filename):
+        if type == 'katakana':
+            return DemonBookChapterKatakana(filename)
+        elif type == 'hiragana':
+            return DemonBookChapterHiragana(filename)
+        elif type == 'kanaword':
+            return DemonBookChapterKanaword(filename)
+        elif type == 'traduction':
+            return DemonBookChapterTrad(filename)
+        elif type == 'kanji':
+            return DemonBookChapterKanji(filename)
+    
+    def __init__(self, config = {}):
+        self.demons = {}
+        # TODO give a dictionnary {'katakana': 'data/demonkatakana.txt' ..}.
+        # and do a foreach in this dictionnary
+        self.add_chapter_to_the_book(self.getDemonBookChapter('katakana', 
+            'data/demons-katakana.txt'))
+        self.add_chapter_to_the_book(self.getDemonBookChapter('hiragana',
+            'data/demons-hiragana.txt'))
+        self.add_chapter_to_the_book(self.getDemonBookChapter('kanaword',
+            'data/demons-kanawords.txt'))
+        self.add_chapter_to_the_book(self.getDemonBookChapter('traduction',
+            'data/demons-kanawords.txt'))
+        self.add_chapter_to_the_book(self.getDemonBookChapter('kanji',
+            'data/demons-kanji.txt'))
         
         #Debug:
         #for chapter_id in self.demons:
@@ -539,7 +651,7 @@ class Book_of_demons:
             # For kana/kanaword classes use probabilities:
             # 1 - maxed
             # 2 - not maxed
-            if type(demon_class) == int:
+            if isinstance(demon_class, basestring):  #is 
                 for demon in self.demons[demon_class]:
                     if xpctl.maxed(demon.xp_code()):
                         w = 1
@@ -557,7 +669,7 @@ class Book_of_demons:
                 # 8..2 - unbeaten
                 demon_class, demons_limit = demon_class
                 demons_undefeated = 0
-                if demon_class != 3:
+                if demon_class != 'kanji':
                     # It will work, but there are no such other classes as for now
                     raise "Demon class limit applied to class different than Kanji demons"
                 demons = self.demons[demon_class]
@@ -592,6 +704,7 @@ class Book_of_demons:
         #    print "%d: %s" % (w, d.xp_code())
         return [x.finalize() for x in weighted_sample(weighted_demon_list, sample_size)]
 
+    # Useless Not called ?
     def get_one(self, xpctl, demon_classes):
         candidates = []
         for demon_class in demon_classes:
@@ -638,6 +751,7 @@ class Book_of_demons:
 # The function is AWFULLY INEFFICIENT,
 # but reasonably sane
 def weighted_sample(population, sample_size):
+
     if len(population) < sample_size:
         raise ("weighted_sample: size of population %d is smaller than sample size %d" % (len(population), sample_size))
     balls = {}

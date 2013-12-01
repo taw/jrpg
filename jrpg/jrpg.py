@@ -739,7 +739,7 @@ class Main_Hero_Controller:
         # None, 0 -> 0
         # 1       -> 2
         # 2,3     -> 3
-        for demon in demons[3]:
+        for demon in demons['kanji']:
             xp = self.xpctl.xpfor.get(demon.xp_code(), 0)
             if xp == 1 or xp == 2: xp += 1
             for kanji in demon.kanji():
@@ -1501,7 +1501,7 @@ class World_model:
         if mhc.quest_is_done("sword complete") and not mhc.quest_is_done("blue crystals complete"):
             self.add_item((27,2), "blue crystals", blue_crystals)
         for (x,y) in self.random_clear_tiles(0.2,range(2,29),range(2,14)):
-            self.add_enemy((x,y),'dungeon',choice(cave_enemies),[2,(3,100)],1)
+            self.add_enemy((x,y),'dungeon',choice(cave_enemies),['kanaword',('kanji',100)],1)
 
 #####################################################################
 # Library                                                           #
@@ -1762,7 +1762,7 @@ class World_model:
         self.wormhole((3,0),"castle",(17,1))
         self.wormhole((6,0),"tower level 2",(2,1))
         for (x,y) in self.random_clear_tiles(0.2,range(1,9),range(2,9)):
-            self.add_enemy((x,y),'tower',choice(tower_enemies),[2,(3,200)],1)
+            self.add_enemy((x,y),'tower',choice(tower_enemies),['kanaword',('kanji',200)],1)
 #####################################################################
 # Tower level 2                                                     #
 #####################################################################
@@ -1770,7 +1770,7 @@ class World_model:
         self.wormhole((3,0),"tower level 1",(7,1))
         self.wormhole((6,0),"tower level 3",(2,1))
         for (x,y) in self.random_clear_tiles(0.2,range(1,9),range(2,9)):
-            self.add_enemy((x,y),'tower',choice(tower_enemies),[2,(3,200)],1)
+            self.add_enemy((x,y),'tower',choice(tower_enemies),['kanaword',('kanji',200)],1)
 #####################################################################
 # Tower level 3                                                     #
 #####################################################################
@@ -1824,7 +1824,7 @@ class World_model:
                 self.add_item(loc, "chest 1", grab_treasure)
         
         for (x,y) in self.random_clear_tiles(0.15,range(1,39),range(1,39)):
-            self.add_enemy((x,y),'dungeon',choice(dungeon_lvl_1_enemies),[(3,450)],2)
+            self.add_enemy((x,y),'dungeon',choice(dungeon_lvl_1_enemies),[('kanji',450)],2)
         for (x,y) in self.random_clear_tiles(0.01,range(1,39),range(1,39)):
             self.add_item((x,y),"copper coins", lambda: mhc.receive_money(1))
         for (x,y) in self.random_clear_tiles(0.1,range(1,39),range(1,39)):
@@ -1883,7 +1883,7 @@ class World_model:
             dungeon_level_3_open()
 
         for (x,y) in self.random_clear_tiles(0.15,range(1,39),range(1,39)):
-            self.add_enemy((x,y),'dungeon',choice(dungeon_lvl_2_enemies),[(3,600)],3)
+            self.add_enemy((x,y),'dungeon',choice(dungeon_lvl_2_enemies),[('kanji',600)],3)
         for (x,y) in self.random_clear_tiles(0.01,range(1,39),range(1,39)):
             self.add_item((x,y),"copper coins", lambda: mhc.receive_money(1))
         for (x,y) in self.random_clear_tiles(0.1,range(1,39),range(1,39)):
@@ -1919,7 +1919,7 @@ class World_model:
         self.wormhole((15,0), "dungeon level 2", (7,23))
 
         for (x,y) in self.random_clear_tiles(0.15,range(1,39),range(1,39)):
-            self.add_enemy((x,y),'dungeon',choice(dungeon_lvl_3_enemies),[(3,900)],3)
+            self.add_enemy((x,y),'dungeon',choice(dungeon_lvl_3_enemies),[('kanji',900)],3)
         for (x,y) in self.random_clear_tiles(0.02,range(1,39),range(1,39)):
             if randint(0,2) == 0:
                 self.add_item((x,y),"silver coins", lambda: mhc.receive_money(2))
@@ -1967,11 +1967,11 @@ class World_model:
         # ICY MOUNTAINS               #
         ###############################
         for (x,y) in self.random_clear_tiles(0.2,range(10,20),range(0,10)):
-            self.add_enemy((x,y),"ice",choice(ice_enemies),[(3,300)],1)
+            self.add_enemy((x,y),"ice",choice(ice_enemies),[('kanji',300)],1)
         for (x,y) in self.random_clear_tiles(0.2,range(0,20),range(10,20)):
-            self.add_enemy((x,y),"ice",choice(ice_enemies),[(3,300)],1)
+            self.add_enemy((x,y),"ice",choice(ice_enemies),[('kanji',300)],1)
         for (x,y) in self.random_clear_tiles(0.3,range(20,50),range(0,20)):
-            self.add_enemy((x,y),"ice",choice(ice_enemies),[(3,300)],1)
+            self.add_enemy((x,y),"ice",choice(ice_enemies),[('kanji',300)],1)
         def ice_quest():
             ui.change_text([U"You've got a red spellbook."])
             mhc.gain_item("spellbook red 9")
@@ -2119,16 +2119,16 @@ class World_model:
         # FOREST 1                    #
         ###############################
         for (x,y) in self.random_clear_tiles(0.1,range(0,10),range(40,50)):
-            self.add_enemy((x,y),'forest',choice(forest_enemies),[0],1)
+            self.add_enemy((x,y),'forest',choice(forest_enemies),['hiragana'],1)
         for (x,y) in self.random_clear_tiles(0.05,range(10,30),range(40,50)):
-            self.add_enemy((x,y),'forest',choice(forest_enemies),[0],1)
+            self.add_enemy((x,y),'forest',choice(forest_enemies),['hiragana'],1)
         self.add_item((1,41),"copper coins", lambda: mhc.receive_money(1))
         self.add_item((1,45),"copper coins", lambda: mhc.receive_money(1))
         ###############################
         # DWARVEN HILLS               #
         ###############################
         for (x,y) in self.random_clear_tiles(0.1,range(30,50),range(40,60)):
-            self.add_enemy((x,y),'hills',choice(mountain_enemies),[0,1],1)
+            self.add_enemy((x,y),'hills',choice(mountain_enemies),['hiragana','katakana'],1)
         for (x,y) in self.random_clear_tiles(0.02,range(30,50),range(40,60)):
             self.add_item((x,y),"copper coins", lambda: mhc.receive_money(1))
             
@@ -2184,7 +2184,7 @@ class World_model:
                     U"You've got bright green mushrooms.",
                     U"You need yellow and bright green mushrooms for the potion."])
         for (x,y) in self.random_clear_tiles(0.1,range(20,40),range(10,30)):
-            self.add_enemy((x,y),'marsh',choice(forest_enemies),[0,1,2,4],1)
+            self.add_enemy((x,y),'marsh',choice(forest_enemies),['hiragana','katakana','kanaword','traduction'],1)
         # FIXME: new mushrooms will grow only if you leave the forest
         # To make it less annoying, let's double number of mushrooms
         for (x,y) in self.random_clear_tiles(0.1,range(20,40),range(10,30)):

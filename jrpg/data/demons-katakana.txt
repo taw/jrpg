@@ -1,0 +1,70 @@
+1	ア	a
+1	イ	i
+1	ウ	u
+1	エ	e
+1	オ	o
+1	カ	ka
+1	キ	ki
+1	ク	ku
+1	ケ	ke
+1	コ	ko
+1	サ	sa
+1	シ	si	shi
+1	ス	su
+1	セ	se
+1	ソ	so
+1	タ	ta
+1	チ	ti	chi
+1	ツ	tu	tsu
+1	テ	te
+1	ト	to
+1	ナ	na
+1	ニ	ni
+1	ヌ	nu
+1	ネ	ne
+1	ノ	no
+1	ハ	ha
+1	ヒ	hi
+1	フ	hu	fu
+1	ヘ	he
+1	ホ	ho
+1	マ	ma
+1	ミ	mi
+1	ム	mu
+1	メ	me
+1	モ	mo
+1	ヤ	ya
+1	ユ	yu
+1	ヨ	yo
+1	ラ	ra
+1	リ	ri
+1	ル	ru
+1	レ	re
+1	ロ	ro
+1	ワ	wa
+1	ガ	ga
+1	ギ	gi
+1	グ	gu
+1	ゲ	ge
+1	ゴ	go
+1	ダ	da
+1	ヂ	di	ji	zi	dzi
+1	ヅ	du	zu	dzu
+1	デ	de
+1	ド	do
+1	ザ	za
+1	ジ	zi	ji
+1	ズ	zu
+1	ゼ	ze
+1	ゾ	zo
+1	バ	ba
+1	ビ	bi
+1	ブ	bu
+1	ベ	be
+1	ボ	bo
+1	パ	pa
+1	ピ	pi
+1	プ	pu
+1	ペ	pe
+1	ポ	po
+1	ン	n

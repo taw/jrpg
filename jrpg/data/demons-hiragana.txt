@@ -1,0 +1,71 @@
+0	あ	a
+0	い	i
+0	う	u
+0	え	e
+0	お	o
+0	か	ka
+0	き	ki
+0	く	ku
+0	け	ke
+0	こ	ko
+0	さ	sa
+0	し	si	shi
+0	す	su
+0	せ	se
+0	そ	so
+0	た	ta
+0	ち	ti	chi
+0	つ	tu	tsu
+0	て	te
+0	と	to
+0	な	na
+0	に	ni
+0	ぬ	nu
+0	ね	ne
+0	の	no
+0	は	ha	wa
+0	ひ	hi
+0	ふ	hu	fu
+0	へ	he	e
+0	ほ	ho
+0	ま	ma
+0	み	mi
+0	む	mu
+0	め	me
+0	も	mo
+0	や	ya
+0	ゆ	yu
+0	よ	yo
+0	ら	ra
+0	り	ri
+0	る	ru
+0	れ	re
+0	ろ	ro
+0	わ	wa
+0	を	wo	o
+0	が	ga
+0	ぎ	gi
+0	ぐ	gu
+0	げ	ge
+0	ご	go
+0	ざ	za
+0	じ	zi	ji
+0	ず	zu
+0	ぜ	ze
+0	ぞ	zo
+0	だ	da
+0	ぢ	di	ji	zi	dzi
+0	づ	du	zu	dzu
+0	で	de
+0	ど	do
+0	ば	ba
+0	び	bi
+0	ぶ	bu
+0	べ	be
+0	ぼ	bo
+0	ぱ	pa
+0	ぴ	pi
+0	ぷ	pu
+0	ぺ	pe
+0	ぽ	po
+0	ん	n
