@@ -10,7 +10,9 @@ import codecs # Python Unicode Brain Damage
 
 # Import other jrpg modules
 import images
-import demonsoul
+from models.demons.book import Book_of_demons
+from models.xpctl import XpCtl
+
 import util
 from mistakes import Mistakes
 from util import sgn, Cached, Notifier, fun_sort
@@ -439,7 +441,7 @@ class Main_Hero_Controller:
         self.hp     = self.hpmax
         self.xp     = 0
         self.level  = 0
-        self.xpctl  = demonsoul.XpCtl()
+        self.xpctl  = XpCtl()
         self.quests = {}
         self.money  = 0
         self.inventory = []
@@ -612,7 +614,7 @@ class Main_Hero_Controller:
             self.hp        = ld["hp"]
             self.xp        = ld["xp"]
             self.level     = ld["level"]
-            self.xpctl     = demonsoul.XpCtl(ld["xpfor"])
+            self.xpctl     = XpCtl(ld["xpfor"])
             self.quests    = ld["quests"]
             self.money     = ld["money"]
             # Just a backward compatibility hack
@@ -2724,7 +2726,7 @@ dungeon_lvl_3_enemies = [
 
 try:
     mistakes = Mistakes()
-    book = demonsoul.Book_of_demons()
+    book = Book_of_demons()
     mhc  = Main_Hero_Controller()
     wm   = World_model()
     wv   = World_view()
