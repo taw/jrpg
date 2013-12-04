@@ -20,6 +20,7 @@ class Demon_chapter_kanaword(DemonBookChapter):
         '''
         fields = unicode(line, "UTF-8").strip(U"\n").split(U"\t")
 
-        kana, romajis, meanings = (fields[0], fields[1:len(fields)-1], fields[-1])
+        kana, romajis, meanings = (fields[0],
+                                   fields[1:len(fields)-1], fields[-1])
 
         return DemonSoulKanaword(kana, romajis, meanings)

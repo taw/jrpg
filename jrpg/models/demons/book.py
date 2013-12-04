@@ -22,7 +22,7 @@ from random import choice
 class Book_of_demons:
     def add_chapter_to_the_book(self, chapter):
         self.demons[chapter.get_title_of_the_chapter()] = []
-        self.demons[chapter.get_title_of_the_chapter()] = chapter.get_the_list_of_demon();
+        self.demons[chapter.get_title_of_the_chapter()] = chapter.get_the_list_of_demon()
 
     # Pseudo factory method
     # TODO create a specific class ?
@@ -38,13 +38,15 @@ class Book_of_demons:
             return Demon_chapter_trad(filename)
         elif type == 'kanji':
             return Demon_chapter_kanji(filename)
-    
-    def __init__(self, config = {}):
+
+    def __init__(self, config={}):
         self.demons = {}
         # TODO give a dictionnary {'katakana': 'data/demonkatakana.txt' ..}.
         # and do a foreach in this dictionnary
-        self.add_chapter_to_the_book(self.get_chapter_for_book_of_demon('katakana', 
-            'data/demons-katakana.txt'))
+        self.add_chapter_to_the_book(
+                self.get_chapter_for_book_of_demon(
+                    'katakana',
+                    'data/demons-katakana.txt'))
         self.add_chapter_to_the_book(self.get_chapter_for_book_of_demon('hiragana',
             'data/demons-hiragana.txt'))
         self.add_chapter_to_the_book(self.get_chapter_for_book_of_demon('kanaword',
@@ -53,7 +55,7 @@ class Book_of_demons:
             'data/demons-kanawords.txt'))
         self.add_chapter_to_the_book(self.get_chapter_for_book_of_demon('kanji',
             'data/demons-kanji.txt'))
-        
+
         #Debug:
         #for chapter_id in self.demons:
         #    for d in self.demons[chapter_id]:
@@ -63,7 +65,7 @@ class Book_of_demons:
     # (3,100) - just enough demons in class 3 to have a least 100 undefeated (for some values of 100)
     # Class 3 (Kanji demons)
     #
-    # Change to use XpCtl    
+    # Change to use XpCtl
     def choice(self, xpctl, sample_size, demon_classes):
         unbeaten = []
         weighted_demon_list = []
@@ -71,7 +73,7 @@ class Book_of_demons:
             # For kana/kanaword classes use probabilities:
             # 1 - maxed
             # 2 - not maxed
-            if isinstance(demon_class, basestring):  #is 
+            if isinstance(demon_class, basestring):  #is
                 for demon in self.demons[demon_class]:
                     if xpctl.maxed(demon.xp_code()):
                         w = 1
@@ -119,7 +121,7 @@ class Book_of_demons:
                 for i in range(len(unbeaten)):
                     w = 8 - (8-1)*i/len(unbeaten)
                     weighted_demon_list.append((unbeaten[i], w))
-                    
+
         #for (d, w) in weighted_demon_list:
         #    print "%d: %s" % (w, d.xp_code())
         return [x.finalize() for x in weighted_sample(weighted_demon_list, sample_size)]
@@ -128,7 +130,7 @@ class Book_of_demons:
     def get_one(self, xpctl, demon_classes):
         candidates = []
         for demon_class in demon_classes:
-            if type(demon_class) == int:
+            if  demon_class != 'kanji':
                 for demon in self.demons[demon_class]:
                     # maxed demons twice less probable
                     if not xpctl.maxed(demon.xp_code()):
@@ -139,7 +141,7 @@ class Book_of_demons:
                 # if that's possible at all
                 demon_class, demons_limit = demon_class
                 demons_undefeated = 0
-                if demon_class != 3:
+                if demon_class != 'kanji':
                     # It will work, but there are no such other classes as for now
                     raise "Demon class limit applied to class different than Kanji demons"
                 demons = self.demons[demon_class]

@@ -3,18 +3,12 @@
 from demonsoul import DemonSoul
 from romajitokana import romaji_kana_match
 
+
 class DemonSoulTrad(DemonSoul):
     def __init__(self, kanaword, romajis, meanings):
         self.kanaword = kanaword
         self.romajis = romajis
         self.meanings = [meanings]
-        # Some wishful thinking:
-        #kunrei = canonical_kunrei(displayed_name)
-        #hepburn = canonical_hepburn(displayed_name)
-        #if kunrei == hepburn:
-        #    self.romajis = [kunrei]
-        #else:
-        #    self.romajis = [kunrei, hepburn]
 
     def xp_code(self):
         return self.kanaword + ":" + (":".join(self.romajis))
@@ -23,7 +17,7 @@ class DemonSoulTrad(DemonSoul):
         return 2
 
     def short_dn(self):
-        return "".join(self.meanings);
+        return "".join(self.meanings)
 
     def furicode(self):
         return [("".join(self.meanings), None, False)]
@@ -44,4 +38,3 @@ class DemonSoulTrad(DemonSoul):
 
     def hardcore_mode(self):
         return False
-

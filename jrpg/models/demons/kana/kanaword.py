@@ -1,8 +1,8 @@
 # -*- coding: UTF-8 -*-
 
 from demonsoul import DemonSoul
-
 from romajitokana import romaji_kana_match
+
 
 class DemonSoulKanaword(DemonSoul):
     def __init__(self, kanaword, romajis, meanings):
@@ -45,4 +45,3 @@ class DemonSoulKanaword(DemonSoul):
 
     def hardcore_mode(self):
         return True
-
