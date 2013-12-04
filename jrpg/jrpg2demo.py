@@ -6,7 +6,9 @@ from random import *
 
 # Import other jrpg modules
 import resman
-import demonsoul
+
+from models.demons.book import Book_of_demons
+from models.xpctl import XpCtl
 from spatial_index import Index
 import util
 from util import sgn, Cached, Notifier
@@ -281,7 +283,7 @@ class Statistics:
         self.hp    = 5
         self.hpmax = 5
         self.money = 0
-        self.xpctl = demonsoul.XpCtl()
+        self.xpctl = XpCtl()
         
         self.nctl_stats_changed = Notifier()
     def set_hp(self, new_hp):
@@ -521,7 +523,7 @@ class World:
         self.stats.xp        = ld["xp"]
         self.stats.level     = ld["level"]
         self.stats.money     = ld["money"]
-        self.stats.xpctl     = demonsoul.XpCtl(ld["xpfor"])
+        self.stats.xpctl     = XpCtl(ld["xpfor"])
         self.stats.nctl_stats_changed.fire()
         self.msg_add([u"Game loaded"])
 
@@ -776,7 +778,7 @@ try:
     # The only reason we initialize it here is
     # because it's slow and we want to minimize the time
     # between graphic mode switch and actually displaying something
-    book = demonsoul.Book_of_demons()
+    book = Book_of_demons()
     
     # FIXME: There are too many cyclic dependencies between the 3
     world = World("main")
