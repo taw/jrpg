@@ -11,6 +11,7 @@ import codecs # Python Unicode Brain Damage
 # Import other jrpg modules
 import images
 from models.demons.book import Book_of_demons
+from models.demons.chapterfactory import Chapter_factory
 from models.xpctl import XpCtl
 
 import util
@@ -2726,7 +2727,17 @@ dungeon_lvl_3_enemies = [
 
 try:
     mistakes = Mistakes()
-    book = Book_of_demons()
+    
+    chapter_factory = Chapter_factory(); 
+    list_of_vocabulary = {
+            'katakana' : 'data/demons-katakana.txt',
+            'hiragana' : 'data/demons-hiragana.txt',
+            'kanaword' : 'data/demons-kanawords.txt',
+            'traduction' : 'data/demons-kanawords.txt',
+            'kanji' : 'data/demons-kanji.txt',
+            };
+
+    book = Book_of_demons(chapter_factory, list_of_vocabulary)
     mhc  = Main_Hero_Controller()
     wm   = World_model()
     wv   = World_view()
