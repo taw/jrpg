@@ -50,7 +50,7 @@ class DemonSoul:
     def get_fail_message(self, damage):
         return U"Demon %s (%s) hit you for %d points" % (
                self.short_dn(),
-               "".join(self.secret_names()), damage)
+               " ".join(self.secret_names()), damage)
 
     def __unicode__(self):
         return self.xp_code()

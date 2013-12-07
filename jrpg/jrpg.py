@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
-import warnings
 import sys, pygame, pickle
 from math import sqrt, floor
 from random import *
@@ -12,6 +11,9 @@ import codecs # Python Unicode Brain Damage
 import images
 from models.demons.book import Book_of_demons
 from models.demons.chapterfactory import Chapter_factory
+
+from models.worlds.town import * 
+from models.worlds.castle import * 
 from models.xpctl import XpCtl
 
 import util
@@ -36,6 +38,7 @@ from terrain import corner_shader
 #sys.stdin  = codecs.getwriter("utf-8")(sys.stdin)
 #sys.stdout = codecs.getwriter("utf-8")(sys.stdout)
 #sys.stderr = codecs.getwriter("utf-8")(sys.stderr)
+
 
 util.init_pygame("JRPG")
 
@@ -109,6 +112,7 @@ def Se(x):
 # This class manages the common and worldmap parts of UI  #
 # It knows way too much about the world                   #
 ###########################################################
+
 class UI:
     def __init__(self):
         mtctl_terrain = images.mtctl_terrain
@@ -1264,60 +1268,62 @@ class World_model:
         }
         self.map_db["hospital"] = {
             "tiles": self.load_map("maps/hospital.map"),
-            "setup": lambda: self.map_setup_hospital(),
+            "setup": lambda: World_hospital(self, ui, mhc)
         }
         
         self.map_db["library"] = {
             "tiles": self.load_map("maps/library.map"),
-            "setup": lambda: self.map_setup_library(),
+            "setup": lambda: World_library(self, ui, mhc)
         }
+
         self.map_db["wizard shop"] = {
             "tiles": self.load_map("maps/wizard_shop.map"),
-            "setup": lambda: self.map_setup_wizard_shop(),
+            "setup": lambda: World_wizard_shop(self, ui, mhc),
         }
         self.map_db["angel sanctuary"] = {
             "tiles": self.load_map("maps/angel_sanctuary.map"),
-            "setup": lambda: self.map_setup_angel_sanctuary(),
+            "setup": lambda: World_angel_sanctury(self, ui, mhc),
         }
         self.map_db["blacksmith"] = {
             "tiles": self.load_map("maps/blacksmith.map"),
-            "setup": lambda: self.map_setup_blacksmith(),
+            "setup": lambda: World_blacksmith(self, ui, mhc),
         }
         self.map_db["cave"] = {
             "tiles": self.load_map("maps/cave.map"),
-            "setup": lambda: self.map_setup_cave(),
+            "setup": lambda: World_cave(self, ui, mhc),
         }
         self.map_db["castle"] = {
             "tiles": self.load_map("maps/castle.map"),
-            "setup": lambda: self.map_setup_castle(),
+            "setup": lambda: World_castle(self, ui, mhc),
         }
         self.map_db["tower level 1"] = {
             "tiles": self.load_map("maps/tower_level_1.map"),
-            "setup": lambda: self.map_setup_tower_level_1(),
+            "setup": lambda: World_tower_level1(self, ui, mhc),
         }
         self.map_db["tower level 2"] = {
             "tiles": self.load_map("maps/tower_level_2.map"),
-            "setup": lambda: self.map_setup_tower_level_2(),
+            "setup": lambda: World_tower_level2(self, ui, mhc),
         }
         self.map_db["tower level 3"] = {
             "tiles": self.load_map("maps/tower_level_3.map"),
-            "setup": lambda: self.map_setup_tower_level_3(),
+            "setup": lambda: World_tower_level3(self, ui, mhc),
         }
         self.map_db["dungeon level 1"] = {
             "tiles": self.load_map("maps/dungeon_level_1.map"),
-            "setup": lambda: self.map_setup_dungeon_level_1(),
+            "setup": lambda: World_dungeon_level1(self, ui, mhc),
         }
         self.map_db["dungeon level 2"] = {
             "tiles": self.load_map("maps/dungeon_level_2.map"),
-            "setup": lambda: self.map_setup_dungeon_level_2(),
+            "setup": lambda: World_dungeon_level2(self, ui, mhc),
         }
         self.map_db["dungeon level 3"] = {
             "tiles": self.load_map("maps/dungeon_level_3.map"),
-            "setup": lambda: self.map_setup_dungeon_level_3(),
+            "setup": lambda: World_dungeon_level3(self, ui, mhc),
         }
         self.current_map = None
         self.current_map_id = None
-    def switch_map(self, map_id, (x,y)):
+    
+    def switch_map(self, map_id, (x, y)):
         self.current_map_id = map_id
         # Copy, so we can change the tiles without modifying the database
         if not self.map_db[self.current_map_id]:
@@ -1333,17 +1339,21 @@ class World_model:
 
         self.map_db[self.current_map_id]["setup"]()
 
-        wv.switch_map_event((x,y))
+        wv.switch_map_event((x, y))
+
     def load_map(self, file_name):
         f = open(file_name)
         tiles = [line.rstrip('\n') for line in f.readlines()]
         f.close()
         return tiles
+
     def run_charas(self):
         for chara in self.charas:
             chara.patrol()
+    
     def teleport_to_hospital(self):
         self.switch_map("hospital",(3,8))
+    
     def collides(self, rect):
         # Convert rect from pixelspace to tilespace
         top    = rect.top    >> 5
@@ -1355,11 +1365,13 @@ class World_model:
                 if ui.mtctl.blocking(self.current_map_get_element(j,i)):
                     return True
         return False
+    
     # This map has no outside borders
     def current_map_get_element(self,x,y):
         if y<0 or y >= len(self.current_map) or x < 0 or x >= len(self.current_map[y]):
             return None
         return self.current_map[y][x]
+    
     # self is not really used
     def pixel_rect_to_tile_rect(self, pixel_rect):
         top    = pixel_rect.top >> 5
@@ -1367,6 +1379,7 @@ class World_model:
         bottom = pixel_rect.bottom >> 5
         right  = pixel_rect.right >> 5
         return pygame.Rect(left,top,right-left+1,bottom-top+1)
+    
     def enter_event(self, tile):
         if self.enter_events.has_key(tile):
             for e in self.enter_events[tile]:
@@ -1465,471 +1478,6 @@ class World_model:
     def add_item_event(self, item_id, event):
         self.objects[item_id].attach_event(event)
 
-#####################################################################
-# Hospital map                                                      #
-#####################################################################
-    def map_setup_hospital(self):
-        emergency_healing = (mhc.hp == 0)
-        healed_today = [False] # Just to get sane msgs
-        def nurse_healing():
-            global mhc
-            if mhc.hp != mhc.hpmax:
-                mhc.change_hp(mhc.hpmax)
-                if emergency_healing:
-                    ui.append_text([U"You're healed now.", U"Take care of yourself the next time."])
-                else:
-                    ui.change_text([U"You're healed now.", U"Take care of yourself the next time."])
-                healed_today[0] = True
-            elif not healed_today[0]:
-                ui.change_text([U"Come here if you're hurt.", U"The hospital can cure your wounds."])
-        self.wormhole((5, 9),"world",(2,37))
-        self.add_chara("nurse",route=[(1,5), (8,5)],event=nurse_healing)
-        # Automatic nurse_healing() if entered almost-dead
-        # (mostly for teleports after lost battles)
-        if emergency_healing:
-            nurse_healing()
-
-
-
-#####################################################################
-# Cave                                                              #
-#####################################################################
-    def map_setup_cave(self):
-        def blue_crystals():
-            mhc.gain_item("blue crystals")
-            mhc.quest_do("blue crystals complete")
-            ui.change_text([U"Now take the blue crystal back to the smith"])
-
-        self.wormhole((0, 7),"world",(60,37))
-        if mhc.quest_is_done("sword complete") and not mhc.quest_is_done("blue crystals complete"):
-            self.add_item((27,2), "blue crystals", blue_crystals)
-        for (x,y) in self.random_clear_tiles(0.2,range(2,29),range(2,14)):
-            self.add_enemy((x,y),'dungeon',choice(cave_enemies),['kanaword',('kanji',100)],1)
-
-#####################################################################
-# Library                                                           #
-#####################################################################
-    def map_setup_library(self):
-        self.wormhole((5,9),"world",(33,35))
-        monk1 = self.add_chara("elf-monk",route=[(1,1),(1,3),(4,3),(4,1)],event=lambda: ui.change_text([
-            U"You get more experienced as you defeat the kanji monsters.",
-            U"But you must look for new monsters all the time,",
-            U"as each can give you experience at most 3 times.",
-            U"And you can only get some if you win in a good style.",
-        ]))
-        monk2 = self.add_chara("elf-monk",route=[(5,1),(5,3),(8,3),(8,1)],event=lambda: ui.change_text([
-            U"The first time you meet a demon, you may see its name.",
-            U"Later, you must remember it.",
-            U"If you don't want to start all over again, you may save with F2,",
-            U"and load with F4. But it's a very traumatic experience." 
-        ]))
-        # This monk is not really telling the true, he still thinks
-        # it's an old version of jrpg ;-)
-        monk3 = self.add_chara("elf-monk",route=[(1,4),(8,4),(8,6),(1,6)],event=lambda: ui.change_text([
-            U"There are different demons in each location.",
-            U"So it would be too boring to stay for too long in one place.",
-            U"If you're done with the demons around the town,",
-            U"maybe try the castle northwest."
-        ]))
-        for y in range(10):
-            for x in range(10):
-                if self.current_map_get_element(x,y) == 'W':
-                    self.add_decoration((x,y),choice(library_decorations))
-#####################################################################
-# Wizard shop                                                       #
-#####################################################################
-    def map_setup_wizard_shop(self):
-        just_given_potion = [False]
-        def wizard_quests():
-            if not mhc.quest_is_done("antiheat potion idea"):
-                ui.change_text([U"I'm making potions from mushrooms.", U"But you don't seem to need any."])
-            elif not (mhc.quest_is_done("antiheat potion yellow") and mhc.quest_is_done("antiheat potion bgreen")):
-                mhc.quest_do("antiheat potion recipe")
-                ui.change_text([
-                    U"Oh, you need an anti-heat potion",
-                    U"Bring me some yellow and bright green mushrooms."])
-            elif not mhc.quest_is_done("antiheat potion complete"):
-                mhc.loss_item("yellow mushroom")
-                mhc.loss_item("green mushroom 2")
-                mhc.gain_item("potion 5")
-                mhc.quest_do("antiheat potion complete")
-                ui.change_text([U"Here's your potion.", U"Enjoy the desert."])
-                just_given_potion[0] = True
-            elif not just_given_potion[0]:
-                ui.change_text([
-                    U"I'm making potions from mushrooms.",
-                    U"But you don't seem to need any more potions for now."])
-        def setup_decorations(x,y):
-            self.add_decoration((x,y),choice(wizard_decorations))
-        self.wormhole((5,9),"world",(38,35))
-        self.add_chara("wizard-gray",route=[(3,4),(6,4)],event=wizard_quests)
-        for y in range(1,3):
-            for x in range(1,9):
-                if random() < 0.6:
-                    setup_decorations(x,y)
-        for y in range(3,9):
-            if random() < 0.9:
-                setup_decorations(1,y)
-                setup_decorations(8,y)
-#####################################################################
-# Angel sanctuary                                                   #
-#####################################################################
-    def map_setup_angel_sanctuary(self):
-        def angel_quest():
-            if mhc.quest_is_done("reward for level 3"):
-                ui.change_text([U"I am guardian angel of software development.",
-                                U"I'm impressed that you finished all quests in jrpg.",
-                                U"Please send your savefile to its developer,",
-                                U"and he is sure to add some new areas ^_^"])
-            else:
-                ui.change_text([U"I am guardian angel of software development.",
-                                U"If you actually finish all quests in jrpg,",
-                                U"send the savefile to its developer,",
-                                U"and he is sure to add some new areas."])
-        self.wormhole((3,0),"world",(35,36))
-        
-        self.add_chara("angel-blue",route=[(3,2),(6,2),(7,3),(7,6),(6,7),(3,7),(2,6),(2,3)],event=angel_quest)
-#####################################################################
-# Blacksmith                                                        #
-#####################################################################
-    def map_setup_blacksmith(self):
-        def blacksmith_quest():
-            if mhc.quest_is_done("magic sword complete"):
-                ui.change_text([U"Good monster hunting with your awesome magic sword"])
-            elif mhc.quest_is_done("blue crystals complete"):
-                mhc.loss_item("sword")
-                mhc.loss_item("blue crystals")
-                mhc.gain_item("magic sword")
-                mhc.quest_do("magic sword complete")
-            elif mhc.quest_is_done("sword complete"):
-                ui.change_text([U"This was once a legendary sword, but its enchantments wore off",
-                                U"Find some magic blue crystals in a cave to the East",
-                                U"And I'll reenchant it"])
-            elif mhc.quest_is_done("broken sword complete"):
-                mhc.loss_item("broken sword")
-                mhc.gain_item("sword")
-                mhc.quest_do("sword complete")
-                ui.change_text([U"Here, I fixed your sword!",
-                                U"This was once a legendary sword, but its enchantments wore off",
-                                U"Find some magic blue crystals in a cave to the East",
-                                U"And I'll reenchant it"])
-            else:
-                ui.change_text([U"You look like a hero, but you have no sword",
-                                U"There's one on a meadow to the south.",
-                                U"It's broken but if you bring it here I'll fix it for you"])
-                
-        self.wormhole((3,0),"world",(41,36))
-
-        self.add_chara("dwarf-smith",route=[(4,3),(5,3),(6,4),(6,5),(5,6),(4,6),(3,5),(3,4)],event=blacksmith_quest)
-
-        self.add_decoration((1,6), "pickaxe")
-        self.add_decoration((8,5), "hammer")
-        self.add_decoration((8,7), "pickaxe")
-        self.add_decoration((4,8), "pickaxe")
-        self.add_decoration((6,8), "hammer")
-        self.add_decoration((3,8), "hammer")
-
-
-#####################################################################
-# Castle                                                            #
-#####################################################################
-    def map_setup_castle(self):
-        self.wormhole((4,9),"world",(7,9))
-        king_already_said_something = [False]
-        def king_event():
-            if king_already_said_something[0]:
-                return
-            # Dungeon not even opened
-            if not mhc.quest_is_done("dungeon gate open"):
-                ui.change_text([
-                    U"Please help. Kanji monsters stole all the kingdom's treasures.",
-                    U"They're in castle dungeon, but it's impossible to go there now.",
-                    U"Only the red spellbook can open the dungeon gate.",
-                    U"It's probably in the castle tower, east from here.",
-                ])
-                king_already_said_something[0] = True
-                return
-            # Dungeon opened, no level cleaned
-            if not mhc.quest_is_done("dungeon level 2 open"):
-                ui.change_text([
-                    U"Please find all the stolen treasures.",
-                    U"You will get rewarded for it.",
-                    U"When you find all treasures on one level, another will open."
-                ])
-                king_already_said_something[0] = True
-                return
-            # Level 1 cleaned, no reward yet
-            if mhc.quest_is_done("dungeon level 2 open") and not mhc.quest_is_done("reward for level 1"):
-                mhc.quest_do("reward for level 1")
-                ui.change_text([
-                    U"Please take this 100 coin reward for retrieving all",
-                    U"the treasures from the first level.",
-                    U"You will be rewarded for further levels too."
-                ])
-                king_already_said_something[0] = True
-                mhc.receive_money(100)
-                return
-            # Level 1 cleaned and rewarded
-            if not mhc.quest_is_done("dungeon level 3 open"):
-                ui.change_text([
-                    U"Please find all the stolen treasures.",
-                    U"You will get rewarded for it.",
-                    U"When you find all treasures on one level, another will open."
-                ])
-                king_already_said_something[0] = True
-                return
-            # Level 2 cleaned, no reward yet
-            if mhc.quest_is_done("dungeon level 3 open") and not mhc.quest_is_done("reward for level 2"):
-                mhc.quest_do("reward for level 2")
-                ui.change_text([
-                    U"Please take this 200 coin reward for retrieving all",
-                    U"the treasures from the second level.",
-                    U"You will be rewarded for further levels too."
-                ])
-                king_already_said_something[0] = True
-                mhc.receive_money(200)
-                return
-            # Level 2 cleaned and rewarded
-            if not mhc.quest_is_done("dungeon finished"):
-                ui.change_text([
-                    U"Please find all the stolen treasures on the last level.",
-                    U"You will get rewarded for it.",
-                ])
-                king_already_said_something[0] = True
-                return
-            # Level 3 cleaned, no reward yet
-            if mhc.quest_is_done("dungeon finished") and not mhc.quest_is_done("reward for level 3"):
-                mhc.quest_do("reward for level 3")
-                ui.change_text([
-                    U"Please take this 300 coin reward for retrieving all",
-                    U"the treasures from the last level.",
-                    U"Thank you for the good work.",
-                ])
-                king_already_said_something[0] = True
-                mhc.receive_money(300)
-                return
-            # Dungeon cleaned and rewarded
-            if mhc.quest_is_done("dungeon finished"):
-                ui.change_text([
-                    U"Thanks for retrieving the treasures.",
-                ])
-                king_already_said_something[0] = True
-                return
-        self.add_chara("king",route=[(2,2), (7,2), (7,5), (2,5)],event=king_event)
-        treasures = [(i+1,  "chest 1", 2+i,   1) for i in range(6)] \
-                  + [(i+7,  "chest 2",   1, 2+i) for i in range(4)] \
-                  + [(i+11, "chest 2",   8, 2+i) for i in range(4)] \
-                  + [(i+15, "chest 4", 3+i,   3) for i in range(4)] \
-                  + [(i+19, "chest 4", 4+i,   4) for i in range(2)]
-        for (chest_num, chest_type, x, y) in treasures:
-            quest_id = "treasure %d" % chest_num
-            if mhc.quest_is_done(quest_id):
-                self.add_decoration((x,y), chest_type)
-        looked_into_crystal_ball = [False]
-        def look_into_crystal_ball():
-            # Don't perform useless recomputations
-            if looked_into_crystal_ball[0]:
-                return
-            looked_into_crystal_ball[0] = True
-            kanji_knowledge = mhc.get_kanji_knowledge()
-            kanji_count = 0
-            for k in kanji_knowledge: kanji_count += k
-            ui.change_text([u"You look into the crystal ball and see:",
-                            u"You know %d kanji perfectly, %d (%d) very well," % (kanji_knowledge[4], kanji_knowledge[3], kanji_knowledge[3]+kanji_knowledge[4]),
-                            u"%d (%d) pretty well, %d (%d) only a bit," % (kanji_knowledge[2], kanji_knowledge[2]+kanji_knowledge[3]+kanji_knowledge[4], kanji_knowledge[1], kanji_knowledge[1]+kanji_knowledge[2]+kanji_knowledge[3]+kanji_knowledge[4]),
-                            u"and %d of %d not at all." % (kanji_knowledge[0], kanji_count)
-                            ])
-        def finish_dungeon_gate_quest():
-            if not mhc.quest_is_done("ice artifact"):
-                ui.change_text([U"The dungeon gate is closed."])
-            elif not mhc.quest_is_done("dungeon gate open"):
-                ui.change_text([U"You use the red spellbook to open the dungeon gate."])
-                mhc.quest_do("dungeon gate open")
-                dungeon_gate_open()
-        def dungeon_gate_open():
-            self.change_tile((13,0),'k')
-            self.wormhole((13,0),"dungeon level 1",(14,1))
-        if mhc.quest_is_done("dungeon gate open"):
-            dungeon_gate_open()
-        else:
-            self.add_enter_event((13,1),lambda: finish_dungeon_gate_quest())
-        self.wormhole((16,0),"tower level 1",(2,1))
-        
-        self.add_decoration((15,7), "crystal ball")
-        self.add_enter_event((15,7), look_into_crystal_ball)
-
-#####################################################################
-# Tower level 1                                                     #
-#####################################################################
-    def map_setup_tower_level_1(self):
-        self.wormhole((3,0),"castle",(17,1))
-        self.wormhole((6,0),"tower level 2",(2,1))
-        for (x,y) in self.random_clear_tiles(0.2,range(1,9),range(2,9)):
-            self.add_enemy((x,y),'tower',choice(tower_enemies),['kanaword',('kanji',200)],1)
-#####################################################################
-# Tower level 2                                                     #
-#####################################################################
-    def map_setup_tower_level_2(self):
-        self.wormhole((3,0),"tower level 1",(7,1))
-        self.wormhole((6,0),"tower level 3",(2,1))
-        for (x,y) in self.random_clear_tiles(0.2,range(1,9),range(2,9)):
-            self.add_enemy((x,y),'tower',choice(tower_enemies),['kanaword',('kanji',200)],1)
-#####################################################################
-# Tower level 3                                                     #
-#####################################################################
-    def map_setup_tower_level_3(self):
-        self.wormhole((3,0),"tower level 2", (7,1))
-        self.wormhole((4,5),"icy mountains",(3,4))
-        self.add_decoration((3,4),"magical symbol R")
-        self.add_decoration((5,4),"magical symbol G")
-        self.add_decoration((2,5),"magical symbol Y")
-        self.add_decoration((6,5),"magical symbol R")
-        self.add_decoration((3,6),"magical symbol G")
-        self.add_decoration((5,6),"magical symbol Y")
-        self.add_decoration((4,5),"magical symbol Y")
-        star  = [[False for y in range(10)] for x in range(10)]
-        # def ice_temple_shader():
-        #     stars = ["star 3", "star 4", "star 7", "star 9"]
-        #     # Expected star lifetime          = t = 25
-        #     # Expected stable number of stars = n =  5
-        #     # k1 = 1/t = 1/25 = 0.04
-        #     # n/(100-n) = k2/k1
-        #     # k2 \approx k1 n / 100 = 0.04 * 5 / 100 = 0.002
-        #     for y in range(10):
-        #         for x in range(10):
-        #             if star[x][y]:
-        #                 ui.render_item(ui.map_viewport, (x*32,y*32), star[x][y])
-        #                 if random() < 0.04:
-        #                     star[x][y] = None
-        #             else:
-        #                 if random() < 0.002:
-        #                     star[x][y] = choice(stars)
-        # self.shader = lambda: ice_temple_shader()
-#####################################################################
-# Dungeon level 1                                                   #
-#####################################################################
-    def map_setup_dungeon_level_1(self):
-        def dungeon_level_1_treasure(number, loc):
-            quest_id = "treasure %d" % number
-            def grab_treasure():
-                mhc.quest_do(quest_id)
-                for i in range(1,7):
-                    if not mhc.quest_is_done("treasure %s" % i):
-                        ui.change_text([U"You retrieved one of the treasure chests"])
-                        return
-                mhc.quest_do("dungeon level 2 open")
-                ui.change_text([
-                    U"You retrieved the last treasure chest on this level.",
-                    U"The next level is open."
-                ])
-                dungeon_level_2_open()
-            if not mhc.quest_is_done(quest_id):
-                self.add_item(loc, "chest 1", grab_treasure)
-        
-        for (x,y) in self.random_clear_tiles(0.15,range(1,39),range(1,39)):
-            self.add_enemy((x,y),'dungeon',choice(dungeon_lvl_1_enemies),[('kanji',450)],2)
-        for (x,y) in self.random_clear_tiles(0.01,range(1,39),range(1,39)):
-            self.add_item((x,y),"copper coins", lambda: mhc.receive_money(1))
-        for (x,y) in self.random_clear_tiles(0.1,range(1,39),range(1,39)):
-            self.add_decoration((x,y),choice(dungeon_lvl_1_decorations))
-
-        self.wormhole((15,0),"castle",(12,1))
-
-        def dungeon_level_2_open():
-            self.change_tile((35,13),'<')
-            self.wormhole((35,13), "dungeon level 2", (15,1))
-        if mhc.quest_is_done("dungeon level 2 open"):
-            dungeon_level_2_open()
-
-        dungeon_level_1_treasure(1, (11,14))
-        dungeon_level_1_treasure(2, (38,13))
-        dungeon_level_1_treasure(3, (1,22))
-        dungeon_level_1_treasure(4, (17,24))
-        dungeon_level_1_treasure(5, (4,38))
-        dungeon_level_1_treasure(6, (28,36))
-#####################################################################
-# Dungeon level 2                                                   #
-#####################################################################
-    def map_setup_dungeon_level_2(self):
-        def dungeon_level_2_treasure(number, loc):
-            quest_id = "treasure %d" % number
-            def grab_treasure():
-                mhc.quest_do(quest_id)
-                for i in range(7,15):
-                    if not mhc.quest_is_done("treasure %s" % i):
-                        ui.change_text([U"You retrieved one of the treasure chests"])
-                        return
-                mhc.quest_do("dungeon level 3 open")
-                ui.change_text([
-                    U"You retrieved the last treasure chest on this level.",
-                    U"The next level is open."
-                ])
-                dungeon_level_3_open()
-            if not mhc.quest_is_done(quest_id):
-                self.add_item(loc, "chest 2", grab_treasure)
-
-        dungeon_level_2_treasure(7, (18,2))
-        dungeon_level_2_treasure(8, (14,24))
-        dungeon_level_2_treasure(9, (22,32))
-        dungeon_level_2_treasure(10, (36,18))
-        dungeon_level_2_treasure(11, (38,24))
-        dungeon_level_2_treasure(12, (38,37))
-        dungeon_level_2_treasure(13, (5,17))
-        dungeon_level_2_treasure(14, (1,38))
-
-        self.wormhole((15,0), "dungeon level 1", (35,12))
-
-        def dungeon_level_3_open():
-            self.change_tile((7,24),'<')
-            self.wormhole((7,24), "dungeon level 3", (15,1))
-        if mhc.quest_is_done("dungeon level 3 open"):
-            dungeon_level_3_open()
-
-        for (x,y) in self.random_clear_tiles(0.15,range(1,39),range(1,39)):
-            self.add_enemy((x,y),'dungeon',choice(dungeon_lvl_2_enemies),[('kanji',600)],3)
-        for (x,y) in self.random_clear_tiles(0.01,range(1,39),range(1,39)):
-            self.add_item((x,y),"copper coins", lambda: mhc.receive_money(1))
-        for (x,y) in self.random_clear_tiles(0.1,range(1,39),range(1,39)):
-            self.add_decoration((x,y),choice(dungeon_lvl_2_decorations))
-
-#####################################################################
-# Dungeon level 3                                                   #
-#####################################################################
-    def map_setup_dungeon_level_3(self):
-        def dungeon_level_3_treasure(number, loc):
-            quest_id = "treasure %d" % number
-            def grab_treasure():
-                mhc.quest_do(quest_id)
-                for i in range(14,21):
-                    if not mhc.quest_is_done("treasure %s" % i):
-                        ui.change_text([U"You retrieved one of the treasure chests"])
-                        return
-                mhc.quest_do("dungeon finished")
-                ui.change_text([
-                    U"Congratulations.",
-                    U"You retrieved the last treasure chest in the dungeon.",
-                ])
-            if not mhc.quest_is_done(quest_id):
-                self.add_item(loc, "chest 4", grab_treasure)
-
-        dungeon_level_3_treasure(15, (13,1))
-        dungeon_level_3_treasure(16, (12,16))
-        dungeon_level_3_treasure(17, (36,2))
-        dungeon_level_3_treasure(18, (26,34))
-        dungeon_level_3_treasure(19, (16,38))
-        dungeon_level_3_treasure(20, (1,16))
-
-        self.wormhole((15,0), "dungeon level 2", (7,23))
-
-        for (x,y) in self.random_clear_tiles(0.15,range(1,39),range(1,39)):
-            self.add_enemy((x,y),'dungeon',choice(dungeon_lvl_3_enemies),[('kanji',900)],3)
-        for (x,y) in self.random_clear_tiles(0.02,range(1,39),range(1,39)):
-            if randint(0,2) == 0:
-                self.add_item((x,y),"silver coins", lambda: mhc.receive_money(2))
-            else:
-                self.add_item((x,y),"copper coins", lambda: mhc.receive_money(1))
-        for (x,y) in self.random_clear_tiles(0.1,range(1,39),range(1,39)):
-            self.add_decoration((x,y),choice(dungeon_lvl_3_decorations))
 #####################################################################
 # Library                                                           #
 #####################################################################
@@ -2396,87 +1944,6 @@ cheat_quest = [
     "treasure 19",
     "treasure 20",
 ]
-library_decorations = [
-    "spellbook gray 1",
-    "spellbook gray 2",
-    "spellbook gray 3",
-    "spellbook gray 4",
-    "spellbook blue 1",
-    "spellbook blue 2",
-    "spellbook blue 3",
-    "spellbook blue 4",
-    "spellbook green 1",
-    "spellbook green 2",
-    "spellbook green 3",
-    "spellbook green 4",
-    "spellbook red 1",
-    "spellbook red 2",
-    "spellbook red 3",
-    "spellbook red 4",
-    "spellbook cyan 1",
-    "spellbook cyan 2",
-    "spellbook cyan 3",
-    "spellbook cyan 4",
-    "spellbook pink 1",
-    "spellbook pink 2",
-    "spellbook pink 3",
-    "spellbook pink 4",
-]
-wizard_decorations = [
-    "spellbook blue 1",
-    "spellbook blue 2",
-    "spellbook blue 3",
-    "spellbook blue 4",
-    "spellbook blue 5",
-    "spellbook blue 6",
-    "spellbook blue 7",
-    "spellbook blue 8",
-    "spellbook blue 9",
-    "spellbook green 1",
-    "spellbook green 2",
-    "spellbook green 3",
-    "spellbook green 4",
-    "spellbook green 5",
-    "spellbook green 6",
-    "spellbook green 7",
-    "spellbook green 8",
-    "spellbook green 9",
-    "spellbook red 1",
-    "spellbook red 2",
-    "spellbook red 3",
-    "spellbook red 4",
-    "spellbook red 5",
-    "spellbook red 6",
-    "spellbook red 7",
-    "spellbook red 8",
-    "spellbook red 9",
-    "potion 1",
-    "potion 2",
-    "potion 3",
-    "potion 4",
-    "potion 5",
-    "potion 6",
-    "potion 7",
-    "potion 8",
-    "potion 9",
-    "potion 10",
-    "potion 11",
-    "potion 12",
-    "potion 13",
-    "potion 14",
-    "potion 15",
-    "potion 16",
-    "potion 17",
-    "potion 18",
-    "potion 19",
-    "potion 20",
-    "potion 21",
-    "potion 22",
-    "potion 23",
-    "potion 24",
-    "potion 25",
-    "potion 26",
-]
 mountain_enemies = [
     "spotty lizard",
     "red lizard",
@@ -2516,54 +1983,6 @@ desert_enemies = [
     "vulture 1",
     "vulture 2",
     "vulture 3",
-]
-cave_enemies = [
-    "bat 1",
-    "bat 2",
-    "bat 3",
-    "bat 4",
-    "bat 5",
-    "skeleton 1",
-    "skeleton 2",
-    "skeleton 3",
-    "skeleton 4",
-    "skeleton 5",
-    "skeleton 6",
-    "skeleton 7",
-]
-tower_enemies = [
-    "spider 1",
-    "spider 2",
-    "spider 3",
-    "spider 4",
-    "spider 5",
-    "spider 6",
-    "spider 7",
-    "bat 1",
-    "bat 2",
-    "bat 3",
-    "bat 4",
-    "bat 5",
-    "snake 1",
-    "snake 2",
-    "snake 3",
-    "snake 4",
-    "snake 5",
-    "snake 6",
-    "snake 7",
-    "snake 8",
-    "snake 9",
-    "snake 10",
-    "snake 11",
-    "snake 12",
-    "snake 13",
-    "snake 14",
-    "snake 15",
-    "snake 16",
-    "snake 17",
-    "snake 18",
-    "snake 19",
-    "snake 20",
 ]
 ice_enemies = [
     "eagle 1",
@@ -2611,113 +2030,6 @@ mushroom_forest_decoration_mushrooms = [
     "green mushroom 2",
     "cyan mushroom",
     "Lbrown mushroom",
-]
-dungeon_lvl_1_decorations = [
-    "skull",
-    "bones",
-    "skeleton 1",
-    "skeleton 2",
-    "skeleton 3",
-    "skeleton 4",
-    "skeleton 5",
-    "skeleton 6",
-]
-# Add some cool enemies maybe
-dungeon_lvl_1_enemies = [
-    "white rat",
-    "black rat",
-    "brown rat",
-    "red rat",
-    "red scoprion",
-    "yellow scoprion",
-    "gray scoprion",
-    "blue scoprion",
-    "brown scoprion",
-    "black scoprion",
-    "skeleton 1",
-    "skeleton 2",
-    "skeleton 3",
-    "skeleton 4",
-    "skeleton 5",
-    "skeleton 6",
-    "skeleton 7",
-    "skeleton sw 1",
-    "skeleton sw 2",
-    "skeleton sb 1",
-    "skeleton sb 1",
-    "skeleton 2sw",
-    "skeleton 2sb",
-    "skeleton sw sh",
-    "skeleton sb sh",
-    "basilisk 1",
-    "basilisk 2",
-    "basilisk 3",
-    "basilisk 4",
-]
-dungeon_lvl_2_decorations = [
-    "skull",
-    "bones",
-    "skeleton 1",
-    "skeleton 2",
-    "skeleton 3",
-    "skeleton 4",
-    "skeleton 5",
-    "skeleton 6",
-]
-dungeon_lvl_2_enemies = [
-    "skeleton sw 1",
-    "skeleton sw 2",
-    "skeleton sb 1",
-    "skeleton sb 1",
-    "skeleton 2sw",
-    "skeleton 2sb",
-    "skeleton sw sh",
-    "skeleton sb sh",
-    "basilisk 1",
-    "basilisk 2",
-    "basilisk 3",
-    "basilisk 4",
-    "orc 1",
-    "orc 2",
-    "orc 3",
-    "skeleton orc 1",
-    "skeleton orc 2",
-    "skeleton orc 3",
-]
-dungeon_lvl_3_decorations = [
-    "skull",
-    "bones",
-    "skeleton 1",
-    "skeleton 2",
-    "skeleton 3",
-    "skeleton 4",
-    "skeleton 5",
-    "skeleton 6",
-]
-dungeon_lvl_3_enemies = [
-    "skeleton wiz 1",
-    "skeleton wiz 2",
-    "skeleton wiz 3",
-    "skeleton orc 4",
-    "skeleton orc 5",
-    "skeleton dwf 1",
-    "skeleton dwf 2",
-    "skeleton 3glav",
-    "skeleton small",
-    "dragon tiny 1",
-    "dragon tiny 2",
-    "dragon tiny 3",
-    "dragon tiny 4",
-    "dragon tiny 5",
-    "dragon tiny 6",
-    "dragon tiny 7",
-    "dragon small 1",
-    "dragon small 2",
-    "dragon small 3",
-    "dragon small 4",
-    "dragon small 5",
-    "dragon small 6",
-    "dragon small 7",
 ]
 
 
