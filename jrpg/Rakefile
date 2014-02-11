@@ -83,7 +83,7 @@ task :clean do
     rm_f GENERATED_FILES
 end
 
-desc "Run all tests (none at the moment, sorry)"
+desc "Run all tests (very minimal at the moment)"
 task :test do
-    # No automatic test implemented yet
+    system "./runtests.py"
 end
