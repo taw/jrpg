@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w -C
+#!/usr/bin/perl -w
 
 use utf8;
 
@@ -177,13 +177,13 @@ while(@CONVERSION) {
 
 sub convert_line
 {
-  my $kanaword = $_[0];
+  ($kanaword, $trad) = split('\t', $_[0]);
   my $kunrei_word  = convert($kanaword, \@CONV_K);
   my $hepburn_word = convert($kanaword, \@CONV_H);
-  if ($kunrei_word eq $hepburn_word) {
-    "$kanaword\t$kunrei_word";
+if ($kunrei_word eq $hepburn_word) {
+    "$kanaword\t$kunrei_word\t$trad";
   } else {
-    "$kanaword\t$kunrei_word\t$hepburn_word";
+    "$kanaword\t$kunrei_word\t$hepburn_word\t$trad";
   }
 }
 

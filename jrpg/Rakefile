@@ -10,7 +10,7 @@ file "data/demons-kanji.txt" => ["data/demons-kanji-source.txt", "demons-kanji-p
 end
 
 file "data/demons-kanawords.txt" => ["data/demons-kanawords-source.txt", "demons-kanawords-preprocess.pl"] do
-    sh "./demons-kanawords-preprocess.pl <data/demons-kanawords-source.txt >data/demons-kanawords.txt"
+    sh "perl -C ./demons-kanawords-preprocess.pl <data/demons-kanawords-source.txt >data/demons-kanawords.txt"
 end
 
 ["data/tanaka.txt", "data/tanaka_idx.txt"].each{|fn|
