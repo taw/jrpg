@@ -39,7 +39,7 @@ class SpriteImages:
             i = 0
             try:
                 while True:
-                    fn = "%s/%s %s%04d.png" % (self.directory, action, SpriteImages.directions[d], i)
+                    fn = "images/%s/%s %s%04d.png" % (self.directory, action, SpriteImages.directions[d], i)
                     img = pygame.image.load(fn)
                     self.img[action][d].append(img)
                     i += 1
