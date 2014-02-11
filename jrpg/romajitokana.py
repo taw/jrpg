@@ -141,7 +141,7 @@ ctable = [
         (U"pyo",U"ぴょ"),
         (U"n'",U"ん"),
         (U"n",U"ん"),
-        
+
         (U"a",U"ア"),
         (U"u",U"ウ"),
         (U"i",U"イ"),
@@ -332,7 +332,7 @@ def romaji_kana_match(r, h):
         prefix_found = False
         for (rp, hp) in ctable:
             # Does Python have deep breaks ?
-        
+
             if r[0:len(rp)] == rp and h[0:len(hp)] == hp:
                 lm = r[len(rp)-1]
                 r = r[len(rp):len(r)]
@@ -365,10 +365,3 @@ def romaji_kana_match(r, h):
                 h = h[len(prolongation_mark):len(h)]
                 continue
         return False
-
-#print romaji_kana_match(U"a",U"あ") # True
-#print romaji_kana_match(U"aa",U"あー") # True
-#print romaji_kana_match(U"attaakkuu",U"あったーっくう") # True
-#print romaji_kana_match(U"aaoo",U"あーおー") # True
-#print romaji_kana_match(U"aaaa",U"あーーー") # True
-#print romaji_kana_match(U"aaaa",U"あーーい") # False
