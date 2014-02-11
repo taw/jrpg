@@ -6,7 +6,10 @@ from random import *
 
 # Import other jrpg modules
 import resman
-import demonsoul
+
+from models.demons.book import Book_of_demons
+from models.demons.chapterfactory import Chapter_factory
+from models.xpctl import XpCtl
 from spatial_index import Index
 import util
 from util import sgn, Cached, Notifier
@@ -65,7 +68,7 @@ class CharaCtl:
 
         self.delay = 0
         self.delayed_event = None
-        
+
         if pos:
             (self.x, self.y) = pos
         elif respawn_func:
@@ -281,8 +284,8 @@ class Statistics:
         self.hp    = 5
         self.hpmax = 5
         self.money = 0
-        self.xpctl = demonsoul.XpCtl()
-        
+        self.xpctl = XpCtl()
+
         self.nctl_stats_changed = Notifier()
     def set_hp(self, new_hp):
         self.hp = new_hp
@@ -293,7 +296,7 @@ class Statistics:
         self.set_hp(new_hp)
     def get_xp(self, xp_gain):
         self.xp += xp_gain
-      
+
         new_level = self.level+1
         next_level_xp_req = new_level * (95 + new_level * 5)
         while self.xp >= next_level_xp_req :
@@ -324,9 +327,9 @@ class World:
         self.ofs_y  = 79*16
         self.msg    = [u"Welcome to JRPG 2 demo", u"夢もなければ生きられない。", u"Man can't live without dreams."]
         self.map_id = map_id
-        
+
         self.stats = Statistics()
-        
+
         self.in_battle_mode = False
 
         self.nctl_msg_changed = Notifier()
@@ -337,7 +340,7 @@ class World:
         doc = DocCtl((120*16, 60*16))
         doc.setup_route([(125*16, 75*16), (120*16, 60*16)])
         self.npcs = [doc]
-        
+
         def respawn_in_forest():
             while True:
                 x = randint(3*16,(40*4-4)*16)
@@ -352,21 +355,21 @@ class World:
             x = randint(3*16,(40*4-4)*16)
             y = randint(42*48,68*48)
             return (x,y)
-        
+
         # FIXME: really really ugly hack
         # EnemyCtl() requires world global object, but we're just
         # trying to build it
         global world
         world = self
-        
+
         # Dispatch a few enemies in the forest
         for i in range(5):
-           enemy = EnemyCtl("red_spider", respawn_in_forest) 
+           enemy = EnemyCtl("red_spider", respawn_in_forest)
            self.npcs.append(enemy)
 
         # And a few in the desert
         for i in range(5):
-           enemy = EnemyCtl("red_spider", respawn_in_desert) 
+           enemy = EnemyCtl("red_spider", respawn_in_desert)
            self.npcs.append(enemy)
     def msg_add(self, msg):
         self.msg = msg + self.msg
@@ -425,7 +428,7 @@ class World:
         (mc_x, mc_y) = mcc.get_pos()
         ofs_x = clamp(mc_x - 32*12, 0, 64*(self.sz_x - 12))
         ofs_y = clamp(mc_y - 24*12, 0, 48*(self.sz_y - 12))
-        
+
         if ofs_x != self.ofs_x or ofs_y != self.ofs_y:
             self.nctl_bg_changed.fire()
             self.ofs_x = ofs_x
@@ -445,7 +448,7 @@ class World:
             #    print "Bypassed", c_bb
         # All collisions with the backgrounds have been bypassed by bridges
         # (or there haven't been any in the first place)
-        
+
         return not self.obstacle_idx.intersects_rect_p(bb)
     def get_map_objects(self):
         return self.map_objects
@@ -463,11 +466,11 @@ class World:
         self.update_ofs_center()
         self.enemy = enemy
         mcc.set_dir(sgn2(enemy.get_pos(), mcc.get_pos()))
-        
+
         enemy.set_action("attack")
         mcc.set_action("attack")
-        
-        self.enemy_class = [(3, 500)]
+
+        self.enemy_class = [('kanji', 500)]
         self.enemy_soul  = book.get_one(self.stats.xpctl, self.enemy_class)
         self.enemy_hp    = 5
     def leave_battle_mode(self):
@@ -521,7 +524,7 @@ class World:
         self.stats.xp        = ld["xp"]
         self.stats.level     = ld["level"]
         self.stats.money     = ld["money"]
-        self.stats.xpctl     = demonsoul.XpCtl(ld["xpfor"])
+        self.stats.xpctl     = XpCtl(ld["xpfor"])
         self.stats.nctl_stats_changed.fire()
         self.msg_add([u"Game loaded"])
 
@@ -549,7 +552,7 @@ class UI:
 
         self.buf       = u""
         self.bs_repeat = 0
-        
+
         # This is just UI state
         self.in_battle_mode = False
     def key_down(self, key):
@@ -657,7 +660,7 @@ class UI:
         world.perform_actions()
         self.render()
         pygame.display.flip()
-        self.tick()       
+        self.tick()
     def main_loop(self):
         while 1:
             if world.in_battle_mode and not self.in_battle_mode:
@@ -680,9 +683,9 @@ class UI:
         color_furi = (  0,   0,  64)
 
         displayed_elements = []
-        
+
         (x,miny,maxy) = (0,0,0)
-        
+
         for (base, furi, keep_furi) in furicode:
             base_rendered = font_main.render(base, True, color_base)
             (w, h) = (base_rendered.get_width(), base_rendered.get_height())
@@ -776,8 +779,16 @@ try:
     # The only reason we initialize it here is
     # because it's slow and we want to minimize the time
     # between graphic mode switch and actually displaying something
-    book = demonsoul.Book_of_demons()
-    
+    chapter_factory = Chapter_factory()
+    list_of_vocabulary = {
+        'katakana' : 'data/demons-katakana.txt',
+        'hiragana' : 'data/demons-hiragana.txt',
+        'kanaword' : 'data/demons-kanawords.txt',
+        'traduction' : 'data/demons-kanawords.txt',
+        'kanji' : 'data/demons-kanji.txt',
+    }
+    book = Book_of_demons(chapter_factory, list_of_vocabulary)
+
     # FIXME: There are too many cyclic dependencies between the 3
     world = World("main")
     mcc = MainCharaCtl()
