@@ -12,8 +12,8 @@ import images
 from models.demons.book import Book_of_demons
 from models.demons.chapterfactory import Chapter_factory
 
-from models.worlds.town import * 
-from models.worlds.castle import * 
+from models.worlds.town import *
+from models.worlds.castle import *
 from models.xpctl import XpCtl
 
 import util
@@ -119,7 +119,7 @@ class UI:
         mtctl_enemies = images.mtctl_enemies
         mtctl_items   = images.mtctl_items
         ctdir         = images.ctdir
-        
+
         # pygame.display.flip() has different behaviour under Windows and Mac
         self.running_under_windows = False
         self.running_under_mac = False
@@ -130,12 +130,12 @@ class UI:
             self.running_under_windows = True
         elif driver_name == 'Quartz':
             self.running_under_mac = True
-        
+
         global full_screen_mode
         self.clock    = pygame.time.Clock()
         size = (width, height) = 640, 480
         self.text     = []
-        
+
         pygame.display.set_icon(pygame.image.load("images/jrpg-icon.png"))
         if full_screen_mode:
             if self.running_under_windows:
@@ -161,7 +161,7 @@ class UI:
         self.stats_viewport     = self.screen.subsurface(((320, 0),(320, 160)))
         self.demonname_viewport = self.screen.subsurface(((320, 160),(320, 160)))
         self.msg_viewport       = self.screen.subsurface(((0,320),(640,160)))
-        
+
         self.stats_cache      = Cached(lambda: mhc.render_statistics(self.stats_viewport), mhc.nctl_stats_changed)
         self.msg_cache        = Cached(lambda: self.msg_render(), self.nctl_msg_changed)
     def toggle_fullscreen(self):
@@ -188,8 +188,7 @@ class UI:
         # TODO: integrate with Battle_UI
         while True:
             self.world_main_loop_iter()
-    
-    
+
     def quick_help(self):
         help = [
             U"WORLD MODE",
@@ -387,11 +386,11 @@ class Map_Tiles_Controller:
             (sx, sy) = itt[k]
             self.itt[k] = pygame.Rect(sx*32, sy*32, 32, 32)
         self.img = pygame.image.load(img).convert_alpha()
-        
+
         # TODO: Find the coolest shape
         def alpha_test(x,y):
             return ((x+2)*(y+2) <= 30)
-        
+
         self.corners = {}
         for tile in ttt:
             source_rect = self.ttt[tile][0]
@@ -458,7 +457,7 @@ class Main_Hero_Controller:
         self.make_exit_warning = False
 
         self.nctl_stats_changed = Notifier()
-        
+
         self.demon_closeup = None
         self.demon_closeup_kind = ""
     def set_closeup(self, soul, kind):
@@ -626,7 +625,7 @@ class Main_Hero_Controller:
             # remove after the next savefile format change
             #self.inventory = ld["inventory"]
             self.inventory = ld.get("inventory", [])
-            
+
             # It may crash on non-Unicode terminals
             if savefile_verification:
                 self.verify_xp()
@@ -674,7 +673,7 @@ class Main_Hero_Controller:
         for chapter in demons:
             for demon in demons[chapter]:
                 max_xp += 3 * demon.xp_for_win()
-                
+
         while max_xp >= (max_level+1) * (95 + (max_level+1) * 5):
             max_level += 1
         print u"Max possible XP:    ", max_xp
@@ -766,8 +765,8 @@ class Main_Hero_Controller:
             elif a*4/b==0: kanji_stats_final[1] += 1 # 1%..24%
             elif a*4/b==1: kanji_stats_final[2] += 1 # 25%..49%
             else: kanji_stats_final[3] += 1 # 50%..99%
-            
-            #if not kanji_stats2.has_key(v): 
+
+            #if not kanji_stats2.has_key(v):
             #    kanji_stats2[v] = []
             #kanji_stats2[v].append(k)
 
@@ -867,7 +866,7 @@ class Chara:
     # .\ /|
     # . X |
     # .. \|
-    # 4   2 
+    # 4   2
     def trace(self):
         tr  = {}
         tr2 = []
@@ -1065,7 +1064,7 @@ class Enemy_in_battle:
     def move(self):
         self.dx = self.dx + normalvariate(0,1)
         self.dy = self.dy + normalvariate(0,1)
-        l = sqrt(self.dx*self.dx + self.dy*self.dy) 
+        l = sqrt(self.dx*self.dx + self.dy*self.dy)
         if l > 32:
             self.dx = self.dx / l
             self.dy = self.dy / l
@@ -1083,7 +1082,7 @@ class Battle_model:
     def __init__(self, active_look, inactive_look, sprite_class, demon_class, power):
         self.enemies   = []
         self.active    = -1
-        
+
         self.nctl_demonname_changed = Notifier()
 
         enemies = book.choice(mhc.xpctl, 5, demon_class)
@@ -1126,7 +1125,7 @@ class Battle_model:
         self.nctl_demonname_changed.fire()
     def kill_active(self, victim):
         ui.change_text([
-                victim.demon.get_success_message() 
+            victim.demon.get_success_message()
         ])
 
         if self.active == -1:
@@ -1162,15 +1161,15 @@ class Battle_UI:
     # Move the image load to some manager
     def __init__(self, look, sprite_class, demon_class, power):
         (bg_fn, self.active, inactive) = choice(images.battle_look_table[look])
-        
+
         self.battle_bg = pygame.image.load(bg_fn).convert_alpha()
-        
+
         self.chara_img = ui.chara_img("female-blue")
         self.chara_buf = U""
-        
+
         ui.change_text([])
         self.bs_repeat = 0
-        
+
         self.battle_model = Battle_model(self.active, inactive, sprite_class, demon_class, power)
         self.demonname_cache = Cached(lambda: self.demonname_render(), self.battle_model.nctl_demonname_changed)
     def demonname_render(self):
@@ -1270,7 +1269,7 @@ class World_model:
             "tiles": self.load_map("maps/hospital.map"),
             "setup": lambda: World_hospital(self, ui, mhc)
         }
-        
+
         self.map_db["library"] = {
             "tiles": self.load_map("maps/library.map"),
             "setup": lambda: World_library(self, ui, mhc)
@@ -1322,7 +1321,7 @@ class World_model:
         }
         self.current_map = None
         self.current_map_id = None
-    
+
     def switch_map(self, map_id, (x, y)):
         self.current_map_id = map_id
         # Copy, so we can change the tiles without modifying the database
@@ -1350,10 +1349,10 @@ class World_model:
     def run_charas(self):
         for chara in self.charas:
             chara.patrol()
-    
+
     def teleport_to_hospital(self):
         self.switch_map("hospital",(3,8))
-    
+
     def collides(self, rect):
         # Convert rect from pixelspace to tilespace
         top    = rect.top    >> 5
@@ -1365,13 +1364,13 @@ class World_model:
                 if ui.mtctl.blocking(self.current_map_get_element(j,i)):
                     return True
         return False
-    
+
     # This map has no outside borders
     def current_map_get_element(self,x,y):
         if y<0 or y >= len(self.current_map) or x < 0 or x >= len(self.current_map[y]):
             return None
         return self.current_map[y][x]
-    
+
     # self is not really used
     def pixel_rect_to_tile_rect(self, pixel_rect):
         top    = pixel_rect.top >> 5
@@ -1379,7 +1378,7 @@ class World_model:
         bottom = pixel_rect.bottom >> 5
         right  = pixel_rect.right >> 5
         return pygame.Rect(left,top,right-left+1,bottom-top+1)
-    
+
     def enter_event(self, tile):
         if self.enter_events.has_key(tile):
             for e in self.enter_events[tile]:
@@ -1682,7 +1681,7 @@ class World_model:
             self.add_enemy((x,y),'hills',choice(mountain_enemies),['hiragana','katakana'],1)
         for (x,y) in self.random_clear_tiles(0.02,range(30,50),range(40,60)):
             self.add_item((x,y),"copper coins", lambda: mhc.receive_money(1))
-            
+
         ###############################
         # MEADOW                      #
         ###############################
@@ -1697,8 +1696,10 @@ class World_model:
         # CAVE ENTRANCE               #
         ###############################
         self.wormhole((61,37),"cave",(1,7))
-        
-        
+
+
+
+
 
         ###############################
         # FOREST 2                    #
@@ -1752,11 +1753,11 @@ class World_model:
             self.add_item((61,11),"spellbook blue 9",desert_quest)
         # Desert enemies
         for (x,y) in self.random_clear_tiles(0.1,range(50,60),range(10,20)):
-            self.add_enemy((x,y),'desert',choice(desert_enemies),[2,(3,100)],1)
+            self.add_enemy((x,y),'desert',choice(desert_enemies),['kanaword',('kanji',100)],1)
         for (x,y) in self.random_clear_tiles(0.2,range(50,70),range(20,30)):
-            self.add_enemy((x,y),'desert',choice(desert_enemies),[2,(3,100)],1)
+            self.add_enemy((x,y),'desert',choice(desert_enemies),['kanaword',('kanji',100)],1)
         for (x,y) in self.random_clear_tiles(0.2,range(60,70),range(10,20)):
-            self.add_enemy((x,y),'desert',choice(desert_enemies),[2,(3,100)],1)
+            self.add_enemy((x,y),'desert',choice(desert_enemies),['kanaword',('kanji',100)],1)
         # Desert decorations
         self.add_decoration((57,23),"skeleton 3")
         self.add_decoration((55,11),"bones")
@@ -1810,7 +1811,7 @@ class World_view:
         if self.shift_y < 0: self.shift_y = 0
         if self.shift_x > self.max_shift_x : self.shift_x = self.max_shift_x
         if self.shift_y > self.max_shift_y : self.shift_y = self.max_shift_y
-        
+
     # Call every time tile data changes
     def prerender_cache_execute(self):
         self.prerender_cache_valid = True
@@ -1885,9 +1886,9 @@ class World_view:
                     else:
                         cache_line_id = self.prerender_cache[y][x]
                         self.surface_cache.blit(self.prerendered_tiles[cache_line_id], (32*x-self.shift_x, 32*y-self.shift_y))
-                    
+
         ui.map_viewport.blit(self.surface_cache, (0,0))
-        # First act enemies, then items 
+        # First act enemies, then items
         # But, first blit items, then enemies, so reversed(self.objects)
         # reversed() is available only in Python 2.4+
         # Let's do it by hand for 2.3-compatibility
@@ -2039,15 +2040,14 @@ mushroom_forest_decoration_mushrooms = [
 
 try:
     mistakes = Mistakes()
-    
-    chapter_factory = Chapter_factory(); 
+    chapter_factory = Chapter_factory()
     list_of_vocabulary = {
-            'katakana' : 'data/demons-katakana.txt',
-            'hiragana' : 'data/demons-hiragana.txt',
-            'kanaword' : 'data/demons-kanawords.txt',
-            'traduction' : 'data/demons-kanawords.txt',
-            'kanji' : 'data/demons-kanji.txt',
-            };
+        'katakana' : 'data/demons-katakana.txt',
+        'hiragana' : 'data/demons-hiragana.txt',
+        'kanaword' : 'data/demons-kanawords.txt',
+        'traduction' : 'data/demons-kanawords.txt',
+        'kanji' : 'data/demons-kanji.txt',
+    }
 
     book = Book_of_demons(chapter_factory, list_of_vocabulary)
     mhc  = Main_Hero_Controller()

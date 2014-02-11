@@ -97,46 +97,9 @@ class Book_of_demons:
         #    print "%d: %s" % (w, d.xp_code())
         return [x.finalize() for x in weighted_sample(weighted_demon_list, sample_size)]
 
-    # Useless Not called ?
+    # Used by jrpg2 code only
     def get_one(self, xpctl, demon_classes):
-        candidates = []
-        for demon_class in demon_classes:
-            if  demon_class != 'kanji':
-                for demon in self.demons[demon_class]:
-                    # maxed demons twice less probable
-                    if not xpctl.maxed(demon.xp_code()):
-                        candidates.append(demon)
-                    candidates.append(demon)
-            else:
-                # There should always be demons_limit (like 300) unbeaten demons,
-                # if that's possible at all
-                demon_class, demons_limit = demon_class
-                demons_undefeated = 0
-                if demon_class != 'kanji':
-                    # It will work, but there are no such other classes as for now
-                    raise "Demon class limit applied to class different than Kanji demons"
-                demons = self.demons[demon_class]
-                for demon in demons:
-                    # It's possible that we remove subsumed demon while the subsuming one
-                    # is not included. For example, if Y subsumes X:
-                    # (X) [150 unbeaten demons] [Y]
-                    # On level 2 (demons_limit=200): (X not included) [150 unbeaten demons] [Y] [49 demons]
-                    # * Correct
-                    # On level 1 (demons_limit=100): (X not included) [100 unbeaten demons]
-                    # * Not cool, but not fatal
-                    if not xpctl.maxed(demon.xp_code()):
-                        candidates.append(demon)
-                    else:
-                        if (demon.subsumed_by() != -1 and
-                            xpctl.beaten(demons[demon.subsumed_by()].xp_code())):
-                            continue
-                    candidates.append(demon)
-
-                    if not xpctl.beaten(demon):
-                        demons_undefeated += 1
-                    if (demons_undefeated == demons_limit):
-                        break
-        return choice(candidates).finalize()
+        return self.choice(xpctl, 1, demon_classes)[0]
 
 # population is (x, weight of x) list
 # select random sample of different elements
@@ -144,7 +107,6 @@ class Book_of_demons:
 # The function is AWFULLY INEFFICIENT,
 # but reasonably sane
 def weighted_sample(population, sample_size):
-
     if len(population) < sample_size:
         raise ("weighted_sample: size of population %d is smaller than sample size %d" % (len(population), sample_size))
     balls = {}
@@ -164,4 +126,3 @@ def weighted_sample(population, sample_size):
             del balls[k]
         sample.append(population[object_id][0])
     return sample
-
