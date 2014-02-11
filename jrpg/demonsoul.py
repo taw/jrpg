@@ -6,7 +6,7 @@ import warnings
 from random import choice
 
 # Import other jrpg modules
-from kana import romaji_kana_match
+from romajitokana import romaji_kana_match
 from util import ordered_uniq
 
 # In hardcore mode the demon doesn't tell its name
