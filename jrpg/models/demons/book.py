@@ -126,4 +126,3 @@ def weighted_sample(population, sample_size):
             del balls[k]
         sample.append(population[object_id][0])
     return sample
-

@@ -285,7 +285,6 @@ class Statistics:
         self.hpmax = 5
         self.money = 0
         self.xpctl = XpCtl()
-
         self.nctl_stats_changed = Notifier()
     def set_hp(self, new_hp):
         self.hp = new_hp

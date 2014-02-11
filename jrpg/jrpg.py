@@ -189,7 +189,6 @@ class UI:
         while True:
             self.world_main_loop_iter()
 
-
     def quick_help(self):
         help = [
             U"WORLD MODE",
@@ -1126,7 +1125,7 @@ class Battle_model:
         self.nctl_demonname_changed.fire()
     def kill_active(self, victim):
         ui.change_text([
-                victim.demon.get_success_message()
+            victim.demon.get_success_message()
         ])
 
         if self.active == -1:
@@ -1700,6 +1699,8 @@ class World_model:
 
 
 
+
+
         ###############################
         # FOREST 2                    #
         ###############################
@@ -1735,7 +1736,7 @@ class World_model:
                     U"You've got bright green mushrooms.",
                     U"You need yellow and bright green mushrooms for the potion."])
         for (x,y) in self.random_clear_tiles(0.1,range(20,40),range(10,30)):
-            self.add_enemy((x,y),'marsh',choice(forest_enemies),['hiragana','katakana','kanaword'],1)
+            self.add_enemy((x,y),'marsh',choice(forest_enemies),['hiragana','katakana','kanaword','traduction'],1)
         # FIXME: new mushrooms will grow only if you leave the forest
         # To make it less annoying, let's double number of mushrooms
         for (x,y) in self.random_clear_tiles(0.1,range(20,40),range(10,30)):
@@ -2039,7 +2040,6 @@ mushroom_forest_decoration_mushrooms = [
 
 try:
     mistakes = Mistakes()
-
     chapter_factory = Chapter_factory()
     list_of_vocabulary = {
         'katakana' : 'data/demons-katakana.txt',
