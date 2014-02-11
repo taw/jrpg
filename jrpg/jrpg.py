@@ -1736,7 +1736,7 @@ class World_model:
                     U"You've got bright green mushrooms.",
                     U"You need yellow and bright green mushrooms for the potion."])
         for (x,y) in self.random_clear_tiles(0.1,range(20,40),range(10,30)):
-            self.add_enemy((x,y),'marsh',choice(forest_enemies),['hiragana','katakana','kanaword','traduction'],1)
+            self.add_enemy((x,y),'marsh',choice(forest_enemies),['hiragana','katakana','kanaword'],1)
         # FIXME: new mushrooms will grow only if you leave the forest
         # To make it less annoying, let's double number of mushrooms
         for (x,y) in self.random_clear_tiles(0.1,range(20,40),range(10,30)):
