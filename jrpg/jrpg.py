@@ -22,25 +22,6 @@ from mistakes import Mistakes
 from util import sgn, Cached, Notifier, fun_sort
 from terrain import corner_shader
 
-# With regards to Unicode, Python isn't simply clueless.
-# Clueless simply means a lack of clue. Unicode support in Python
-# is much worse than that - it actually involves a lot of anticlue.
-# The idea that the program shoud die with UnicodeEncodeError
-# when it tries to write Unicode characters to a pipe or a file,
-# but not to the console (whatever the locale may be)
-# is the most braindead idea in computing since <marquee> tag.
-# It purposedly break ability to talk with tools like less,
-# head or Eclipse, and without any sane (= not involving any
-# program modifications) workarounds..
-#
-# This workaround is for debugging only, we don't print anything
-# interesting on the console during a normal run
-#import codecs
-#sys.stdin  = codecs.getwriter("utf-8")(sys.stdin)
-#sys.stdout = codecs.getwriter("utf-8")(sys.stdout)
-#sys.stderr = codecs.getwriter("utf-8")(sys.stderr)
-
-
 util.init_pygame("JRPG")
 
 # Directory where all the images are, trailing / is needed
