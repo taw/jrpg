@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w -C
+#!/usr/bin/perl -w
 
 use utf8;
 use strict;
@@ -37,7 +37,7 @@ close F;
 #####################################################################
 
 our %DIFF;
-open DIFF, "kanji_learning_order" or die "Can't open kanji_learning_order file: $!";
+open DIFF, "data/kanji_learning_order" or die "Can't open kanji_learning_order file: $!";
 for(<DIFF>) {
     /^(\d+) (.)/ or die "Format error in kanji_learning_order";
     $DIFF{$2} = $1+0;

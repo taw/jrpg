@@ -5,17 +5,17 @@ GENERATED_FILES = %w[data/demons-kanji.txt data/demons-kanawords.txt data/tanaka
 desc "Compile data files"
 task :compile => GENERATED_FILES
 
-file "data/demons-kanji.txt" => ["data/demons-kanji-source.txt", "demons-kanji-preprocess.pl"] do
-    sh "./demons-kanji-preprocess.pl <data/demons-kanji-source.txt >data/demons-kanji.txt"
+file "data/demons-kanji.txt" => ["data/demons-kanji-source.txt", "scripts/demons-kanji-preprocess.pl"] do
+    sh "perl -C ./scripts/demons-kanji-preprocess.pl <data/demons-kanji-source.txt >data/demons-kanji.txt"
 end
 
-file "data/demons-kanawords.txt" => ["data/demons-kanawords-source.txt", "demons-kanawords-preprocess.pl"] do
-    sh "perl -C ./demons-kanawords-preprocess.pl <data/demons-kanawords-source.txt >data/demons-kanawords.txt"
+file "data/demons-kanawords.txt" => ["data/demons-kanawords-source.txt", "scripts/demons-kanawords-preprocess.pl"] do
+    sh "perl -C ./scripts/demons-kanawords-preprocess.pl <data/demons-kanawords-source.txt >data/demons-kanawords.txt"
 end
 
 ["data/tanaka.txt", "data/tanaka_idx.txt"].each{|fn|
-    file fn => ["tanaka_preprocess.pl", "data/tanaka_raw.u8", "data/demons-kanji.txt"] do
-        sh "./tanaka_preprocess.pl"
+    file fn => ["scripts/tanaka_preprocess.pl", "data/tanaka_raw.u8", "data/demons-kanji.txt"] do
+        sh "perl -C ./scripts/tanaka_preprocess.pl"
     end
 }
 
