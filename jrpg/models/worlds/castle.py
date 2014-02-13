@@ -2,7 +2,6 @@
 
 from random import choice, randint
 
-
 tower_enemies = [
     "spider 1",
     "spider 2",
@@ -146,7 +145,6 @@ dungeon_lvl_3_enemies = [
     "dragon small 7",
 ]
 
-
 #####################################################################
 # Castle                                                            #
 #####################################################################
@@ -154,7 +152,7 @@ class World_castle:
     def __init__(self, wm, ui, mhc):
         wm.wormhole((4, 9), "world", (7, 9))
         king_already_said_something = [False]
-        
+
         def king_event():
             if king_already_said_something[0]:
                 return
@@ -273,7 +271,7 @@ class World_castle:
         else:
             wm.add_enter_event((13,1),lambda: finish_dungeon_gate_quest())
         wm.wormhole((16,0),"tower level 1",(2,1))
-        
+
         wm.add_decoration((15,7), "crystal ball")
         wm.add_enter_event((15,7), look_into_crystal_ball)
 
@@ -352,7 +350,7 @@ class World_dungeon_level1:
                 dungeon_level_2_open()
             if not mhc.quest_is_done(quest_id):
                 wm.add_item(loc, "chest 1", grab_treasure)
-        
+
         for (x,y) in wm.random_clear_tiles(0.15,range(1,39),range(1,39)):
             wm.add_enemy((x,y),'dungeon',choice(dungeon_lvl_1_enemies),[('kanji',450)],2)
         for (x,y) in wm.random_clear_tiles(0.01,range(1,39),range(1,39)):
@@ -461,4 +459,3 @@ class World_dungeon_level3:
                 wm.add_item((x, y), "copper coins", lambda: mhc.receive_money(1))
         for (x, y) in wm.random_clear_tiles(0.1, range(1, 39), range(1, 39)):
             wm.add_decoration((x, y), choice(dungeon_lvl_3_decorations))
-
