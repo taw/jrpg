@@ -31,7 +31,7 @@
 パーティー	party
 バス	bus
 バター	butter
-パン	pan
+パン	bread
 ハンカチ	handkerchief
 フィルム	film
 プール	pool
@@ -50,8 +50,8 @@
 レストラン	restaurant
 ワイシャツ	shirt
 あかるい	bright
-あさごはん	asagohan
-あさって	the day after tomorrow
+あさごはん	breakfast
+あさって	day after tomorrow
 あたたかい	warm
 あたらしい	new
 あぶない	dangerous
@@ -76,7 +76,7 @@
 おとうさん	dad
 おとうと	brother
 おとこのこ	boy
-おととい	the day before yesterday
+おととい	day before yesterday
 おととし	two years ago
 おにいさん	brother
 おねえさん	older sister
@@ -87,7 +87,7 @@
 おんがく	music
 おんなのこ	girl
 がいこく	foreign countries
-がいこくじん	gaikokujin
+がいこくじん	foreigner
 かいしゃ	company
 かいだん	stairs
 かいもの	shopping
@@ -114,7 +114,7 @@
 げんかん	entrance
 こうえん	park
 こうばん	alternation
-ここのか	here or the
+ここのか	9th day of the month
 ここのつ	nine
 ごしゅじん	husband
 こたえる	answer
@@ -129,12 +129,12 @@
 しゃしん	photo
 じゅぎょう	class
 しゅくだい	homework
-じょうず	good at
+じょうず	skillful
 じょうぶ	durable
 しょうゆ	soy sauce
 しょくどう	cafeteria
 しんぶん	newspaper
-すいようび	wednesday
+すいようび	Wednesday
 すずしい	cool
 せっけん	soap
 せんげつ	last month
@@ -155,7 +155,7 @@
 たてもの	building
 たのしい	fun
 たべもの	food
-たんじょうび	tanjobi
+たんじょうび	birthday
 だんだん	gradually
 ちいさい	chiisai
 ちかてつ	subway
@@ -182,7 +182,7 @@
 にちようび	sunday
 のみもの	drink
 はいざら	ashtray
-はじまる	begins
+はじまる	to begin
 はじめて	for the first time
 はじめに	introduction
 はたらく	work
@@ -193,7 +193,7 @@
 びょういん	hospital
 びょうき	disease
 ひらがな	hiragana
-ひるごはん	rice , noon
+ひるごはん	lunch
 ふうとう	envelope
 ぶたにく	pork
 べんきょう	study
@@ -211,7 +211,7 @@
 みじかい	short
 みなさん	you all
 むずかしい	difficult
-もくようび	thursday
+もくようび	Thursday
 もしもし	hello
 もちろん	of course
 もんだい	problem
@@ -231,4 +231,4 @@
 れいぞうこ	refrigerator
 れんしゅう	practice
 わすれる	forget
-わたくし	watakushi
+わたくし	I (formal)

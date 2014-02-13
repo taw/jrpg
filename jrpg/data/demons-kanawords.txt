@@ -31,7 +31,7 @@
 パーティー	paatii	party
 バス	basu	bus
 バター	bataa	butter
-パン	pan	pan
+パン	pan	bread
 ハンカチ	hankati	hankachi	handkerchief
 フィルム	firumu	film
 プール	puuru	pool
@@ -50,8 +50,8 @@
 レストラン	resutoran	restaurant
 ワイシャツ	waisyatu	waishatsu	shirt
 あかるい	akarui	bright
-あさごはん	asagohan	asagohan
-あさって	asatte	the day after tomorrow
+あさごはん	asagohan	breakfast
+あさって	asatte	day after tomorrow
 あたたかい	atatakai	warm
 あたらしい	atarasii	atarashii	new
 あぶない	abunai	dangerous
@@ -76,7 +76,7 @@
 おとうさん	otousan	dad
 おとうと	otouto	brother
 おとこのこ	otokonoko	boy
-おととい	ototoi	the day before yesterday
+おととい	ototoi	day before yesterday
 おととし	ototosi	ototoshi	two years ago
 おにいさん	oniisan	brother
 おねえさん	oneesan	older sister
@@ -87,7 +87,7 @@
 おんがく	ongaku	music
 おんなのこ	onnanoko	girl
 がいこく	gaikoku	foreign countries
-がいこくじん	gaikokuzin	gaikokujin	gaikokujin
+がいこくじん	gaikokuzin	gaikokujin	foreigner
 かいしゃ	kaisya	kaisha	company
 かいだん	kaidan	stairs
 かいもの	kaimono	shopping
@@ -114,7 +114,7 @@
 げんかん	genkan	entrance
 こうえん	kouen	park
 こうばん	kouban	alternation
-ここのか	kokonoka	here or the
+ここのか	kokonoka	9th day of the month
 ここのつ	kokonotu	kokonotsu	nine
 ごしゅじん	gosyuzin	goshujin	husband
 こたえる	kotaeru	answer
@@ -129,12 +129,12 @@
 しゃしん	syasin	shashin	photo
 じゅぎょう	zyugyou	jugyou	class
 しゅくだい	syukudai	shukudai	homework
-じょうず	zyouzu	jouzu	good at
+じょうず	zyouzu	jouzu	skillful
 じょうぶ	zyoubu	joubu	durable
 しょうゆ	syouyu	shouyu	soy sauce
 しょくどう	syokudou	shokudou	cafeteria
 しんぶん	sinbun	shinbun	newspaper
-すいようび	suiyoubi	wednesday
+すいようび	suiyoubi	Wednesday
 すずしい	suzusii	suzushii	cool
 せっけん	sekken	soap
 せんげつ	sengetu	sengetsu	last month
@@ -155,7 +155,7 @@
 たてもの	tatemono	building
 たのしい	tanosii	tanoshii	fun
 たべもの	tabemono	food
-たんじょうび	tanzyoubi	tanjoubi	tanjobi
+たんじょうび	tanzyoubi	tanjoubi	birthday
 だんだん	dandan	gradually
 ちいさい	tiisai	chiisai	chiisai
 ちかてつ	tikatetu	chikatetsu	subway
@@ -182,7 +182,7 @@
 にちようび	nitiyoubi	nichiyoubi	sunday
 のみもの	nomimono	drink
 はいざら	haizara	ashtray
-はじまる	hazimaru	hajimaru	begins
+はじまる	hazimaru	hajimaru	to begin
 はじめて	hazimete	hajimete	for the first time
 はじめに	hazimeni	hajimeni	introduction
 はたらく	hataraku	work
@@ -193,7 +193,7 @@
 びょういん	byouin	hospital
 びょうき	byouki	disease
 ひらがな	hiragana	hiragana
-ひるごはん	hirugohan	rice , noon
+ひるごはん	hirugohan	lunch
 ふうとう	huutou	fuutou	envelope
 ぶたにく	butaniku	pork
 べんきょう	benkyou	study
@@ -211,7 +211,7 @@
 みじかい	mizikai	mijikai	short
 みなさん	minasan	you all
 むずかしい	muzukasii	muzukashii	difficult
-もくようび	mokuyoubi	thursday
+もくようび	mokuyoubi	Thursday
 もしもし	mosimosi	moshimoshi	hello
 もちろん	motiron	mochiron	of course
 もんだい	mondai	problem
@@ -231,4 +231,4 @@
 れいぞうこ	reizouko	refrigerator
 れんしゅう	rensyuu	renshuu	practice
 わすれる	wasureru	forget
-わたくし	watakusi	watakushi	watakushi
+わたくし	watakusi	watakushi	I (formal)
