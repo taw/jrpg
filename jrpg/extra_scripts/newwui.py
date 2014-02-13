@@ -84,7 +84,7 @@ class UI:
         mtctl_items   = images.mtctl_items
         ctdir         = images.ctdir
         battle_bg     = images.battle_bg
-        
+
         global full_screen_mode
         self.clock    = pygame.time.Clock()
         size = (width, height) = 640, 480
@@ -220,10 +220,10 @@ class Map_Tiles_Controller:
             (sx, sy) = itt[k]
             self.itt[k] = pygame.Rect(sx*32, sy*32, 32, 32)
         self.img = pygame.image.load(img).convert_alpha()
-        
+
         def alpha_test(x,y):
             return ((x+2)*(y+2) <= 30)
-        
+
         self.corners = {}
         for tile in ttt:
             source_rect = self.ttt[tile][0]
@@ -276,7 +276,7 @@ class Main_Hero_Controller:
         self.hp     = self.hpmax
         self.xp     = 0
         self.level  = 0
-        self.xpfor  = {} # \in {None, 0, 1, 2, 3} 
+        self.xpfor  = {} # \in {None, 0, 1, 2, 3}
         self.quests = {}
         self.money  = 0
         self.inventory = []
@@ -503,7 +503,7 @@ class Map:
                             break
 
         ui.screen.blit(self.surface_cache, (0,0))
-        # First act enemies, then items 
+        # First act enemies, then items
         # But, first blit items, then enemies, so reversed(self.objects)
         # reversed() is available only in Python 2.4+
         # Let's do it by hand for 2.3-compatibility
@@ -536,9 +536,9 @@ class Chara:
         self.spp     = 0
         self.is_main = False
         if position and route:
-            raise "Trying to set chara position both as position and as route"
+            raise Exception("Trying to set chara position both as position and as route")
         if not position and not route:
-            raise "Chara position not seit as either position or route"
+            raise Exception("Chara position not seit as either position or route")
         # Do something about positions and paths
         if position:
             (x,y)        = position
@@ -719,7 +719,7 @@ class World:
         elif ord(tile) >= ord('0') and ord(tile) <= ord('9'):
             return ord(tile) - ord('0')
         else:
-            raise ("Illegal map passage code " + tile)
+            raise Exception("Illegal map passage code " + tile)
     def map_setup(self, (mx,my), (tele_x,tele_y), keep_textbox=False):
         global main_hero
         (add_events,map_title) = self.map_directory[(mx,my)]
@@ -779,7 +779,7 @@ class World:
     # Other things (tiles, map passage, place names) are handled outside
     #################################################################
     #################################################################
-    # Row 3     
+    # Row 3
     def map_setup_0_3(self):
         pass
 
@@ -841,4 +841,4 @@ w.map_setup((0, 3), (4, 5))
 
 world_ui = World_UI(ui,w,main_hero)
 world_ui.main_loop()
-    
+

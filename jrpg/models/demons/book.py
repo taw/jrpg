@@ -64,7 +64,7 @@ class Book_of_demons:
                 demons_undefeated = 0
                 if demon_class != 'kanji':
                     # It will work, but there are no such other classes as for now
-                    raise "Demon class limit applied to class different than Kanji demons"
+                    raise Exception("Demon class limit applied to class different than Kanji demons")
                 demons = self.demons[demon_class]
                 for demon in demons:
                     # It's possible that we remove subsumed demon while the subsuming one
@@ -108,7 +108,7 @@ class Book_of_demons:
 # but reasonably sane
 def weighted_sample(population, sample_size):
     if len(population) < sample_size:
-        raise ("weighted_sample: size of population %d is smaller than sample size %d" % (len(population), sample_size))
+        raise Exception("weighted_sample: size of population %d is smaller than sample size %d" % (len(population), sample_size))
     balls = {}
     start_cnt = []
     # Put weight_x balls numbered from start_cnt[i] to start_cnt[i]+population[i][1]-1 in the container

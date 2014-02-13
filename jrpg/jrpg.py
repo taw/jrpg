@@ -828,9 +828,9 @@ class Chara:
         self.spp     = 0
         self.is_main = False
         if position and route:
-            raise "Trying to set chara position both as position and as route"
+            raise Exception("Trying to set chara position both as position and as route")
         if not position and not route:
-            raise "Chara position not seit as either position or route"
+            raise Exception("Chara position not seit as either position or route")
         # Do something about positions and paths
         if position:
             (x,y)        = position

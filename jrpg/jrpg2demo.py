@@ -74,7 +74,7 @@ class CharaCtl:
         elif respawn_func:
             self.respawn(True)
         else:
-            raise "Cannot initialize chara: neither position nor respawn function given"
+            raise Exception("Cannot initialize chara: neither position nor respawn function given")
 
         # A bit silly
         self.route = None

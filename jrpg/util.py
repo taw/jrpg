@@ -80,7 +80,7 @@ def load_font(*sizes):
             return [pygame.font.Font(font_path, size) for size in sizes]
         except IOError, e:
             error_msg += "Opening font at %s failed: %s\n" % (font_path, e)
-    raise error_msg
+    raise Exception(error_msg)
 
 def init_pygame(window_title):
     # Calling pygame.init() initialized funny things like cdrom playing too
@@ -96,7 +96,7 @@ def sgn(x):
         return 0
     else:
         return -1
-    
+
 def save_errormsg(trace_back):
     (tp,v,tb) = trace_back
     tbf = traceback.format_exception(tp,v,tb)

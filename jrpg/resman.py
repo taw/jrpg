@@ -45,7 +45,7 @@ class SpriteImages:
                     i += 1
             except Exception:
                 if len(self.img[action][d]) == 0:
-                    raise ("No images for %s.%s in %s" % (action, SpriteImages.directions[d], self.directory))
+                    raise Exception("No images for %s.%s in %s" % (action, SpriteImages.directions[d], self.directory))
     # <ofs_x, ofs_y> in pixels, not 16-blocks
     # We specify *Center*, not upper left corner here
     def render(self, target, action, direction, ofs_t, (ofs_x, ofs_y)):
@@ -120,7 +120,7 @@ class CurrentMap:
         # This is a little hopeless, as the old structure
         # worked much faster ;-)
         self.obstacle_idx = Index()
-        
+
         for y in range(sz_y):
             for x in range(sz_x):
                 if self.map_data[y][x] == ' ':
@@ -131,12 +131,12 @@ class CurrentMap:
                     #self.map_can_enter[2*y  ][2*x+1] = ctx[1]
                     #self.map_can_enter[2*y+1][2*x  ] = ctx[2]
                     #self.map_can_enter[2*y+1][2*x+1] = ctx[3]
-                    
+
                     if not ctx[0]: self.obstacle_idx.add(pygame.Rect((64*x,    48*y),   (32,24)), True)
                     if not ctx[1]: self.obstacle_idx.add(pygame.Rect((64*x+32, 48*y),   (32,24)), True)
                     if not ctx[2]: self.obstacle_idx.add(pygame.Rect((64*x,    48*y+24),(32,24)), True)
                     if not ctx[3]: self.obstacle_idx.add(pygame.Rect((64*x+32, 48*y+24),(32,24)), True)
-                    
+
                     code = "w|%s%s%s%s" % (bool_sym(ctx[0]), bool_sym(ctx[1]), bool_sym(ctx[2]), bool_sym(ctx[3]))
                     if imgctl.tile_exists(code):
                         self.map_tiles[y][x] = code
@@ -160,7 +160,7 @@ class CurrentMap:
                         # No special tile -> better ugly than segfault
                         self.map_tiles[y][x] = "sand"
                 else:
-                    raise ("Unknown tile type %s" % (self.map_tiles[y][x]))
+                    raise Exception("Unknown tile type %s" % (self.map_tiles[y][x]))
     # col -1 = col 0 etc
     def map_data_get(self, x, y):
         if x < 0:
@@ -171,7 +171,7 @@ class CurrentMap:
             y = 0
         elif y >= self.sz_y:
             y = self.sz_y-1
-            
+
         #print (x,y)
         #print len(self.map_data)
         #print len(self.map_data[y])
@@ -283,7 +283,7 @@ tiles_def = {
     "r|-+++": ("ground", 1*4,11*3+2, 4, 3),
     "r|+-++": ("ground", 2*4,11*3+2, 4, 3),
     "r|++-+": ("ground", 3*4,11*3+2, 4, 3),
-    
+
     "water" : ("ground", 6*4, 9*3, 4, 3),
     "w|----": ("ground", 6*4, 9*3, 4, 3),
     "w|+-+-": ("ground",12*4,10*3+2, 4, 3),
@@ -340,7 +340,7 @@ tiles_def = {
     "tree 22": ("trees", 1*8, 5*8, 8, 8),
     "tree 23": ("trees", 2*8, 5*8, 8, 8),
     "tree 24": ("trees", 3*8, 5*8, 8, 8),
-    
+
     "bridge H" : ("rocks", 48, 32+2, 16, 16-4),
     "bridge V" : ("rocks", 48+2, 48, 16-4, 16),
 
