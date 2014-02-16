@@ -16,8 +16,9 @@ from models.worlds.town import *
 from models.worlds.castle import *
 from models.worlds.outside import *
 from models.xpctl import XpCtl
+from models.history import History
 
-import util
+import util 
 from mistakes import Mistakes
 from util import sgn, Cached, Notifier, fun_sort
 from terrain import corner_shader
@@ -40,9 +41,9 @@ debug_mode       = False
 savefile_verification = False
 
 if debug_mode:
-    main_chara_speed =  8
+    main_chara_speed = 8
 else:
-    main_chara_speed =  4
+    main_chara_speed = 4
 # xp_per_level(i) = 95i + 5i^2
 # Last time I checked, it was 182 levels max
 
@@ -117,6 +118,7 @@ class UI:
         self.clock    = pygame.time.Clock()
         size = (width, height) = 640, 480
         self.text     = []
+        self.history  = History(15)
 
         pygame.display.set_icon(pygame.image.load("images/jrpg-icon.png"))
         if full_screen_mode:
@@ -148,15 +150,15 @@ class UI:
         self.msg_cache        = Cached(lambda: self.msg_render(), self.nctl_msg_changed)
     def toggle_fullscreen(self):
         if self.running_fullscreen:
-			self.screen = pygame.display.set_mode((0,0),pygame.HWSURFACE|pygame.DOUBLEBUF|pygame.RESIZABLE)
-			self.running_fullscreen = False
-			self.stats_cache.invalidate()
-			self.msg_cache.invalidate()
+            self.screen = pygame.display.set_mode((0,0),pygame.HWSURFACE|pygame.DOUBLEBUF|pygame.RESIZABLE)
+            self.running_fullscreen = False
+            self.stats_cache.invalidate()
+            self.msg_cache.invalidate()
         else:
-			self.screen = pygame.display.set_mode((0,0),pygame.HWSURFACE|pygame.DOUBLEBUF|pygame.FULLSCREEN)
-			self.running_fullscreen = True
-			self.stats_cache.invalidate()
-			self.msg_cache.invalidate()
+            self.screen = pygame.display.set_mode((0,0),pygame.HWSURFACE|pygame.DOUBLEBUF|pygame.FULLSCREEN)
+            self.running_fullscreen = True
+            self.stats_cache.invalidate()
+            self.msg_cache.invalidate()
     def msg_render(self):
         self.msg_viewport.fill((0,0,0))
         self.render_text_multicolor(self.msg_viewport, self.font, self.text, (32,32), (0,0), 24)
@@ -170,6 +172,56 @@ class UI:
         # TODO: integrate with Battle_UI
         while True:
             self.world_main_loop_iter()
+
+    def draw_log(self, history_viewport):
+        '''Draw the history view
+        '''
+        history_viewport.fill((0, 0, 128))  # the blue is a bit ugly
+        # we use the history logger
+        showtext = [U'up/k  or down/j  - Esc/q to quit'] + self.history.get_log()
+        self.render_text_unicolor(history_viewport, ui.font, showtext,
+                (0,0), (0, 0), (0,255,0), 24)
+
+    def see_history(self):
+        '''This create a history view, you can see the complete session
+        if you close jrpg, you loose also the history. sometime the 5 lines of
+        the message_viewport are a little short
+        You can't use it in battle mode (it's would be easy..).
+        '''
+
+        # the view is a little smaller than the screen
+        history_viewport = self.screen.subsurface((0, 50), (640, 380))
+        history_mode = True
+        refresh = True
+        while history_mode:
+            if refresh:
+                self.draw_log(history_viewport)
+                refresh = False
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    sys.exit()
+                elif event.type == pygame.KEYDOWN:
+                    self.key_down(event.key)
+                    if event.key == pygame.K_RETURN:
+                        self.toggle_fullscreen()
+                        refresh = True
+                    # Pseudo man/vi key
+                    elif event.key == pygame.K_ESCAPE or event.key == ord('q'):
+                        history_mode = False
+                    elif event.key == pygame.K_UP or event.key == ord('k'):
+                        self.history.increase_cursor()
+                        refresh = True
+                    elif event.key == pygame.K_DOWN or event.key == ord('j'):
+                        self.history.decrease_cursor()
+                        refresh = True
+                elif event.type == pygame.KEYUP:
+                    self.key_up(event.key)
+            ui.tick()
+
+        # clean
+        history_viewport.fill((0, 0, 0))
+        self.stats_cache.invalidate()
+        self.msg_cache.invalidate()
 
     def quick_help(self):
         help = [
@@ -215,6 +267,7 @@ class UI:
                         mhc.save()
                     elif event.key == pygame.K_TAB or event.key == pygame.K_F12:
                         mhc.closeup()
+
                 elif event.type == pygame.KEYUP:
                     self.key_up(event.key)
             ui.tick()
@@ -239,6 +292,8 @@ class UI:
                     mhc.load()
                 elif event.key == pygame.K_TAB or event.key == pygame.K_F12:
                     mhc.closeup()
+                elif event.key == pygame.K_F7:
+                    self.see_history()
                 elif debug_mode and event.key == ord('e'): # debug
                     mhc.receive_money(1)
                 elif debug_mode and event.key == ord('x'): # debug
@@ -290,10 +345,18 @@ class UI:
         self.key[key] = False
     def key_pressed(self, key):
         return(self.key[key])
-    def change_text(self, new_text, new_text_color=(0,255,0)):
+    def change_text(self, new_text, new_text_color=(0,255,0), log = False):
         self.text = [(t, new_text_color) for t in new_text]
+        if log:
+            self.history.add_log(new_text)
         self.nctl_msg_changed.fire()
-    def append_text(self, new_text, new_text_color=(0,255,0)):
+    
+    
+    def append_text(self, new_text, new_text_color=(0, 255, 0), log = True):
+        if not new_text:
+            return
+        if log:
+            self.history.add_log(new_text)
         if not new_text:
             return
         self.text = self.text + [(t, new_text_color) for t in new_text]
@@ -320,12 +383,16 @@ class UI:
             (ax, ay) = anchor
             fin_loc = (floor(x-ax*w),floor(y+i*row_spacing-ay*h))
             target.blit(text_r, fin_loc)
+             
+
+        
     def render_furi(self, target, furicode, (x,y), (size_limit,font_main,font_subst),
                     font_furi, color_base, color_furi, display_all_furi):
         # No space for too many characters
         if sum([len(base) for (base,furi,keep_furi) in furicode]) > size_limit:
             font_main = font_subst
         for i in range(len(furicode)):
+
             (base,furi,keep_furi) = furicode[i]
             base_r = font_main.render(base, True, color_base)
             target.blit(base_r, (x,y))
@@ -1108,7 +1175,7 @@ class Battle_model:
     def kill_active(self, victim):
         ui.change_text([
             victim.demon.get_success_message()
-        ])
+        ], (0,0,255), True)
 
         if self.active == -1:
             return
@@ -1119,7 +1186,8 @@ class Battle_model:
             raise End_of_battle(True) # battle won
         self.switch_active()
     def counter_attack(self, attacker, damage):
-        ui.change_text([attacker.demon.get_fail_message(damage)], (255,0,0))
+        ui.change_text([attacker.demon.get_fail_message(damage)], (255,0,0),
+                True)
         if not attacker.fresh:
             ui.append_text(attacker.get_hints(), (0,255,0))
         self.chara_hit(damage)
