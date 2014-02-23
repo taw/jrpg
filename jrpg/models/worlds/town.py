@@ -41,7 +41,7 @@ wizard_decorations = [
     "spellbook blue 9",
     "spellbook green 1",
     "spellbook green 2",
-    "spellbook green :w5",
+    "spellbook green 5",
     "spellbook green 4",
     "spellbook green 5",
     "spellbook green 6",
@@ -110,24 +110,19 @@ class World_library:
         wm.add_chara("elf-monk",
                      route=[(1, 1), (1, 3), (4, 3), (4, 1)],
                      event=lambda: ui.change_text([
-                         U"You get more experienced as you defeat\
-                                 the kanji monsters.",
+                         U"You get more experienced as you defeat the kanji monsters.",
                          U"But you must look for new monsters all the time,",
                          U"as each can give you experience at most 3 times.",
-                         U"And you can only get some if you win in a \
-                                 good style.",
+                         U"And you can only get some if you win in a good style.",
                      ]))
         # monk2
         wm.add_chara("elf-monk",
                      route=[(5, 1), (5, 3), (8, 3), (8, 1)],
                      event=lambda: ui.change_text([
-                          U"The first time you meet a demon, you may see\
-                                its name.",
+                          U"The first time you meet a demon, you may see its name.",
                           U"Later, you must remember it.",
-                          U"If you don't want to start all over again, you\
-                                 may save with F2,",
-                          U"and load with F4. But it's a very\
-                                 traumatic experience."
+                          U"If you don't want to start all over again, you may save with F2,",
+                          U"and load with F4. But it's a very traumatic experience."
                     ]))
 
         # This monk is not really telling the true, he still thinks
@@ -137,8 +132,7 @@ class World_library:
                      route=[(1, 4), (8, 4), (8, 6), (1, 6)],
                      event=lambda:  ui.change_text([
                          U"There are different demons in each location.",
-                         U"So it would be too boring to stay for\
-                                 too long in one place.",
+                         U"So it would be too boring to stay for too long in one place.",
                          U"If you're done with the demons around the town,",
                          U"maybe try the castle northwest."
         ]))
@@ -222,15 +216,12 @@ class World_angel_sanctury:
     def __init__(self, wm, ui, mhc):
         def angel_quest():
             if mhc.quest_is_done("reward for level 3"):
-                ui.change_text([U"I am guardian angel of\
-                        software development.",
-                                U"I'm impressed\
-                                        that you finished all quests in jrpg.",
+                ui.change_text([U"I am guardian angel of software development.",
+                                U"I'm impressed that you finished all quests in jrpg.",
                                 U"Please send your savefile to its developer,",
                                 U"and he is sure to add some new areas ^_^"])
             else:
-                ui.change_text([U"I am guardian angel of\
-                        software development.",
+                ui.change_text([U"I am guardian angel of software development.",
                                 U"If you actually finish all quests in jrpg,",
                                 U"send the savefile to its developer,",
                                 U"and he is sure to add some new areas."])
@@ -250,34 +241,28 @@ class World_blacksmith:
     def __init__(self, wm, ui, mhc):
         def blacksmith_quest():
             if mhc.quest_is_done("magic sword complete"):
-                ui.change_text([U"Good monster hunting with\
-                        your awesome magic sword"])
+                ui.change_text([U"Good monster hunting with your awesome magic sword"])
             elif mhc.quest_is_done("blue crystals complete"):
                 mhc.loss_item("sword")
                 mhc.loss_item("blue crystals")
                 mhc.gain_item("magic sword")
                 mhc.quest_do("magic sword complete")
             elif mhc.quest_is_done("sword complete"):
-                ui.change_text([U"This was once a legendary sword,\
-                        but its enchantments wore off",
-                                U"Find some magic blue\
-                                        crystals in a cave to the East",
+                ui.change_text([U"This was once a legendary sword, but its enchantments wore off",
+                                U"Find some magic blue crystals in a cave to the East",
                                 U"And I'll reenchant it"])
             elif mhc.quest_is_done("broken sword complete"):
                 mhc.loss_item("broken sword")
                 mhc.gain_item("sword")
                 mhc.quest_do("sword complete")
                 ui.change_text([U"Here, I fixed your sword!",
-                                U"This was once a legendary sword,\
-                                        but its enchantments wore off",
-                                U"Find some magic blue crystals\
-                                        in a cave to the East",
+                                U"This was once a legendary sword, but its enchantments wore off",
+                                U"Find some magic blue crystals in a cave to the East",
                                 U"And I'll reenchant it"])
             else:
                 ui.change_text([U"You look like a hero, but you have no sword",
                                 U"There's one on a meadow to the south.",
-                                U"It's broken but if you bring\
-                                        it here I'll fix it for you"])
+                                U"It's broken but if you bring it here I'll fix it for you"])
 
         wm.wormhole((3, 0), "world", (41, 36))
 
