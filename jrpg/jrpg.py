@@ -6,6 +6,7 @@ from math import sqrt, floor
 from random import *
 import time
 import codecs # Python Unicode Brain Damage
+import ConfigParser
 
 # Import other jrpg modules
 import images
@@ -28,22 +29,10 @@ util.init_pygame("JRPG")
 # Directory where all the images are, trailing / is needed
 images_dir = "images/"
 
-# Change this to False if you want jrpg to start in windowed mode
-# Under Linux you can switch between windowed and fullscreen mode just by pressing Enter
-# Under Windows it unfortunately does not work, and you need to select the mode here
-# The default is to start in full screen mode.
-full_screen_mode = True
-# Bad things may happen if you set debug_mode = True
-debug_mode       = False
-
 # It may throw an exception on non-Unicode terminals, sorry
 #savefile_verification = True # Always disable for public release
 savefile_verification = False
 
-if debug_mode:
-    main_chara_speed = 8
-else:
-    main_chara_speed = 4
 # xp_per_level(i) = 95i + 5i^2
 # Last time I checked, it was 182 levels max
 
@@ -97,7 +86,7 @@ def Se(x):
 ###########################################################
 
 class UI:
-    def __init__(self):
+    def __init__(self, config):
         mtctl_terrain = images.mtctl_terrain
         mtctl_enemies = images.mtctl_enemies
         mtctl_items   = images.mtctl_items
@@ -107,6 +96,13 @@ class UI:
         self.running_under_windows = False
         self.running_under_mac = False
         self.running_fullscreen = True
+        self.debug_mode = config.getboolean('general', 'debug_mode')
+        if self.debug_mode:
+            self.main_chara_speed = 8
+        else:
+            self.main_chara_speed = 4
+
+
 
         driver_name = pygame.display.get_driver()
         if driver_name == 'directx':
@@ -114,14 +110,13 @@ class UI:
         elif driver_name == 'Quartz':
             self.running_under_mac = True
 
-        global full_screen_mode
         self.clock    = pygame.time.Clock()
         size = (width, height) = 640, 480
         self.text     = []
         self.history  = History(15)
 
         pygame.display.set_icon(pygame.image.load("images/jrpg-icon.png"))
-        if full_screen_mode:
+        if config.getboolean('general', 'full_screen_mode'):
             if self.running_under_windows:
                 self.screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
             elif self.running_under_mac:
@@ -294,15 +289,15 @@ class UI:
                     mhc.closeup()
                 elif event.key == pygame.K_F7:
                     self.see_history()
-                elif debug_mode and event.key == ord('e'): # debug
+                elif self.debug_mode and event.key == ord('e'): # debug
                     mhc.receive_money(1)
-                elif debug_mode and event.key == ord('x'): # debug
+                elif self.debug_mode and event.key == ord('x'): # debug
                     mhc.get_xp(25)
-                elif debug_mode and event.key == ord('c'): # debug
+                elif self.debug_mode and event.key == ord('c'): # debug
                     mhc.quest_do(cheat_quest[cheat_quest[0]])
                     self.change_text([U"Quest %s done by cheating" % cheat_quest[cheat_quest[0]]])
                     cheat_quest[0] = cheat_quest[0] + 1
-                elif debug_mode and event.key == ord('n'): # debug
+                elif self.debug_mode and event.key == ord('n'): # debug
                     # Nuke all enemies on the map
                     for oid in range(len(wm.objects)):
                         if wm.objects[oid].__class__ == Map_object_enemy:
@@ -321,7 +316,7 @@ class UI:
             speed_ew = speed_ew - 1
         if ui.key_pressed(pygame.K_RIGHT): # or ui.key_pressed(ord('u')):
             speed_ew = speed_ew + 1
-        main_hero.move(speed_ew*main_chara_speed, speed_sn*main_chara_speed)
+        main_hero.move(speed_ew*self.main_chara_speed, speed_sn*self.main_chara_speed)
         wm.run_charas()
         self.world_render()
         ui.tick()
@@ -1704,21 +1699,19 @@ cheat_quest = [
 ###########################################################
 
 try:
-    mistakes = Mistakes()
-    chapter_factory = Chapter_factory()
-    list_of_vocabulary = {
-        'katakana' : 'data/demons-katakana.txt',
-        'hiragana' : 'data/demons-hiragana.txt',
-        'kanaword' : 'data/demons-kanawords.txt',
-        'traduction' : 'data/demons-kanawords.txt',
-        'kanji' : 'data/demons-kanji.txt',
-    }
+    config = ConfigParser.ConfigParser()
+    config.read('config.ini')
 
+    mistakes = Mistakes()
+
+    chapter_factory = Chapter_factory()
+    list_of_vocabulary = config.items('book')
+    
     book = Book_of_demons(chapter_factory, list_of_vocabulary)
     mhc  = Main_Hero_Controller()
     wm   = World_model()
     wv   = World_view()
-    ui   = UI()
+    ui   = UI(config)
 
     main_hero = Chara("female-blue", position=(0, 0))
     main_hero.is_main = True # This isn't a particularly nice hack, subclass maybe ?

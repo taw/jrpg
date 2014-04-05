@@ -20,9 +20,9 @@ class Book_of_demons:
         self.demons[chapter.get_title_of_the_chapter()] = chapter.get_the_list_of_demon()
 
 
-    def __init__(self, chapter_factory,  config={}):
+    def __init__(self, chapter_factory,  config):
         self.demons = {}
-        for key, filename in config.items():
+        for key, filename in config:
             self.add_chapter_to_the_book(
                     chapter_factory.get_chapter_for_book_of_demon(key, filename))
 
