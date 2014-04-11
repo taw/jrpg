@@ -1705,8 +1705,15 @@ try:
     mistakes = Mistakes()
 
     chapter_factory = Chapter_factory()
-    list_of_vocabulary = config.items('book')
-    
+
+    list_of_vocabulary = {
+        'katakana': 'data/demons-katakana.txt',
+        'hiragana': 'data/demons-hiragana.txt',
+        'kanaword': 'data/demons-kanawords.txt',
+        'traduction': 'data/demons-kanawords.txt',
+        'kanji': 'data/demons-kanji.txt',
+    }
+
     book = Book_of_demons(chapter_factory, list_of_vocabulary)
     mhc  = Main_Hero_Controller()
     wm   = World_model()
@@ -1714,7 +1721,7 @@ try:
     ui   = UI(config)
 
     main_hero = Chara("female-blue", position=(0, 0))
-    main_hero.is_main = True # This isn't a particularly nice hack, subclass maybe ?
+    main_hero.is_main = True  # This isn't a particularly nice hack, subclass maybe ?
 
     wm.switch_map("world", (14,25))
 
