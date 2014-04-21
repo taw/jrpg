@@ -7,6 +7,7 @@ from random import *
 import time
 import codecs # Python Unicode Brain Damage
 import ConfigParser
+from engine.keyboard import Keyboard, KeyboardState
 
 # Import other jrpg modules
 import images
@@ -19,7 +20,7 @@ from models.worlds.outside import *
 from models.xpctl import XpCtl
 from models.history import History
 
-import util 
+import util
 from mistakes import Mistakes
 from util import sgn, Cached, Notifier, fun_sort
 from terrain import corner_shader
@@ -80,11 +81,11 @@ def Ne(x):
 def Se(x):
     return (x, 10)
 
+
 ###########################################################
 # This class manages the common and worldmap parts of UI  #
 # It knows way too much about the world                   #
 ###########################################################
-
 class UI:
     def __init__(self, config):
         mtctl_terrain = images.mtctl_terrain
@@ -101,8 +102,6 @@ class UI:
             self.main_chara_speed = 8
         else:
             self.main_chara_speed = 4
-
-
 
         driver_name = pygame.display.get_driver()
         if driver_name == 'directx':
@@ -128,6 +127,9 @@ class UI:
         self.font, self.font_med, self.font_big = util.load_font(18, 40, 64)
 
         self.key = [False for i in range(512)]
+
+        self.keyboard = Keyboard(KeyboardState(), config)
+
         self.mtctl = Map_Tiles_Controller(images_dir+"angband.png", mtctl_terrain, mtctl_enemies, mtctl_items)
         self.chara_tiles_dir = {}
         for k in ctdir:
@@ -192,25 +194,18 @@ class UI:
             if refresh:
                 self.draw_log(history_viewport)
                 refresh = False
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()
-                elif event.type == pygame.KEYDOWN:
-                    self.key_down(event.key)
-                    if event.key == pygame.K_RETURN:
-                        self.toggle_fullscreen()
-                        refresh = True
-                    # Pseudo man/vi key
-                    elif event.key == pygame.K_ESCAPE or event.key == ord('q'):
-                        history_mode = False
-                    elif event.key == pygame.K_UP or event.key == ord('k'):
-                        self.history.increase_cursor()
-                        refresh = True
-                    elif event.key == pygame.K_DOWN or event.key == ord('j'):
-                        self.history.decrease_cursor()
-                        refresh = True
-                elif event.type == pygame.KEYUP:
-                    self.key_up(event.key)
+            if self.key_pressed('Return'):
+                self.toggle_fullscreen()
+                refresh = True
+            # Pseudo man/vi key
+            elif self.key_pressed('Escape') or self.key_pressed('q'):
+                history_mode = False
+            elif self.key_pressed('Up') or self.key_pressed('k'):
+                self.history.increase_cursor()
+                refresh = True
+            elif self.key_pressed('Down') or self.key_pressed('j'):
+                self.history.decrease_cursor()
+                refresh = True
             ui.tick()
 
         # clean
@@ -243,78 +238,62 @@ class UI:
 
         quick_help_mode = True
         while quick_help_mode:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()
-                elif event.type == pygame.KEYDOWN:
-                    quick_help_mode = False
-                    self.key_down(event.key)
-                    if event.key == pygame.K_RETURN:
-                        self.toggle_fullscreen()
-                    elif event.key == pygame.K_ESCAPE:
-                        mhc.exit()
-                    elif event.key == pygame.K_F1:
-                        self.quick_help()
-                    elif event.key == pygame.K_F2:
-                        mhc.save()
-                    elif event.key == pygame.K_F4:
-                        mhc.load()
-                        mhc.save()
-                    elif event.key == pygame.K_TAB or event.key == pygame.K_F12:
-                        mhc.closeup()
-
-                elif event.type == pygame.KEYUP:
-                    self.key_up(event.key)
+            if self.key_pressed('Return'):
+                self.toggle_fullscreen()
+            elif self.key_pressed('Escape'):
+                quick_help_mode = False
+            elif self.key_pressed('F2'):
+                mhc.save()
+            elif self.key_pressed('F4'):
+                mhc.load()
+                mhc.save()
+            elif self.key_pressed('Tab') or self.key_pressed('F12'):
+                mhc.closeup()
             ui.tick()
         quick_help_viewport.fill((0,0,0))
 
     def world_main_loop_iter(self):
         # Check UI events
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-            elif event.type == pygame.KEYDOWN:
-                self.key_down(event.key)
-                if event.key == pygame.K_RETURN:
-                    self.toggle_fullscreen()
-                elif event.key == pygame.K_ESCAPE:
-                    mhc.exit()
-                elif event.key == pygame.K_F1:
-                    self.quick_help()
-                elif event.key == pygame.K_F2:
-                    mhc.save()
-                elif event.key == pygame.K_F4:
-                    mhc.load()
-                elif event.key == pygame.K_TAB or event.key == pygame.K_F12:
-                    mhc.closeup()
-                elif event.key == pygame.K_F7:
-                    self.see_history()
-                elif self.debug_mode and event.key == ord('e'): # debug
-                    mhc.receive_money(1)
-                elif self.debug_mode and event.key == ord('x'): # debug
-                    mhc.get_xp(25)
-                elif self.debug_mode and event.key == ord('c'): # debug
-                    mhc.quest_do(cheat_quest[cheat_quest[0]])
-                    self.change_text([U"Quest %s done by cheating" % cheat_quest[cheat_quest[0]]])
-                    cheat_quest[0] = cheat_quest[0] + 1
-                elif self.debug_mode and event.key == ord('n'): # debug
-                    # Nuke all enemies on the map
-                    for oid in range(len(wm.objects)):
-                        if wm.objects[oid].__class__ == Map_object_enemy:
-                            wm.objects[oid] = None
-            elif event.type == pygame.KEYUP:
-                self.key_up(event.key)
-        # Controller
         speed_sn = 0
         speed_ew = 0
+
+        if self.key_pressed('Return'):
+            self.toggle_fullscreen()
+        elif self.key_pressed('Escape'):
+            mhc.exit()
+        elif self.key_pressed('F2'):
+            mhc.save()
+        elif self.key_pressed('F4'):
+            mhc.load()
+        elif self.key_pressed('F1'):
+            self.quick_help()
+
+
+        elif self.key_pressed('Tab') or self.key_pressed('F12'):
+            mhc.closeup()
+        elif self.key_pressed('F7'):
+            self.see_history()
+        elif self.debug_mode and self.key_pressed('e'): # debug
+            mhc.receive_money(1)
+        elif self.debug_mode and self.key_pressed('x'): # debug
+            mhc.get_xp(25)
+        elif self.debug_mode and self.key_pressed('c'): # debug
+            mhc.quest_do(cheat_quest[cheat_quest[0]])
+            self.change_text([U"Quest %s done by cheating" % cheat_quest[cheat_quest[0]]])
+            cheat_quest[0] = cheat_quest[0] + 1
+        elif self.debug_mode and self.key_pressed('n'): # debug
+             # Nuke all enemies on the map
+             for oid in range(len(wm.objects)):
+                if wm.objects[oid].__class__ == Map_object_enemy:
+                    wm.objects[oid] = None
         # Dvorak a,oe or Qwerty awsd
-        if ui.key_pressed(pygame.K_UP): # or ui.key_pressed(ord('.')):
+        if ui.key_down('Up'): # or ui.key_pressed(ord('.')):
             speed_sn = speed_sn - 1
-        if ui.key_pressed(pygame.K_DOWN): # or ui.key_pressed(ord('e')):
+        if ui.key_down('Down'): # or ui.key_pressed(ord('e')):
             speed_sn = speed_sn + 1
-        if ui.key_pressed(pygame.K_LEFT): # or ui.key_pressed(ord('o')):
+        if ui.key_down('Left'): # or ui.key_pressed(ord('o')):
             speed_ew = speed_ew - 1
-        if ui.key_pressed(pygame.K_RIGHT): # or ui.key_pressed(ord('u')):
+        if ui.key_down('Right'): # or ui.key_pressed(ord('u')):
             speed_ew = speed_ew + 1
         main_hero.move(speed_ew*self.main_chara_speed, speed_sn*self.main_chara_speed)
         wm.run_charas()
@@ -334,19 +313,26 @@ class UI:
         else: # Version for exact measurement - do not use :-)
             self.clock.tick()
             print self.clock.get_fps()
-    def key_down(self, key):
-        self.key[key] = True
-    def key_up(self, key):
-        self.key[key] = False
+
+        for event in pygame.event.get(pygame.QUIT):
+            if event.type == pygame.QUIT:
+                sys.exit()
+        self.keyboard.update()
+        pygame.event.clear()
+
     def key_pressed(self, key):
-        return(self.key[key])
+        return self.keyboard.is_typed(key)
+
+    def key_down(self, key):
+        return self.keyboard.key_pressed(key)
+
     def change_text(self, new_text, new_text_color=(0,255,0), log = False):
         self.text = [(t, new_text_color) for t in new_text]
         if log:
             self.history.add_log(new_text)
         self.nctl_msg_changed.fire()
-    
-    
+
+
     def append_text(self, new_text, new_text_color=(0, 255, 0), log = True):
         if not new_text:
             return
@@ -378,9 +364,9 @@ class UI:
             (ax, ay) = anchor
             fin_loc = (floor(x-ax*w),floor(y+i*row_spacing-ay*h))
             target.blit(text_r, fin_loc)
-             
 
-        
+
+
     def render_furi(self, target, furicode, (x,y), (size_limit,font_main,font_subst),
                     font_furi, color_base, color_furi, display_all_furi):
         # No space for too many characters
@@ -1123,7 +1109,7 @@ class Enemy_in_battle:
 
 # This class should manage killing enemies and activation/deactivation etc.
 class Battle_model:
-    def __init__(self, active_look, inactive_look, sprite_class, demon_class, power):
+    def __init__(self, ui, active_look, inactive_look, sprite_class, demon_class, power):
         self.enemies   = []
         self.active    = -1
 
@@ -1204,37 +1190,38 @@ class Battle_model:
 
 class Battle_UI:
     # Move the image load to some manager
-    def __init__(self, look, sprite_class, demon_class, power):
+    def __init__(self, ui, look, sprite_class, demon_class, power):
+        self.ui = ui
+
         (bg_fn, self.active, inactive) = choice(images.battle_look_table[look])
 
         self.battle_bg = pygame.image.load(bg_fn).convert_alpha()
 
         self.chara_img = ui.chara_img("female-blue")
         self.chara_buf = U""
-
-        ui.change_text([])
+        self.ui.change_text([])
         self.bs_repeat = 0
 
-        self.battle_model = Battle_model(self.active, inactive, sprite_class, demon_class, power)
+        self.battle_model = Battle_model(self.ui, self.active, inactive, sprite_class, demon_class, power)
         self.demonname_cache = Cached(lambda: self.demonname_render(), self.battle_model.nctl_demonname_changed)
     def demonname_render(self):
-        ui.demonname_viewport.fill((0,0,0))
+        self.ui.demonname_viewport.fill((0,0,0))
         active_enemy = self.battle_model.get_active_enemy()
         if active_enemy:
-            active_enemy.render_name(ui.demonname_viewport)
+            active_enemy.render_name(self.ui.demonname_viewport)
             if active_enemy.fresh:
-                ui.append_text(active_enemy.get_hints(), (0,0,255))
+                self.ui.append_text(active_enemy.get_hints(), (0,0,255))
     def render(self):
-        ui.map_viewport.blit(self.battle_bg, (0,0))
+        self.ui.map_viewport.blit(self.battle_bg, (0,0))
         self.battle_model.render()
         # (self.chara_x, self.chara_y) == (240, 240), always
-        ui.map_viewport.blit(self.chara_img, (240, 240), (2*24, 3*32, 24, 32))
+        self.ui.map_viewport.blit(self.chara_img, (240, 240), (2*24, 3*32, 24, 32))
         # font_med can get out of the box
-        ui.render_text_unicolor(ui.map_viewport, ui.font, [self.chara_buf],
+        self.ui.render_text_unicolor(ui.map_viewport, ui.font, [self.chara_buf],
                                 (240+12, 240), (0.5, 1.0), self.active)
         self.demonname_cache.execute()
-        ui.msg_cache.execute()
-        ui.stats_cache.execute()
+        self.ui.msg_cache.execute()
+        self.ui.stats_cache.execute()
     def chara_attack(self,enemies):
         if self.chara_buf == U"":
             return
@@ -1246,54 +1233,37 @@ class Battle_UI:
             while True:
                 self.battle_mode_loop_iter()
         except End_of_battle, (result):
-            ui.demonname_viewport.fill((0,0,0))
+            self.ui.demonname_viewport.fill((0,0,0))
             return result.value
     def battle_mode_loop_iter(self):
         # Check UI events
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-            elif event.type == pygame.KEYDOWN:
-                ui.key_down(event.key)
-                # If any key was pressed, stop backspacing
-                # <backspace pressed> <a pressed> <backspace released> <a released>
-                #                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                # The user probably meant to release backspace first and press a,
-                # but without this hack a would get backspaced too
-                if ui.key[pygame.K_BACKSPACE] and event.key != pygame.K_BACKSPACE:
-                    ui.key_up(pygame.K_BACKSPACE)
-                if event.key == pygame.K_RETURN:
-                    ui.toggle_fullscreen()
-                elif event.key == pygame.K_ESCAPE:
-                    if mhc.make_exit_warning:
-                        ui.change_text([U"Something happened since the last saving",
-                                        U"Do you really want to exit ?",
-                                        U"Press ESCAPE again to exit."])
-                        mhc.make_exit_warning = False
-                    else:
-                        sys.exit()
-                elif event.key == pygame.K_TAB or event.key == pygame.K_F12:
-                    mhc.closeup()
-                elif event.unicode >= 'a' and event.unicode <= 'z':
-                    self.chara_buf = self.chara_buf + event.unicode
-                elif event.unicode == ' ':
-                    self.chara_attack(self.battle_model)
-                elif event.key == pygame.K_BACKSPACE:
-                    self.bs_repeat = -1
-            elif event.type == pygame.KEYUP:
-                ui.key_up(event.key)
-        if ui.key[pygame.K_BACKSPACE]:
-            if self.bs_repeat == -1: # Fresh
-                self.chara_buf = self.chara_buf[0:len(self.chara_buf)-1]
-                self.bs_repeat = 8
-            if self.bs_repeat == 0:
-                self.chara_buf = self.chara_buf[0:len(self.chara_buf)-1]
-                self.bs_repeat = 2
+        # If any key was pressed, stop backspacing
+        # <backspace pressed> <a pressed> <backspace released> <a released>
+        #                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        # The user probably meant to release backspace first and press a,
+        # but without this hack a would get backspaced too
+        if ui.keyboard.key_pressed('Return'):
+                self.ui.toggle_fullscreen()
+        elif ui.key_pressed('Escape'):
+            if mhc.make_exit_warning:
+                self.ui.change_text([U"Something happened since the last saving",
+                                U"Do you really want to exit ?",
+                                U"Press ESCAPE again to exit."])
+                mhc.make_exit_warning = False
             else:
-                self.bs_repeat = self.bs_repeat - 1
+                sys.exit()
+        elif ui.key_pressed('Tab') or ui.key_pressed('F12'):
+                mhc.closeup()
+        elif ui.key_pressed('Space'):
+                self.chara_attack(self.battle_model)
+        elif ui.keyboard.isUnicode():
+            self.chara_buf = self.chara_buf + ui.keyboard.get_unicode()
+        elif ui.key_pressed('Backspace'):
+            self.chara_buf = self.chara_buf[0:len(self.chara_buf)-1]
+
         self.battle_model.move()
         self.render()
-        ui.tick()
+        self.ui.tick()
 
 ###########################################################
 # The new world class                                     #
@@ -1480,7 +1450,7 @@ class World_model:
     def add_enemy(self, enemy_loc, battle_look, sprite_class, demon_class, power):
         enemy_id = self.add_object(Map_object_enemy(enemy_loc, sprite_class))
         def fight():
-            battle = Battle_UI(battle_look, sprite_class, demon_class, power)
+            battle = Battle_UI(ui, battle_look, sprite_class, demon_class, power)
             if battle.main_loop():
                 # win - remove the sprite and the associated event
                 self.remove_enemy(enemy_id)
@@ -1700,6 +1670,7 @@ cheat_quest = [
 
 try:
     config = ConfigParser.ConfigParser()
+    config.optionxform = str
     config.read('config.ini')
 
     mistakes = Mistakes()
