@@ -19,7 +19,7 @@ from models.worlds.outside import *
 from models.xpctl import XpCtl
 from models.history import History
 
-import util 
+import util
 from mistakes import Mistakes
 from util import sgn, Cached, Notifier, fun_sort
 from terrain import corner_shader
@@ -194,7 +194,7 @@ class UI:
                 refresh = False
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    sys.exit()
+                    mhc.exit()
                 elif event.type == pygame.KEYDOWN:
                     self.key_down(event.key)
                     if event.key == pygame.K_RETURN:
@@ -245,7 +245,7 @@ class UI:
         while quick_help_mode:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    sys.exit()
+                    mhc.exit()
                 elif event.type == pygame.KEYDOWN:
                     quick_help_mode = False
                     self.key_down(event.key)
@@ -345,8 +345,8 @@ class UI:
         if log:
             self.history.add_log(new_text)
         self.nctl_msg_changed.fire()
-    
-    
+
+
     def append_text(self, new_text, new_text_color=(0, 255, 0), log = True):
         if not new_text:
             return
@@ -378,9 +378,9 @@ class UI:
             (ax, ay) = anchor
             fin_loc = (floor(x-ax*w),floor(y+i*row_spacing-ay*h))
             target.blit(text_r, fin_loc)
-             
 
-        
+
+
     def render_furi(self, target, furicode, (x,y), (size_limit,font_main,font_subst),
                     font_furi, color_base, color_furi, display_all_furi):
         # No space for too many characters
@@ -689,6 +689,7 @@ class Main_Hero_Controller:
                             U"Press ESCAPE again to exit."])
             self.make_exit_warning = False
         else:
+            pygame.quit()
             sys.exit()
     # This is some dead code, do not run
     def verify_xp(self):
@@ -1252,7 +1253,7 @@ class Battle_UI:
         # Check UI events
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                sys.exit()
+                mhc.exit()
             elif event.type == pygame.KEYDOWN:
                 ui.key_down(event.key)
                 # If any key was pressed, stop backspacing
@@ -1265,13 +1266,7 @@ class Battle_UI:
                 if event.key == pygame.K_RETURN:
                     ui.toggle_fullscreen()
                 elif event.key == pygame.K_ESCAPE:
-                    if mhc.make_exit_warning:
-                        ui.change_text([U"Something happened since the last saving",
-                                        U"Do you really want to exit ?",
-                                        U"Press ESCAPE again to exit."])
-                        mhc.make_exit_warning = False
-                    else:
-                        sys.exit()
+                    mhc.exit()
                 elif event.key == pygame.K_TAB or event.key == pygame.K_F12:
                     mhc.closeup()
                 elif event.unicode >= 'a' and event.unicode <= 'z':
