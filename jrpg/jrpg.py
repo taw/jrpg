@@ -316,6 +316,7 @@ class UI:
 
         for event in pygame.event.get(pygame.QUIT):
             if event.type == pygame.QUIT:
+                pygame.quit()
                 sys.exit()
         self.keyboard.update()
         pygame.event.clear()
@@ -675,6 +676,7 @@ class Main_Hero_Controller:
                             U"Press ESCAPE again to exit."])
             self.make_exit_warning = False
         else:
+            pygame.quit()
             sys.exit()
     # This is some dead code, do not run
     def verify_xp(self):
@@ -1245,13 +1247,7 @@ class Battle_UI:
         if ui.keyboard.key_pressed('Return'):
                 self.ui.toggle_fullscreen()
         elif ui.key_pressed('Escape'):
-            if mhc.make_exit_warning:
-                self.ui.change_text([U"Something happened since the last saving",
-                                U"Do you really want to exit ?",
-                                U"Press ESCAPE again to exit."])
-                mhc.make_exit_warning = False
-            else:
-                sys.exit()
+                mhc.exit()
         elif ui.key_pressed('Tab') or ui.key_pressed('F12'):
                 mhc.closeup()
         elif ui.key_pressed('Space'):
