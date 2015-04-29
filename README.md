@@ -5,7 +5,7 @@ JRPG is a kanji learning game styled after the classic SNES RPG games (like Fina
 
 There is also a playable demo of how JRPG would look like if it was styled after PlayStation 1 RPG games.
 
-To learn more visit JRPG's website: http://taw.chaosforge.org/jrpg/
+To learn more visit JRPG's website: http://taw.github.io/jrpg/
 
 Code
 ====
