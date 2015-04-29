@@ -6,6 +6,7 @@
 import pygame
 import traceback
 import time
+import appdirs
 
 try:
     import posix
@@ -100,7 +101,7 @@ def sgn(x):
 def save_errormsg(trace_back):
     (tp,v,tb) = trace_back
     tbf = traceback.format_exception(tp,v,tb)
-    f = open("errormsg.txt", "a")
+    f = open("%s/%s" % (appdirs.user_data_dir("jrpg"), "errormsg.txt"), "a")
     f.write("== ")
     f.write(time.asctime(time.localtime()))
     f.write(" ==\n")

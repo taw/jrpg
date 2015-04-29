@@ -5,8 +5,10 @@ import sys, pygame, pickle
 from math import sqrt, floor
 from random import *
 import time
-import codecs # Python Unicode Brain Damage
+import codecs
 import ConfigParser
+import appdirs
+import os
 
 # Import other jrpg modules
 import images
@@ -612,11 +614,13 @@ class Main_Hero_Controller:
         self.make_exit_warning = True
         self.money = self.money + amount
         self.nctl_stats_changed.fire()
+    def save_path(self):
+        return "%s/%s" % (appdirs.user_data_dir("jrpg"), "savefile.dat")
     def save(self):
         # Verify that the xp in the savefile is not higher than your XP
         xp = 0
         try:
-            f = open("savefile", "r")
+            f = open(self.save_path(), "r")
             ld = pickle.load(f)
             xp = ld["xp"]
         except IOError, (errno, strerror):
@@ -627,7 +631,7 @@ class Main_Hero_Controller:
                             U"If you want to save anyway, press F2 again"], (255,0,0))
             self.save_warned = True
             return
-        f = open("savefile", "w")
+        f = open(self.save_path(), "w")
         save_data = {
             "name"     : "Freya",
             "hpmax"    : self.hpmax,
@@ -656,7 +660,7 @@ class Main_Hero_Controller:
             self.make_load_warning = False
             return
         try:
-            f = open("savefile", "r")
+            f = open(self.save_path(), "r")
             ld = pickle.load(f)
             self.hpmax     = ld["hpmax"]
             self.hp        = ld["hp"]
@@ -1694,6 +1698,10 @@ cheat_quest = [
 ###########################################################
 
 try:
+    directory = appdirs.user_data_dir("jrpg")
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
     config = ConfigParser.ConfigParser()
     config.read('config.ini')
 

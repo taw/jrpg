@@ -1,5 +1,3 @@
-mistakes-*.txt
 *.pyc
-savefile
-savefile.dat
-errormsg.txt
+jrpg/dist
+jrpg/build
