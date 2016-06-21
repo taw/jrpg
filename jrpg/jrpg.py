@@ -25,7 +25,8 @@ import util
 from mistakes import Mistakes
 from util import sgn, Cached, Notifier, fun_sort
 from terrain import corner_shader
-
+from settings import *
+from msg_view import Msg_view
 util.init_pygame("JRPG")
 
 # Directory where all the images are, trailing / is needed
@@ -97,14 +98,12 @@ class UI:
         # pygame.display.flip() has different behaviour under Windows and Mac
         self.running_under_windows = False
         self.running_under_mac = False
-        self.running_fullscreen = True
+        self.running_fullscreen = False
         self.debug_mode = config.getboolean('general', 'debug_mode')
         if self.debug_mode:
             self.main_chara_speed = 8
         else:
             self.main_chara_speed = 4
-
-
 
         driver_name = pygame.display.get_driver()
         if driver_name == 'directx':
@@ -113,12 +112,20 @@ class UI:
             self.running_under_mac = True
 
         self.clock    = pygame.time.Clock()
-        size = (width, height) = 640, 480
+        reswidth = config.getint('general','width')
+        resheight = config.getint('general','height')
+        size = (reswidth, resheight)
+        # init msg_scroller to make text in msg_viewport scrollable
+        scroll_x = 20
+        scroll_y = 10
+        self.msg_scroller = Msg_view(reswidth, 160, scroll_x, scroll_y)
+
         self.text     = []
         self.history  = History(15)
 
         pygame.display.set_icon(pygame.image.load("images/jrpg-icon.png"))
         if config.getboolean('general', 'full_screen_mode'):
+            pygame.mouse.set_visible(0)
             if self.running_under_windows:
                 self.screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
             elif self.running_under_mac:
@@ -141,7 +148,7 @@ class UI:
         self.map_viewport       = self.screen.subsurface(((0,0),(320,320)))
         self.stats_viewport     = self.screen.subsurface(((320, 0),(320, 160)))
         self.demonname_viewport = self.screen.subsurface(((320, 160),(320, 160)))
-        self.msg_viewport       = self.screen.subsurface(((0,320),(640,160)))
+        self.msg_viewport       = self.screen.subsurface(((0,320),(self.screen.get_width(),160)))
 
         self.stats_cache      = Cached(lambda: mhc.render_statistics(self.stats_viewport), mhc.nctl_stats_changed)
         self.msg_cache        = Cached(lambda: self.msg_render(), self.nctl_msg_changed)
@@ -158,6 +165,8 @@ class UI:
             self.msg_cache.invalidate()
     def msg_render(self):
         self.msg_viewport.fill((0,0,0))
+        label = pygame.Surface((self.screen.get_width(), 160))
+        #self.msg_scroller.set_rect( (0,0),self.text.get_width(), self.text.get_height() )
         self.render_text_multicolor(self.msg_viewport, self.font, self.text, (32,32), (0,0), 24)
     def world_render(self): # API changes
         self.map_viewport.fill((0,0,0))
@@ -185,9 +194,8 @@ class UI:
         the message_viewport are a little short
         You can't use it in battle mode (it's would be easy..).
         '''
-
         # the view is a little smaller than the screen
-        history_viewport = self.screen.subsurface((0, 50), (640, 380))
+        history_viewport = self.screen.subsurface((0, 50), (self.screen.get_width(), 380))
         history_mode = True
         refresh = True
         while history_mode:
@@ -236,8 +244,7 @@ class UI:
             U"Space     - Accept text                                   ",
             U"Press any key to continue",
         ]
-
-        quick_help_viewport = self.screen.subsurface((0,0),(640,320))
+        quick_help_viewport = self.screen.subsurface((0,0),(self.screen.get_width(),320))
         self.stats_cache.invalidate()
         quick_help_viewport.fill((0,0,128))
 
@@ -358,6 +365,7 @@ class UI:
             return
         self.text = self.text + [(t, new_text_color) for t in new_text]
         # Save only the last 5 lines, if there are too many
+        # (should be scrollable instead)
         if len(self.text) > 5:
             self.text = self.text[len(self.text)-5:len(self.text)]
         self.nctl_msg_changed.fire()
@@ -380,8 +388,6 @@ class UI:
             (ax, ay) = anchor
             fin_loc = (floor(x-ax*w),floor(y+i*row_spacing-ay*h))
             target.blit(text_r, fin_loc)
-
-
 
     def render_furi(self, target, furicode, (x,y), (size_limit,font_main,font_subst),
                     font_furi, color_base, color_furi, display_all_furi):
@@ -515,9 +521,9 @@ class Main_Hero_Controller:
             msg = U"You see %s %s (%s)." % (self.demon_closeup_kind, body.short_dn(), " ".join(body.secret_names()))
             hints = body.get_hints()
             if not hints: hints = []
-            ui.append_text([msg] + hints, (0,0,255))
+            ui.append_text([msg] + hints, HINTCOLR)
         else:
-            ui.append_text([U"No dead demon's body to look at"], (0,0,255))
+            ui.append_text([U"No dead demon's body to look at"], DEFTCOLR)
     def gain_item(self, item):
         # (May duplicate), newest items first
         self.inventory = [item] + self.inventory
@@ -1175,7 +1181,7 @@ class Battle_model:
     def kill_active(self, victim):
         ui.change_text([
             victim.demon.get_success_message()
-        ], (0,0,255), True)
+        ], DEFTCOLR, True)
 
         if self.active == -1:
             return
@@ -1228,7 +1234,7 @@ class Battle_UI:
         if active_enemy:
             active_enemy.render_name(ui.demonname_viewport)
             if active_enemy.fresh:
-                ui.append_text(active_enemy.get_hints(), (0,0,255))
+                ui.append_text(active_enemy.get_hints(), EXAMCOLR)
     def render(self):
         ui.map_viewport.blit(self.battle_bg, (0,0))
         self.battle_model.render()
