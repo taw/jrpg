@@ -79,7 +79,7 @@ def load_font(*sizes):
     for font_path in font_paths:
         try:
             return [pygame.font.Font(font_path, size) for size in sizes]
-        except IOError, e:
+        except IOError as e:
             error_msg += "Opening font at %s failed: %s\n" % (font_path, e)
     raise Exception(error_msg)
 

@@ -24,10 +24,11 @@ class Index:
 #        return res
     def intersect_rect(self, r2):
         res = []
-        def intersect_rect_aux((i_bb,i_type,contents)):
+        def intersect_rect_aux(box):
+            (i_bb,i_type,contents) = box
             if r2.colliderect(i_bb):
                 if i_type:
-                    intersect_rect_aux(contents[0]) 
+                    intersect_rect_aux(contents[0])
                     intersect_rect_aux(contents[1])
                 else:
                     res.append((r2.clip(i_bb), contents))
@@ -35,7 +36,8 @@ class Index:
         intersect_rect_aux(self.index)
         return res
     def intersects_rect_p(self, r2):
-        def intersects_rect_p_aux((i_bb,i_type,contents)):
+        def intersects_rect_p_aux(box):
+            (i_bb,i_type,contents) = box
             if r2.colliderect(i_bb):
                 if i_type:
                     return(intersects_rect_p_aux(contents[0]) or
@@ -49,7 +51,8 @@ class Index:
     # This is a 1D index
     # If it's too slow, switch to 2D-indexing
     def contains_rect_p(self, bb):
-        def contains_rect_p_aux((i_bb,i_type,contents)):
+        def contains_rect_p_aux(box):
+            (i_bb,i_type,contents) = box
             if i_bb.contains(bb):
                 if i_type:
                     return(contains_rect_p_aux(contents[0]) or

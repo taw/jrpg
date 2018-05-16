@@ -49,7 +49,7 @@ def set_sym_diff(set1, set2):
     for i in set1:
         d[i] = 1
     for i in set2:
-        if d.has_key(i):
+        if i in d:
             del d[i]      # In both sets
         else:
             ds2.append(i) # Only in the second set
@@ -390,9 +390,11 @@ class UI:
             fin_loc = (floor(x-ax*w),floor(y+i*row_spacing-ay*h))
             target.blit(text_r, fin_loc)
 
-    def render_furi(self, target, furicode, (x,y), (size_limit,font_main,font_subst),
+    def render_furi(self, target, furicode, xy, font_info,
                     font_furi, color_base, color_furi, display_all_furi):
         # No space for too many characters
+        (x,y) = xy
+        (size_limit,font_main,font_subst) = font_info
         if sum([len(base) for (base,furi,keep_furi) in furicode]) > size_limit:
             font_main = font_subst
         for i in range(len(furicode)):
@@ -603,7 +605,7 @@ class Main_Hero_Controller:
         for i in range(len(self.inventory)):
             ui.render_item(target, (32+i*32,32+24*4), self.inventory[i])
     def quest_is_done(self, quest_id):
-        return self.quests.has_key(quest_id)
+        return quest_id in self.quests
     def quest_do(self, quest_id):
         self.make_load_warning = True
         self.make_exit_warning = True
@@ -630,7 +632,8 @@ class Main_Hero_Controller:
             f = open(self.save_path(), "r")
             ld = pickle.load(f)
             xp = ld["xp"]
-        except IOError, (errno, strerror):
+        except IOError as exception:
+            (errno, strerror) = exception.args
             pass
         if xp > self.xp and not self.save_warned:
             ui.change_text([U"Warning: In the save file you have higher experience (%d)" % xp,
@@ -691,7 +694,8 @@ class Main_Hero_Controller:
             self.make_exit_warning = False
             self.make_load_warning = False
             self.last_demon_killed = None
-        except IOError, (errno, strerror):
+        except IOError as exception:
+            (errno, strerror) = exception.args
             ui.change_text([U"Can't load the savefile: ", unicode(strerror)], (255,0,0))
     def exit(self):
         if self.make_exit_warning:
@@ -712,7 +716,7 @@ class Main_Hero_Controller:
                 demon_ok[demon.xp_code()] = True
         free_xp = 0
         for defeated_demon_xp_code in self.xpctl.xpfor.keys():
-            if demon_ok.has_key(defeated_demon_xp_code):
+            if defeated_demon_xp_code in demon_ok:
                 pass
                 # print("Good demon %s (%d)" % (defeated_demon_xp_code, self.xpfor[defeated_demon_xp_code]))
             else:
@@ -805,7 +809,7 @@ class Main_Hero_Controller:
             xp = self.xpctl.xpfor.get(demon.xp_code(), 0)
             if xp == 1 or xp == 2: xp += 1
             for kanji in demon.kanji():
-                if not kanji_stats.has_key(kanji):
+                if kanji not in kanji_stats:
                     kanji_stats[kanji] = [0, 0]
                 kanji_stats[kanji][0] += xp
                 kanji_stats[kanji][1] += 3
@@ -845,7 +849,8 @@ class Map_object: # virtual class
     #    self.f_render()
 
 class Map_object_enemy(Map_object):
-    def __init__(self, (x, y), enemy_sprite, event=None):
+    def __init__(self, xy, enemy_sprite, event=None):
+        (x, y) = xy
         self.x = x
         self.y = y
         self.enemy_sprite = enemy_sprite
@@ -856,7 +861,8 @@ class Map_object_enemy(Map_object):
         return pygame.Rect((self.x*32 ,self.y*32), (32, 32))
 
 class Map_object_item(Map_object):
-    def __init__(self, (x, y), item_class, event=None):
+    def __init__(self, xy, item_class, event=None):
+        (x, y) = xy
         self.x = x
         self.y = y
         self.item_class = item_class
@@ -935,7 +941,8 @@ class Chara:
         # return a trace from the first intersection point
         return tr2[tr[(self.pos,self.route_i)]:len(tr2)]
     # return True if already there or cannot move
-    def goto(self, (tx, ty), speed=1):
+    def goto(self, t, speed=1):
+        (tx, ty) = t
         dx = sgn(tx * 32 - self.pos[0])
         dy = sgn(ty * 32 - self.pos[1])
         if dx == 0 and dy == 0:
@@ -1082,11 +1089,13 @@ class End_of_battle(Exception):
     def __init__(self, value):
         self.value = value
     def __str__(self):
-        return `self.value`
+        return repr(self.value)
 
 ###########################################################
 class Enemy_in_battle:
-    def __init__(self, (x,y), demon, sprite_class, demon_class, (active_color,inactive_color), power):
+    def __init__(self, xy, demon, sprite_class, demon_class, colors, power):
+        (x,y) = xy
+        (active_color,inactive_color) = colors
         self.x              = x
         self.y              = y
         self.dx             = 0
@@ -1257,7 +1266,7 @@ class Battle_UI:
         try:
             while True:
                 self.battle_mode_loop_iter()
-        except End_of_battle, (result):
+        except End_of_battle as result:
             ui.demonname_viewport.fill((0,0,0))
             return result.value
     def battle_mode_loop_iter(self):
@@ -1371,7 +1380,8 @@ class World_model:
         self.current_map = None
         self.current_map_id = None
 
-    def switch_map(self, map_id, (x, y)):
+    def switch_map(self, map_id, xy):
+        (x, y) = xy
         self.current_map_id = map_id
         # Copy, so we can change the tiles without modifying the database
         if not self.map_db[self.current_map_id]:
@@ -1429,7 +1439,7 @@ class World_model:
         return pygame.Rect(left,top,right-left+1,bottom-top+1)
 
     def enter_event(self, tile):
-        if self.enter_events.has_key(tile):
+        if tile in self.enter_events:
             for e in self.enter_events[tile]:
                 e()
                 return True
@@ -1474,13 +1484,14 @@ class World_model:
             self.add_chara_event(chara_obj, event)
     # FIXME: current map's tileset should not be shared with the map database
     # REFACTORME: limit prerender damage to (x-1..x+1) * (y-1..y+1)
-    def change_tile(self, (x,y), new_tile):
+    def change_tile(self, xy, new_tile):
+        (x,y) = xy
         self.current_map[y][x] = new_tile
         wv.surface_cache_valid = False
         wv.prerender_cache_valid = False
     # These are for the main chara only
     def add_enter_event(self, tile, event):
-        if not self.enter_events.has_key(tile):
+        if tile not in self.enter_events:
             self.enter_events[tile] = []
         self.enter_events[tile].append(event)
     def add_enemy(self, enemy_loc, battle_look, sprite_class, demon_class, power):
@@ -1548,7 +1559,8 @@ class World_view:
         self.prerender_cache = []
 
         self.prerender_cache_valid = False
-    def switch_map_event(self, (x,y)):
+    def switch_map_event(self, xy):
+        (x,y) = xy
         self.max_shift_y = 32 * (len(wm.current_map) - 10)
         longest_line = 0
         for line in wm.current_map:
@@ -1558,7 +1570,8 @@ class World_view:
         self.center_at((x*32, y*32))
 
         self.prerender_cache_valid = False
-    def center_at(self, (x,y)):
+    def center_at(self, xy):
+        (x,y) = xy
         self.shift_x = x - 5*32
         self.shift_y = y - 5*32
         if self.shift_x < 0: self.shift_x = 0
@@ -1577,7 +1590,7 @@ class World_view:
                 ll = None
                 lr = None
                 this = wm.current_map_get_element(x, y)
-                if corner_shader.has_key(this):
+                if this in corner_shader:
                     r = wm.current_map_get_element(x+1,y  )
                     d = wm.current_map_get_element(x,  y+1)
                     l = wm.current_map_get_element(x-1,y)
@@ -1607,7 +1620,7 @@ class World_view:
                             ul = shade_to
                             break
                 key = (this, ul, ur, ll, lr)
-                if self.prerender_ht.has_key(key):
+                if key in self.prerender_ht:
                     self.prerender_cache[y][x] = self.prerender_ht[key]
                 else:
                     cache_line_id = len(self.prerendered_tiles)

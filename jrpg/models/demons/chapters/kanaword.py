@@ -1,7 +1,8 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
-from chapter import DemonBookChapter
+from __future__ import absolute_import
+from .chapter import DemonBookChapter
 from models.demons.kana.kanaword import DemonSoulKanaword
 
 

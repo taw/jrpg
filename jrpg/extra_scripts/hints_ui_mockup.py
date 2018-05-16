@@ -56,7 +56,8 @@ class UI:
             (ax,ay) = anchor
             fin_loc = (floor(x-ax*w),floor(y+i*row_spacing-ay*h))
             self.screen.blit(text_r, fin_loc)
-    def render_furi(self,furicode,(x,y),font_main,font_furi,color_base,color_furi):
+    def render_furi(self,furicode,xy,font_main,font_furi,color_base,color_furi):
+        (x,y) = xy
         for i in range(len(furicode)):
             (base,furi) = furicode[i]
             base_r = font_main.render(base, True, color_base)
@@ -70,15 +71,15 @@ class UI:
     def blit(self):
         color_kanji = (128, 255, 128)
         color_furi  = (255, 128, 255)
-        
+
         color_kanji_related = (128, 192, 255)
         color_kanji_similar = (255, 128, 128)
-        
+
         color_furi_related  = (192, 224, 255)
         color_furi_similar  = (255, 192, 192)
-        
+
         self.screen.fill((0,0,0))
-        
+
         main = [(u"～", None), (u"人", u"じん")]
         other_readings = [
             ([(u"人", u"にん")], u"person"),
@@ -95,10 +96,10 @@ class UI:
 #            ([(u"～", None), (u'生', u'せい')], u"person ergaging in educational activities"),
             ([(u"～", None), (u'手', u'しゅ')], u"person doing menial works"),
         ]
-        
+
         self.render_furi(main,(32,32),self.font_big,self.font,color_kanji,color_furi)
         self.render_text_unicolor(self.font, meaning, (32+2*64+32,32), (0,0), color_furi, 32)
-        
+
         line = 0
         for (k,m) in other_readings:
             y=32+64+32+line*70
@@ -115,7 +116,7 @@ class UI:
             self.render_furi(k,(32,y),self.font_med,self.font,color_kanji_similar,color_furi_similar)
             self.render_text_unicolor(self.font, [m], (32+2*48+32,y), (0,0), color_furi_similar, 32)
             line = line+1
-        
+
     def main_loop(self):
         while 1:
             # Check UI events

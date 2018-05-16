@@ -33,7 +33,7 @@ def set_sym_diff(set1, set2):
     for i in set1:
         d[i] = 1
     for i in set2:
-        if d.has_key(i):
+        if i in d:
             del d[i]      # In both sets
         else:
             ds2.append(i) # Only in the second set
@@ -105,7 +105,7 @@ class UI:
             # This IOError object is behaving strangely
             # It does not have strerror and can't be unpacked to (errno, strerror) tuple,
             # unlike a regular IOError
-            except IOError, e:
+            except IOError as e:
                 print("Opening font at %s failed: %s" % (font_path, e))
         if not font_set:
             print("Font file not found")
@@ -170,9 +170,11 @@ class UI:
             (ax, ay) = anchor
             fin_loc = (floor(x-ax*w),floor(y+i*row_spacing-ay*h))
             target.blit(text_r, fin_loc)
-    def render_furi(self, target, furicode, (x,y), (size_limit,font_main,font_subst),
+    def render_furi(self, target, furicode, xy, font_info,
                     font_furi, color_base, color_furi, display_all_furi):
         # No space for too many characters
+        (x,y) = xy
+        (size_limit,font_main,font_subst) = font_info
         if sum([len(base) for (base,furi,keep_furi) in furicode]) > size_limit:
             font_main = font_subst
         for i in range(len(furicode)):
@@ -327,7 +329,8 @@ class Map:
         self.shader       = None
         self.enter_events = {}
         self.surface_cache_valid = False
-    def change_tile(self,(x,y),new_value):
+    def change_tile(self, xy, new_value):
+        (x,y) = xy
         self.m[y+1][x+1] = new_value
         self.surface_cache_valid = False
     def get_element(self,x,y):
@@ -403,7 +406,7 @@ class Map:
         return pygame.Rect(left,top,right-left+1,bottom-top+1)
     # These are for the main chara only
     def add_enter_event(self, tile, event):
-        if not self.enter_events.has_key(tile):
+        if tile not in self.enter_events:
             self.enter_events[tile] = []
         self.enter_events[tile].append(event)
     # Convenience methods
@@ -426,7 +429,7 @@ class Map:
     def add_chara_event(self, chara, event):
         self.chara_events[chara] = event
     def enter_event(self, tile):
-        if self.enter_events.has_key(tile):
+        if tile in self.enter_events:
             for e in self.enter_events[tile]:
                 e()
                 return True
@@ -721,7 +724,9 @@ class World:
             return ord(tile) - ord('0')
         else:
             raise Exception("Illegal map passage code " + tile)
-    def map_setup(self, (mx,my), (tele_x,tele_y), keep_textbox=False):
+    def map_setup(self, m, tele, keep_textbox=False):
+        (mx,my) = m
+        (tele_x,tele_y) = tele
         global main_hero
         (add_events,map_title) = self.map_directory[(mx,my)]
         tiles = submatrix(self.tiles, mx*13, my*12, 12, 12)

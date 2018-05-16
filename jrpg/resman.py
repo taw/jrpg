@@ -48,7 +48,8 @@ class SpriteImages:
                     raise Exception("No images for %s.%s in %s" % (action, SpriteImages.directions[d], self.directory))
     # <ofs_x, ofs_y> in pixels, not 16-blocks
     # We specify *Center*, not upper left corner here
-    def render(self, target, action, direction, ofs_t, (ofs_x, ofs_y)):
+    def render(self, target, action, direction, ofs_t, ofs):
+        (ofs_x, ofs_y) = ofs
         imgs = self.img[action][direction]
         # Animation frame every 2 display frames
         img = imgs[(ofs_t/2) % len(imgs)]
@@ -74,17 +75,21 @@ class ImgCtl:
             self.tiles[key] = self.tilesets[file_id].subsurface((16*x, 16*y), (16*sz_x, 16*sz_y))
     # <ofs_x, ofs_y> in pixels, not 16-blocks
     # We specify *Center*, not upper left corner here
-    def render_sprite(self, target, sprite_id, action, direction, ofs_t, (ofs_x, ofs_y)):
+    def render_sprite(self, target, sprite_id, action, direction, ofs_t, ofs):
+        (ofs_x, ofs_y) = ofs
         self.chara[sprite_id].render(target, action, direction, ofs_t, (ofs_x, ofs_y))
-    def render_map_tile(self, target, tile_id, (ofs_x, ofs_y)):
+    def render_map_tile(self, target, tile_id, ofs):
+        (ofs_x, ofs_y) = ofs
         target.blit(self.tiles[tile_id], (ofs_x, ofs_y))
-    def render_map_obj(self, target, tile_id, (ofs_x, ofs_y), (view_ofs_x, view_ofs_y)):
+    def render_map_obj(self, target, tile_id, ofs, view_ofs):
+        (ofs_x, ofs_y) = ofs
+        (view_ofs_x, view_ofs_y) = view_ofs
         (x,y) = (16*ofs_x-view_ofs_x, 16*ofs_y-view_ofs_y)
         img = self.tiles[tile_id]
         target.blit(img, (x-img.get_width()/2,y-img.get_height()/2))
     # For coast computations
     def tile_exists(self, tile_id):
-        return self.tiles.has_key(tile_id)
+        return tile_id in self.tiles
     # We assume the count is the same in all directions
     def frame_count(self, sprite_id, action):
         return len(self.chara[sprite_id].img[action][0])
@@ -105,8 +110,9 @@ def bool_sym(b):
 # The only thing it really does is precomputing the map
 # It should probably be moved to World
 class CurrentMap:
-    def __init__(self, (sz_x, sz_y), map_data):
+    def __init__(self, sz, map_data):
         # Raw data
+        (sz_x, sz_y) = sz
         self.map_data = map_data
         self.sz_x = sz_x
         self.sz_y = sz_y
@@ -200,9 +206,10 @@ class CurrentMap:
         dl = ctx[3] != t or ctx[5] != t or ctx[6] != t
         dr = ctx[4] != t or ctx[6] != t or ctx[7] != t
         return (ul, ur, dl, dr)
-    def render(self, target, (ofs_x, ofs_y)):
+    def render(self, target, ofs):
         # Just to reduce the computations a little
         # Actually min/max is not necessary
+        (ofs_x, ofs_y) = ofs
         min_x = max(ofs_x / 64, 0)
         max_x = min((ofs_x+768+63)/64, self.sz_x-1)
         min_y = max(ofs_y / 48, 0)
@@ -572,7 +579,7 @@ while i < 50:
 # I don't know if it should be y or -y ^_^
 # FIXME: Actually it shouldn't be like that at all
 # NPC and map object display should be interleaved
-sortby(map_main_objects, lambda (obj_type, x, y): (y, x))
+sortby(map_main_objects, lambda obj_type_x_y: (obj_type_x_y[2], obj_type_x_y[1]))
 
 map_main = (40,70,map_main_abstract_tiles,map_main_objects)
 

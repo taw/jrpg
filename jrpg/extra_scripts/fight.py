@@ -61,7 +61,7 @@ class Book_of_demons:
             fields = unicode(line, "UTF-8").strip(U"\n").split(U"\t")
             (demon_class,displayed_name) = (int(fields[0]), fields[1])
             secret_names = fields[2:len(fields)]
-            if not self.demons.has_key(demon_class):
+            if demon_class not in self.demons:
                 self.demons[demon_class] = []
             self.demons[demon_class].append((displayed_name, secret_names))
     def random_from_class(self, demon_class):
@@ -82,7 +82,7 @@ class Main_Hero_Controller:
     # One can only get XP for the same kind of demon N times
     # N=1 for quick debugging, N=3 or sth in the real game
     def xp_for_kill(self, demon):
-        if not self.xpfor.has_key(demon):
+        if demon not in self.xpfor:
             self.xpfor[demon] = 0
         if self.xpfor[demon] < 1:
             self.xpfor[demon] = self.xpfor[demon] + 1
@@ -172,7 +172,7 @@ class Enemy_in_battle:
     def move(self):
         self.dx = self.dx + normalvariate(0,1)
         self.dy = self.dy + normalvariate(0,1)
-        l = self.dx*self.dx + self.dy*self.dy 
+        l = self.dx*self.dx + self.dy*self.dy
         if l > 100:
 	    l = sqrt(l)
 	    self.dx = self.dx / l
@@ -230,7 +230,8 @@ class Enemies_in_battle:
             e.move()
 
 class Chara_in_battle:
-    def __init__(self, (x, y), mhc, ctc):
+    def __init__(self, xy, mhc, ctc):
+	(x, y) = xy
 	self.x     = x
 	self.y     = y
         self.mhc   = mhc

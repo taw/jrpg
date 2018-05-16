@@ -32,7 +32,7 @@ class Model:
     def select_a_new_demon(self):
         while True:
             demon_id, demon = choice(self.kanji_demons_with_ids)
-            if not self.seen_demons.has_key(demon_id):
+            if demon_id not in self.seen_demons:
                 self.seen_demons[demon_id] = True
                 self.current_demon_id, self.current_demon = demon_id, demon.finalize()
                 return
@@ -48,7 +48,9 @@ class UI:
         self.clock    = pygame.time.Clock()
         self.key = [False for i in range(512)]
         self.chara_buf = u""
-    def render_kanji_name(self, furicode, (rel_x, rel_y), (anchor_x,anchor_y)):
+    def render_kanji_name(self, furicode, rel, anchor):
+        (rel_x, rel_y) = rel
+        (anchor_x,anchor_y) = anchor
         font_main  = self.font_big
         font_furi  = self.font
         color_base = (212, 228, 255)

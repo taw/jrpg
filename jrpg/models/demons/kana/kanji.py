@@ -1,11 +1,12 @@
 # -*- coding: UTF-8 -*-
 
+from __future__ import absolute_import
 import re
 from util import ordered_uniq
 from models.demons.hintengine import Hint_engine
-from demonsoul import DemonSoul
+from .demonsoul import DemonSoul
 from romajitokana import romaji_kana_match
-from kanjifinalized import DemonSoulKanjiFinalized
+from .kanjifinalized import DemonSoulKanjiFinalized
 
 from random import choice
 

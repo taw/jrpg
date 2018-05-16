@@ -22,8 +22,11 @@ ignore_walls = False
 ###########################################################
 # A few helpful functions                                 #
 ###########################################################
-def sgn2((to_x,to_y),(from_x,from_y)):
+def sgn2(to_point, from_point):
+    (to_x,to_y) = to_point
+    (from_x,from_y) = from_point
     return (sgn(to_x-from_x), sgn(to_y-from_y))
+
 def clamp(x, x_min, x_max):
     if x < x_min:
         return x_min
@@ -86,8 +89,9 @@ class CharaCtl:
             self.action = action
             self.aniframe = 0
             self.anirepeat = anirepeat
-    def set_dir(self, (dir_x, dir_y)):
+    def set_dir(self, dir):
         # Just a safety precaution, it should already be sgn2-ed
+        (dir_x, dir_y) = dir
         (dir_x, dir_y) = (sgn(dir_x), sgn(dir_y))
         self.dir = CharaCtl.vec2diri[(dir_x, dir_y)]
     def get_dir(self):
@@ -96,7 +100,8 @@ class CharaCtl:
         return (self.x, self.y)
     def get_bb(self):
         return pygame.Rect((self.x-24, self.y-24), (48, 48))
-    def render(self, target, (ofs_x, ofs_y)):
+    def render(self, target, offset):
+        (ofs_x, ofs_y) = offset
         resman.imgctl.render_sprite(target, self.sprite, self.action, self.dir, self.aniframe, (self.x-ofs_x, self.y-ofs_y))
         self.aniframe += 1
         # FIXME: abstraction broken here
@@ -108,7 +113,8 @@ class CharaCtl:
     # Ugly API
     # Returns whether it succeded
     # Assumes a single can_enter method for all (no fliers, swimmers etc)
-    def move_low_level(self, (dir_x, dir_y)):
+    def move_low_level(self, dir):
+        (dir_x, dir_y) = dir
         (new_x,new_y) = (self.x+dir_x, self.y+dir_y)
         new_bb = pygame.Rect((new_x-24, new_y-24), (48, 48))
         if world.can_enter(new_bb):
@@ -399,8 +405,9 @@ class World:
     # If it's really necessary for gameplay, we can render
     # a bigger map (like, with 128px margins around)
     # to keep the bg cache valid longer
-    def update_ofs(self, (pos_x, pos_y)):
+    def update_ofs(self, pos):
         # 12x12 is viewport size
+        (pos_x, pos_y) = pos
         (ofs_x, ofs_y) = (self.ofs_x, self.ofs_y)
 
         viewport_pos_x = pos_x - ofs_x
@@ -441,10 +448,10 @@ class World:
         bg_colisions = self.current_map.obstacle_idx.intersect_rect(bb)
         for (c_bb,c_e) in bg_colisions:
             if not self.posval_idx.contains_rect_p(c_bb):
-                #print "Collides", c_bb
+                #print("Collides", c_bb)
                 return False
             #else:
-            #    print "Bypassed", c_bb
+            #    print("Bypassed", c_bb)
         # All collisions with the backgrounds have been bypassed by bridges
         # (or there haven't been any in the first place)
 
@@ -673,7 +680,9 @@ class UI:
     # FIXME: The unlikely case that mc and enemy are on the same tile
     # and facing the same direction is not handled here
     # FIXME: for names longer than 4, it may get out of screen
-    def render_kanji_name(self, (rel_x, rel_y), (anchor_x,anchor_y)):
+    def render_kanji_name(self, rel, anchor):
+        (rel_x, rel_y) = rel
+        (anchor_x,anchor_y) = anchor
         furicode   = world.enemy_soul.furicode()
         font_main  = self.big_font
         font_furi  = self.furi_font
@@ -717,7 +726,8 @@ class UI:
         for (x, y, displayed_element) in displayed_elements:
             #print (rel_x, x, dx, rel_y, y, dy)
             self.map_viewport.blit(displayed_element, (rel_x+x+dx, rel_y+y+dy))
-    def render_chara_attack(self, chara_attack, (x,y)):
+    def render_chara_attack(self, chara_attack, xy):
+        (x,y) = xy
         chara_attack_color = (228, 228, 255)
         chara_attack_rendered = self.big_font.render(chara_attack, True, chara_attack_color)
         self.map_viewport.blit(chara_attack_rendered, (x-chara_attack_rendered.get_width()/2, y-chara_attack_rendered.get_height()/2))

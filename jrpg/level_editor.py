@@ -91,7 +91,7 @@ class Map_model:
                 ur = None
                 dl = None
                 dr = None
-                if corner_shader.has_key(this):
+                if this in corner_shader:
                     r = self.gett(x+1,y  )
                     d = self.gett(x,  y+1)
                     l = self.gett(x-1,y)
