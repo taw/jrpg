@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+from __future__ import print_function
 import pygame, sys
 import util
 
@@ -75,7 +76,7 @@ class UI:
                 displayed_elements.append((x-fw/2+w/2, -fh, furi_rendered))
                 miny = min(miny, -fh)
             x = x + w
-    
+
         # Now, displayed_elements is a box (0,-miny)..(x, maxy)
 
         # Compute distance from to the upper left corner to the anchor
@@ -112,10 +113,10 @@ class UI:
             time_left   = time_max - time_so_far
             if time_left > 0:
                 pygame.time.wait(time_left)
-            #print time_left, self.clock.get_fps()
+            #print(time_left, self.clock.get_fps())
         else: # Version for exact measurement - do not use :-)
             self.clock.tick()
-            print self.clock.get_fps()
+            print(self.clock.get_fps())
     def main_loop(self):
         while True:
              # Check UI events
@@ -161,7 +162,7 @@ class UI:
         if self.chara_buf == U"":
             return
         attack_ok = model.current_demon.answer_ok(self.chara_buf)
-        print model.current_demon_id, attack_ok, model.current_demon.xp_code(), self.chara_buf
+        print(model.current_demon_id, attack_ok, model.current_demon.xp_code(), self.chara_buf)
         model.select_a_new_demon()
         self.chara_buf = U""
     def key_down(self, key):

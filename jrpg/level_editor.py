@@ -2,6 +2,7 @@
 
 # Some code based on various wx hello-worlds (mostly the superdoodle)
 
+from __future__ import print_function
 import wx
 from wx.lib import buttons
 
@@ -69,9 +70,10 @@ class Map_model:
         # FIXME: make it actually work
         self.needs_a_save = False
         self.open("maps/new_world.map")
+
     def new(self, file_name):
-        print "new"
-        
+        print("new")
+
     def recompute_corners(self, xmin, xmax, ymin, ymax):
         if xmin < 0: xmin = 0
         if xmax >= self.size_x: xmax = self.size_x-1
@@ -152,11 +154,11 @@ class Map_model:
                 line.pop()
             data.append(line)
         contents = "".join(["".join(line) + "\n" for line in data])
-        print "saving..."
+        print("saving...")
         f = open(self.file_name, "w")
         f.write(contents)
         f.close()
-        print "saved."
+        print("saved.")
     def save_as(self, file_name):
         pass
     # Get [tile, ul, ur, dl, dr]
@@ -255,22 +257,22 @@ class Map_view(wx.ScrolledWindow):
                 xsrc = mtctl_terrain[tile][0] * 32
                 ysrc = mtctl_terrain[tile][1] * 32
                 dcout.Blit(x*32-sx*32, y*32-sy*32, 32, 32, terrain_dc, xsrc, ysrc)
-        
+
                 if ul:
                     xsrc = mtctl_terrain[ul][0] * 32
                     ysrc = mtctl_terrain[ul][1] * 32
                     dcout.Blit(x*32-sx*32, y*32-sy*32, 16, 16, terrain_dc, xsrc, ysrc, useMask=True, xsrcMask=0, ysrcMask=0)
-        
+
                 if ur:
                     xsrc = mtctl_terrain[ur][0] * 32+16
                     ysrc = mtctl_terrain[ur][1] * 32
                     dcout.Blit(x*32-sx*32+16, y*32-sy*32, 16, 16, terrain_dc, xsrc, ysrc, useMask=True, xsrcMask=16, ysrcMask=0)
-        
+
                 if dl:
                     xsrc = mtctl_terrain[dl][0] * 32
                     ysrc = mtctl_terrain[dl][1] * 32+16
                     dcout.Blit(x*32-sx*32, y*32-sy*32+16, 16, 16, terrain_dc, xsrc, ysrc, useMask=True, xsrcMask=0, ysrcMask=16)
-        
+
                 if dr:
                     xsrc = mtctl_terrain[dr][0] * 32+16
                     ysrc = mtctl_terrain[dr][1] * 32+16
@@ -315,13 +317,13 @@ class Main_window(wx.Frame):
         menuBar.Append(menu, "&Editor")
         self.SetMenuBar(menuBar)
         self.CreateStatusBar()
-        
+
         self.control_panel = Control_panel(self)
         self.map_view      = Map_view(self)
-        
+
         global map_view
         map_view = self.map_view
-        
+
         box = wx.BoxSizer(wx.HORIZONTAL)
         box.Add(self.control_panel, 0, wx.EXPAND)
         box.Add(self.map_view,      1, wx.EXPAND)
@@ -332,7 +334,7 @@ class Main_window(wx.Frame):
     def menu_event(self, event):
         id = event.GetId()
         if id == idNEW:
-            print "cmd new"
+            print("cmd new")
         elif id == idOPEN:
             open_dialog = wx.FileDialog(None, style=wx.OPEN)
             if open_dialog.ShowModal() == wx.ID_OK:
@@ -352,7 +354,7 @@ class Main_window(wx.Frame):
         elif id == idEXIT:
             self.Close()
         else:
-            print "Unknown command id:", id
+            print("Unknown command id:", id)
 
 class Level_editor(wx.App):
     def OnInit(self):
@@ -362,10 +364,10 @@ class Level_editor(wx.App):
 
         # rounded_corners_mask = wx.Mask(bitmap=wx.Bitmap("mask.png"))
         # terrain_bitmap.SetMask(rounded_corners_mask)
-        # 
+        #
         terrain_dc = wx.MemoryDC()
         terrain_dc.SelectObject(terrain_bitmap)
-        
+
         main_window = Main_window()
         main_window.Show(True)
         return True

@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
+from __future__ import print_function
 import sys, pygame, pickle
 from math import sqrt, floor
 from random import *
@@ -339,10 +340,10 @@ class UI:
             time_left   = time_max - time_so_far
             if time_left > 0:
                 pygame.time.wait(time_left)
-            #print time_left, self.clock.get_fps()
+            #print(time_left, self.clock.get_fps())
         else: # Version for exact measurement - do not use :-)
             self.clock.tick()
-            print self.clock.get_fps()
+            print(self.clock.get_fps())
     def key_down(self, key):
         self.key[key] = True
     def key_up(self, key):
@@ -713,12 +714,12 @@ class Main_Hero_Controller:
         for defeated_demon_xp_code in self.xpctl.xpfor.keys():
             if demon_ok.has_key(defeated_demon_xp_code):
                 pass
-                # print "Good demon %s (%d)" % (defeated_demon_xp_code, self.xpfor[defeated_demon_xp_code])
+                # print("Good demon %s (%d)" % (defeated_demon_xp_code, self.xpfor[defeated_demon_xp_code]))
             else:
-                print "Bad demon %s (%d)" % (defeated_demon_xp_code, self.xpctl.xpfor[defeated_demon_xp_code])
+                print("Bad demon %s (%d)" % (defeated_demon_xp_code, self.xpctl.xpfor[defeated_demon_xp_code]))
                 free_xp = free_xp + self.xpctl.xpfor[defeated_demon_xp_code]
         if free_xp != 0:
-            print "Free XP: ", free_xp
+            print("Free XP: ", free_xp)
         self.print_xp_statisticts()
         self.print_kanji_knowledge()
     def print_xp_statisticts(self):
@@ -731,39 +732,39 @@ class Main_Hero_Controller:
 
         while max_xp >= (max_level+1) * (95 + (max_level+1) * 5):
             max_level += 1
-        print u"Max possible XP:    ", max_xp
-        print u"Max possible level: ", max_level
+        print(u"Max possible XP:    ", max_xp)
+        print(u"Max possible level: ", max_level)
 
         # Hiragana
         stat = [0, 0, 0, 0, 0]
         for demon in demons[0]:
             stat[self.xpctl.xpfor.get(demon.xp_code(), -1) + 1] += 1
-        print u"Hiragana:"
-        print u"* not met  ", stat[0]
-        print u"* 0 xp     ", stat[1]
-        print u"* 1 xp     ", stat[2]
-        print u"* 2 xp     ", stat[3]
-        print u"* 3 xp     ", stat[4]
+        print(u"Hiragana:")
+        print(u"* not met  ", stat[0])
+        print(u"* 0 xp     ", stat[1])
+        print(u"* 1 xp     ", stat[2])
+        print(u"* 2 xp     ", stat[3])
+        print(u"* 3 xp     ", stat[4])
         # Katakana
         stat = [0, 0, 0, 0, 0]
         for demon in demons[1]:
             stat[self.xpctl.xpfor.get(demon.xp_code(), -1) + 1] += 1
-        print u"Katakana:"
-        print u"* not met  ", stat[0]
-        print u"* 0 xp     ", stat[1]
-        print u"* 1 xp     ", stat[2]
-        print u"* 2 xp     ", stat[3]
-        print u"* 3 xp     ", stat[4]
+        print(u"Katakana:")
+        print(u"* not met  ", stat[0])
+        print(u"* 0 xp     ", stat[1])
+        print(u"* 1 xp     ", stat[2])
+        print(u"* 2 xp     ", stat[3])
+        print(u"* 3 xp     ", stat[4])
         # Kana word
         stat = [0, 0, 0, 0, 0]
         for demon in demons[2]:
             stat[self.xpctl.xpfor.get(demon.xp_code(), -1) + 1] += 1
-        print u"Kana word:"
-        print u"* not met  ", stat[0]
-        print u"* 0 xp     ", stat[1]
-        print u"* 1 xp     ", stat[2]
-        print u"* 2 xp     ", stat[3]
-        print u"* 3 xp     ", stat[4]
+        print(u"Kana word:")
+        print(u"* not met  ", stat[0])
+        print(u"* 0 xp     ", stat[1])
+        print(u"* 1 xp     ", stat[2])
+        print(u"* 2 xp     ", stat[3])
+        print(u"* 3 xp     ", stat[4])
         # Kanji demons2
         stat = [0, 0, 0, 0, 0, 0]
         for demon in demons[3]:
@@ -771,21 +772,21 @@ class Main_Hero_Controller:
             if xp == 3 and self.xpctl.xpfor.get(demons[3][demon.subsumed_by()].xp_code(), 0) >= 1:
                 xp = 4
             stat[xp + 1] += 1
-        print u"Kanji demons (JLPT 4+3+2):"
-        print u"* not met  ", stat[0]
-        print u"* 0 xp     ", stat[1]
-        print u"* 1 xp     ", stat[2]
-        print u"* 2 xp     ", stat[3]
-        print u"* 3 xp     ", stat[4]
-        print u"* subsumed ", stat[5]
+        print(u"Kanji demons (JLPT 4+3+2):")
+        print(u"* not met  ", stat[0])
+        print(u"* 0 xp     ", stat[1])
+        print(u"* 1 xp     ", stat[2])
+        print(u"* 2 xp     ", stat[3])
+        print(u"* 3 xp     ", stat[4])
+        print(u"* subsumed ", stat[5])
     def print_kanji_knowledge(self):
         kanji_knowledge = self.get_kanji_knowledge()
-        print u"Kanji known:"
-        print u"Not at all: ", kanji_knowledge[0]
-        print u"Just a bit: ", kanji_knowledge[1]
-        print u"Quite well: ", kanji_knowledge[2]
-        print u"Very well:  ", kanji_knowledge[3]
-        print u"Perfectly:  ", kanji_knowledge[4]
+        print(u"Kanji known:")
+        print(u"Not at all: ", kanji_knowledge[0])
+        print(u"Just a bit: ", kanji_knowledge[1])
+        print(u"Quite well: ", kanji_knowledge[2])
+        print(u"Very well:  ", kanji_knowledge[3])
+        print(u"Perfectly:  ", kanji_knowledge[4])
     def get_kanji_knowledge(self):
         # The idea is that every demon contains some kanjis
         # Let's fill the kanji table ...

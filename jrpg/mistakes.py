@@ -1,6 +1,7 @@
 ###########################################################
 # Mistakes logger                                         #
 ###########################################################
+from __future__ import print_function
 import time
 import codecs # Python Unicode Brain Damage
 import appdirs
@@ -19,11 +20,11 @@ class Mistakes:
         try:
             self.open()
         except IOError as e:
-            print e
+            print(e)
         if self.fh:
             self.fh.write(msg)
         else:
-            print msg,
+            print(msg,)
     def mistake(self, attack, soul):
         msg = "Mistake: tried (%s) on demon (%s)\n" % (attack, soul.xp_code())
         self.save_mistake(msg)

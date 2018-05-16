@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
+from __future__ import print_function
 import warnings
 import sys, pygame, pickle, re, traceback
 from math import sqrt, floor
@@ -105,9 +106,9 @@ class UI:
             # It does not have strerror and can't be unpacked to (errno, strerror) tuple,
             # unlike a regular IOError
             except IOError, e:
-                print ("Opening font at %s failed: %s" % (font_path, e))
+                print("Opening font at %s failed: %s" % (font_path, e))
         if not font_set:
-            print "Font file not found"
+            print("Font file not found")
             sys.exit(1)
         self.key = [False for i in range(512)]
         self.mtctl = Map_Tiles_Controller(images_dir+"angband.png", mtctl_terrain, mtctl_enemies, mtctl_items)
