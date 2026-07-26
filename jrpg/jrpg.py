@@ -10,6 +10,7 @@ import codecs
 import configparser
 import appdirs
 import os
+from collections import defaultdict
 
 # Import other jrpg modules
 import images
@@ -137,7 +138,9 @@ class UI:
             self.screen = pygame.display.set_mode(size, pygame.DOUBLEBUF)
         self.font, self.font_med, self.font_big = util.load_font(18, 40, 64)
 
-        self.key = [False for i in range(512)]
+        # SDL1 keycodes fit in a 512-entry table; SDL2 (pygame 2) numbers the
+        # non-ASCII keys from 1073741881 upwards, so this has to be sparse.
+        self.key = defaultdict(bool)
         self.mtctl = Map_Tiles_Controller(images_dir+"angband.png", mtctl_terrain, mtctl_enemies, mtctl_items)
         self.chara_tiles_dir = {}
         for k in ctdir:

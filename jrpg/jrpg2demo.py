@@ -3,6 +3,7 @@
 
 import pygame, sys, pickle
 from random import *
+from collections import defaultdict
 
 # Import other jrpg modules
 import resman
@@ -539,7 +540,8 @@ class UI:
         size = (width, height) = (1024, 768)
         pygame.display.set_icon(pygame.image.load("images/jrpg-icon.png"))
         self.screen = pygame.display.set_mode(size, pygame.DOUBLEBUF) # |pygame.HWSURFACE
-        self.key_pressed_table = [False for i in range(512)]
+        # See the same fix in jrpg.py: SDL2 keycodes overflow a 512-entry table.
+        self.key_pressed_table = defaultdict(bool)
         self.clock = pygame.time.Clock()
         self.frame_number = 0
         self.map_viewport     = self.screen.subsurface(((32,32),(768,576)))
