@@ -409,7 +409,7 @@ class UI:
                 else:
                     furi_r = font_furi.render(furi, True, color_furi)
                 (fw,fh) = (furi_r.get_width(), furi_r.get_height())
-                target.blit(furi_r, (x-fw/2+w/2,y-fh))
+                target.blit(furi_r, (x-fw//2+w//2,y-fh))
             x = x + w
     # Others should be converted to target-taking form too
     def render_tile(self, target, target_rect, tile_id):
@@ -822,8 +822,8 @@ class Main_Hero_Controller:
             a,b = kanji_stats[k]
             if a==0: kanji_stats_final[0] += 1 # 0%
             elif a==b: kanji_stats_final[4] += 1 # 100%
-            elif a*4/b==0: kanji_stats_final[1] += 1 # 1%..24%
-            elif a*4/b==1: kanji_stats_final[2] += 1 # 25%..49%
+            elif a*4//b==0: kanji_stats_final[1] += 1 # 1%..24%
+            elif a*4//b==1: kanji_stats_final[2] += 1 # 25%..49%
             else: kanji_stats_final[3] += 1 # 50%..99%
 
             #if not kanji_stats2.has_key(v):
@@ -1641,10 +1641,10 @@ class World_view:
             self.prerender_cache_execute()
         # This only caches the background
         if not self.surface_cache_valid:
-            minx=(self.shift_x)/32
-            maxx=(self.shift_x+319)/32
-            miny=(self.shift_y)/32
-            maxy=(self.shift_y+319)/32
+            minx=(self.shift_x)//32
+            maxx=(self.shift_x+319)//32
+            miny=(self.shift_y)//32
+            maxy=(self.shift_y+319)//32
             for y in range(miny,maxy+1):
                 for x in range(minx,maxx+1):
                     if y < 0 or y >= len(self.prerender_cache) or x < 0 or x >= len(self.prerender_cache[y]):

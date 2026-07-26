@@ -52,9 +52,9 @@ class SpriteImages:
         (ofs_x, ofs_y) = ofs
         imgs = self.img[action][direction]
         # Animation frame every 2 display frames
-        img = imgs[(ofs_t/2) % len(imgs)]
-        x = ofs_x-img.get_width()/2
-        y = ofs_y-img.get_height()/2
+        img = imgs[(ofs_t//2) % len(imgs)]
+        x = ofs_x-img.get_width()//2
+        y = ofs_y-img.get_height()//2
         target.blit(img,(x,y))
 
 class ImgCtl:
@@ -86,7 +86,7 @@ class ImgCtl:
         (view_ofs_x, view_ofs_y) = view_ofs
         (x,y) = (16*ofs_x-view_ofs_x, 16*ofs_y-view_ofs_y)
         img = self.tiles[tile_id]
-        target.blit(img, (x-img.get_width()/2,y-img.get_height()/2))
+        target.blit(img, (x-img.get_width()//2,y-img.get_height()//2))
     # For coast computations
     def tile_exists(self, tile_id):
         return tile_id in self.tiles
@@ -210,10 +210,10 @@ class CurrentMap:
         # Just to reduce the computations a little
         # Actually min/max is not necessary
         (ofs_x, ofs_y) = ofs
-        min_x = max(ofs_x / 64, 0)
-        max_x = min((ofs_x+768+63)/64, self.sz_x-1)
-        min_y = max(ofs_y / 48, 0)
-        max_y = min((ofs_y+576+47)/48, self.sz_y-1)
+        min_x = max(ofs_x // 64, 0)
+        max_x = min((ofs_x+768+63)//64, self.sz_x-1)
+        min_y = max(ofs_y // 48, 0)
+        max_y = min((ofs_y+576+47)//48, self.sz_y-1)
         for y in range(min_y, max_y+1):
             for x in range(min_x, max_x+1):
                 imgctl.render_map_tile(target, self.map_tiles[y][x], (64*x-ofs_x, 48*y-ofs_y))

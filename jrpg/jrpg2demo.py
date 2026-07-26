@@ -707,7 +707,7 @@ class UI:
                 else:
                     furi_rendered = font_furi.render(furi, True, color_furi)
                 (fw,fh) = (furi_rendered.get_width(), furi_rendered.get_height())
-                displayed_elements.append((x-fw/2+w/2, -fh, furi_rendered))
+                displayed_elements.append((x-fw//2+w//2, -fh, furi_rendered))
                 miny = min(miny, -fh)
             x = x + w
         # Now, displayed_elements is a box (0,-miny)..(x, maxy)
@@ -715,7 +715,7 @@ class UI:
         # Compute distance from to the upper left corner to the anchor
         # (anchor is in the middle of the kanji, ignoring furi)
         # TODO: is it better than including furi ?
-        (cx, cy) = (-x/2, -maxy/2)
+        (cx, cy) = (-x//2, -maxy//2)
         # If anchor is (-1,-1), display at the anchor
         # If anchor is (0, 0) shift by (cx,cy)
         # If anchor is (1,1), shift by (2 cx,2 cy)
@@ -730,7 +730,7 @@ class UI:
         (x,y) = xy
         chara_attack_color = (228, 228, 255)
         chara_attack_rendered = self.big_font.render(chara_attack, True, chara_attack_color)
-        self.map_viewport.blit(chara_attack_rendered, (x-chara_attack_rendered.get_width()/2, y-chara_attack_rendered.get_height()/2))
+        self.map_viewport.blit(chara_attack_rendered, (x-chara_attack_rendered.get_width()//2, y-chara_attack_rendered.get_height()//2))
     def render(self):
         self.render_map()
         mcc.render(self.map_viewport, world.get_ofs())

@@ -284,8 +284,8 @@ class Map_view(wx.ScrolledWindow):
         self.mouse_terrain_set_event(event.GetPosition())
         self.left_down = True
     def mouse_terrain_set_event(self, pos):
-        x = pos[0] / 32
-        y = pos[1] / 32
+        x = pos[0] // 32
+        y = pos[1] // 32
         (sx,sy) = self.GetViewStart()
         x += sx
         y += sy

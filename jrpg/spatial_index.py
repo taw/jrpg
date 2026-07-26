@@ -66,7 +66,7 @@ class Index:
         def build_index_aux(start, end):
             if start == end:
                 return (self.elements[start][0], 0, self.elements[start][1])
-            mid = start + (end-start)/2
+            mid = start + (end-start)//2
             a_i = build_index_aux(start, mid)
             b_i = build_index_aux(mid+1, end)
             c_bb = a_i[0].union(b_i[0])

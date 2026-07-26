@@ -19,7 +19,7 @@ class Demon_chapter_kanji(DemonBookChapter):
             fields = line.strip(U"\n").split(U"\t")
             (demon_class, kanji) = (int(fields[0]), fields[1])
             kana = fields[2:len(fields)]
-            xp_for_win = 3 + (i / 500)
+            xp_for_win = 3 + (i // 500)
             d = DemonSoulKanji(kanji, kana, xp_for_win)
             self.demons.append(d)
             i = i + 1

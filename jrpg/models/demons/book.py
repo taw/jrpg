@@ -90,7 +90,7 @@ class Book_of_demons:
                 # Assign probabilities from 8 to 2 to unbeaten demons
                 # This lowers the chance that easy demon will be unmet
                 for i in range(len(unbeaten)):
-                    w = 8 - (8-1)*i/len(unbeaten)
+                    w = 8 - (8-1)*i//len(unbeaten)
                     weighted_demon_list.append((unbeaten[i], w))
 
         #for (d, w) in weighted_demon_list:
