@@ -121,16 +121,16 @@ class UI:
         while 1:
             # Check UI events
             for event in pygame.event.get():
-	        if event.type == pygame.QUIT:
-	            sys.exit()
-	        elif event.type == pygame.KEYDOWN:
-	            self.key_down(event.key)
-	            if event.key == pygame.K_RETURN:
-	        	pygame.display.toggle_fullscreen()
-	            elif event.key == pygame.K_ESCAPE:
-	        	sys.exit()
-        	elif event.type == pygame.KEYUP:
-        	    self.key_up(event.key)
+                if event.type == pygame.QUIT:
+                    sys.exit()
+                elif event.type == pygame.KEYDOWN:
+                    self.key_down(event.key)
+                    if event.key == pygame.K_RETURN:
+                        pygame.display.toggle_fullscreen()
+                    elif event.key == pygame.K_ESCAPE:
+                        sys.exit()
+                elif event.type == pygame.KEYUP:
+                    self.key_up(event.key)
             self.blit()
             pygame.display.flip()
             self.tick()
