@@ -53,7 +53,7 @@ def set_sym_diff(set1, set2):
             del d[i]      # In both sets
         else:
             ds2.append(i) # Only in the second set
-    return (d.keys(), ds2)
+    return (list(d.keys()), ds2)
 def submatrix(mtx, x0, y0, xsz, ysz):
     return [[mtx[y][x] for x in range(x0,x0+xsz)] for y in range(y0,y0+ysz)]
 def to_a(x):
