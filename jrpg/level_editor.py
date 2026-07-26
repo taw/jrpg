@@ -65,7 +65,7 @@ terrain_types = [
     "M", "Q", "E"]
 
 
-class Map_model:
+class MapModel:
     def __init__(self):
         # FIXME: make it actually work
         self.needs_a_save = False
@@ -182,17 +182,17 @@ class Map_model:
         self.recompute_corners(x-1, x+1, y-1, y+1)
 
 
-class Control_panel_model:
+class ControlPanelModel:
     def __init__(self):
         self.selected_terrain = terrain_types[0]
 
 
-class Control_panel(wx.Panel):
+class ControlPanel(wx.Panel):
     def __init__(self, parent):
         wx.Panel.__init__(self, parent, -1, style=wx.RAISED_BORDER)
 
         global control_panel_model
-        control_panel_model = Control_panel_model()
+        control_panel_model = ControlPanelModel()
 
         button_size = wx.Size(32+2*3, 32+2*3)
 
@@ -237,7 +237,7 @@ class Control_panel(wx.Panel):
 
 
 # TODO: Add scrollbars
-class Map_view(wx.ScrolledWindow):
+class MapView(wx.ScrolledWindow):
     def __init__(self, parent):
         wx.ScrolledWindow.__init__(self, parent, -1, style=wx.HSCROLL|wx.VSCROLL)
         self.Bind(wx.EVT_PAINT, self.OnPaint)
@@ -313,7 +313,7 @@ class Map_view(wx.ScrolledWindow):
             self.mouse_terrain_set_event(event.GetPosition())
 
 
-class Main_window(wx.Frame):
+class MainWindow(wx.Frame):
     def __init__(self):
         wx.Frame.__init__(self, None, -1, "jrpg level editor", size=(640, 480))
 
@@ -332,8 +332,8 @@ class Main_window(wx.Frame):
         self.SetMenuBar(menuBar)
         self.CreateStatusBar()
 
-        self.control_panel = Control_panel(self)
-        self.map_view      = Map_view(self)
+        self.control_panel = ControlPanel(self)
+        self.map_view      = MapView(self)
 
         global map_view
         map_view = self.map_view
@@ -371,7 +371,7 @@ class Main_window(wx.Frame):
             print("Unknown command id:", id)
 
 
-class Level_editor(wx.App):
+class LevelEditor(wx.App):
     def OnInit(self):
         global terrain_dc
 
@@ -383,11 +383,11 @@ class Level_editor(wx.App):
         terrain_dc = wx.MemoryDC()
         terrain_dc.SelectObject(terrain_bitmap)
 
-        main_window = Main_window()
+        main_window = MainWindow()
         main_window.Show(True)
         return True
 
 
-map_model = Map_model()
-app = Level_editor()
+map_model = MapModel()
+app = LevelEditor()
 app.MainLoop()

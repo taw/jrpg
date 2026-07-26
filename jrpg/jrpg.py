@@ -13,8 +13,8 @@ from collections import defaultdict
 
 # Import other jrpg modules
 import images
-from models.demons.book import Book_of_demons
-from models.demons.chapterfactory import Chapter_factory
+from models.demons.book import BookOfDemons
+from models.demons.chapterfactory import ChapterFactory
 
 from models.worlds.town import *
 from models.worlds.castle import *
@@ -27,7 +27,7 @@ from mistakes import Mistakes
 from util import sgn, Cached, Notifier
 from terrain import corner_shader
 from settings import *
-from msg_view import Msg_view
+from msg_view import MsgView
 util.init_pygame("JRPG")
 
 # Directory where all the images are, trailing / is needed
@@ -140,7 +140,7 @@ class UI:
         # init msg_scroller to make text in msg_viewport scrollable
         scroll_x = 20
         scroll_y = 10
-        self.msg_scroller = Msg_view(reswidth, 160, scroll_x, scroll_y)
+        self.msg_scroller = MsgView(reswidth, 160, scroll_x, scroll_y)
 
         self.text     = []
         self.history  = History(15)
@@ -161,7 +161,7 @@ class UI:
         # SDL1 keycodes fit in a 512-entry table; SDL2 (pygame 2) numbers the
         # non-ASCII keys from 1073741881 upwards, so this has to be sparse.
         self.key = defaultdict(bool)
-        self.mtctl = Map_Tiles_Controller(images_dir+"angband.png", mtctl_terrain, mtctl_enemies, mtctl_items)
+        self.mtctl = MapTilesController(images_dir+"angband.png", mtctl_terrain, mtctl_enemies, mtctl_items)
         self.chara_tiles_dir = {}
         for k in ctdir:
             self.chara_tiles_dir[k] = pygame.image.load(images_dir+ctdir[k]).convert_alpha()
@@ -203,7 +203,7 @@ class UI:
         main_hero.render()
 
     def main_loop(self):
-        # TODO: integrate with Battle_UI
+        # TODO: integrate with BattleUI
         while True:
             self.world_main_loop_iter()
 
@@ -337,7 +337,7 @@ class UI:
                 elif self.debug_mode and event.key == ord("n"): # debug
                     # Nuke all enemies on the map
                     for oid in range(len(wm.objects)):
-                        if wm.objects[oid].__class__ == Map_object_enemy:
+                        if wm.objects[oid].__class__ == MapObjectEnemy:
                             wm.objects[oid] = None
             elif event.type == pygame.KEYUP:
                 self.key_up(event.key)
@@ -465,7 +465,7 @@ class UI:
 # This class manages map tiles characteristics            #
 # (merge with UI)                                         #
 ###########################################################
-class Map_Tiles_Controller:
+class MapTilesController:
     def __init__(self, img, ttt, ett, itt):
         self.ttt = {}
         for k in ttt:
@@ -535,7 +535,7 @@ class Map_Tiles_Controller:
 #############################################################
 # This class is needed merely for the statistics            #
 #############################################################
-class Main_Hero_Controller:
+class MainHeroController:
     def __init__(self):
         self.hpmax  = 5
         self.hp     = self.hpmax
@@ -910,7 +910,7 @@ class Main_Hero_Controller:
 ###########################################################
 # FIXME: convert to something sanely-OO
 # FIXME: There should be priorities for both render and event
-class Map_object: # virtual class
+class MapObject: # virtual class
     def event(self):
         self.f_event()
 
@@ -922,7 +922,7 @@ class Map_object: # virtual class
     #    self.f_render()
 
 
-class Map_object_enemy(Map_object):
+class MapObjectEnemy(MapObject):
     def __init__(self, xy, enemy_sprite, event=None):
         (x, y) = xy
         self.x = x
@@ -937,7 +937,7 @@ class Map_object_enemy(Map_object):
         return pygame.Rect((self.x*32 , self.y*32), (32, 32))
 
 
-class Map_object_item(Map_object):
+class MapObjectItem(MapObject):
     def __init__(self, xy, item_class, event=None):
         (x, y) = xy
         self.x = x
@@ -1176,7 +1176,7 @@ class Chara:
 
 
 ###########################################################
-class End_of_battle(Exception):
+class EndOfBattle(Exception):
     def __init__(self, value):
         self.value = value
 
@@ -1185,7 +1185,7 @@ class End_of_battle(Exception):
 
 
 ###########################################################
-class Enemy_in_battle:
+class EnemyInBattle:
     def __init__(self, xy, demon, sprite_class, demon_class, colors, power):
         (x, y) = xy
         (active_color, inactive_color) = colors
@@ -1244,7 +1244,7 @@ class Enemy_in_battle:
 
 
 # This class should manage killing enemies and activation/deactivation etc.
-class Battle_model:
+class BattleModel:
     def __init__(self, active_look, inactive_look, sprite_class, demon_class, power):
         self.enemies   = []
         self.active    = -1
@@ -1260,7 +1260,7 @@ class Battle_model:
             (60, 240),
         ]
         for ((x, y), d) in zip(locs, enemies):
-            enemy = Enemy_in_battle((x, y), d, sprite_class, demon_class, (active_look, inactive_look), power)
+            enemy = EnemyInBattle((x, y), d, sprite_class, demon_class, (active_look, inactive_look), power)
             self.enemies.append(enemy)
             enemy.fresh = not mhc.xpctl.seen_soul(enemy.demon)
         self.switch_active()
@@ -1302,7 +1302,7 @@ class Battle_model:
         del self.enemies[self.active]
         self.active = -1
         if len(self.enemies) == 0:
-            raise End_of_battle(True) # battle won
+            raise EndOfBattle(True) # battle won
         self.switch_active()
 
     def counter_attack(self, attacker, damage):
@@ -1329,10 +1329,10 @@ class Battle_model:
     def chara_hit(self, damage):
         mhc.hit(damage)
         if mhc.hp == 0:
-            raise End_of_battle(False) # Battle lost
+            raise EndOfBattle(False) # Battle lost
 
 
-class Battle_UI:
+class BattleUI:
     # Move the image load to some manager
     def __init__(self, look, sprite_class, demon_class, power):
         (bg_fn, self.active, inactive) = choice(images.battle_look_table[look])
@@ -1345,7 +1345,7 @@ class Battle_UI:
         ui.change_text([])
         self.bs_repeat = 0
 
-        self.battle_model = Battle_model(self.active, inactive, sprite_class, demon_class, power)
+        self.battle_model = BattleModel(self.active, inactive, sprite_class, demon_class, power)
         self.demonname_cache = Cached(lambda: self.demonname_render(), self.battle_model.nctl_demonname_changed)
 
     def demonname_render(self):
@@ -1379,7 +1379,7 @@ class Battle_UI:
         try:
             while True:
                 self.battle_mode_loop_iter()
-        except End_of_battle as result:
+        except EndOfBattle as result:
             ui.demonname_viewport.fill((0, 0, 0))
             return result.value
 
@@ -1429,68 +1429,68 @@ class Battle_UI:
 # The new world class                                     #
 # Don't use without initial switch_map()                  #
 ###########################################################
-class World_model:
+class WorldModel:
     def __init__(self):
         self.map_db = {}
         self.map_db["world"] = {
             "tiles": self.load_map("maps/world.map"),
-            "setup": lambda: World_outside(self, ui, mhc),
+            "setup": lambda: WorldOutside(self, ui, mhc),
         }
         self.map_db["icy mountains"] = {
             "tiles": self.load_map("maps/icy_mountains.map"),
-            "setup": lambda: World_icy_mountains(self, ui, mhc),
+            "setup": lambda: WorldIcyMountains(self, ui, mhc),
         }
         self.map_db["hospital"] = {
             "tiles": self.load_map("maps/hospital.map"),
-            "setup": lambda: World_hospital(self, ui, mhc)
+            "setup": lambda: WorldHospital(self, ui, mhc)
         }
         self.map_db["library"] = {
             "tiles": self.load_map("maps/library.map"),
-            "setup": lambda: World_library(self, ui, mhc)
+            "setup": lambda: WorldLibrary(self, ui, mhc)
         }
         self.map_db["wizard shop"] = {
             "tiles": self.load_map("maps/wizard_shop.map"),
-            "setup": lambda: World_wizard_shop(self, ui, mhc),
+            "setup": lambda: WorldWizardShop(self, ui, mhc),
         }
         self.map_db["angel sanctuary"] = {
             "tiles": self.load_map("maps/angel_sanctuary.map"),
-            "setup": lambda: World_angel_sanctuary(self, ui, mhc),
+            "setup": lambda: WorldAngelSanctuary(self, ui, mhc),
         }
         self.map_db["blacksmith"] = {
             "tiles": self.load_map("maps/blacksmith.map"),
-            "setup": lambda: World_blacksmith(self, ui, mhc),
+            "setup": lambda: WorldBlacksmith(self, ui, mhc),
         }
         self.map_db["cave"] = {
             "tiles": self.load_map("maps/cave.map"),
-            "setup": lambda: World_cave(self, ui, mhc),
+            "setup": lambda: WorldCave(self, ui, mhc),
         }
         self.map_db["castle"] = {
             "tiles": self.load_map("maps/castle.map"),
-            "setup": lambda: World_castle(self, ui, mhc),
+            "setup": lambda: WorldCastle(self, ui, mhc),
         }
         self.map_db["tower level 1"] = {
             "tiles": self.load_map("maps/tower_level_1.map"),
-            "setup": lambda: World_tower_level1(self, ui, mhc),
+            "setup": lambda: WorldTowerLevel1(self, ui, mhc),
         }
         self.map_db["tower level 2"] = {
             "tiles": self.load_map("maps/tower_level_2.map"),
-            "setup": lambda: World_tower_level2(self, ui, mhc),
+            "setup": lambda: WorldTowerLevel2(self, ui, mhc),
         }
         self.map_db["tower level 3"] = {
             "tiles": self.load_map("maps/tower_level_3.map"),
-            "setup": lambda: World_tower_level3(self, ui, mhc),
+            "setup": lambda: WorldTowerLevel3(self, ui, mhc),
         }
         self.map_db["dungeon level 1"] = {
             "tiles": self.load_map("maps/dungeon_level_1.map"),
-            "setup": lambda: World_dungeon_level1(self, ui, mhc),
+            "setup": lambda: WorldDungeonLevel1(self, ui, mhc),
         }
         self.map_db["dungeon level 2"] = {
             "tiles": self.load_map("maps/dungeon_level_2.map"),
-            "setup": lambda: World_dungeon_level2(self, ui, mhc),
+            "setup": lambda: WorldDungeonLevel2(self, ui, mhc),
         }
         self.map_db["dungeon level 3"] = {
             "tiles": self.load_map("maps/dungeon_level_3.map"),
-            "setup": lambda: World_dungeon_level3(self, ui, mhc),
+            "setup": lambda: WorldDungeonLevel3(self, ui, mhc),
         }
         self.current_map = None
         self.current_map_id = None
@@ -1618,10 +1618,10 @@ class World_model:
         self.enter_events[tile].append(event)
 
     def add_enemy(self, enemy_loc, battle_look, sprite_class, demon_class, power):
-        enemy_id = self.add_object(Map_object_enemy(enemy_loc, sprite_class))
+        enemy_id = self.add_object(MapObjectEnemy(enemy_loc, sprite_class))
 
         def fight():
-            battle = Battle_UI(battle_look, sprite_class, demon_class, power)
+            battle = BattleUI(battle_look, sprite_class, demon_class, power)
             if battle.main_loop():
                 # win - remove the sprite and the associated event
                 self.remove_enemy(enemy_id)
@@ -1631,7 +1631,7 @@ class World_model:
         self.add_enemy_event(enemy_id, fight)
 
     def add_item(self, loc, item_type, event=None):
-        item_id = self.add_object(Map_object_item(loc, item_type))
+        item_id = self.add_object(MapObjectItem(loc, item_type))
 
         def grab():
             self.remove_item(item_id)
@@ -1644,7 +1644,7 @@ class World_model:
         return item_id
 
     def add_decoration(self, loc, item_type):
-        self.add_object(Map_object_item(loc, item_type))
+        self.add_object(MapObjectItem(loc, item_type))
 
     def random_clear_tiles(self, chance, x_range, y_range):
         for y in y_range:
@@ -1677,7 +1677,7 @@ class World_model:
 #####################################################################
 
 
-class World_view:
+class WorldView:
     def __init__(self):
         self.surface_cache = pygame.Surface((320, 320))
         self.surface_cache_valid = False
@@ -1865,7 +1865,7 @@ try:
 
     mistakes = Mistakes()
 
-    chapter_factory = Chapter_factory()
+    chapter_factory = ChapterFactory()
 
     list_of_vocabulary = {
         "katakana": "data/demons-katakana.txt",
@@ -1875,10 +1875,10 @@ try:
         "kanji": "data/demons-kanji.txt",
     }
 
-    book = Book_of_demons(chapter_factory, list_of_vocabulary)
-    mhc  = Main_Hero_Controller()
-    wm   = World_model()
-    wv   = World_view()
+    book = BookOfDemons(chapter_factory, list_of_vocabulary)
+    mhc  = MainHeroController()
+    wm   = WorldModel()
+    wv   = WorldView()
     ui   = UI(config)
 
     main_hero = Chara("female-blue", position=(0, 0))

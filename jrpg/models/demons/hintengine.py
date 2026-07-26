@@ -8,7 +8,7 @@ from util import ordered_uniq
 ###########################################################
 # This class selects hints for demons that hit you        #
 ###########################################################
-class Hint_engine:
+class HintEngine:
     # Structure:
     # self.compound - key is "kanji:furi" or "kanji:*"
     #                 data is hint

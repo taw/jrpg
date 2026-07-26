@@ -7,7 +7,7 @@ from models.demons.kana.kana import DemonSoulKana
 # Class for load the katakana
 # in the book of demons
 # The code is almost the same than DemonBookChapterHiragana
-class Demon_chapter_katakana(DemonBookChapter):
+class DemonChapterKatakana(DemonBookChapter):
 
     def __init__(self, filename):
         DemonBookChapter.__init__(self, filename)

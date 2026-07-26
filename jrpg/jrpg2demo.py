@@ -10,8 +10,8 @@ from collections import defaultdict
 # Import other jrpg modules
 import resman
 
-from models.demons.book import Book_of_demons
-from models.demons.chapterfactory import Chapter_factory
+from models.demons.book import BookOfDemons
+from models.demons.chapterfactory import ChapterFactory
 from models.xpctl import XpCtl
 from spatial_index import Index
 import util
@@ -855,7 +855,7 @@ try:
     # The only reason we initialize it here is
     # because it's slow and we want to minimize the time
     # between graphic mode switch and actually displaying something
-    chapter_factory = Chapter_factory()
+    chapter_factory = ChapterFactory()
     list_of_vocabulary = {
         "katakana" : "data/demons-katakana.txt",
         "hiragana" : "data/demons-hiragana.txt",
@@ -863,7 +863,7 @@ try:
         "traduction" : "data/demons-kanawords.txt",
         "kanji" : "data/demons-kanji.txt",
     }
-    book = Book_of_demons(chapter_factory, list_of_vocabulary)
+    book = BookOfDemons(chapter_factory, list_of_vocabulary)
 
     # FIXME: There are too many cyclic dependencies between the 3
     world = World("main")

@@ -149,7 +149,7 @@ dungeon_lvl_3_enemies = [
 #####################################################################
 # Castle                                                            #
 #####################################################################
-class World_castle:
+class WorldCastle:
     def __init__(self, wm, ui, mhc):
         wm.wormhole((4, 9), "world", (7, 9))
         king_already_said_something = [False]
@@ -283,7 +283,7 @@ class World_castle:
 #####################################################################
 # Tower level 1                                                     #
 #####################################################################
-class World_tower_level1:
+class WorldTowerLevel1:
     def __init__(self, wm, ui, mhc):
         wm.wormhole((3, 0), "castle", (17, 1))
         wm.wormhole((6, 0), "tower level 2", (2, 1))
@@ -294,7 +294,7 @@ class World_tower_level1:
 #####################################################################
 # Tower level 2                                                     #
 #####################################################################
-class World_tower_level2:
+class WorldTowerLevel2:
     def __init__(self, wm, ui, mhc):
         wm.wormhole((3, 0), "tower level 1", (7, 1))
         wm.wormhole((6, 0), "tower level 3", (2, 1))
@@ -305,7 +305,7 @@ class World_tower_level2:
 #####################################################################
 # Tower level 3                                                     #
 #####################################################################
-class World_tower_level3:
+class WorldTowerLevel3:
     def __init__(self, wm, ui, mhc):
         wm.wormhole((3, 0), "tower level 2", (7, 1))
         wm.wormhole((4, 5), "icy mountains", (3, 4))
@@ -339,7 +339,7 @@ class World_tower_level3:
 #####################################################################
 # Dungeon level 1                                                   #
 #####################################################################
-class World_dungeon_level1:
+class WorldDungeonLevel1:
     def __init__(self, wm, ui, mhc):
         def dungeon_level_1_treasure(number, loc):
             quest_id = "treasure %d" % number
@@ -385,7 +385,7 @@ class World_dungeon_level1:
 #####################################################################
 # Dungeon level 2                                                   #
 #####################################################################
-class World_dungeon_level2:
+class WorldDungeonLevel2:
     def __init__(self, wm, ui, mhc):
         def dungeon_level_2_treasure(number, loc):
             quest_id = "treasure %d" % number
@@ -433,7 +433,7 @@ class World_dungeon_level2:
 #####################################################################
 # Dungeon level 3                                                   #
 #####################################################################
-class World_dungeon_level3:
+class WorldDungeonLevel3:
     def __init__(self, wm, ui, mhc):
         def dungeon_level_3_treasure(number, loc):
             quest_id = "treasure %d" % number

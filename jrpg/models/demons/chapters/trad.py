@@ -6,7 +6,7 @@ from models.demons.kana.trad import DemonSoulTrad
 
 # Class for load the traduction kanaword
 # the code is almost the same of demonBookChapterKanaWord
-class Demon_chapter_trad(DemonBookChapter):
+class DemonChapterTrad(DemonBookChapter):
     def __init__(self, filename):
         """constructor
         """

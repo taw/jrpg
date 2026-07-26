@@ -28,9 +28,9 @@ import pygame
 
 
 # from scrollsurface_config import * # Constants defining colours and Scrolling Speeds
-class Msg_view(pygame.Surface):
+class MsgView(pygame.Surface):
     def __init__(self, width, height, dx=5, dy=5):
-        super(Msg_view, self).__init__((width, height))
+        super(MsgView, self).__init__((width, height))
         self.scroll_x = 0
         self.scroll_y = 0
         self.dx = dx
@@ -57,7 +57,7 @@ class Msg_view(pygame.Surface):
         rect = self.label.get_rect(x=self.get_rect().left + self.scroll_x, y=self.get_rect().top + self.scroll_y)
         # pygame.draw.rect(surface, pygame.Color("red"), rect, 1)
 
-    # scrollfunctions for Msg_view
+    # scrollfunctions for MsgView
     def scrollleft(self, surface):
         self.scroll_x += self.dx
         if self.scroll_x >= 0:

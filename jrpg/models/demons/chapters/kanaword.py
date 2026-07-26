@@ -7,7 +7,7 @@ from models.demons.kana.kanaword import DemonSoulKanaword
 
 # Class for load the complete kana work
 # in the book of demons
-class Demon_chapter_kanaword(DemonBookChapter):
+class DemonChapterKanaword(DemonBookChapter):
     def __init__(self, filename):
         """constructor
         """

@@ -133,7 +133,7 @@ class UI:
             print("Font file not found")
             sys.exit(1)
         self.key = [False for i in range(512)]
-        self.mtctl = Map_Tiles_Controller(images_dir+"angband.png", mtctl_terrain, mtctl_enemies, mtctl_items)
+        self.mtctl = MapTilesController(images_dir+"angband.png", mtctl_terrain, mtctl_enemies, mtctl_items)
         self.chara_tiles_dir = {}
         for k in ctdir:
             self.chara_tiles_dir[k] = pygame.image.load(images_dir+ctdir[k]).convert_alpha()
@@ -246,7 +246,7 @@ class UI:
 # This class manages map tiles characteristics            #
 # (merge with UI)                                         #
 ###########################################################
-class Map_Tiles_Controller:
+class MapTilesController:
     def __init__(self, img, ttt, ett, itt):
         self.ttt = {}
         for k in ttt:
@@ -313,7 +313,7 @@ class Map_Tiles_Controller:
 #############################################################
 # This class is needed merely for the statistics            #
 #############################################################
-class Main_Hero_Controller:
+class MainHeroController:
     def __init__(self):
         self.hpmax  = 5
         self.hp     = self.hpmax
@@ -347,7 +347,7 @@ class Main_Hero_Controller:
 ###########################################################
 # This class controls a single map object                 #
 ###########################################################
-class Map_object:
+class MapObject:
     def __init__(self, bbox, blit, event):
         self.bbox  = bbox
         self.blit  = blit
@@ -402,7 +402,7 @@ class Map:
         def blit():
             self.ui.blit_enemy((32*x, 32*y), enemy_sprite)
         bbox = pygame.Rect((x*32, y*32), (32, 32))
-        o    = Map_object(bbox, blit, None)
+        o    = MapObject(bbox, blit, None)
         self.objects.append(o)
         return len(self.objects)-1
 
@@ -412,7 +412,7 @@ class Map:
         def blit():
             self.ui.blit_item((32*x, 32*y), item_class)
         bbox = pygame.Rect((x*32, y*32), (32, 32))
-        o    = Map_object(bbox, blit, None)
+        o    = MapObject(bbox, blit, None)
         self.objects.append(o)
         return len(self.objects)-1
 
@@ -878,7 +878,7 @@ class World:
 ###########################################################
 # This class does the worldmap UI                         #
 ###########################################################
-class World_UI:
+class WorldUI:
     def __init__(self, ui, w, main_hero):
         self.ui        = ui
         self.w         = w
@@ -929,10 +929,10 @@ class World_UI:
 
 ui   = UI()
 w    = World(ui)
-mhc  = Main_Hero_Controller()
+mhc  = MainHeroController()
 main_hero = Chara(ui, w.m, "female-blue", position=(0, 0))
 main_hero.is_main = True # This isn't a particularly nice hack, subclass maybe ?
 w.map_setup((0, 3), (4, 5))
 
-world_ui = World_UI(ui, w, main_hero)
+world_ui = WorldUI(ui, w, main_hero)
 world_ui.main_loop()

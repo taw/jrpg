@@ -15,7 +15,7 @@ from random import choice
 # "kanji"                 @ Dungeon
 
 
-class Book_of_demons:
+class BookOfDemons:
     def add_chapter_to_the_book(self, chapter):
         self.demons[chapter.get_title_of_the_chapter()] = []
         self.demons[chapter.get_title_of_the_chapter()] = chapter.get_the_list_of_demon()

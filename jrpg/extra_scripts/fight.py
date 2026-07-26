@@ -16,14 +16,14 @@ from math import *
 # This class manages chara images
 # De facto it's just useful, so that many chara of the same
 # class can share image buffers.
-class Chara_Tiles_Controller:
+class CharaTilesController:
     def __init__(self, imgs):
         self.imgs = {}
         for k in imgs:
             self.imgs[k] = pygame.image.load(imgs[k])
 
 
-class Map_Tiles_Controller:
+class MapTilesController:
     def __init__(self, img, ttt, ett):
         self.ttt = {}
         for k in ttt:
@@ -61,7 +61,7 @@ def render_text(target, font, text, loc, anchor, color):
 
 #############################################################
 # Read the book of demons
-class Book_of_demons:
+class BookOfDemons:
     def __init__(self):
         f = open("demons.txt")
         lines = f.readlines()
@@ -84,7 +84,7 @@ class Book_of_demons:
 
 #############################################################
 # This class is needed merely for the statistics
-class Main_Hero_Controller:
+class MainHeroController:
     def __init__(self):
         self.hpmax = 5
         self.hp    = self.hpmax
@@ -114,7 +114,7 @@ class Main_Hero_Controller:
         target.blit(font.render("XP: %d" % self.xp, 1, (0, 255, 0)), (336, 32))
 
 
-ctc = Chara_Tiles_Controller({
+ctc = CharaTilesController({
     "female-blue" : "female-blue.png",
     "soldier-axe" : "soldier-axe.png",
     "soldier-elf" : "soldier-elf.png",
@@ -124,7 +124,7 @@ ctc = Chara_Tiles_Controller({
     "elf-trader"  : "elf-trader.png",
     "arab-trader" : "arab-trader.png",
 })
-mtc = Map_Tiles_Controller("angband.png", {
+mtc = MapTilesController("angband.png", {
 # Movable terrain
   "g" : (  9, 23, False), # grass
   "s" : ( 12, 23, False), # sand
@@ -151,7 +151,7 @@ mtc = Map_Tiles_Controller("angband.png", {
 
 pygame.init()
 
-book = Book_of_demons()
+book = BookOfDemons()
 
 size   = (640, 480)
 screen = pygame.display.set_mode(size, pygame.DOUBLEBUF)
@@ -163,7 +163,7 @@ clock  = pygame.time.Clock()
 # THIS CODE IS *NOT* YET COMMON                             #
 #############################################################
 
-class Enemy_in_battle:
+class EnemyInBattle:
     def __init__(self, mtc, x, y, displayed_name, secret_names, xp_code, sprite_class):
         self.x              = x
         self.y              = y
@@ -207,7 +207,7 @@ class Enemy_in_battle:
 
 
 # This class should manage killing enemies and activation/deactivation
-class Enemies_in_battle:
+class EnemiesInBattle:
     def __init__(self, mtc, book, chara):
         self.active  = -1
         self.enemies = []
@@ -217,7 +217,7 @@ class Enemies_in_battle:
 
     def add_enemy(self, sprite_class, demon_class):
         (xp_code, displayed_name, secret_names) = self.book.random_from_class(0)
-        enemy = Enemy_in_battle(mtc, uniform(20, 120), uniform(20, 260), displayed_name, secret_names, xp_code, sprite_class)
+        enemy = EnemyInBattle(mtc, uniform(20, 120), uniform(20, 260), displayed_name, secret_names, xp_code, sprite_class)
         self.enemies.append(enemy)
 
     def attacked(self, attack_name):
@@ -259,7 +259,7 @@ class Enemies_in_battle:
             e.move()
 
 
-class Chara_in_battle:
+class CharaInBattle:
     def __init__(self, xy, mhc, ctc):
         (x, y) = xy
         self.x     = x
@@ -287,10 +287,10 @@ class Chara_in_battle:
         self.mhc.xp_for_kill(demon)
 
 
-class Battle_UI:
+class BattleUI:
     def __init__(self, book, mhc, mtc, ctc):
-        self.chara   = Chara_in_battle((240, 160), mhc, ctc)
-        self.enemies = Enemies_in_battle(mtc, book, self.chara)
+        self.chara   = CharaInBattle((240, 160), mhc, ctc)
+        self.enemies = EnemiesInBattle(mtc, book, self.chara)
 
     # Call switch_active() every time we add a new enemy instead of
     # having explicit ok_thats_all_enemies() call.
@@ -331,9 +331,9 @@ class Battle_UI:
             clock.tick(100)
 
 
-mhc = Main_Hero_Controller()
+mhc = MainHeroController()
 
-battle = Battle_UI(book, mhc, mtc, ctc)
+battle = BattleUI(book, mhc, mtc, ctc)
 battle.add_enemies(5, "black rat", 0)
 
 battle.main_loop()

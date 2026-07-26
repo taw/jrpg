@@ -22,7 +22,7 @@
 #
 #
 """
-Pygame demo for Msg_view scrollable surface
+Pygame demo for MsgView scrollable surface
 """
 import pygame
 from msg_view import *
@@ -39,8 +39,8 @@ pygame.display.set_caption("My Game")
 msg = screen.subsurface((0, 320), (800, 160))
 
 # ----------- MAIN program --------------------
-msg_viewport = Msg_view(800, 160, X_DELTA, Y_DELTA)
-xymonitor = Msg_view(100, 00)
+msg_viewport = MsgView(800, 160, X_DELTA, Y_DELTA)
+xymonitor = MsgView(100, 00)
 
 msg_clip = Rect((0, 0), (800, 160))
 msg.set_clip(msg_clip)

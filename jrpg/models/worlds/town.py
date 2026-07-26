@@ -104,7 +104,7 @@ cave_enemies = [
 #####################################################################
 # Library                                                           #
 #####################################################################
-class World_library:
+class WorldLibrary:
     def __init__(self, wm, ui, mhc):
         wm.wormhole((5, 9), "world", (33, 35))
         # monk1
@@ -146,7 +146,7 @@ class World_library:
 #####################################################################
 # Hospital map                                                      #
 #####################################################################
-class World_hospital:
+class WorldHospital:
     def __init__(self, wm, ui, mhc):
         emergency_healing = (mhc.hp == 0)
         healed_today = [False]  # Just to get sane msgs
@@ -174,7 +174,7 @@ class World_hospital:
 #####################################################################
 # Wizard shop                                                       #
 #####################################################################
-class World_wizard_shop:
+class WorldWizardShop:
     def __init__(self, wm, ui, mhc):
         just_given_potion = [False]
 
@@ -215,7 +215,7 @@ class World_wizard_shop:
 #####################################################################
 # Angel sanctuary                                                   #
 #####################################################################
-class World_angel_sanctuary:
+class WorldAngelSanctuary:
     def __init__(self, wm, ui, mhc):
         def angel_quest():
             if mhc.quest_is_done("reward for level 3"):
@@ -240,7 +240,7 @@ class World_angel_sanctuary:
 #####################################################################
 # Blacksmith                                                        #
 #####################################################################
-class World_blacksmith:
+class WorldBlacksmith:
     def __init__(self, wm, ui, mhc):
         def blacksmith_quest():
             if mhc.quest_is_done("magic sword complete"):
@@ -285,7 +285,7 @@ class World_blacksmith:
 #####################################################################
 # Cave                                                              #
 #####################################################################
-class World_cave:
+class WorldCave:
     def __init__(self, wm, ui, mhc):
         def blue_crystals():
             mhc.gain_item("blue crystals")

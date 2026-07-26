@@ -2,7 +2,7 @@
 
 import re
 from util import ordered_uniq
-from models.demons.hintengine import Hint_engine
+from models.demons.hintengine import HintEngine
 from .demonsoul import DemonSoul
 from romajitokana import romaji_kana_match
 from .kanjifinalized import DemonSoulKanjiFinalized
@@ -10,7 +10,7 @@ from .kanjifinalized import DemonSoulKanjiFinalized
 from random import choice
 
 
-hint = Hint_engine("data/hints-kanji.txt",
+hint = HintEngine("data/hints-kanji.txt",
                    "data/tanaka.txt",
                    "data/tanaka_idx.txt")
 

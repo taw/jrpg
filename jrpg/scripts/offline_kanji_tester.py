@@ -23,7 +23,7 @@ util.init_pygame("JRPG")
 
 class Model:
     def __init__(self):
-        book = demonsoul.Book_of_demons()
+        book = demonsoul.BookOfDemons()
         kanji_demons = book.demons[3]
         self.kanji_demons_with_ids = [(i, kanji_demons[i]) for i in range(len(kanji_demons))]
         # We want to test only the long term memory, but people also have short term memory

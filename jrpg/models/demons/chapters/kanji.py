@@ -5,7 +5,7 @@ from models.demons.kana.kanji import DemonSoulKanji
 
 
 # Class for load the Kanji
-class Demon_chapter_kanji(DemonBookChapter):
+class DemonChapterKanji(DemonBookChapter):
     def __init__(self, filename):
         self.demons = []
         self.name = "kanji"

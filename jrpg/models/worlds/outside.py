@@ -91,7 +91,7 @@ mushroom_forest_decoration_mushrooms = [
 ]
 
 
-class World_outside:
+class WorldOutside:
     def __init__(self, wm, ui, mhc):
         ###############################
         # WORMHOLES                   #
@@ -343,7 +343,7 @@ class World_outside:
                     wm.add_enter_event((x, y), lambda: desert_heat())
 
 
-class World_icy_mountains:
+class WorldIcyMountains:
     def __init__(self, wm, ui, mhc):
         ###############################
         # ICE TEMPLE                  #
