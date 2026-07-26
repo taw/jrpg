@@ -14,8 +14,22 @@ The code is pretty messy, and is was not originally intended for public consumpt
 
 Cleanup pull requests welcome.
 
-The game was designed for Python 2.7.
-You need Pygame library to get it working, and additionally wxwidgets library for level editor.
+The game was originally designed for Python 2.7 and pygame 1.
+It now runs on Python 3.13 and pygame 2.
+
+Running it
+==========
+
+Dependencies are pinned in `pyproject.toml` and locked in `uv.lock`, so
+[uv](https://docs.astral.sh/uv/) will fetch the right Python and libraries for you:
+
+    cd jrpg
+    uv run python jrpg.py
+
+The game reads its data with relative paths, so it has to be run from the `jrpg`
+directory. The level editor needs wxPython, which is not installed by default:
+
+    uv run --extra editor python level_editor.py
 
 What to run?
 ============
