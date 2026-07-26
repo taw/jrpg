@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 from __future__ import print_function
-import sys, pygame, pickle
+import sys, pygame, json
 from math import sqrt, floor
 from random import *
 import time
@@ -632,11 +632,15 @@ class Main_Hero_Controller:
         # Verify that the xp in the savefile is not higher than your XP
         xp = 0
         try:
-            f = open(self.save_path(), "rb")
-            ld = pickle.load(f)
+            f = open(self.save_path(), "r", encoding="UTF-8")
+            ld = json.load(f)
             xp = ld["xp"]
         except IOError as exception:
             (errno, strerror) = exception.args
+            pass
+        except ValueError:
+            # Unreadable or not JSON at all (e.g. a savefile from the pickle
+            # era). Treat it as "no previous save" rather than dying here.
             pass
         if xp > self.xp and not self.save_warned:
             ui.change_text([U"Warning: In the save file you have higher experience (%d)" % xp,
@@ -644,7 +648,7 @@ class Main_Hero_Controller:
                             U"If you want to save anyway, press F2 again"], (255,0,0))
             self.save_warned = True
             return
-        f = open(self.save_path(), "wb")
+        f = open(self.save_path(), "w", encoding="UTF-8")
         save_data = {
             "name"     : "Freya",
             "hpmax"    : self.hpmax,
@@ -656,7 +660,7 @@ class Main_Hero_Controller:
             "quests"   : self.quests,
             "inventory": self.inventory,
         }
-        pickle.dump(save_data, f)
+        json.dump(save_data, f, ensure_ascii=False, indent=1, sort_keys=True)
         f.close()
         self.save_warned = False
         if xp > self.xp:
@@ -673,8 +677,8 @@ class Main_Hero_Controller:
             self.make_load_warning = False
             return
         try:
-            f = open(self.save_path(), "rb")
-            ld = pickle.load(f)
+            f = open(self.save_path(), "r", encoding="UTF-8")
+            ld = json.load(f)
             self.hpmax     = ld["hpmax"]
             self.hp        = ld["hp"]
             self.xp        = ld["xp"]
@@ -700,6 +704,8 @@ class Main_Hero_Controller:
         except IOError as exception:
             (errno, strerror) = exception.args
             ui.change_text([U"Can't load the savefile: ", str(strerror)], (255,0,0))
+        except ValueError as exception:
+            ui.change_text([U"Can't read the savefile: ", str(exception)], (255,0,0))
     def exit(self):
         if self.make_exit_warning:
             ui.change_text([U"Something happened since the last saving",

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
-import pygame, sys, pickle
+import pygame, sys, json
 from random import *
 from collections import defaultdict
 
@@ -518,13 +518,13 @@ class World:
             "money"    : self.stats.money,
             "xpfor"    : self.stats.xpctl.dump(),
         }
-        f = open("savefile.dat", "wb")
-        pickle.dump(save_data, f)
+        f = open("savefile.dat", "w", encoding="UTF-8")
+        json.dump(save_data, f, ensure_ascii=False, indent=1, sort_keys=True)
         f.close()
         self.msg_add([u"Game saved"])
     def load(self):
-        f = open("savefile.dat", "rb")
-        ld = pickle.load(f)
+        f = open("savefile.dat", "r", encoding="UTF-8")
+        ld = json.load(f)
         self.stats.name      = ld.get("name", "Freya")
         self.stats.hpmax     = ld["hpmax"]
         self.stats.hp        = ld["hp"]
