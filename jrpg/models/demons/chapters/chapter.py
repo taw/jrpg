@@ -1,6 +1,3 @@
-# -*- coding: UTF-8 -*-
-
-
 # Abstract Class for load the file
 class DemonBookChapter:
     pass

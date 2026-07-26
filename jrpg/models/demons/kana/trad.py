@@ -1,5 +1,3 @@
-# -*- coding: UTF-8 -*-
-
 from .demonsoul import DemonSoul
 from romajitokana import romaji_kana_match
 

@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# -*- coding: UTF-8 -*-
 
 # A file for small functions common to JRPG and JRPG 2
 

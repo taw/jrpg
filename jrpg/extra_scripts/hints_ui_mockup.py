@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# -*- coding: UTF-8 -*-
 
 font_path = "/usr/share/fonts/truetype/kochi/kochi-gothic.ttf"
 

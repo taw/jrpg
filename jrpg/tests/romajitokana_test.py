@@ -1,5 +1,3 @@
-# -*- coding: UTF-8 -*-
-
 import unittest
 from romajitokana import romaji_kana_match
 

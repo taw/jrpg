@@ -1,6 +1,3 @@
-# -*- coding: UTF-8 -*-
-
-
 class History:
     def __init__(self, length):
         """just a pseudo log class for see the history"""

@@ -1,5 +1,3 @@
-# -*- coding: UTF-8 -*-
-
 import re
 from util import ordered_uniq
 from models.demons.hintengine import HintEngine

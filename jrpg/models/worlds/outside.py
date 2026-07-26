@@ -1,5 +1,3 @@
-# -*- coding: UTF-8 -*-
-
 from random import choice, random
 
 mountain_enemies = [

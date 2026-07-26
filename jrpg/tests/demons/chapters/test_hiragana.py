@@ -1,5 +1,3 @@
-# -*- coding: UTF-8 -*-
-
 import unittest
 from models.demons.kana.kana import DemonSoulKana
 from models.demons.chapters.hiragana import DemonChapterHiragana

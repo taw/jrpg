@@ -1,5 +1,3 @@
-# -*- coding: UTF-8 -*-
-
 from .chapter import DemonBookChapter
 from models.demons.kana.kanji import DemonSoulKanji
 
