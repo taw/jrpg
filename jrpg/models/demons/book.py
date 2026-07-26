@@ -44,7 +44,7 @@ class Book_of_demons:
             # For kana/kanaword classes use probabilities:
             # 1 - maxed
             # 2 - not maxed
-            if isinstance(demon_class, basestring):  #is
+            if isinstance(demon_class, str):  #is
                 for demon in self.demons[demon_class]:
                     if xpctl.maxed(demon.xp_code()):
                         w = 1
@@ -90,7 +90,7 @@ class Book_of_demons:
                 # Assign probabilities from 8 to 2 to unbeaten demons
                 # This lowers the chance that easy demon will be unmet
                 for i in range(len(unbeaten)):
-                    w = 8 - (8-1)*i/len(unbeaten)
+                    w = 8 - (8-1)*i//len(unbeaten)
                     weighted_demon_list.append((unbeaten[i], w))
 
         #for (d, w) in weighted_demon_list:
@@ -120,7 +120,7 @@ def weighted_sample(population, sample_size):
             balls[j] = i
             j += 1
     for i in range(sample_size):
-        object_id = balls[choice(balls.keys())]
+        object_id = balls[choice(list(balls.keys()))]
         # Remove all balls of the selected object
         for k in range(start_cnt[object_id], start_cnt[object_id]+population[object_id][1]):
             del balls[k]

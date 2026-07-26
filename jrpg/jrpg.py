@@ -2,14 +2,15 @@
 # -*- coding: UTF-8 -*-
 
 from __future__ import print_function
-import sys, pygame, pickle
+import sys, pygame, json
 from math import sqrt, floor
 from random import *
 import time
 import codecs
-import ConfigParser
+import configparser
 import appdirs
 import os
+from collections import defaultdict
 
 # Import other jrpg modules
 import images
@@ -53,7 +54,7 @@ def set_sym_diff(set1, set2):
             del d[i]      # In both sets
         else:
             ds2.append(i) # Only in the second set
-    return (d.keys(), ds2)
+    return (list(d.keys()), ds2)
 def submatrix(mtx, x0, y0, xsz, ysz):
     return [[mtx[y][x] for x in range(x0,x0+xsz)] for y in range(y0,y0+ysz)]
 def to_a(x):
@@ -137,7 +138,9 @@ class UI:
             self.screen = pygame.display.set_mode(size, pygame.DOUBLEBUF)
         self.font, self.font_med, self.font_big = util.load_font(18, 40, 64)
 
-        self.key = [False for i in range(512)]
+        # SDL1 keycodes fit in a 512-entry table; SDL2 (pygame 2) numbers the
+        # non-ASCII keys from 1073741881 upwards, so this has to be sparse.
+        self.key = defaultdict(bool)
         self.mtctl = Map_Tiles_Controller(images_dir+"angband.png", mtctl_terrain, mtctl_enemies, mtctl_items)
         self.chara_tiles_dir = {}
         for k in ctdir:
@@ -409,7 +412,7 @@ class UI:
                 else:
                     furi_r = font_furi.render(furi, True, color_furi)
                 (fw,fh) = (furi_r.get_width(), furi_r.get_height())
-                target.blit(furi_r, (x-fw/2+w/2,y-fh))
+                target.blit(furi_r, (x-fw//2+w//2,y-fh))
             x = x + w
     # Others should be converted to target-taking form too
     def render_tile(self, target, target_rect, tile_id):
@@ -629,11 +632,15 @@ class Main_Hero_Controller:
         # Verify that the xp in the savefile is not higher than your XP
         xp = 0
         try:
-            f = open(self.save_path(), "r")
-            ld = pickle.load(f)
+            f = open(self.save_path(), "r", encoding="UTF-8")
+            ld = json.load(f)
             xp = ld["xp"]
         except IOError as exception:
             (errno, strerror) = exception.args
+            pass
+        except ValueError:
+            # Unreadable or not JSON at all (e.g. a savefile from the pickle
+            # era). Treat it as "no previous save" rather than dying here.
             pass
         if xp > self.xp and not self.save_warned:
             ui.change_text([U"Warning: In the save file you have higher experience (%d)" % xp,
@@ -641,7 +648,7 @@ class Main_Hero_Controller:
                             U"If you want to save anyway, press F2 again"], (255,0,0))
             self.save_warned = True
             return
-        f = open(self.save_path(), "w")
+        f = open(self.save_path(), "w", encoding="UTF-8")
         save_data = {
             "name"     : "Freya",
             "hpmax"    : self.hpmax,
@@ -653,7 +660,7 @@ class Main_Hero_Controller:
             "quests"   : self.quests,
             "inventory": self.inventory,
         }
-        pickle.dump(save_data, f)
+        json.dump(save_data, f, ensure_ascii=False, indent=1, sort_keys=True)
         f.close()
         self.save_warned = False
         if xp > self.xp:
@@ -670,8 +677,8 @@ class Main_Hero_Controller:
             self.make_load_warning = False
             return
         try:
-            f = open(self.save_path(), "r")
-            ld = pickle.load(f)
+            f = open(self.save_path(), "r", encoding="UTF-8")
+            ld = json.load(f)
             self.hpmax     = ld["hpmax"]
             self.hp        = ld["hp"]
             self.xp        = ld["xp"]
@@ -696,7 +703,9 @@ class Main_Hero_Controller:
             self.last_demon_killed = None
         except IOError as exception:
             (errno, strerror) = exception.args
-            ui.change_text([U"Can't load the savefile: ", unicode(strerror)], (255,0,0))
+            ui.change_text([U"Can't load the savefile: ", str(strerror)], (255,0,0))
+        except ValueError as exception:
+            ui.change_text([U"Can't read the savefile: ", str(exception)], (255,0,0))
     def exit(self):
         if self.make_exit_warning:
             ui.change_text([U"Something happened since the last saving",
@@ -822,8 +831,8 @@ class Main_Hero_Controller:
             a,b = kanji_stats[k]
             if a==0: kanji_stats_final[0] += 1 # 0%
             elif a==b: kanji_stats_final[4] += 1 # 100%
-            elif a*4/b==0: kanji_stats_final[1] += 1 # 1%..24%
-            elif a*4/b==1: kanji_stats_final[2] += 1 # 25%..49%
+            elif a*4//b==0: kanji_stats_final[1] += 1 # 1%..24%
+            elif a*4//b==1: kanji_stats_final[2] += 1 # 25%..49%
             else: kanji_stats_final[3] += 1 # 50%..99%
 
             #if not kanji_stats2.has_key(v):
@@ -1641,10 +1650,10 @@ class World_view:
             self.prerender_cache_execute()
         # This only caches the background
         if not self.surface_cache_valid:
-            minx=(self.shift_x)/32
-            maxx=(self.shift_x+319)/32
-            miny=(self.shift_y)/32
-            maxy=(self.shift_y+319)/32
+            minx=(self.shift_x)//32
+            maxx=(self.shift_x+319)//32
+            miny=(self.shift_y)//32
+            maxy=(self.shift_y+319)//32
             for y in range(miny,maxy+1):
                 for x in range(minx,maxx+1):
                     if y < 0 or y >= len(self.prerender_cache) or x < 0 or x >= len(self.prerender_cache[y]):
@@ -1722,7 +1731,7 @@ try:
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-    config = ConfigParser.ConfigParser()
+    config = configparser.ConfigParser()
     config.read('config.ini')
 
     mistakes = Mistakes()

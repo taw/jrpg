@@ -1,8 +1,9 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
-import pygame, sys, pickle
+import pygame, sys, json
 from random import *
+from collections import defaultdict
 
 # Import other jrpg modules
 import resman
@@ -517,13 +518,13 @@ class World:
             "money"    : self.stats.money,
             "xpfor"    : self.stats.xpctl.dump(),
         }
-        f = open("savefile.dat", "w")
-        pickle.dump(save_data, f)
+        f = open("savefile.dat", "w", encoding="UTF-8")
+        json.dump(save_data, f, ensure_ascii=False, indent=1, sort_keys=True)
         f.close()
         self.msg_add([u"Game saved"])
     def load(self):
-        f = open("savefile.dat", "r")
-        ld = pickle.load(f)
+        f = open("savefile.dat", "r", encoding="UTF-8")
+        ld = json.load(f)
         self.stats.name      = ld.get("name", "Freya")
         self.stats.hpmax     = ld["hpmax"]
         self.stats.hp        = ld["hp"]
@@ -539,7 +540,8 @@ class UI:
         size = (width, height) = (1024, 768)
         pygame.display.set_icon(pygame.image.load("images/jrpg-icon.png"))
         self.screen = pygame.display.set_mode(size, pygame.DOUBLEBUF) # |pygame.HWSURFACE
-        self.key_pressed_table = [False for i in range(512)]
+        # See the same fix in jrpg.py: SDL2 keycodes overflow a 512-entry table.
+        self.key_pressed_table = defaultdict(bool)
         self.clock = pygame.time.Clock()
         self.frame_number = 0
         self.map_viewport     = self.screen.subsurface(((32,32),(768,576)))
@@ -707,7 +709,7 @@ class UI:
                 else:
                     furi_rendered = font_furi.render(furi, True, color_furi)
                 (fw,fh) = (furi_rendered.get_width(), furi_rendered.get_height())
-                displayed_elements.append((x-fw/2+w/2, -fh, furi_rendered))
+                displayed_elements.append((x-fw//2+w//2, -fh, furi_rendered))
                 miny = min(miny, -fh)
             x = x + w
         # Now, displayed_elements is a box (0,-miny)..(x, maxy)
@@ -715,7 +717,7 @@ class UI:
         # Compute distance from to the upper left corner to the anchor
         # (anchor is in the middle of the kanji, ignoring furi)
         # TODO: is it better than including furi ?
-        (cx, cy) = (-x/2, -maxy/2)
+        (cx, cy) = (-x//2, -maxy//2)
         # If anchor is (-1,-1), display at the anchor
         # If anchor is (0, 0) shift by (cx,cy)
         # If anchor is (1,1), shift by (2 cx,2 cy)
@@ -730,7 +732,7 @@ class UI:
         (x,y) = xy
         chara_attack_color = (228, 228, 255)
         chara_attack_rendered = self.big_font.render(chara_attack, True, chara_attack_color)
-        self.map_viewport.blit(chara_attack_rendered, (x-chara_attack_rendered.get_width()/2, y-chara_attack_rendered.get_height()/2))
+        self.map_viewport.blit(chara_attack_rendered, (x-chara_attack_rendered.get_width()//2, y-chara_attack_rendered.get_height()//2))
     def render(self):
         self.render_map()
         mcc.render(self.map_viewport, world.get_ofs())

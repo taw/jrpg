@@ -9,7 +9,7 @@ class DemonBookChapter:
         '''Open the file. read each line
         '''
         self.filename = filename
-        f = open(filename)
+        f = open(filename, encoding="UTF-8")
         lines = f.readlines()
         f.close()
         self.demons = []

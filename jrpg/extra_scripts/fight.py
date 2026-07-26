@@ -18,26 +18,26 @@ class Chara_Tiles_Controller:
     def __init__(self, imgs):
         self.imgs = {}
         for k in imgs:
-	    self.imgs[k] = pygame.image.load(imgs[k])
+            self.imgs[k] = pygame.image.load(imgs[k])
 class Map_Tiles_Controller:
     def __init__(self, img, ttt, ett):
-	self.ttt = {}
-	for k in ttt:
-	   (sx,sy,bs) = ttt[k]
-	   self.ttt[k] = (pygame.Rect(sx*32,sy*32,32,32),bs)
-	self.ett = {}
-	for k in ett:
-	   (sx,sy) = ett[k]
-	   self.ett[k] = pygame.Rect(sx*32,sy*32,32,32)
-	self.img = pygame.image.load(img)
+        self.ttt = {}
+        for k in ttt:
+           (sx,sy,bs) = ttt[k]
+           self.ttt[k] = (pygame.Rect(sx*32,sy*32,32,32),bs)
+        self.ett = {}
+        for k in ett:
+           (sx,sy) = ett[k]
+           self.ett[k] = pygame.Rect(sx*32,sy*32,32,32)
+        self.img = pygame.image.load(img)
     def blit(self, target, target_rect, tile_id):
-	source_rect = self.ttt[tile_id][0]
-	target.blit(self.img, target_rect, source_rect)
+        source_rect = self.ttt[tile_id][0]
+        target.blit(self.img, target_rect, source_rect)
     def blit_enemy(self, target, target_rect, enemy_id):
-	source_rect = self.ett[enemy_id]
-	target.blit(self.img, target_rect, source_rect)
+        source_rect = self.ett[enemy_id]
+        target.blit(self.img, target_rect, source_rect)
     def blocking(self, tile_id):
-	return self.ttt[tile_id][1]
+        return self.ttt[tile_id][1]
 # anchor (0.0, 0.0) - loc is text's top left corner
 # anchor (0.5, 0.5) - loc is text's center
 # anchor (1.0, 1.0) - loc is text's bottom right corner
@@ -149,20 +149,20 @@ clock  = pygame.time.Clock()
 
 class Enemy_in_battle:
     def __init__(self, mtc, x, y, displayed_name, secret_names, xp_code, sprite_class):
-	self.x              = x
-	self.y              = y
-	self.dx             = 0
-	self.dy             = 0
-	self.displayed_name = displayed_name
+        self.x              = x
+        self.y              = y
+        self.dx             = 0
+        self.dy             = 0
+        self.displayed_name = displayed_name
         self.secret_names   = secret_names
         self.active         = False
         self.xp_code        = xp_code
         self.mtc            = mtc
         self.sprite_class   = sprite_class
     def blit(self, target):
-	global font
-	(x0,y0) = (self.x+self.dx, self.y+self.dy)
-	#target.blit(img_enemies, (x0,y0), (25*32, 13*32, 32, 32))
+        global font
+        (x0,y0) = (self.x+self.dx, self.y+self.dy)
+        #target.blit(img_enemies, (x0,y0), (25*32, 13*32, 32, 32))
         mtc.blit_enemy(target, (x0,y0), self.sprite_class)
         if self.active:
             text_color = (255, 128, 160)
@@ -174,9 +174,9 @@ class Enemy_in_battle:
         self.dy = self.dy + normalvariate(0,1)
         l = self.dx*self.dx + self.dy*self.dy
         if l > 100:
-	    l = sqrt(l)
-	    self.dx = self.dx / l
-	    self.dy = self.dy / l
+            l = sqrt(l)
+            self.dx = self.dx / l
+            self.dy = self.dy / l
     def activate(self):
         self.active = True
     def deactivate(self):
@@ -231,12 +231,12 @@ class Enemies_in_battle:
 
 class Chara_in_battle:
     def __init__(self, xy, mhc, ctc):
-	(x, y) = xy
-	self.x     = x
-	self.y     = y
+        (x, y) = xy
+        self.x     = x
+        self.y     = y
         self.mhc   = mhc
         self.img   = ctc.imgs["female-blue"]
-	self.buf   = U""
+        self.buf   = U""
     def blit(self, target):
         target.blit(self.img, (self.x,self.y), (2*24, 3*32, 24, 32))
         render_text(target, font, self.buf, (self.x+12,self.y), (0.5, 1.0), (64, 128, 255))
@@ -276,13 +276,13 @@ class Battle_UI:
         while 1:
             # Check UI events
             for event in pygame.event.get():
-	       if event.type == pygame.QUIT:
-	           sys.exit()
-	       elif event.type == pygame.KEYDOWN:
-	           if event.key == pygame.K_RETURN:
-	               pygame.display.toggle_fullscreen()
-	           elif event.key == pygame.K_ESCAPE:
-	               sys.exit()
+               if event.type == pygame.QUIT:
+                   sys.exit()
+               elif event.type == pygame.KEYDOWN:
+                   if event.key == pygame.K_RETURN:
+                       pygame.display.toggle_fullscreen()
+                   elif event.key == pygame.K_ESCAPE:
+                       sys.exit()
                    elif event.key >= 97 and event.key <= 122: #'a'..'z'
                        self.chara.buf = self.chara.buf + chr(event.key)
                    elif event.key == 32: # space

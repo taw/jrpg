@@ -6,6 +6,7 @@
 import pygame
 import traceback
 import time
+import os
 import appdirs
 
 try:
@@ -71,7 +72,8 @@ class Cached:
 def load_font(*sizes):
     font_paths = font_file_names # Search current directory first
     if posix_present:
-        dot_fonts = posix.environ["HOME"] + "/.fonts/"
+        # posix.environ has bytes keys on Python 3; os.environ is the str one.
+        dot_fonts = os.environ["HOME"] + "/.fonts/"
         font_paths = font_paths + [(dot_fonts + font_file_name) for font_file_name in font_file_names]
     font_paths = font_paths + full_font_paths
 

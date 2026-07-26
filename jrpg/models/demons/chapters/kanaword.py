@@ -19,7 +19,7 @@ class Demon_chapter_kanaword(DemonBookChapter):
         '''the method to read one line of the file
         the format here 'hiragana<tab>romanji ..<tab>meaning'
         '''
-        fields = unicode(line, "UTF-8").strip(U"\n").split(U"\t")
+        fields = line.strip(U"\n").split(U"\t")
 
         kana, romajis, meanings = (fields[0],
                                    fields[1:len(fields)-1], fields[-1])

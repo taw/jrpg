@@ -19,6 +19,6 @@ class Demon_chapter_hiragana(DemonBookChapter):
         the format here 'demon_class<tab>hiragana<tab>romanji ..<tab>'
         the demon_class is not usefull for us
         '''
-        fields = unicode(line, "UTF-8").strip(U"\n").split(U"\t")
+        fields = line.strip(U"\n").split(U"\t")
         demon_class, kana, romajis = int(fields[0]), fields[1], fields[2:len(fields)]
         return DemonSoulKana(kana, romajis)

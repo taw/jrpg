@@ -18,25 +18,27 @@ class Hint_engine:
     def __init__(self, hints_kanji_filename, tanaka_corpus_filename,
             tanaka_index_filename):
         self.compound = {}
-        f = open(hints_kanji_filename)
+        f = open(hints_kanji_filename, encoding="UTF-8")
         for line in f.readlines():
-            key, reading, meaning = unicode(line, "UTF-8").strip(U"\n").split(U"\t")
+            key, reading, meaning = line.strip(U"\n").split(U"\t")
             self.compound[key] = reading + u" " + meaning
         f.close()
 
         self.tanaka_idx = {}
-        self.tanaka_file = open(tanaka_corpus_filename)
+        # Opened in binary mode: tanaka_idx holds raw byte offsets, and seeking
+        # to an arbitrary byte offset is not meaningful on a text-mode file.
+        self.tanaka_file = open(tanaka_corpus_filename, "rb")
 
-        f = open(tanaka_index_filename)
+        f = open(tanaka_index_filename, encoding="UTF-8")
         for line in f.readlines():
-            fields = unicode(line, "UTF-8").strip(U"\n").split(U"\t")
+            fields = line.strip(U"\n").split(U"\t")
             (key, idx) = (fields[0], fields[1:len(fields)])
             self.tanaka_idx[key] = [int(x) for x in idx]
         f.close()
 
     def tanaka_get(self, idx):
         self.tanaka_file.seek(idx)
-        return unicode(self.tanaka_file.readline(), "UTF-8").strip(U"\n")
+        return self.tanaka_file.readline().decode("UTF-8").strip(U"\n")
 
     def get_random_tanaka(self, key):
         candidates = self.tanaka_idx.get(key, [])
