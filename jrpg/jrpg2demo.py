@@ -518,12 +518,12 @@ class World:
             "money"    : self.stats.money,
             "xpfor"    : self.stats.xpctl.dump(),
         }
-        f = open("savefile.dat", "w")
+        f = open("savefile.dat", "wb")
         pickle.dump(save_data, f)
         f.close()
         self.msg_add([u"Game saved"])
     def load(self):
-        f = open("savefile.dat", "r")
+        f = open("savefile.dat", "rb")
         ld = pickle.load(f)
         self.stats.name      = ld.get("name", "Freya")
         self.stats.hpmax     = ld["hpmax"]

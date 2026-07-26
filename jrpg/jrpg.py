@@ -632,7 +632,7 @@ class Main_Hero_Controller:
         # Verify that the xp in the savefile is not higher than your XP
         xp = 0
         try:
-            f = open(self.save_path(), "r")
+            f = open(self.save_path(), "rb")
             ld = pickle.load(f)
             xp = ld["xp"]
         except IOError as exception:
@@ -644,7 +644,7 @@ class Main_Hero_Controller:
                             U"If you want to save anyway, press F2 again"], (255,0,0))
             self.save_warned = True
             return
-        f = open(self.save_path(), "w")
+        f = open(self.save_path(), "wb")
         save_data = {
             "name"     : "Freya",
             "hpmax"    : self.hpmax,
@@ -673,7 +673,7 @@ class Main_Hero_Controller:
             self.make_load_warning = False
             return
         try:
-            f = open(self.save_path(), "r")
+            f = open(self.save_path(), "rb")
             ld = pickle.load(f)
             self.hpmax     = ld["hpmax"]
             self.hp        = ld["hp"]
