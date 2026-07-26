@@ -42,13 +42,13 @@ class DemonSoul:
         return None
 
     def get_success_message(self):
-        return U"You slayed demon %s (%s)." % (
+        return "You slayed demon %s (%s)." % (
                self.short_dn(),
                " ".join(self.secret_names())
         )
 
     def get_fail_message(self, damage):
-        return U"Demon %s (%s) hit you for %d points" % (
+        return "Demon %s (%s) hit you for %d points" % (
                self.short_dn(),
                " ".join(self.secret_names()), damage)
 

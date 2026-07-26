@@ -1,4 +1,3 @@
-from __future__ import absolute_import
 from .demonsoul import DemonSoul
 from romajitokana import romaji_kana_match
 

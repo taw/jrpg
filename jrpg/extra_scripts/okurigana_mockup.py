@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
-import sys, pygame
-from math import sqrt,floor
+import sys
+import pygame
 from random import *
 pygame.init()
 
@@ -14,27 +14,27 @@ font     = pygame.font.Font(font_path, 18)
 font_big = pygame.font.Font(font_path, 64)
 clock    = pygame.time.Clock()
 color    = (128, 255, 128)
-color_eph= (255, 128, 255)
+color_eph = (255, 128, 255)
 
 txt = [
-(u"今日", u"きょう"),
-(u"日", u"に"),
-(u"本", u"ほん"),
-(u"語", u"ご"),
-(u"を", None),
-(u"勉", u"べん"),
-(u"強", u"きょう"),
-#(u"勉強", u"べんきょう"),
-(u"しよう", None),
-(u"強", u"きょう"),
-(u"調", u"ちょう"),
-#(u"強調", u"きょうちょう"),
+("今日", "きょう"),
+("日", "に"),
+("本", "ほん"),
+("語", "ご"),
+("を", None),
+("勉", "べん"),
+("強", "きょう"),
+# ("勉強", "べんきょう"),
+("しよう", None),
+("強", "きょう"),
+("調", "ちょう"),
+# ("強調", "きょうちょう"),
 ]
 
 txt = [
-(u"月", u"げつ", False),
-(u"曜", u"よう", True),
-(u"日", u"び", False),
+("月", "げつ", False),
+("曜", "よう", True),
+("日", "び", False),
 ]
 
 while 1:
@@ -47,19 +47,19 @@ while 1:
                 pygame.display.toggle_fullscreen()
             elif event.key == pygame.K_ESCAPE:
                 sys.exit()
-    screen.fill((0,0,0))
-    
+    screen.fill((0, 0, 0))
+
     x = 32
     for i in range(len(txt)):
-        (b,f,kf)=txt[i]
+        (b, f, kf) = txt[i]
         b_r = font_big.render(b, True, color)
-        screen.blit(b_r, (x,64))
-        (w,h) = (b_r.get_width(), b_r.get_height())
+        screen.blit(b_r, (x, 64))
+        (w, h) = (b_r.get_width(), b_r.get_height())
         if f:
             if kf: f_r = font.render(f, True, color)
             else:  f_r = font.render(f, True, color_eph)
-            (fw,fh) = (f_r.get_width(), f_r.get_height())
-            screen.blit(f_r, (x-fw/2+w/2,64-fh))
+            (fw, fh) = (f_r.get_width(), f_r.get_height())
+            screen.blit(f_r, (x-fw/2+w/2, 64-fh))
         x = x + w
 
     pygame.display.flip()

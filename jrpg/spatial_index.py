@@ -8,8 +8,9 @@ class Index:
     def __init__(self):
         self.elements = []
         self.index = None
+
     def add(self, rect, element):
-        self.elements.append((rect,element))
+        self.elements.append((rect, element))
         self.index = None
     # Some slow algorithms
     # FIXME: don't use
@@ -22,10 +23,12 @@ class Index:
 #                r3 = r1.intersect(r2)
 #                res.add(r3, (e1,e2))
 #        return res
+
     def intersect_rect(self, r2):
         res = []
+
         def intersect_rect_aux(box):
-            (i_bb,i_type,contents) = box
+            (i_bb, i_type, contents) = box
             if r2.colliderect(i_bb):
                 if i_type:
                     intersect_rect_aux(contents[0])
@@ -35,33 +38,36 @@ class Index:
         if not self.index: self.build_index()
         intersect_rect_aux(self.index)
         return res
+
     def intersects_rect_p(self, r2):
         def intersects_rect_p_aux(box):
-            (i_bb,i_type,contents) = box
+            (i_bb, i_type, contents) = box
             if r2.colliderect(i_bb):
                 if i_type:
-                    return(intersects_rect_p_aux(contents[0]) or
-                           intersects_rect_p_aux(contents[1]))
+                    return (intersects_rect_p_aux(contents[0]) or
+                            intersects_rect_p_aux(contents[1]))
                 else:
                     return True
             return False
         if not self.index: self.build_index()
         return intersects_rect_p_aux(self.index)
+
     # Build some acceleration structure
     # This is a 1D index
     # If it's too slow, switch to 2D-indexing
     def contains_rect_p(self, bb):
         def contains_rect_p_aux(box):
-            (i_bb,i_type,contents) = box
+            (i_bb, i_type, contents) = box
             if i_bb.contains(bb):
                 if i_type:
-                    return(contains_rect_p_aux(contents[0]) or
-                           contains_rect_p_aux(contents[1]))
+                    return (contains_rect_p_aux(contents[0]) or
+                            contains_rect_p_aux(contents[1]))
                 else:
                     return True
             return False
         if not self.index: self.build_index()
         return contains_rect_p_aux(self.index)
+
     def build_index(self):
         def build_index_aux(start, end):
             if start == end:

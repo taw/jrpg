@@ -13,8 +13,8 @@ class Hint_engine:
         self.compound = {}
         f = open(hints_kanji_filename)
         for line in f.readlines():
-            (key, reading, meaning) = unicode(line, "UTF-8").strip(U"\n").split(U"\t")
-            self.compound[key] = reading + u" " + meaning
+            (key, reading, meaning) = unicode(line, "UTF-8").strip("\n").split("\t")
+            self.compound[key] = reading + " " + meaning
         f.close()
 
         self.tanaka_idx = {}
@@ -22,14 +22,14 @@ class Hint_engine:
 
         f = open(tanaka_idx_filename)
         for line in f.readlines():
-            fields = unicode(line, "UTF-8").strip(U"\n").split(U"\t")
+            fields = unicode(line, "UTF-8").strip("\n").split("\t")
             (key, idx) = (fields[0], fields[1:len(fields)])
             self.tanaka_idx[key] = [int(x) for x in idx]
         f.close()
 
     def tanaka_get(self, idx):
         self.tanaka_file.seek(idx)
-        return unicode(self.tanaka_file.readline(), "UTF-8").strip(U"\n")
+        return unicode(self.tanaka_file.readline(), "UTF-8").strip("\n")
 
     def get_random_tanaka(self, key):
         candidates = self.tanaka_idx.get(key, [])
@@ -44,13 +44,14 @@ class Hint_engine:
             # Only the first 2 options are implemented
             jp_len = len(jp)
             en_len = len(en)
-            #print [jp_len, en_len, 2*jp_len+en_len, tanaka]
+            # print [jp_len, en_len, 2*jp_len+en_len, tanaka]
             if 2*jp_len+en_len <= 66:
                 return [jp + en]
             else:
                 return [jp, en]
         else:
             return []
+
     def get_hints(self, demon):
         tanaka_hint = self.get_random_tanaka(demon.tanaka_key())
 
@@ -58,23 +59,22 @@ class Hint_engine:
         for (kanji, furi, kf) in demon.furicode():
             if not furi:
                 continue
-            hint = self.compound.get(kanji + u":" + furi)
+            hint = self.compound.get(kanji + ":" + furi)
             if not hint:
-                hint = self.compound.get(kanji + u":*")
+                hint = self.compound.get(kanji + ":*")
             if hint:
                 kanji_hints.append(hint)
             # If the word is irregular, still try to extract the meaning of some fragments
             elif len(kanji) > 1:
-                for hint in map(lambda kanji_char: self.compound.get(kanji_char + u":*"), kanji):
+                for hint in map(lambda kanji_char: self.compound.get(kanji_char + ":*"), kanji):
                     if hint:
                         kanji_hints.append(hint)
         # Let's assume the first ones will be displayed in case of overflow
         hints = []
         if tanaka_hint: hints = hints + tanaka_hint
         if kanji_hints: hints = hints + ordered_uniq(kanji_hints)
-        
+
         if hints:
             return hints # If there are more than 3 we have a problem
         else:
             return []
-

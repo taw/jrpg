@@ -36,6 +36,7 @@ font_file_names = [
     "kochi-gothic-subst.ttf",
 ]
 
+
 ############################################################
 # This class manages notifications                         #
 # It's used mostly together with Cached object             #
@@ -43,11 +44,14 @@ font_file_names = [
 class Notifier:
     def __init__(self):
         self.listeners = []
+
     def fire(self):
         for listener in self.listeners:
             listener()
+
     def register(self, listener):
         self.listeners.append(listener)
+
 
 ############################################################
 # This class manages cached computations                   #
@@ -59,12 +63,15 @@ class Cached:
         self.function = function
         if listen:
             listen.register(lambda: self.invalidate())
+
     def invalidate(self):
         self.valid = False
+
     def execute(self):
         if not self.valid:
             self.function()
             self.valid = True
+
 
 ###########################################################
 # Font loading function                                   #
@@ -85,12 +92,14 @@ def load_font(*sizes):
             error_msg += "Opening font at %s failed: %s\n" % (font_path, e)
     raise Exception(error_msg)
 
+
 def init_pygame(window_title):
     # Calling pygame.init() initialized funny things like cdrom playing too
     # It's not a good idea
     pygame.display.init()
     pygame.display.set_caption(window_title)
     pygame.font.init()
+
 
 def sgn(x):
     if x > 0:
@@ -100,9 +109,10 @@ def sgn(x):
     else:
         return -1
 
+
 def save_errormsg(trace_back):
-    (tp,v,tb) = trace_back
-    tbf = traceback.format_exception(tp,v,tb)
+    (tp, v, tb) = trace_back
+    tbf = traceback.format_exception(tp, v, tb)
     f = open("%s/%s" % (appdirs.user_data_dir("jrpg"), "errormsg.txt"), "a")
     f.write("== ")
     f.write(time.asctime(time.localtime()))
@@ -112,14 +122,16 @@ def save_errormsg(trace_back):
     f.write("\n")
     f.close()
 
+
 # Remove duplicates from lst, leaving only the first
-# occurence of each value
+# occurrence of each value
 def ordered_uniq(lst):
     res = []
     for el in lst:
         if not (el in res):
             res.append(el)
     return res
+
 
 # It is really annoying to have .sort() sort in-place instead of
 # returning a sorted list. They *could* have fixed it when

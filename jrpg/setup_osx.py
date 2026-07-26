@@ -9,7 +9,7 @@ from setuptools import setup
 import glob
 
 setup(
-    app=['jrpg.py'],
+    app=["jrpg.py"],
     data_files=[
       ("maps", glob.glob("maps/*")),
       ("data", ["data/demons-kana.txt", "data/demons-hiragana.txt", "data/demons-katakana.txt", "data/demons-kanawords.txt", "data/demons-kanji.txt", "data/hints-kanji.txt", "data/tanaka.txt", "data/tanaka_idx.txt"]),
@@ -19,6 +19,6 @@ setup(
       "README.txt",
       "DESIGN.txt",
     ],
-    options={'py2app': {'argv_emulation': True}},
-    setup_requires=['py2app'],
+    options={"py2app": {"argv_emulation": True}},
+    setup_requires=["py2app"],
 )

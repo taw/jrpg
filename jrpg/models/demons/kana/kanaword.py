@@ -1,6 +1,5 @@
 # -*- coding: UTF-8 -*-
 
-from __future__ import absolute_import
 from .demonsoul import DemonSoul
 from romajitokana import romaji_kana_match
 
@@ -11,11 +10,11 @@ class DemonSoulKanaword(DemonSoul):
         self.romajis = romajis
         self.meanings = [meanings]
         # Some wishful thinking:
-        #kunrei = canonical_kunrei(displayed_name)
-        #hepburn = canonical_hepburn(displayed_name)
-        #if kunrei == hepburn:
+        # kunrei = canonical_kunrei(displayed_name)
+        # hepburn = canonical_hepburn(displayed_name)
+        # if kunrei == hepburn:
         #    self.romajis = [kunrei]
-        #else:
+        # else:
         #    self.romajis = [kunrei, hepburn]
 
     def xp_code(self):

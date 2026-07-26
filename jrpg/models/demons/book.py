@@ -14,23 +14,22 @@ from random import choice
 # "kanji"                 @ Icy mountains
 # "kanji"                 @ Dungeon
 
+
 class Book_of_demons:
     def add_chapter_to_the_book(self, chapter):
         self.demons[chapter.get_title_of_the_chapter()] = []
         self.demons[chapter.get_title_of_the_chapter()] = chapter.get_the_list_of_demon()
 
-
-    def __init__(self, chapter_factory,  config = {}):
+    def __init__(self, chapter_factory,  config={}):
         self.demons = {}
         for key, filename in config.items():
             self.add_chapter_to_the_book(
                     chapter_factory.get_chapter_for_book_of_demon(key, filename))
 
-
-        #Debug:
-        #for chapter_id in self.demons:
+        # Debug:
+        # for chapter_id in self.demons:
         #    for d in self.demons[chapter_id]:
-        #        print (u"%s" % d)
+        #        print("%s" % d)
     # demon_class is a list of classes. Each class is either of:
     # 0       - everything in class 0 (or 1,2,3)
     # (3,100) - just enough demons in class 3 to have a least 100 undefeated (for some values of 100)
@@ -44,7 +43,7 @@ class Book_of_demons:
             # For kana/kanaword classes use probabilities:
             # 1 - maxed
             # 2 - not maxed
-            if isinstance(demon_class, str):  #is
+            if isinstance(demon_class, str):  # is
                 for demon in self.demons[demon_class]:
                     if xpctl.maxed(demon.xp_code()):
                         w = 1
@@ -62,7 +61,7 @@ class Book_of_demons:
                 # 8..2 - unbeaten
                 demon_class, demons_limit = demon_class
                 demons_undefeated = 0
-                if demon_class != 'kanji':
+                if demon_class != "kanji":
                     # It will work, but there are no such other classes as for now
                     raise Exception("Demon class limit applied to class different than Kanji demons")
                 demons = self.demons[demon_class]
@@ -93,13 +92,14 @@ class Book_of_demons:
                     w = 8 - (8-1)*i//len(unbeaten)
                     weighted_demon_list.append((unbeaten[i], w))
 
-        #for (d, w) in weighted_demon_list:
+        # for (d, w) in weighted_demon_list:
         #    print "%d: %s" % (w, d.xp_code())
         return [x.finalize() for x in weighted_sample(weighted_demon_list, sample_size)]
 
     # Used by jrpg2 code only
     def get_one(self, xpctl, demon_classes):
         return self.choice(xpctl, 1, demon_classes)[0]
+
 
 # population is (x, weight of x) list
 # select random sample of different elements

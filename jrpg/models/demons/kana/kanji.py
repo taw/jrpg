@@ -1,6 +1,5 @@
 # -*- coding: UTF-8 -*-
 
-from __future__ import absolute_import
 import re
 from util import ordered_uniq
 from models.demons.hintengine import Hint_engine
@@ -19,7 +18,7 @@ hint = Hint_engine("data/hints-kanji.txt",
 class DemonSoulKanji(DemonSoul):
     def __init__(self, kanji, kana, xp_for_win):
         # The last kana may be subsumed_by code actually
-        if len(kana) > 0 and kana[-1][0] == '#':
+        if len(kana) > 0 and kana[-1][0] == "#":
             self.subsumed_by_val = int(kana[-1][1:len(kana[-1])])
             kana = kana[0:len(kana)-1]
         else:
@@ -42,18 +41,18 @@ class DemonSoulKanji(DemonSoul):
             # Here's the fun
             # recode kanjicode into real_displayed_name+furicode+secret_name
             xp_code_start = kanji
-            real_displayed_name = u""
+            real_displayed_name = ""
             furicode = []
-            real_secret_name = u""
-            tanaka_key = u""
+            real_secret_name = ""
+            tanaka_key = ""
             while kanji:
-                m = re.match(r'^\{(.*?)\}(.*)', kanji)
+                m = re.match(r"^\{(.*?)\}(.*)", kanji)
                 if m:
                     real_displayed_name = real_displayed_name + m.group(1)
                     furicode.append((m.group(1), None, False))
                     kanji = m.group(2)
                     continue
-                m = re.match(r'^\((.*?)\|(.*?)\)(.*)', kanji)
+                m = re.match(r"^\((.*?)\|(.*?)\)(.*)", kanji)
                 if m:
                     real_displayed_name = real_displayed_name + m.group(1)
                     real_secret_name = real_secret_name + m.group(2)
@@ -61,7 +60,7 @@ class DemonSoulKanji(DemonSoul):
                     furicode.append((m.group(1), m.group(2), True))
                     kanji = m.group(3)
                     continue
-                m = re.match(r'^\[(.*?)\|(.*?)\](.*)', kanji)
+                m = re.match(r"^\[(.*?)\|(.*?)\](.*)", kanji)
                 if m:
                     real_displayed_name = real_displayed_name + m.group(1)
                     real_secret_name = real_secret_name + m.group(2)
@@ -69,14 +68,14 @@ class DemonSoulKanji(DemonSoul):
                     furicode.append((m.group(1), m.group(2), False))
                     kanji = m.group(3)
                     continue
-                m = re.match(r'^\*(.)(.*)', kanji)
+                m = re.match(r"^\*(.)(.*)", kanji)
                 if m:
                     decl_code = m.group(1)
-                    #real_displayed_name = real_displayed_name
-                    #real_secret_name    = real_secret_name
+                    # real_displayed_name = real_displayed_name
+                    # real_secret_name    = real_secret_name
                     kanji = m.group(2)
                     if m.group(2) == "5":
-                        tanaka_key = tanaka_key + u"る"
+                        tanaka_key = tanaka_key + "る"
                     else:
                         tanaka_key = tanaka_key + m.group(1)
                     self.decl_code = decl_code
@@ -84,7 +83,7 @@ class DemonSoulKanji(DemonSoul):
                         raise RuntimeError("Declension code *%s is not in final position" %
                                            (decl_code))
                     continue
-                m = re.match(r'^(.)(.*)', kanji)
+                m = re.match(r"^(.)(.*)", kanji)
                 if m:
                     real_displayed_name = real_displayed_name + m.group(1)
                     real_secret_name = real_secret_name + m.group(1)
@@ -137,22 +136,22 @@ class DemonSoulKanji(DemonSoul):
     def finalize(self):
         if self.decl_code:
             decl_table = {
-                u'る': [u'る', u'た', u'ない', u'ます'],
-                u'5': [u'る', u'った', u'らない', u'ります'],
-                u'う': [u'う', u'った', u'わない', u'います'],
-                u'つ': [u'つ', u'った', u'たない', u'ちます'],
-                u'く': [u'く', u'いた', u'かない', u'きます'],
-                u'ぐ': [u'ぐ', u'いだ', u'がない', u'ぎます'],
-                u'す': [u'す', u'した', u'さない', u'します'],
-                u'む': [u'む', u'んだ', u'まない', u'みます'],
-                u'ぬ': [u'ぬ', u'んだ', u'なない', u'にます'],
-                u'ぶ': [u'ぶ', u'んだ', u'ばない', u'びます'],
+                "る": ["る", "た", "ない", "ます"],
+                "5": ["る", "った", "らない", "ります"],
+                "う": ["う", "った", "わない", "います"],
+                "つ": ["つ", "った", "たない", "ちます"],
+                "く": ["く", "いた", "かない", "きます"],
+                "ぐ": ["ぐ", "いだ", "がない", "ぎます"],
+                "す": ["す", "した", "さない", "します"],
+                "む": ["む", "んだ", "まない", "みます"],
+                "ぬ": ["ぬ", "んだ", "なない", "にます"],
+                "ぶ": ["ぶ", "んだ", "ばない", "びます"],
             }
             decl = decl_table.get(self.decl_code)
             if not decl:
                 raise RuntimeError("Declension code %s not supported" %
                                    self.decl_code)
-            return(DemonSoulKanjiFinalized(self, choice(decl)))
+            return (DemonSoulKanjiFinalized(self, choice(decl)))
         else:
             return self
 

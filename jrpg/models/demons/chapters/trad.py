@@ -1,6 +1,5 @@
 # -*- coding: UTF-8 -*-
 
-from __future__ import absolute_import
 from .chapter import DemonBookChapter
 from models.demons.kana.trad import DemonSoulTrad
 
@@ -9,17 +8,17 @@ from models.demons.kana.trad import DemonSoulTrad
 # the code is almost the same of demonBookChapterKanaWord
 class Demon_chapter_trad(DemonBookChapter):
     def __init__(self, filename):
-        '''constructor
-        '''
+        """constructor
+        """
         DemonBookChapter.__init__(self, filename)
-        self.name = 'traduction'
+        self.name = "traduction"
 
     def get_one_monster(self, line):
-        '''the method to read one line of the file
-        the format here 'hiragana<tab>romanji ..<tab> meaning'
+        """the method to read one line of the file
+        the format here 'hiragana<tab>romaji ..<tab> meaning'
         we use the same file un DemonBookChapterKanaword
-        '''
-        fields = line.strip(U"\n").split(U"\t")
+        """
+        fields = line.strip("\n").split("\t")
         kana, romajis, meanings = (fields[0],
                                    fields[1:len(fields)-1], fields[-1])
         return DemonSoulTrad(kana, romajis, meanings)

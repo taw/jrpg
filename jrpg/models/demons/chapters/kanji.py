@@ -1,6 +1,5 @@
 # -*- coding: UTF-8 -*-
 
-from __future__ import absolute_import
 from .chapter import DemonBookChapter
 from models.demons.kana.kanji import DemonSoulKanji
 
@@ -9,14 +8,14 @@ from models.demons.kana.kanji import DemonSoulKanji
 class Demon_chapter_kanji(DemonBookChapter):
     def __init__(self, filename):
         self.demons = []
-        self.name = 'kanji'
+        self.name = "kanji"
         f = open(filename, encoding="UTF-8")
         lines = f.readlines()
         f.close()
 
         i = 0
         for line in lines:
-            fields = line.strip(U"\n").split(U"\t")
+            fields = line.strip("\n").split("\t")
             (demon_class, kanji) = (int(fields[0]), fields[1])
             kana = fields[2:len(fields)]
             xp_for_win = 3 + (i // 500)

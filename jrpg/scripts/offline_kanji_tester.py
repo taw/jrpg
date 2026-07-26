@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-from __future__ import print_function
-import pygame, sys
+import pygame
+import sys
 import util
 
 # This is just a simple script for scientific exploration
@@ -20,6 +20,7 @@ sys.stderr = codecs.getwriter("utf-8")(sys.stderr)
 
 util.init_pygame("JRPG")
 
+
 class Model:
     def __init__(self):
         book = demonsoul.Book_of_demons()
@@ -29,6 +30,7 @@ class Model:
         # avoid short term memory interference
         self.seen_demons = {}
         self.select_a_new_demon()
+
     def select_a_new_demon(self):
         while True:
             demon_id, demon = choice(self.kanji_demons_with_ids)
@@ -36,21 +38,24 @@ class Model:
                 self.seen_demons[demon_id] = True
                 self.current_demon_id, self.current_demon = demon_id, demon.finalize()
                 return
+
     def get_furicode(self):
         return self.current_demon.furicode()
+
 
 class UI:
     def __init__(self):
         size = (640, 480)
-        #self.screen = pygame.display.set_mode(size, pygame.DOUBLEBUF|pygame.FULLSCREEN)
+        # self.screen = pygame.display.set_mode(size, pygame.DOUBLEBUF|pygame.FULLSCREEN)
         self.screen = pygame.display.set_mode(size, pygame.DOUBLEBUF)
         self.font, self.font_med, self.font_big = util.load_font(27, 60, 96)
         self.clock    = pygame.time.Clock()
         self.key = [False for i in range(512)]
-        self.chara_buf = u""
+        self.chara_buf = ""
+
     def render_kanji_name(self, furicode, rel, anchor):
         (rel_x, rel_y) = rel
-        (anchor_x,anchor_y) = anchor
+        (anchor_x, anchor_y) = anchor
         font_main  = self.font_big
         font_furi  = self.font
         color_base = (212, 228, 255)
@@ -59,22 +64,22 @@ class UI:
 
         displayed_elements = []
 
-        (x,miny,maxy) = (0,0,0)
+        (x, miny, maxy) = (0, 0, 0)
 
         for (base, furi, keep_furi) in furicode:
             base_rendered = font_main.render(base, True, color_base)
             (w, h) = (base_rendered.get_width(), base_rendered.get_height())
-            displayed_elements.append((x,0,base_rendered))
-            #if furi and (keep_furi or display_all_furi):
+            displayed_elements.append((x, 0, base_rendered))
+            # if furi and (keep_furi or display_all_furi):
             # FIXME: don't display furi always
             maxy = max(maxy, h)
-            #if furi and (keep_furi or not world.stats.xpctl.seen_soul(world.enemy_soul)):
+            # if furi and (keep_furi or not world.stats.xpctl.seen_soul(world.enemy_soul)):
             if furi and keep_furi:
                 if keep_furi:
                     furi_rendered = font_furi.render(furi, True, color_base)
                 else:
                     furi_rendered = font_furi.render(furi, True, color_furi)
-                (fw,fh) = (furi_rendered.get_width(), furi_rendered.get_height())
+                (fw, fh) = (furi_rendered.get_width(), furi_rendered.get_height())
                 displayed_elements.append((x-fw/2+w/2, -fh, furi_rendered))
                 miny = min(miny, -fh)
             x = x + w
@@ -93,9 +98,11 @@ class UI:
 
         for (x, y, displayed_element) in displayed_elements:
             self.screen.blit(displayed_element, (rel_x+x+dx, rel_y+y+dy))
+
     def render_text_unicolor(self, target, font, text, loc, anchor, color, row_spacing=0):
-        text = [(t,color) for t in text]
+        text = [(t, color) for t in text]
         self.render_text_multicolor(target, font, text, loc, anchor, row_spacing)
+
     def render_text_multicolor(self, target, font, text, loc, anchor, row_spacing):
         for i in range(len(text)):
             (t, color) = text[i]
@@ -103,11 +110,12 @@ class UI:
             (x, y)   = loc
             (w, h)   = (text_r.get_width(), text_r.get_height())
             (ax, ay) = anchor
-            fin_loc = (floor(x-ax*w),floor(y+i*row_spacing-ay*h))
+            fin_loc = (floor(x-ax*w), floor(y+i*row_spacing-ay*h))
             target.blit(text_r, fin_loc)
+
     def tick(self):
         pygame.display.flip()
-        #pygame.display.update()
+        # pygame.display.update()
         fpsLimit = 40
         if 1: # Low-CPU version
             time_so_far = self.clock.tick()
@@ -115,13 +123,14 @@ class UI:
             time_left   = time_max - time_so_far
             if time_left > 0:
                 pygame.time.wait(time_left)
-            #print(time_left, self.clock.get_fps())
+            # print(time_left, self.clock.get_fps())
         else: # Version for exact measurement - do not use :-)
             self.clock.tick()
             print(self.clock.get_fps())
+
     def main_loop(self):
         while True:
-             # Check UI events
+            # Check UI events
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
@@ -140,7 +149,7 @@ class UI:
                         sys.exit()
                     elif event.key == pygame.K_F12:
                         mhc.closeup()
-                    elif event.key >= 97 and event.key <= 122: #'a'..'z'
+                    elif event.key >= 97 and event.key <= 122: # "a".."z"
                         self.chara_buf = self.chara_buf + chr(event.key)
                     elif event.key == 32: # space
                         self.chara_attack()
@@ -159,26 +168,32 @@ class UI:
                     self.bs_repeat = self.bs_repeat - 1
             self.render()
             ui.tick()
+
     def chara_attack(self):
         # Accidental keypress or sth like that
-        if self.chara_buf == U"":
+        if self.chara_buf == "":
             return
         attack_ok = model.current_demon.answer_ok(self.chara_buf)
         print(model.current_demon_id, attack_ok, model.current_demon.xp_code(), self.chara_buf)
         model.select_a_new_demon()
-        self.chara_buf = U""
+        self.chara_buf = ""
+
     def key_down(self, key):
         self.key[key] = True
+
     def key_up(self, key):
         self.key[key] = False
+
     def key_pressed(self, key):
-        return(self.key[key])
+        return (self.key[key])
+
     def render(self):
-        ui.screen.fill((0,0,0))
+        ui.screen.fill((0, 0, 0))
         furicode = model.get_furicode()
         ui.render_kanji_name(furicode, (320, 160), (0.0, 0.0))
         ui.render_text_unicolor(ui.screen, ui.font, [self.chara_buf],
                                 (320, 320+80), (0.5, 0.5), (255, 128, 128))
+
 
 ui = UI()
 model = Model()

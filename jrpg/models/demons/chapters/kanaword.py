@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
-from __future__ import absolute_import
 from .chapter import DemonBookChapter
 from models.demons.kana.kanaword import DemonSoulKanaword
 
@@ -10,16 +9,16 @@ from models.demons.kana.kanaword import DemonSoulKanaword
 # in the book of demons
 class Demon_chapter_kanaword(DemonBookChapter):
     def __init__(self, filename):
-        '''constructor
-        '''
+        """constructor
+        """
         DemonBookChapter.__init__(self, filename)
-        self.name = 'kanaword'
+        self.name = "kanaword"
 
     def get_one_monster(self, line):
-        '''the method to read one line of the file
-        the format here 'hiragana<tab>romanji ..<tab>meaning'
-        '''
-        fields = line.strip(U"\n").split(U"\t")
+        """the method to read one line of the file
+        the format here 'hiragana<tab>romaji ..<tab>meaning'
+        """
+        fields = line.strip("\n").split("\t")
 
         kana, romajis, meanings = (fields[0],
                                    fields[1:len(fields)-1], fields[-1])

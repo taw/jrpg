@@ -1,8 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
-import warnings
-
 ###########################################################
 # Global tile data                                        #
 ###########################################################
@@ -22,43 +20,43 @@ ctdir = {
 }
 mtctl_terrain = {
 # Movable terrain
-  ' ' : (  9, 23, False), # grass
-  's' : ( 12, 23, False), # sand
-  'h' : ( 93, 23, False), # hilly land
-  '.' : ( 30, 23, False), # (stone) road
-  ',' : ( 27, 23, False), # dungeon floor
-  'D' : ( 67, 25, False), # Doors (brick)
-  'd' : ( 81, 25, False), # Doors (blue)
-  'V' : ( 96, 24, False), # Doors (wooden)
-  'k' : ( 32, 26, False), # gate, opne
-  '_' : ( 84, 23, False), # Snowy land
-  'H' : ( 96, 23, False), # Icy hilly land
-  '>' : ( 28, 26, False), # stairs up
-  '<' : ( 29, 26, False), # stairs down
+  " " : (  9, 23, False), # grass
+  "s" : ( 12, 23, False), # sand
+  "h" : ( 93, 23, False), # hilly land
+  "." : ( 30, 23, False), # (stone) road
+  "," : ( 27, 23, False), # dungeon floor
+  "D" : ( 67, 25, False), # Doors (brick)
+  "d" : ( 81, 25, False), # Doors (blue)
+  "V" : ( 96, 24, False), # Doors (wooden)
+  "k" : ( 32, 26, False), # gate, open
+  "_" : ( 84, 23, False), # Snowy land
+  "H" : ( 96, 23, False), # Icy hilly land
+  ">" : ( 28, 26, False), # stairs up
+  "<" : ( 29, 26, False), # stairs down
 # Blocking terrain
-  ':' : ( 30, 23, True),  # (stone) road - special version that can block you ;-)
-  't' : ( 54, 23, True),  # tree
-  'T' : ( 60, 23, True),  # pine tree
-  'm' : (117, 23, True),  # mountain
-  'r' : ( 96, 21, True),  # rocks
-  '~' : ( 18, 23, True),  # water
-  'P' : ( 69, 23, True),  # palm tree
-  'C' : ( 99, 22, True),  # cactus
-  'i' : (105, 22, True),  # dead desert tree
-  'j' : (123, 23, True),  # desert mountain
-  'b' : ( 99, 24, True),  # brick wall
-  'S' : (105, 24, True),  # stone wall
-  'W' : (111, 24, True),  # wooden wall
-  'B' : ( 78, 25, True),  # Blue brick wall
-  'K' : ( 30, 26, True),  # gate, closed
-  'z' : ( 72, 24, True),  # Window in a brick wall
-  'Z' : ( 75, 24, True),  # Window in a stone wall
-  'M' : ( 87, 23, True),  # Icy mountain
-  'Q' : ( 90, 23, True),  # Icy tree
-  'E' : (120, 24, True),  # Red brick wall
+  ":" : ( 30, 23, True),  # (stone) road - special version that can block you ;-)
+  "t" : ( 54, 23, True),  # tree
+  "T" : ( 60, 23, True),  # pine tree
+  "m" : (117, 23, True),  # mountain
+  "r" : ( 96, 21, True),  # rocks
+  "~" : ( 18, 23, True),  # water
+  "P" : ( 69, 23, True),  # palm tree
+  "C" : ( 99, 22, True),  # cactus
+  "i" : (105, 22, True),  # dead desert tree
+  "j" : (123, 23, True),  # desert mountain
+  "b" : ( 99, 24, True),  # brick wall
+  "S" : (105, 24, True),  # stone wall
+  "W" : (111, 24, True),  # wooden wall
+  "B" : ( 78, 25, True),  # Blue brick wall
+  "K" : ( 30, 26, True),  # gate, closed
+  "z" : ( 72, 24, True),  # Window in a brick wall
+  "Z" : ( 75, 24, True),  # Window in a stone wall
+  "M" : ( 87, 23, True),  # Icy mountain
+  "Q" : ( 90, 23, True),  # Icy tree
+  "E" : (120, 24, True),  # Red brick wall
 # Map edges
-  'x' : (  0,  0, True),  # map border
-  'X' : (  0,  0, False), # enter-able map border (must add event here)
+  "x" : (  0,  0, True),  # map border
+  "X" : (  0,  0, False), # enter-able map border (must add event here)
 }
 mtctl_enemies = {
   # Rats
@@ -145,7 +143,7 @@ mtctl_enemies = {
   "snake 18"        : (30, 16),
   "snake 19"        : (31, 16),
   "snake 20"        : (32, 16),
-  # Skeletons 
+  # Skeletons
   "skeleton 1"      : (28, 20),
   "skeleton 2"      : (29, 20),
   "skeleton 3"      : (30, 20),
@@ -266,15 +264,15 @@ mtctl_items = {
   "spellbook blue 7": (24,  6),
   "spellbook blue 8": (25,  6),
   "spellbook blue 9": (26,  6),
-  "spellbook green 1":(27,  6),
-  "spellbook green 2":(28,  6),
-  "spellbook green 3":(29,  6),
-  "spellbook green 4":(30,  6),
-  "spellbook green 5":(31,  6),
-  "spellbook green 6":(32,  6),
-  "spellbook green 7":(33,  6),
-  "spellbook green 8":(34,  6),
-  "spellbook green 9":(35,  6),
+  "spellbook green 1": (27,  6),
+  "spellbook green 2": (28,  6),
+  "spellbook green 3": (29,  6),
+  "spellbook green 4": (30,  6),
+  "spellbook green 5": (31,  6),
+  "spellbook green 6": (32,  6),
+  "spellbook green 7": (33,  6),
+  "spellbook green 8": (34,  6),
+  "spellbook green 9": (35,  6),
   "spellbook red 1" : (36,  6),
   "spellbook red 2" : (37,  6),
   "spellbook red 3" : (38,  6),
@@ -284,24 +282,24 @@ mtctl_items = {
   "spellbook red 7" : (42,  6),
   "spellbook red 8" : (43,  6),
   "spellbook red 9" : (44,  6),
-  "spellbook cyan 1" :(45,  6),
-  "spellbook cyan 2" :(46,  6),
-  "spellbook cyan 3" :(47,  6),
-  "spellbook cyan 4" :(48,  6),
-  "spellbook cyan 5" :(49,  6),
-  "spellbook cyan 6" :(50,  6),
-  "spellbook cyan 7" :(51,  6),
-  "spellbook cyan 8" :(52,  6),
-  "spellbook cyan 9" :(53,  6),
-  "spellbook pink 1" :(54,  6),
-  "spellbook pink 2" :(55,  6),
-  "spellbook pink 3" :(56,  6),
-  "spellbook pink 4" :(57,  6),
-  "spellbook pink 5" :(58,  6),
-  "spellbook pink 6" :(59,  6),
-  "spellbook pink 7" :(60,  6),
-  "spellbook pink 8" :(61,  6),
-  "spellbook pink 9" :(62,  6),
+  "spellbook cyan 1" : (45,  6),
+  "spellbook cyan 2" : (46,  6),
+  "spellbook cyan 3" : (47,  6),
+  "spellbook cyan 4" : (48,  6),
+  "spellbook cyan 5" : (49,  6),
+  "spellbook cyan 6" : (50,  6),
+  "spellbook cyan 7" : (51,  6),
+  "spellbook cyan 8" : (52,  6),
+  "spellbook cyan 9" : (53,  6),
+  "spellbook pink 1" : (54,  6),
+  "spellbook pink 2" : (55,  6),
+  "spellbook pink 3" : (56,  6),
+  "spellbook pink 4" : (57,  6),
+  "spellbook pink 5" : (58,  6),
+  "spellbook pink 6" : (59,  6),
+  "spellbook pink 7" : (60,  6),
+  "spellbook pink 8" : (61,  6),
+  "spellbook pink 9" : (62,  6),
   "potion 1"        : ( 0,  8),
   "potion 2"        : ( 1,  8),
   "potion 3"        : ( 2,  8),

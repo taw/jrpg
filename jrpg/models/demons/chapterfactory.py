@@ -10,13 +10,13 @@ class Chapter_factory:
     # TODO create a specific class ?
     # there is probably a python "way" to do it
     def get_chapter_for_book_of_demon(self, type, filename):
-        if type == 'katakana':
+        if type == "katakana":
             return Demon_chapter_katakana(filename)
-        elif type == 'hiragana':
+        elif type == "hiragana":
             return Demon_chapter_hiragana(filename)
-        elif type == 'kanaword':
+        elif type == "kanaword":
             return Demon_chapter_kanaword(filename)
-        elif type == 'traduction':
+        elif type == "traduction":
             return Demon_chapter_trad(filename)
-        elif type == 'kanji':
+        elif type == "kanji":
             return Demon_chapter_kanji(filename)

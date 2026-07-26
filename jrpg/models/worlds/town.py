@@ -100,6 +100,7 @@ cave_enemies = [
     "skeleton 7",
 ]
 
+
 #####################################################################
 # Library                                                           #
 #####################################################################
@@ -110,19 +111,19 @@ class World_library:
         wm.add_chara("elf-monk",
                      route=[(1, 1), (1, 3), (4, 3), (4, 1)],
                      event=lambda: ui.change_text([
-                         U"You get more experienced as you defeat the kanji monsters.",
-                         U"But you must look for new monsters all the time,",
-                         U"as each can give you experience at most 3 times.",
-                         U"And you can only get some if you win in a good style.",
+                         "You get more experienced as you defeat the kanji monsters.",
+                         "But you must look for new monsters all the time,",
+                         "as each can give you experience at most 3 times.",
+                         "And you can only get some if you win in a good style.",
                      ]))
         # monk2
         wm.add_chara("elf-monk",
                      route=[(5, 1), (5, 3), (8, 3), (8, 1)],
                      event=lambda: ui.change_text([
-                          U"The first time you meet a demon, you may see its name.",
-                          U"Later, you must remember it.",
-                          U"If you don't want to start all over again, you may save with F2,",
-                          U"and load with F4. But it's a very traumatic experience."
+                          "The first time you meet a demon, you may see its name.",
+                          "Later, you must remember it.",
+                          "If you don't want to start all over again, you may save with F2,",
+                          "and load with F4. But it's a very traumatic experience."
                     ]))
 
         # This monk is not really telling the true, he still thinks
@@ -131,14 +132,14 @@ class World_library:
         wm.add_chara("elf-monk",
                      route=[(1, 4), (8, 4), (8, 6), (1, 6)],
                      event=lambda:  ui.change_text([
-                         U"There are different demons in each location.",
-                         U"So it would be too boring to stay for too long in one place.",
-                         U"If you're done with the demons around the town,",
-                         U"maybe try the castle northwest."
+                         "There are different demons in each location.",
+                         "So it would be too boring to stay for too long in one place.",
+                         "If you're done with the demons around the town,",
+                         "maybe try the castle northwest."
         ]))
         for y in range(10):
             for x in range(10):
-                if wm.current_map_get_element(x, y) == 'W':
+                if wm.current_map_get_element(x, y) == "W":
                     wm.add_decoration((x, y), choice(library_decorations))
 
 
@@ -154,12 +155,12 @@ class World_hospital:
             if mhc.hp != mhc.hpmax:
                 mhc.change_hp(mhc.hpmax)
                 if emergency_healing:
-                    ui.append_text([U"You're healed now.", U"Take care of yourself the next time."])
+                    ui.append_text(["You're healed now.", "Take care of yourself the next time."])
                 else:
-                    ui.change_text([U"You're healed now.", U"Take care of yourself the next time."])
+                    ui.change_text(["You're healed now.", "Take care of yourself the next time."])
                 healed_today[0] = True
             elif not healed_today[0]:
-                ui.change_text([U"Come here if you're hurt.", U"The hospital can cure your wounds."])
+                ui.change_text(["Come here if you're hurt.", "The hospital can cure your wounds."])
 
         wm.wormhole((5, 9), "world", (2, 37))
         wm.add_chara("nurse", route=[(1, 5), (8, 5)], event=nurse_healing)
@@ -176,31 +177,33 @@ class World_hospital:
 class World_wizard_shop:
     def __init__(self, wm, ui, mhc):
         just_given_potion = [False]
+
         def wizard_quests():
             if not mhc.quest_is_done("antiheat potion idea"):
-                ui.change_text([U"I'm making potions from mushrooms.", U"But you don't seem to need any."])
+                ui.change_text(["I'm making potions from mushrooms.", "But you don't seem to need any."])
             elif not (mhc.quest_is_done("antiheat potion yellow") and mhc.quest_is_done("antiheat potion bgreen")):
                 mhc.quest_do("antiheat potion recipe")
                 ui.change_text([
-                    U"Oh, you need an anti-heat potion",
-                    U"Bring me some yellow and bright green mushrooms."])
+                    "Oh, you need an anti-heat potion",
+                    "Bring me some yellow and bright green mushrooms."])
             elif not mhc.quest_is_done("antiheat potion complete"):
                 mhc.loss_item("yellow mushroom")
                 mhc.loss_item("green mushroom 2")
                 mhc.gain_item("potion 5")
                 mhc.quest_do("antiheat potion complete")
-                ui.change_text([U"Here's your potion.", U"Enjoy the desert."])
+                ui.change_text(["Here's your potion.", "Enjoy the desert."])
                 just_given_potion[0] = True
             elif not just_given_potion[0]:
                 ui.change_text([
-                    U"I'm making potions from mushrooms.",
-                    U"But you don't seem to need any more potions for now."])
-        def setup_decorations(x,y):
-            wm.add_decoration((x,y),choice(wizard_decorations))
+                    "I'm making potions from mushrooms.",
+                    "But you don't seem to need any more potions for now."])
+
+        def setup_decorations(x, y):
+            wm.add_decoration((x, y), choice(wizard_decorations))
         wm.wormhole((5, 9), "world", (38, 35))
-        wm.add_chara("wizard-gray",route=[(3,4),(6,4)],event=wizard_quests)
-        for y in range(1,3):
-            for x in range(1,9):
+        wm.add_chara("wizard-gray", route=[(3, 4), (6, 4)], event=wizard_quests)
+        for y in range(1, 3):
+            for x in range(1, 9):
                 if random() < 0.6:
                     setup_decorations(x, y)
         for y in range(3, 9):
@@ -212,19 +215,19 @@ class World_wizard_shop:
 #####################################################################
 # Angel sanctuary                                                   #
 #####################################################################
-class World_angel_sanctury:
+class World_angel_sanctuary:
     def __init__(self, wm, ui, mhc):
         def angel_quest():
             if mhc.quest_is_done("reward for level 3"):
-                ui.change_text([U"I am guardian angel of software development.",
-                                U"I'm impressed that you finished all quests in jrpg.",
-                                U"Please send your savefile to its developer,",
-                                U"and he is sure to add some new areas ^_^"])
+                ui.change_text(["I am guardian angel of software development.",
+                                "I'm impressed that you finished all quests in jrpg.",
+                                "Please send your savefile to its developer,",
+                                "and he is sure to add some new areas ^_^"])
             else:
-                ui.change_text([U"I am guardian angel of software development.",
-                                U"If you actually finish all quests in jrpg,",
-                                U"send the savefile to its developer,",
-                                U"and he is sure to add some new areas."])
+                ui.change_text(["I am guardian angel of software development.",
+                                "If you actually finish all quests in jrpg,",
+                                "send the savefile to its developer,",
+                                "and he is sure to add some new areas."])
 
         wm.wormhole((3, 0), "world", (35, 36))
 
@@ -241,28 +244,28 @@ class World_blacksmith:
     def __init__(self, wm, ui, mhc):
         def blacksmith_quest():
             if mhc.quest_is_done("magic sword complete"):
-                ui.change_text([U"Good monster hunting with your awesome magic sword"])
+                ui.change_text(["Good monster hunting with your awesome magic sword"])
             elif mhc.quest_is_done("blue crystals complete"):
                 mhc.loss_item("sword")
                 mhc.loss_item("blue crystals")
                 mhc.gain_item("magic sword")
                 mhc.quest_do("magic sword complete")
             elif mhc.quest_is_done("sword complete"):
-                ui.change_text([U"This was once a legendary sword, but its enchantments wore off",
-                                U"Find some magic blue crystals in a cave to the East",
-                                U"And I'll reenchant it"])
+                ui.change_text(["This was once a legendary sword, but its enchantments wore off",
+                                "Find some magic blue crystals in a cave to the East",
+                                "And I'll reenchant it"])
             elif mhc.quest_is_done("broken sword complete"):
                 mhc.loss_item("broken sword")
                 mhc.gain_item("sword")
                 mhc.quest_do("sword complete")
-                ui.change_text([U"Here, I fixed your sword!",
-                                U"This was once a legendary sword, but its enchantments wore off",
-                                U"Find some magic blue crystals in a cave to the East",
-                                U"And I'll reenchant it"])
+                ui.change_text(["Here, I fixed your sword!",
+                                "This was once a legendary sword, but its enchantments wore off",
+                                "Find some magic blue crystals in a cave to the East",
+                                "And I'll reenchant it"])
             else:
-                ui.change_text([U"You look like a hero, but you have no sword",
-                                U"There's one on a meadow to the south.",
-                                U"It's broken but if you bring it here I'll fix it for you"])
+                ui.change_text(["You look like a hero, but you have no sword",
+                                "There's one on a meadow to the south.",
+                                "It's broken but if you bring it here I'll fix it for you"])
 
         wm.wormhole((3, 0), "world", (41, 36))
 
@@ -287,12 +290,12 @@ class World_cave:
         def blue_crystals():
             mhc.gain_item("blue crystals")
             mhc.quest_do("blue crystals complete")
-            ui.change_text([U"Now take the blue crystal back to the smith"])
+            ui.change_text(["Now take the blue crystal back to the smith"])
 
         wm.wormhole((0, 7), "world", (60, 37))
         if mhc.quest_is_done("sword complete") and\
                 not mhc.quest_is_done("blue crystals complete"):
             wm.add_item((27, 2), "blue crystals", blue_crystals)
         for (x, y) in wm.random_clear_tiles(0.2, range(2, 29), range(2, 14)):
-            wm.add_enemy((x, y), 'dungeon', choice(cave_enemies),
-                         ['kanaword', ('kanji', 100)], 1)
+            wm.add_enemy((x, y), "dungeon", choice(cave_enemies),
+                         ["kanaword", ("kanji", 100)], 1)

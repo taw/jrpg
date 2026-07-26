@@ -6,8 +6,8 @@ class DemonBookChapter:
     pass
 
     def __init__(self, filename):
-        '''Open the file. read each line
-        '''
+        """Open the file. read each line
+        """
         self.filename = filename
         f = open(filename, encoding="UTF-8")
         lines = f.readlines()
@@ -17,13 +17,13 @@ class DemonBookChapter:
             self.demons.append(self.get_one_monster(line))
 
     def get_title_of_the_chapter(self):
-        ''' return the name of chapter'''
+        """ return the name of chapter"""
         return self.name
 
     def get_the_list_of_demon(self):
-        ''' return the list'''
+        """ return the list"""
         return self.demons
 
     def get_one_monster(self):
-        '''this methods is call for each line of the file'''
+        """this methods is call for each line of the file"""
         pass
