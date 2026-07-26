@@ -696,7 +696,7 @@ class Main_Hero_Controller:
             self.last_demon_killed = None
         except IOError as exception:
             (errno, strerror) = exception.args
-            ui.change_text([U"Can't load the savefile: ", unicode(strerror)], (255,0,0))
+            ui.change_text([U"Can't load the savefile: ", str(strerror)], (255,0,0))
     def exit(self):
         if self.make_exit_warning:
             ui.change_text([U"Something happened since the last saving",
