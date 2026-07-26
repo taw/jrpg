@@ -7,7 +7,7 @@ from math import sqrt, floor
 from random import *
 import time
 import codecs
-import ConfigParser
+import configparser
 import appdirs
 import os
 
@@ -1722,7 +1722,7 @@ try:
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-    config = ConfigParser.ConfigParser()
+    config = configparser.ConfigParser()
     config.read('config.ini')
 
     mistakes = Mistakes()
