@@ -1,0 +1,21 @@
+version: v1.0
+name: jrpg
+
+agent:
+  machine:
+    type: f1-standard-2
+    os_image: ubuntu2404
+
+blocks:
+  - name: Tests
+    task:
+      prologue:
+        commands:
+          - checkout
+          - curl -LsSf https://astral.sh/uv/install.sh | sh
+          - export PATH="$HOME/.local/bin:$PATH"
+          - cd jrpg
+      jobs:
+        - name: Unit tests
+          commands:
+            - uv run python runtests.py
